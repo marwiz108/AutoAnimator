@@ -6,8 +6,8 @@ package model.shape;
  */
 public class Rectangle extends AbstractShape {
 
-  public Rectangle(int x, int y, int base, int height) {
-    super(x, y, base, height);
+  public Rectangle(int x, int y, int base, int height, int r, int g, int b) {
+    super(x, y, base, height, r, g, b);
   }
 
   @Override
