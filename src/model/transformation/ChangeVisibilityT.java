@@ -7,7 +7,6 @@ import model.shape.Shape;
  */
 public class ChangeVisibilityT extends AbstractTransformation {
 
-  private boolean visible;
 
   /**
    * Constructor for the ChangeVisibilityT class.
@@ -17,7 +16,6 @@ public class ChangeVisibilityT extends AbstractTransformation {
    */
   public ChangeVisibilityT(Shape shape, int startFrame, int endFrame) {
     super(shape, startFrame, endFrame);
-    this.visible = false;
   }
 
   @Override

@@ -12,6 +12,7 @@ public abstract class AbstractShape implements Shape {
   protected int height;
   protected Point2D reference;
   Color color;
+  boolean visible;
 
   public AbstractShape(int x, int y, int base, int height) {
     this.reference = new Point2D(x, y);

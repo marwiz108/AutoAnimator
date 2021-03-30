@@ -24,4 +24,21 @@ public abstract class AbstractTransformation implements Transformation {
     this.endFrame = endFrame;
   }
 
+  @Override
+  public int getValueAtFrame(int frame, int initialValue, int finalValue) {
+    int diff = finalValue - initialValue;
+    int range = this.endFrame - this.startFrame;
+    double step = diff / range;
+    double acc = (double) initialValue;
+    for (int f = 0; f < this.endFrame; f++) {
+      if (f >= this.startFrame) {
+        acc += step;
+      }
+      if (f == frame) {
+        break;
+      }
+    }
+    return (int) acc;
+  }
+
 }
