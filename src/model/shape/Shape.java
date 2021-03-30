@@ -2,7 +2,7 @@ package model.shape;
 
 /**
  * This interface represents a shape.
- * TODO
+ * A Shape has a 2D reference point for it's position, a base and height.
  */
 public interface Shape {
 
