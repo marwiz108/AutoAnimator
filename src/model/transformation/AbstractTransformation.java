@@ -8,9 +8,9 @@ import model.shape.Shape;
  */
 public abstract class AbstractTransformation implements Transformation {
 
-  private final Shape shape;
-  private final int startFrame;
-  private final int endFrame;
+  protected final Shape shape;
+  protected final int startFrame;
+  protected final int endFrame;
 
   /**
    * Super constructor for all extending classes.
@@ -19,7 +19,7 @@ public abstract class AbstractTransformation implements Transformation {
    * @param endFrame the frame where the transformation ends.
    */
   public AbstractTransformation(Shape shape, int startFrame, int endFrame) {
-    this.shape = shape;
+    this.shape = shape.copy();
     this.startFrame = startFrame;
     this.endFrame = endFrame;
   }

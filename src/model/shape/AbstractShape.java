@@ -18,6 +18,7 @@ public abstract class AbstractShape implements Shape {
     this.reference = new Point2D(x, y);
     this.base = base;
     this.height = height;
+
   }
 
   @Override
