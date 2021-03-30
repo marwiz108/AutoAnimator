@@ -1,0 +1,34 @@
+package model.transformation;
+
+import java.awt.*;
+
+import model.shape.Shape;
+
+/**
+ * Changes the color of a Shape over a specified range of frames.
+ */
+public class ChangeColorT extends AbstractTransformation {
+
+  private Color initialColor;
+  private Color finalColor;
+
+  /**
+   * Constructor for the ChangeColorT class.
+   * @param shape the initial Shape object.
+   * @param startFrame the starting frame of the transformation.
+   * @param endFrame the ending frame of the transformation.
+   * @param initialColor the starting color of the Shape.
+   * @param finalColor the ending color of the Shape.
+   */
+  public ChangeColorT(Shape shape, int startFrame, int endFrame,
+                      Color initialColor, Color finalColor) {
+    super(shape, startFrame, endFrame);
+    this.initialColor = initialColor;
+    this.finalColor = finalColor;
+  }
+
+  @Override
+  public Shape executeAtFrame(int frame) {
+    return null;
+  }
+}
