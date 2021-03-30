@@ -14,16 +14,22 @@ public abstract class AbstractShape implements Shape {
   Color color;
   boolean visible;
 
-  public AbstractShape(int x, int y, int base, int height) {
+  public AbstractShape(int x, int y, int base, int height, int r, int g, int b) {
     this.reference = new Point2D(x, y);
     this.base = base;
     this.height = height;
-
+    this.color = new Color(r, g, b);
+    this.visible = false;
   }
 
   @Override
   public Point2D getPosition() {
     return this.reference;
+  }
+  
+  @Override
+  public Color getColor(int r, int g, int b) {
+    return this.color;
   }
 
   @Override

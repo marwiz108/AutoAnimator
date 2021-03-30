@@ -1,5 +1,7 @@
 package model.shape;
 
+import java.awt.*;
+
 /**
  * This interface represents a shape.
  * A Shape has a 2D reference point for it's position, a base and height.
@@ -32,7 +34,7 @@ public interface Shape {
   /**
    * Returns colour of the shape to an rgb value.
    */
-  int getColor(int r, int g, int b);
+  Color getColor(int r, int g, int b);
 
   /**
    * Sets colour of the shape to an rgb value.
