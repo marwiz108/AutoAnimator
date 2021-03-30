@@ -3,16 +3,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * JUnit test class for a Rectangle shape.
- */
-public class RectangleTest {
+import model.transformation.Transformation;
+
+public class TransformationTest {
 
   @Before
   public void setUp() {
   }
 
   @Test
-  public void testResize() {
+  public void executeAtFrame() {
   }
 }

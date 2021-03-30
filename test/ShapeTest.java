@@ -5,13 +5,16 @@ import model.shape.Shape;
 import model.shape.Oval;
 import model.shape.Rectangle;
 
+/**
+ * JUnit test class for the Shape interface.
+ */
 public class ShapeTest {
 
   private Shape oval;
   private Shape rectangle;
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     this.oval = new Oval(500, 100, 60, 30);
     this.rectangle = new Rectangle(200, 200, 50, 100);
   }

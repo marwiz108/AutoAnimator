@@ -22,4 +22,9 @@ public class Point2D {
     return this.y;
   }
 
+  public void updatePosition(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+
 }
