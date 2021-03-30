@@ -6,8 +6,8 @@ package model.shape;
  */
 public class Oval extends AbstractShape {
 
-  public Oval(int x, int y, int base, int height) {
-    super(x, y, base, height);
+  public Oval(int x, int y, int base, int height, int r, int g, int b) {
+    super(x, y, base, height, r, g, b);
   }
 
   @Override
