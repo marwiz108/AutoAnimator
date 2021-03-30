@@ -15,8 +15,8 @@ public class ShapeTest {
 
   @Before
   public void setUp() {
-    this.oval = new Oval(500, 100, 60, 30);
-    this.rectangle = new Rectangle(200, 200, 50, 100);
+    this.oval = new Oval(500, 100, 60, 30, 255, 0, 0);
+    this.rectangle = new Rectangle(200, 200, 50, 100, 0, 0, 255);
   }
 
   @Test
