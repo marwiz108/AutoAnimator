@@ -30,6 +30,11 @@ public interface Shape {
   Shape resize(int factor);
 
   /**
+   * Returns colour of the shape to an rgb value.
+   */
+  int getColor(int r, int g, int b);
+
+  /**
    * Sets colour of the shape to an rgb value.
    */
   void setColor(int r, int g, int b);
