@@ -1,7 +1,5 @@
 package model.transformation;
-
 import model.shape.Shape;
-
 /**
  * Moves a Shape from one position to another over a specified number of frames.
  */

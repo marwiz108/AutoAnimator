@@ -1,5 +1,7 @@
+package model.shape;
+
 /**
- * This class represents an Oval shape.
+ * This class represents an model.shape.Oval shape.
  * An oval has a center, base and height.
  */
 public class Oval extends AbstractShape {
@@ -15,7 +17,7 @@ public class Oval extends AbstractShape {
   }
 
   @Override
-  public IShape resize(int factor) {
+  public Shape resize(int factor) {
     return this;
   }
 

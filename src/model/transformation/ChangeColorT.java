@@ -1,8 +1,6 @@
 package model.transformation;
-
-import java.awt.*;
-
 import model.shape.Shape;
+import java.awt.*;
 
 /**
  * Changes the color of a Shape over a specified range of frames.

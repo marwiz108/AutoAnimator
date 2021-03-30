@@ -1,12 +1,14 @@
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-public class IShapeTest {
+import model.shape.Shape;
+import model.shape.Oval;
+import model.shape.Rectangle;
 
-  private IShape oval;
-  private IShape rectangle;
+public class ShapeTest {
+
+  private Shape oval;
+  private Shape rectangle;
 
   @Before
   public void setUp() throws Exception {

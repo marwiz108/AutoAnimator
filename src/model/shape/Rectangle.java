@@ -1,5 +1,7 @@
+package model.shape;
+
 /**
- * This class represents a Rectangle shape.
+ * This class represents a model.shape.Rectangle shape.
  * A rectangle has a corner, base and height.
  */
 public class Rectangle extends AbstractShape {
@@ -15,7 +17,7 @@ public class Rectangle extends AbstractShape {
   }
 
   @Override
-  public IShape resize(int factor) {
+  public Shape resize(int factor) {
     return this;
   }
 

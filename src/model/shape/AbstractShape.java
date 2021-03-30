@@ -1,4 +1,6 @@
-public abstract class AbstractShape implements IShape {
+package model.shape;
+
+public abstract class AbstractShape implements Shape {
 
   protected int base;
   protected int height;
@@ -16,7 +18,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   @Override
-  public IShape resize(int factor) {
+  public Shape resize(int factor) {
     return this;
   }
 

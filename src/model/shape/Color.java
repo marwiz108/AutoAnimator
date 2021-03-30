@@ -1,3 +1,5 @@
+package model.shape;
+
 public class Color {
 
   private int r;
