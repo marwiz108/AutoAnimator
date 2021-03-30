@@ -24,7 +24,7 @@ public interface IShape {
   /**
    * Sets colour of the shape to an rgb value.
    */
-  void setColour(int r, int g, int b);
+  void setColor(int r, int g, int b);
 
   /**
    * Makes shape visible on the screen.
