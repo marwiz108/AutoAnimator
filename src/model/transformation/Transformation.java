@@ -17,4 +17,7 @@ public interface Transformation {
    * at the given frame.
    */
   Shape executeAtFrame(int frame);
+
+  int getValueAtFrame(int frame, int initialValue, int finalValue);
+
 }

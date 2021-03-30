@@ -1,11 +1,13 @@
 package model.transformation;
+import model.shape.Point2D;
 import model.shape.Shape;
 /**
  * Moves a Shape from one position to another over a specified number of frames.
  */
 public class MoveT extends AbstractTransformation {
 
-  // ADD: Fields that represent starting and ending position.
+  Point2D startPos;
+  Point2D endPos;
 
   /**
    * Constructor for the MoveT class.
@@ -13,12 +15,17 @@ public class MoveT extends AbstractTransformation {
    * @param startFrame the starting frame of the transformation.
    * @param endFrame the ending frame of the transformation.
    */
-  public MoveT(Shape shape, int startFrame, int endFrame) {
+  public MoveT(Shape shape, int startFrame, int endFrame, Point2D startPos, Point2D endPos) {
     super(shape, startFrame, endFrame);
+    this.startPos = startPos;
+    this.endPos = endPos;
   }
 
   @Override
   public Shape executeAtFrame(int frame) {
-    return null;
+    int newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
+    int newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
+    this.shape.setPosition(newX, newY);
+    return this.shape;
   }
 }
