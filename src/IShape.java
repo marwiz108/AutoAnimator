@@ -17,7 +17,7 @@ public interface IShape {
 
   /**
    * Resizes the shape by the given factor.
-   * @return new shape resized to given factor
+   * @return a copy of the shape resized by the factor
    */
   IShape resize(int factor);
 

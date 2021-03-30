@@ -14,4 +14,9 @@ public class Rectangle extends AbstractShape {
     this.height = height;
   }
 
+  @Override
+  public IShape resize(int factor) {
+    return this;
+  }
+
 }

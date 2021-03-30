@@ -22,16 +22,16 @@ public abstract class AbstractShape implements IShape {
 
   @Override
   public void setColor(int r, int g, int b) {
-    //
+    return;
   }
 
   @Override
   public void appear() {
-    //
+    return;
   }
 
   @Override
   public void disappear() {
-    //
+    return;
   }
 }
