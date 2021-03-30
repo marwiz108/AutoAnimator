@@ -11,8 +11,13 @@ public class Oval extends AbstractShape {
   }
 
   @Override
-  public Shape resize(int factor) {
-    return this;
+  public Shape copy() {
+    int x = this.reference.getX();
+    int y = this.reference.getY();
+    return new Oval(x, y, this.base, this.height,
+            this.color.getRed(),
+            this.color.getGreen(),
+            this.color.getBlue());
   }
 
 }

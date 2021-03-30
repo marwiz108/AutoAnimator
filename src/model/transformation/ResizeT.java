@@ -19,6 +19,7 @@ public class ResizeT extends AbstractTransformation {
 
   @Override
   public Shape executeAtFrame(int frame) {
+
     return null;
   }
 }
