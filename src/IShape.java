@@ -1,10 +1,8 @@
-package model.shape;
-
 /**
  * This interface represents a shape.
  * TODO
  */
-public interface Shape {
+public interface IShape {
 
   /**
    * Returns the position of the shape.
@@ -19,15 +17,15 @@ public interface Shape {
 
   /**
    * Returns a copy of the shape with the same attributes.
-   * @return new Shape copy of the shape
+   * @return new IShape copy of shape
    */
-  Shape copy();
+  IShape copy();
 
   /**
    * Resizes the shape by the given factor.
    * @return a copy of the shape resized by the factor
    */
-  Shape resize(int factor);
+  IShape resize(int factor);
 
   /**
    * Sets colour of the shape to an rgb value.
