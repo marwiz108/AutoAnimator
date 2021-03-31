@@ -28,7 +28,7 @@ public abstract class AbstractShape implements Shape {
   }
   
   @Override
-  public Color getColor(int r, int g, int b) {
+  public Color getColor() {
     return this.color;
   }
 
@@ -60,13 +60,8 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void appear() {
-    return;
-  }
-
-  @Override
-  public void disappear() {
-    return;
+  public void setVisibility(boolean val) {
+    this.visible = val;
   }
 
 }

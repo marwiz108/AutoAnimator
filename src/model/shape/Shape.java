@@ -48,7 +48,7 @@ public interface Shape {
   /**
    * Returns colour of the shape to an rgb value.
    */
-  Color getColor(int r, int g, int b);
+  Color getColor();
 
   /**
    * Sets colour of the shape to an rgb value.
@@ -56,13 +56,9 @@ public interface Shape {
   void setColor(int r, int g, int b);
 
   /**
-   * Makes shape visible on the screen.
+   * Sets the visibility attribute to true of false.
+   * @param val true or false
    */
-  void appear();
-
-  /**
-   * Removes shape from screen.
-   */
-  void disappear();
+  void setVisibility(boolean val);
 
 }
