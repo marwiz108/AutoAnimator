@@ -14,7 +14,7 @@ public class TransformationTest {
 
   @Before
   public void setUp() {
-    Shape ref = new Rectangle(0, 0, 50, 30, 255, 0, 0);
+    Shape ref = new Rectangle("rectangle", 0, 0, 50, 30, 255, 0, 0);
     Point2D start = new Point2D(0, 0);
     Point2D end = new Point2D(100, 0);
     move = new MoveT(ref, 5, 15, start, end);
