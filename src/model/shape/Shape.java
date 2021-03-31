@@ -34,6 +34,18 @@ public interface Shape {
   Shape resize(int newBase, int newHeight);
 
   /**
+   * Get the base of the Shape.
+   * @return the base.
+   */
+  int getBase();
+
+  /**
+   * Get the height of the Shape.
+   * @return the height.
+   */
+  int getHeight();
+
+  /**
    * Returns colour of the shape to an rgb value.
    */
   Color getColor(int r, int g, int b);

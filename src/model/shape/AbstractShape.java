@@ -50,6 +50,16 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public int getBase() {
+    return this.base;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.height;
+  }
+
+  @Override
   public void appear() {
     return;
   }
