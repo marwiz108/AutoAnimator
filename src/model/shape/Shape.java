@@ -48,7 +48,7 @@ public interface Shape {
   /**
    * Returns colour of the shape to an rgb value.
    */
-  Color getColor(int r, int g, int b);
+  Color getColor();
 
   /**
    * Sets colour of the shape to an rgb value.

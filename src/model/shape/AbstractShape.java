@@ -28,7 +28,7 @@ public abstract class AbstractShape implements Shape {
   }
   
   @Override
-  public Color getColor(int r, int g, int b) {
+  public Color getColor() {
     return this.color;
   }
 
