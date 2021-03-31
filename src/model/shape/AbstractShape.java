@@ -25,6 +25,9 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public String getIdentifier() { return this.identifier; }
+
+  @Override
   public Point2D getPosition() {
     return this.reference;
   }

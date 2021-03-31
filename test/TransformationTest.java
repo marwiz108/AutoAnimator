@@ -27,11 +27,14 @@ public class TransformationTest {
     Point2D end = new Point2D(100, 0);
     Color c1 = new Color(255, 0, 0);
     Color c2 = new Color(0, 0, 255);
+
     move = new MoveT(ref, 5, 15, start, end);
     changeColor = new ChangeColorT(ref, 5, 15, c1, c2);
     changeVis = new ChangeVisibilityT(ref, 5, 15);
     resize = new ResizeT(ref, 5, 15, ResizeT.Dimension.BASE,
             50, 75);
+
+
   }
 
   @Test
@@ -57,9 +60,31 @@ public class TransformationTest {
   }
 
   @Test
+  public void testToStringColor() {
+    assertEquals("Shape rectangle changes color from (255, 0, 0) " +
+            "to (0, 0, 255) from t=5 to t=15", changeColor.toString());
+  }
+
+//  @Test // May have different behavior than other transformations
+//  public void testToStringVis() {
+//
+//  }
+
+  @Test
+  public void testToStringMove() {
+    assertEquals("Shape rectangle moves from (0, 0) " +
+            "to (100, 0) from t=5 to t=15", move.toString());
+  }
+
+  @Test
+  public void testToStringResize() {
+    assertEquals("Shape rectangle Scales from Base: 50, Height: 30 " +
+            "to Base: 75, Height: 30 from t=5 to t=15", resize.toString());
+  }
+
+  @Test
   public void testExecuteAtFrameColor() {
     changeColor.executeAtFrame(0);
-
   }
 
   @Test

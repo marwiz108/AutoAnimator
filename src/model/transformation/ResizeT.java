@@ -26,6 +26,22 @@ public class ResizeT extends AbstractTransformation {
     this.finalValue = finalValue;
   }
 
+  private String toStringHelp(int base, int height) {
+    return String.format("Base: %d, Height: %d", base, height);
+  }
+
+  @Override
+  public String toString() {
+    String pre = toStringHelp(this.shape.getBase(), this.shape.getHeight());
+    String post;
+    if (this.baseOrHeight == Dimension.HEIGHT) {
+      post = toStringHelp(this.shape.getBase(), finalValue);
+    } else {
+      post = toStringHelp(finalValue, this.shape.getHeight());
+    }
+    return super.toString("Scales", pre, post);
+  }
+
   @Override
   public Shape executeAtFrame(int frame) {
     int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);

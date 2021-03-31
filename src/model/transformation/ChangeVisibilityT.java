@@ -7,6 +7,7 @@ import model.shape.Shape;
  */
 public class ChangeVisibilityT extends AbstractTransformation {
 
+  //TODO Integrate this into the shape class??
 
   /**
    * Constructor for the ChangeVisibilityT class.

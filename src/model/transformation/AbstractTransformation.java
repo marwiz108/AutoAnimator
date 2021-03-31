@@ -25,8 +25,7 @@ public abstract class AbstractTransformation implements Transformation {
   }
 
   public String toString(String action, String startVal, String endVal) {
-    //TODO Add the shape identifier
-    String id = "X";
+    String id = this.shape.getIdentifier();
     return String.format("Shape %s %s from %s to %s from t=%d to t=%d",
             id, action, startVal, endVal, this.startFrame, this.endFrame);
   }
