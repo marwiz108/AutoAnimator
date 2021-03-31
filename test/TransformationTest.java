@@ -22,7 +22,7 @@ public class TransformationTest {
 
   @Before
   public void setUp() {
-    Shape ref = new Rectangle(0, 0, 50, 30, 255, 0, 0);
+    Shape ref = new Rectangle("rectangle", 0, 0, 50, 30, 255, 0, 0);
     Point2D start = new Point2D(0, 0);
     Point2D end = new Point2D(100, 0);
     Color c1 = new Color(255, 0, 0);

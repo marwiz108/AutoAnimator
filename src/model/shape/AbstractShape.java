@@ -8,13 +8,15 @@ import java.awt.Color;
  */
 public abstract class AbstractShape implements Shape {
 
+  protected final String identifier;
   protected int base;
   protected int height;
   protected Point2D reference;
   Color color;
   boolean visible;
 
-  public AbstractShape(int x, int y, int base, int height, int r, int g, int b) {
+  public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b) {
+    this.identifier = identifier;
     this.reference = new Point2D(x, y);
     this.base = base;
     this.height = height;
@@ -26,15 +28,25 @@ public abstract class AbstractShape implements Shape {
   public Point2D getPosition() {
     return this.reference;
   }
-  
-  @Override
-  public Color getColor() {
-    return this.color;
-  }
 
   @Override
   public void setPosition(int x, int y) {
     this.reference.updatePosition(x, y);
+  }
+
+  @Override
+  public int getBase() {
+    return this.base;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.height;
+  }
+
+  @Override
+  public Color getColor() {
+    return this.color;
   }
 
   @Override
@@ -50,18 +62,13 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public int getBase() {
-    return this.base;
-  }
-
-  @Override
-  public int getHeight() {
-    return this.height;
-  }
-
-  @Override
   public void setVisibility(boolean val) {
     this.visible = val;
+  }
+
+  private String colorToString() {
+    return String.format("(%s, %s, %s)",
+        this.color.getRed(), this.color.getGreen(), this.color.getBlue());
   }
 
 }

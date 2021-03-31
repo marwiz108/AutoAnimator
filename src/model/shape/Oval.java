@@ -6,15 +6,15 @@ package model.shape;
  */
 public class Oval extends AbstractShape {
 
-  public Oval(int x, int y, int base, int height, int r, int g, int b) {
-    super(x, y, base, height, r, g, b);
+  public Oval(String identifier, int x, int y, int base, int height, int r, int g, int b) {
+    super(identifier, x, y, base, height, r, g, b);
   }
 
   @Override
   public Shape copy() {
     int x = this.reference.getX();
     int y = this.reference.getY();
-    return new Oval(x, y, this.base, this.height,
+    return new Oval(this.identifier, x, y, this.base, this.height,
             this.color.getRed(),
             this.color.getGreen(),
             this.color.getBlue());
