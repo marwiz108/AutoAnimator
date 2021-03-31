@@ -7,6 +7,8 @@ import java.awt.*;
  */
 public class ChangeColorT extends AbstractTransformation {
 
+  private Color startColor;
+  private Color endColour;
 
   /**
    * Constructor for the ChangeColorT class.
@@ -19,10 +21,17 @@ public class ChangeColorT extends AbstractTransformation {
   public ChangeColorT(Shape shape, int startFrame, int endFrame,
                       Color initialColor, Color finalColor) {
     super(shape, startFrame, endFrame);
+    this.startColor = initialColor;
+    this.endColour = finalColor;
   }
 
   @Override
   public Shape executeAtFrame(int frame) {
-    return null;
+    int newR = this.getValueAtFrame(frame, this.startColor.getRed(), this.endColour.getRed());
+    int newG = this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColour.getBlue());
+    int newB = this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColour.getGreen());
+    this.shape.setColor(newR, newG, newB);
+
+    return this.shape;
   }
 }
