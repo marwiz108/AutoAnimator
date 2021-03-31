@@ -28,15 +28,25 @@ public abstract class AbstractShape implements Shape {
   public Point2D getPosition() {
     return this.reference;
   }
-  
-  @Override
-  public Color getColor() {
-    return this.color;
-  }
 
   @Override
   public void setPosition(int x, int y) {
     this.reference.updatePosition(x, y);
+  }
+
+  @Override
+  public int getBase() {
+    return this.base;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.height;
+  }
+
+  @Override
+  public Color getColor() {
+    return this.color;
   }
 
   @Override
@@ -49,16 +59,6 @@ public abstract class AbstractShape implements Shape {
     this.base = newBase;
     this.height = newHeight;
     return this;
-  }
-
-  @Override
-  public int getBase() {
-    return this.base;
-  }
-
-  @Override
-  public int getHeight() {
-    return this.height;
   }
 
   @Override
