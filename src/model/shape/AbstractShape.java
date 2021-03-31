@@ -38,13 +38,25 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public Shape resize(int factor) {
+  public void setColor(int r, int g, int b) {
+    this.color = new Color(r, g, b);
+  }
+
+  @Override
+  public Shape resize(int newBase, int newHeight) {
+    this.base = newBase;
+    this.height = newHeight;
     return this;
   }
 
   @Override
-  public void setColor(int r, int g, int b) {
-    this.color = new Color(r, g, b);
+  public int getBase() {
+    return this.base;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.height;
   }
 
   @Override
@@ -57,8 +69,5 @@ public abstract class AbstractShape implements Shape {
     return;
   }
 
-  @Override
-  public Shape copy() {
-    return this;
-  }
+
 }
