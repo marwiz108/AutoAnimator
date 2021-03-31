@@ -25,6 +25,11 @@ public class ChangeColorT extends AbstractTransformation {
     this.endColour = finalColor;
   }
 
+//  @Override
+//  public String toString() {
+//    super().toString()
+//  }
+
   @Override
   public Shape executeAtFrame(int frame) {
     int newR = this.getValueAtFrame(frame, this.startColor.getRed(), this.endColour.getRed());

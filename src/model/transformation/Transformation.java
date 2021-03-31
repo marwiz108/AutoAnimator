@@ -18,6 +18,13 @@ public interface Transformation {
    */
   Shape executeAtFrame(int frame);
 
+  /**
+   * Determine the the value of some parameter at a given frame.
+   * @param frame the frame to calculate the value at.
+   * @param initialValue The starting value of the parameter.
+   * @param finalValue the ending value of the parameter.
+   * @return the value the parameter will have at the given frame.
+   */
   int getValueAtFrame(int frame, int initialValue, int finalValue);
 
 }
