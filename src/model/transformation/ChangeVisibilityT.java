@@ -20,8 +20,8 @@ public class ChangeVisibilityT extends AbstractTransformation {
 
   @Override
   public Shape executeAtFrame(int frame) {
-    for (int f = 0; f < this.endFrame; f++) {
-      if (f == this.startFrame) {
+    for (int f = 0; f <= this.endFrame; f++) {
+      if (f >= this.startFrame) {
         this.shape.setVisibility(true);
       }
       if (f == this.endFrame) {
