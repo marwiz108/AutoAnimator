@@ -5,6 +5,8 @@ import model.shape.Shape;
 import model.shape.Oval;
 import model.shape.Rectangle;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * JUnit test class for the Shape interface.
  */
@@ -21,14 +23,24 @@ public class ShapeTest {
 
   @Test
   public void testGetPosition() {
+    assertEquals(500, this.oval.getPosition().getX());
+    assertEquals(100, this.oval.getPosition().getY());
+    assertEquals(200, this.rectangle.getPosition().getY());
+    assertEquals(200, this.rectangle.getPosition().getY());
   }
 
   @Test
   public void testSetPosition() {
+    this.rectangle.setPosition(250, 150);
+    assertEquals(250, this.rectangle.getPosition().getX());
+    assertEquals(150, this.rectangle.getPosition().getY());
   }
 
   @Test
   public void testResize() {
+    this.oval.resize(90, 60);
+    assertEquals(90, this.oval.getBase());
+    assertEquals(60, this.oval.getHeight());
   }
 
   @Test

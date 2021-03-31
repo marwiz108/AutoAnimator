@@ -26,6 +26,7 @@ public class MoveT extends AbstractTransformation {
     int newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
     int newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
     this.shape.setPosition(newX, newY);
+
     return this.shape;
   }
 }
