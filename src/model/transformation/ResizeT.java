@@ -5,7 +5,7 @@ import model.shape.Shape;
  */
 public class ResizeT extends AbstractTransformation {
 
-  private enum Dimension {
+  public enum Dimension {
     BASE, HEIGHT;
   }
   private final Dimension baseOrHeight;
@@ -26,15 +26,30 @@ public class ResizeT extends AbstractTransformation {
     this.finalValue = finalValue;
   }
 
+  private String toStringHelp(int base, int height) {
+    return String.format("Base: %d, Height: %d", base, height);
+  }
+
+  @Override
+  public String toString() {
+    String pre = toStringHelp(this.shape.getBase(), this.shape.getHeight());
+    String post;
+    if (this.baseOrHeight == Dimension.HEIGHT) {
+      post = toStringHelp(this.shape.getBase(), finalValue);
+    } else {
+      post = toStringHelp(finalValue, this.shape.getHeight());
+    }
+    return super.toString("Scales", pre, post);
+  }
+
   @Override
   public Shape executeAtFrame(int frame) {
     int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
-    Shape shapeCopy = this.shape.copy();
     if (this.baseOrHeight == Dimension.BASE) {
-      shapeCopy.resize(newValue, shapeCopy.getHeight());
+      this.shape.resize(newValue, this.shape.getHeight());
     } else {
-      shapeCopy.resize(shapeCopy.getBase(), newValue);
+      this.shape.resize(this.shape.getBase(), newValue);
     }
-    return shapeCopy;
+    return this.shape;
   }
 }
