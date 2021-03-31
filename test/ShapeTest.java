@@ -37,6 +37,10 @@ public class ShapeTest {
   }
 
   @Test
+  public void testCopy() {
+  }
+
+  @Test
   public void testResize() {
     this.oval.resize(90, 60);
     assertEquals(90, this.oval.getBase());
@@ -44,14 +48,22 @@ public class ShapeTest {
   }
 
   @Test
+  public void getBase() {
+  }
+
+  @Test
+  public void getHeight() {
+  }
+
+  @Test
+  public void testGetColour() {
+  }
+
+  @Test
   public void testSetColor() {
   }
 
   @Test
-  public void testAppear() {
-  }
-
-  @Test
-  public void testDisappear() {
+  public void testSetVisibility() {
   }
 }
