@@ -66,7 +66,7 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public Shape resize(int newBase, int newHeight) throws IllegalArgumentException {
-    if (base <= 0 || height <= 0) {
+    if (newBase <= 0 || newHeight <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.base = newBase;
