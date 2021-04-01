@@ -27,6 +27,36 @@ public class ShapeTest {
     );
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidBase() {
+    Shape newOval = new Oval("oval", 100, 50,
+        0, 50, 0, 0, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidHeight() {
+    Shape newRect = new Rectangle("rectangle", 80, 260,
+        5, -3, 0, 0, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidColorR() {
+    Shape newOval = new Oval("oval", 100, 50,
+        50, 20, 321, 0, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidColorG() {
+    Shape newRect = new Rectangle("rectangle", 80, 260,
+        5, 12, 0, -4, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidColorB() {
+    Shape newRect = new Rectangle("rectangle", 80, 260,
+        5, 12, 0, 72, 256);
+  }
+
   @Test
   public void testGetPosition() {
     assertEquals(500, this.oval.getPosition().getX());
