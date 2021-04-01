@@ -17,11 +17,11 @@ public class ShapeTest {
 
   @Before
   public void setUp() {
-    this.oval = new Oval("oval",
+    this.oval = new Oval("o",
                       500, 100, 60, 30,
                       255, 0, 0
     );
-    this.rectangle = new Rectangle("rectangle",
+    this.rectangle = new Rectangle("r",
                       200, 200, 50, 100,
                       0, 0, 255
     );
@@ -139,6 +139,16 @@ public class ShapeTest {
     assertEquals(80, this.rectangle.getHeight());
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void testResizeWithInvalidBase() {
+    this.oval.resize(-10, 30);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testResizeWithInvalidHeight() {
+    this.rectangle.resize(50, 0);
+  }
+
   @Test
   public void testSetVisibility() {
     assertEquals(false, this.oval.isVisible());
@@ -146,5 +156,20 @@ public class ShapeTest {
     assertEquals(true, this.oval.isVisible());
     this.oval.setVisibility(false);
     assertEquals(false, this.oval.isVisible());
+  }
+
+  @Test
+  public void testToString() {
+    String ovalStr = "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (500, 100), Base: 60, Height: 30\n"
+        + "Color: (255, 0, 0)";
+    assertEquals(ovalStr, this.oval.toString());
+
+    String rectStr = "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200, 200), Base: 50, Height: 100\n"
+        + "Color: (0, 0, 255)";
+    assertEquals(rectStr, this.rectangle.toString());
   }
 }

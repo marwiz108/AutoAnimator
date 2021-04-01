@@ -80,7 +80,7 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public Shape resize(int newBase, int newHeight) throws IllegalArgumentException {
-    if (base <= 0 || height <= 0) {
+    if (newBase <= 0 || newHeight <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.base = newBase;
@@ -98,10 +98,9 @@ public abstract class AbstractShape implements Shape {
     this.visible = val;
   }
 
-  @Override
-  public String toString(String shapeType) {
+  protected String toString(String shapeType) {
     return String.format(
-        "Name: %s\nType: %s\nPosition: %s, Width: %s, Height: %s\nColor: %s",
+        "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
         this.identifier, shapeType, this.getPosition().toString(),
         this.base, this.height, this.colorToString()
     );
