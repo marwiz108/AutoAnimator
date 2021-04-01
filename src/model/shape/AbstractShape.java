@@ -20,14 +20,11 @@ public abstract class AbstractShape implements Shape {
     if (base <=0 || height <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
-    if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
-      throw new IllegalArgumentException("Invalid RGB values.");
-    }
     this.identifier = identifier;
     this.reference = new Point2D(x, y);
     this.base = base;
     this.height = height;
-    this.color = new Color(r, g, b);
+    this.setColor(r, g, b);
     this.visible = false;
   }
 
