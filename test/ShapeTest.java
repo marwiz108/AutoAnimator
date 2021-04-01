@@ -88,13 +88,13 @@ public class ShapeTest {
     Shape ovalCopy = this.oval.copy();
     assertEquals(this.oval.getBase(), ovalCopy.getBase());
     assertEquals(this.oval.getHeight(), ovalCopy.getHeight());
-    assertEquals(this.oval.getPosition(), ovalCopy.getPosition());
+    assertEquals(this.oval.getPosition().toString(), ovalCopy.getPosition().toString());
     assertEquals(this.oval.getColor(), ovalCopy.getColor());
 
     Shape rectangleCopy = this.rectangle.copy();
     assertEquals(this.rectangle.getBase(), rectangleCopy.getBase());
     assertEquals(this.rectangle.getHeight(), rectangleCopy.getHeight());
-    assertEquals(this.rectangle.getPosition(), rectangleCopy.getPosition());
+    assertEquals(this.rectangle.getPosition().toString(), rectangleCopy.getPosition().toString());
     assertEquals(this.rectangle.getColor(), rectangleCopy.getColor());
   }
 
