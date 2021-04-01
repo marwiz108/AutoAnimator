@@ -17,11 +17,11 @@ public class ShapeTest {
 
   @Before
   public void setUp() {
-    this.oval = new Oval("oval",
+    this.oval = new Oval("o",
                       500, 100, 60, 30,
                       255, 0, 0
     );
-    this.rectangle = new Rectangle("rectangle",
+    this.rectangle = new Rectangle("r",
                       200, 200, 50, 100,
                       0, 0, 255
     );
