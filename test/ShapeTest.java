@@ -139,6 +139,16 @@ public class ShapeTest {
     assertEquals(80, this.rectangle.getHeight());
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void testResizeWithInvalidBase() {
+    this.oval.resize(-10, 30);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testResizeWithInvalidHeight() {
+    this.rectangle.resize(50, 0);
+  }
+
   @Test
   public void testSetVisibility() {
     assertEquals(false, this.oval.isVisible());
