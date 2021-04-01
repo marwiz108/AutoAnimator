@@ -18,7 +18,11 @@ public abstract class AbstractTransformation implements Transformation {
    * @param startFrame the frame where the transformation starts.
    * @param endFrame the frame where the transformation ends.
    */
-  public AbstractTransformation(Shape shape, int startFrame, int endFrame) {
+  public AbstractTransformation(Shape shape, int startFrame, int endFrame)
+          throws IllegalArgumentException{
+    if (shape == null || startFrame < 0 || endFrame < 0) {
+      throw new IllegalArgumentException("Invalid values for Transformation constructor.");
+    }
     this.shape = shape.copy();
     this.startFrame = startFrame;
     this.endFrame = endFrame;
@@ -31,9 +35,13 @@ public abstract class AbstractTransformation implements Transformation {
   }
 
   @Override
-  public int getValueAtFrame(int frame, int initialValue, int finalValue) {
-    int diff = finalValue - initialValue;
-    int range = this.endFrame - this.startFrame;
+  public int getValueAtFrame(int frame, int initialValue, int finalValue)
+          throws IllegalArgumentException {
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
+    }
+    double diff = finalValue - initialValue;
+    double range = this.endFrame - this.startFrame;
     double step = diff / range;
     double acc = (double) initialValue;
     for (int f = 0; f < this.endFrame; f++) {

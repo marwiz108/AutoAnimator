@@ -38,9 +38,13 @@ public class ChangeColorT extends AbstractTransformation {
 
   @Override
   public Shape executeAtFrame(int frame) {
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
+    }
     int newR = this.getValueAtFrame(frame, this.startColor.getRed(), this.endColor.getRed());
-    int newG = this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColor.getBlue());
-    int newB = this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColor.getGreen());
+    int newG = this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColor.getGreen());
+    int newB = this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColor.getBlue());
+
     this.shape.setColor(newR, newG, newB);
 
     return this.shape;
