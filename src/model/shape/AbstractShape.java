@@ -15,6 +15,20 @@ public abstract class AbstractShape implements Shape {
   Color color;
   boolean visible;
 
+  /**
+   * Constructor that is used to create an abstract shape. Is called by children of the
+   * AbstractShape class.
+   * @param identifier The identifier that is used to find the Shape.
+   * @param x the x coordinate of the reference point.
+   * @param y the y coordinate of the reference point.
+   * @param base the magnitude of the base of the shape.
+   * @param height the magnitude of the height of the shape.
+   * @param r the red value of the shape's color (0 <= r <= 255)
+   * @param g the green value of the shape's color (0 <= g <= 255)
+   * @param b the blue value of the shape's color (0 <= b <= 255)
+   * @throws IllegalArgumentException if the base or height is negative, or if r, g, b are outside
+   * the allowed range.
+   */
   public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b)
       throws IllegalArgumentException {
     if (base <=0 || height <= 0) {

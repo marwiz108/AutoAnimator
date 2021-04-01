@@ -92,9 +92,13 @@ public class TransformationTest {
   public void testExecuteAtFrameColor() {
     assertEquals("java.awt.Color[r=255,g=0,b=0]",
             changeColor.executeAtFrame(0).getColor().toString());
+
+//    assertEquals("", changeColor.executeAtFrame(0).getColor().toString());
+
     assertEquals("java.awt.Color[r=0,g=0,b=255]",
             changeColor.executeAtFrame(15).getColor().toString());
 
+    System.out.println(changeColor.executeAtFrame(10).getColor().toString());
   }
 
   @Test
