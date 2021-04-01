@@ -9,6 +9,12 @@ import java.awt.*;
 public interface Shape {
 
   /**
+   * Returns the identifier for the shape.
+   * @return the identifier.
+   */
+  String getIdentifier();
+
+  /**
    * Returns the position of the shape.
    * @return x and y coordinates of shape position
    */

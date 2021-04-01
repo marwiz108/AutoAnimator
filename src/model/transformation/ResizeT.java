@@ -5,7 +5,7 @@ import model.shape.Shape;
  */
 public class ResizeT extends AbstractTransformation {
 
-  private enum Dimension {
+  public enum Dimension {
     BASE, HEIGHT;
   }
   private final Dimension baseOrHeight;
@@ -26,15 +26,33 @@ public class ResizeT extends AbstractTransformation {
     this.finalValue = finalValue;
   }
 
+  private String toStringHelp(int base, int height) {
+    return String.format("Base: %d, Height: %d", base, height);
+  }
+
+  @Override
+  public String toString() {
+    String pre = toStringHelp(this.shape.getBase(), this.shape.getHeight());
+    String post;
+    if (this.baseOrHeight == Dimension.HEIGHT) {
+      post = toStringHelp(this.shape.getBase(), finalValue);
+    } else {
+      post = toStringHelp(finalValue, this.shape.getHeight());
+    }
+    return super.toString("Scales", pre, post);
+  }
+
   @Override
   public Shape executeAtFrame(int frame) {
-    int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
-    Shape shapeCopy = this.shape.copy();
-    if (this.baseOrHeight == Dimension.BASE) {
-      shapeCopy.resize(newValue, shapeCopy.getHeight());
-    } else {
-      shapeCopy.resize(shapeCopy.getBase(), newValue);
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    return shapeCopy;
+    int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
+    if (this.baseOrHeight == Dimension.BASE) {
+      this.shape.resize(newValue, this.shape.getHeight());
+    } else {
+      this.shape.resize(this.shape.getBase(), newValue);
+    }
+    return this.shape;
   }
 }

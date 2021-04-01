@@ -8,7 +8,7 @@ import java.awt.*;
 public class ChangeColorT extends AbstractTransformation {
 
   private Color startColor;
-  private Color endColour;
+  private Color endColor;
 
   /**
    * Constructor for the ChangeColorT class.
@@ -22,14 +22,29 @@ public class ChangeColorT extends AbstractTransformation {
                       Color initialColor, Color finalColor) {
     super(shape, startFrame, endFrame);
     this.startColor = initialColor;
-    this.endColour = finalColor;
+    this.endColor = finalColor;
+  }
+
+  private String toStringHelp(int r, int g, int b) {
+    return String.format("(%d, %d, %d)", r, g, b);
+  }
+
+  @Override
+  public String toString() {
+    String start = toStringHelp(startColor.getRed(), startColor.getGreen(), startColor.getBlue());
+    String end = toStringHelp(endColor.getRed(), endColor.getGreen(), endColor.getBlue());
+    return super.toString("changes color", start, end);
   }
 
   @Override
   public Shape executeAtFrame(int frame) {
-    int newR = this.getValueAtFrame(frame, this.startColor.getRed(), this.endColour.getRed());
-    int newG = this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColour.getBlue());
-    int newB = this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColour.getGreen());
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
+    }
+    int newR = this.getValueAtFrame(frame, this.startColor.getRed(), this.endColor.getRed());
+    int newG = this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColor.getGreen());
+    int newB = this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColor.getBlue());
+
     this.shape.setColor(newR, newG, newB);
 
     return this.shape;

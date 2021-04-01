@@ -7,7 +7,6 @@ import model.shape.Shape;
  */
 public class ChangeVisibilityT extends AbstractTransformation {
 
-
   /**
    * Constructor for the ChangeVisibilityT class.
    * @param shape the initial Shape object.
@@ -19,7 +18,16 @@ public class ChangeVisibilityT extends AbstractTransformation {
   }
 
   @Override
+  public String toString() {
+    return String.format("Shape %s appears at t=%d and disappears at t=%d",
+            this.shape.getIdentifier(), this.startFrame, this.endFrame);
+  }
+
+  @Override
   public Shape executeAtFrame(int frame) {
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
+    }
     for (int f = 0; f <= this.endFrame; f++) {
       if (f >= this.startFrame) {
         this.shape.setVisibility(true);
