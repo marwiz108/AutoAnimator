@@ -15,8 +15,9 @@ public interface Transformation {
    * @param frame the frame to be rendered.
    * @return A COPY of the original shape object that reflects results of the transformation
    * at the given frame.
+   * @throws IllegalArgumentException if the given frame is negative
    */
-  Shape executeAtFrame(int frame);
+  Shape executeAtFrame(int frame) throws IllegalArgumentException;
 
   /**
    * Determine the the value of some parameter at a given frame.
@@ -24,7 +25,8 @@ public interface Transformation {
    * @param initialValue The starting value of the parameter.
    * @param finalValue the ending value of the parameter.
    * @return the value the parameter will have at the given frame.
+   * @throws IllegalArgumentException if the frame is negative.
    */
-  int getValueAtFrame(int frame, int initialValue, int finalValue);
+  int getValueAtFrame(int frame, int initialValue, int finalValue) throws IllegalArgumentException;
 
 }

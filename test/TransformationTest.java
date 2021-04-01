@@ -15,6 +15,7 @@ import model.transformation.ResizeT;
 import model.transformation.Transformation;
 
 public class TransformationTest {
+  Shape ref;
   Transformation move;
   Transformation changeColor;
   Transformation changeVis;
@@ -22,7 +23,8 @@ public class TransformationTest {
 
   @Before
   public void setUp() {
-    Shape ref = new Rectangle("rectangle", 0, 0, 50, 30, 255, 0, 0);
+    ref = new Rectangle("rectangle", 0, 0, 50,
+            30, 255, 0, 0);
     Point2D start = new Point2D(0, 0);
     Point2D end = new Point2D(100, 0);
     Color c1 = new Color(255, 0, 0);
@@ -33,13 +35,10 @@ public class TransformationTest {
     changeVis = new ChangeVisibilityT(ref, 5, 15);
     resize = new ResizeT(ref, 5, 15, ResizeT.Dimension.BASE,
             50, 75);
-
-
   }
 
   @Test
   public void testGetValueAtFrame() {
-    // TODO Add tests for other frames
     int frame0 = move.getValueAtFrame(0, 0, 100);
     int frame5 = move.getValueAtFrame(5, 0, 100);
     int frame10 = move.getValueAtFrame(10, 0, 100);
@@ -59,16 +58,22 @@ public class TransformationTest {
     assertEquals(0, yFrame15);
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void testGetValueAtFrameInvalid() {
+    move.getValueAtFrame(-1, 0, 100);
+  }
+
   @Test
   public void testToStringColor() {
     assertEquals("Shape rectangle changes color from (255, 0, 0) " +
             "to (0, 0, 255) from t=5 to t=15", changeColor.toString());
   }
 
-//  @Test // May have different behavior than other transformations
-//  public void testToStringVis() {
-//
-//  }
+  @Test
+  public void testToStringVis() {
+    assertEquals("Shape rectangle appears at t=5 and disappears at t=15",
+            changeVis.toString());
+  }
 
   @Test
   public void testToStringMove() {
@@ -84,7 +89,11 @@ public class TransformationTest {
 
   @Test
   public void testExecuteAtFrameColor() {
-    changeColor.executeAtFrame(0);
+    assertEquals("java.awt.Color[r=255,g=0,b=0]",
+            changeColor.executeAtFrame(0).getColor().toString());
+    assertEquals("java.awt.Color[r=0,g=0,b=255]",
+            changeColor.executeAtFrame(15).getColor().toString());
+
   }
 
   @Test

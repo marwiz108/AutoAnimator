@@ -44,6 +44,9 @@ public class ResizeT extends AbstractTransformation {
 
   @Override
   public Shape executeAtFrame(int frame) {
+    if (frame < 0) {
+      throw new IllegalArgumentException("Frame cannot be negative.");
+    }
     int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
     if (this.baseOrHeight == Dimension.BASE) {
       this.shape.resize(newValue, this.shape.getHeight());
