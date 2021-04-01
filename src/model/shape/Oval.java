@@ -6,6 +6,7 @@ package model.shape;
  */
 public class Oval extends AbstractShape {
 
+  // x and y position is the center of the oval
   public Oval(String identifier, int x, int y, int base, int height, int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
   }

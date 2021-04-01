@@ -8,6 +8,7 @@ import org.w3c.dom.css.Rect;
  */
 public class Rectangle extends AbstractShape {
 
+  // x and y position is the min. left corner
   public Rectangle(String identifier, int x, int y, int base, int height, int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
   }
