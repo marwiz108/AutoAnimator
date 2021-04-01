@@ -157,4 +157,19 @@ public class ShapeTest {
     this.oval.setVisibility(false);
     assertEquals(false, this.oval.isVisible());
   }
+
+  @Test
+  public void testToString() {
+    String ovalStr = "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (500, 100), Base: 60, Height: 30\n"
+        + "Color: (255, 0, 0)";
+    assertEquals(ovalStr, this.oval.toString());
+
+    String rectStr = "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200, 200), Base: 50, Height: 100\n"
+        + "Color: (0, 0, 255)";
+    assertEquals(rectStr, this.rectangle.toString());
+  }
 }
