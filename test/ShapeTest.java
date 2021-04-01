@@ -17,8 +17,14 @@ public class ShapeTest {
 
   @Before
   public void setUp() {
-    this.oval = new Oval("oval", 500, 100, 60, 30, 255, 0, 0);
-    this.rectangle = new Rectangle("rectangle", 200, 200, 50, 100, 0, 0, 255);
+    this.oval = new Oval("oval",
+                      500, 100, 60, 30,
+                      255, 0, 0
+    );
+    this.rectangle = new Rectangle("rectangle",
+                      200, 200, 50, 100,
+                      0, 0, 255
+    );
   }
 
   @Test
@@ -55,10 +61,26 @@ public class ShapeTest {
 
   @Test
   public void testGetColour() {
+    assertEquals(255, this.oval.getColor().getRed());
+    assertEquals(0, this.oval.getColor().getGreen());
+    assertEquals(0, this.oval.getColor().getBlue());
+
+    assertEquals(0, this.rectangle.getColor().getRed());
+    assertEquals(0, this.rectangle.getColor().getGreen());
+    assertEquals(255, this.rectangle.getColor().getBlue());
   }
 
   @Test
   public void testSetColor() {
+    this.oval.setColor(255, 178, 102);
+    assertEquals(255, this.oval.getColor().getRed());
+    assertEquals(178, this.oval.getColor().getGreen());
+    assertEquals(102, this.oval.getColor().getBlue());
+
+    this.rectangle.setColor(51, 153, 255);
+    assertEquals(51, this.rectangle.getColor().getRed());
+    assertEquals(153, this.rectangle.getColor().getGreen());
+    assertEquals(255, this.rectangle.getColor().getBlue());
   }
 
   @Test
@@ -66,13 +88,13 @@ public class ShapeTest {
     Shape ovalCopy = this.oval.copy();
     assertEquals(this.oval.getBase(), ovalCopy.getBase());
     assertEquals(this.oval.getHeight(), ovalCopy.getHeight());
-    assertEquals(this.oval.getPosition(), ovalCopy.getPosition());
+    assertEquals(this.oval.getPosition().toString(), ovalCopy.getPosition().toString());
     assertEquals(this.oval.getColor(), ovalCopy.getColor());
 
     Shape rectangleCopy = this.rectangle.copy();
     assertEquals(this.rectangle.getBase(), rectangleCopy.getBase());
     assertEquals(this.rectangle.getHeight(), rectangleCopy.getHeight());
-    assertEquals(this.rectangle.getPosition(), rectangleCopy.getPosition());
+    assertEquals(this.rectangle.getPosition().toString(), rectangleCopy.getPosition().toString());
     assertEquals(this.rectangle.getColor(), rectangleCopy.getColor());
   }
 
@@ -89,6 +111,10 @@ public class ShapeTest {
 
   @Test
   public void testSetVisibility() {
-
+    assertEquals(false, this.oval.isVisible());
+    this.oval.setVisibility(true);
+    assertEquals(true, this.oval.isVisible());
+    this.oval.setVisibility(false);
+    assertEquals(false, this.oval.isVisible());
   }
 }

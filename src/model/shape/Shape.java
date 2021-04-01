@@ -62,9 +62,21 @@ public interface Shape {
   void setColor(int r, int g, int b);
 
   /**
+   * Returns whether the shape is visible on the canvas.
+   * @return true if shape appears, false otherwise
+   */
+  boolean isVisible();
+
+  /**
    * Sets the visibility attribute to true of false.
    * @param val true or false
    */
   void setVisibility(boolean val);
+
+  /**
+   * Returns a description of the Shape object and its attributes.
+   * @return string representation of Shape
+   */
+  String toString(String shapeType);
 
 }
