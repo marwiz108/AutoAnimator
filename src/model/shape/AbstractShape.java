@@ -62,8 +62,18 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public boolean isVisible() {
+    return this.visible;
+  }
+
+  @Override
   public void setVisibility(boolean val) {
     this.visible = val;
+  }
+
+  @Override
+  public String toString() {
+    return "";
   }
 
   private String colorToString() {
