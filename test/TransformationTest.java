@@ -60,7 +60,8 @@ public class TransformationTest {
 
   @Test (expected = IllegalArgumentException.class)
   public void testGetValueAtFrameInvalid() {
-    move.getValueAtFrame(-1, 0, 100);
+    move.getValueAtFrame(-1,
+            0, 100);
   }
 
   @Test
