@@ -75,8 +75,12 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public String toString() {
-    return "";
+  public String toString(String shapeType) {
+    return String.format(
+        "Name: %s\nType: %s\nPosition: %s, Width: %s, Height: %s\nColor: %s",
+        this.identifier, shapeType, this.getPosition().toString(),
+        this.base, this.height, this.colorToString()
+    );
   }
 
   private String colorToString() {

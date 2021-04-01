@@ -73,6 +73,10 @@ public interface Shape {
    */
   void setVisibility(boolean val);
 
-  String toString();
+  /**
+   * Returns a description of the Shape object and its attributes.
+   * @return string representation of Shape
+   */
+  String toString(String shapeType);
 
 }

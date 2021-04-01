@@ -13,6 +13,11 @@ public class Rectangle extends AbstractShape {
   }
 
   @Override
+  public String toString() {
+    return super.toString("rectangle");
+  }
+
+  @Override
   public Shape copy() {
     int x = this.reference.getX();
     int y = this.reference.getY();
