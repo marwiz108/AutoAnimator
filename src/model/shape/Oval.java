@@ -11,6 +11,11 @@ public class Oval extends AbstractShape {
   }
 
   @Override
+  public String toString() {
+    return super.toString("oval");
+  }
+
+  @Override
   public Shape copy() {
     int x = this.reference.getX();
     int y = this.reference.getY();
