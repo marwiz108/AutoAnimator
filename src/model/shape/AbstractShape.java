@@ -15,7 +15,14 @@ public abstract class AbstractShape implements Shape {
   Color color;
   boolean visible;
 
-  public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b) {
+  public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b)
+      throws IllegalArgumentException {
+    if (base <=0 || height <= 0) {
+      throw new IllegalArgumentException("Shape dimensions must be positive.");
+    }
+    if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+      throw new IllegalArgumentException("Invalid RGB values.");
+    }
     this.identifier = identifier;
     this.reference = new Point2D(x, y);
     this.base = base;
@@ -53,12 +60,18 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void setColor(int r, int g, int b) {
+  public void setColor(int r, int g, int b) throws IllegalArgumentException {
+    if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+      throw new IllegalArgumentException("Invalid RGB values.");
+    }
     this.color = new Color(r, g, b);
   }
 
   @Override
-  public Shape resize(int newBase, int newHeight) {
+  public Shape resize(int newBase, int newHeight) throws IllegalArgumentException {
+    if (base <= 0 || height <= 0) {
+      throw new IllegalArgumentException("Shape dimensions must be positive.");
+    }
     this.base = newBase;
     this.height = newHeight;
     return this;
