@@ -33,23 +33,26 @@ public interface Shape {
 
   /**
    * Resizes the shape by the given factor.
-   * @return a copy of the shape resized by the factor
-   * @param newBase the new base of the Shape object.
+   *
+   * @param newBase   the new base of the Shape object.
    * @param newHeight the new height of the Shape object.
+   * @return a copy of the shape resized by the factor
    */
-  Shape resize(int newBase, int newHeight);
+  Shape resize(float newBase, float newHeight);
 
   /**
    * Get the base of the Shape.
+   *
    * @return the base.
    */
-  int getBase();
+  float getBase();
 
   /**
    * Get the height of the Shape.
+   *
    * @return the height.
    */
-  int getHeight();
+  float getHeight();
 
   /**
    * Returns colour of the shape to an rgb value.

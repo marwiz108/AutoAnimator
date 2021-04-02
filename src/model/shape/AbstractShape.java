@@ -1,16 +1,15 @@
 package model.shape;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
- * Abstract class for a Shape object that stores
- * common functionality for all shapes.
+ * Abstract class for a Shape object that stores common functionality for all shapes.
  */
 public abstract class AbstractShape implements Shape {
 
   protected final String identifier;
-  protected int base;
-  protected int height;
+  protected float base;
+  protected float height;
   protected Point2D reference;
   Color color;
   boolean visible;
@@ -29,9 +28,10 @@ public abstract class AbstractShape implements Shape {
    * @throws IllegalArgumentException if the base or height is negative, or if r, g, b are outside
    * the allowed range.
    */
-  public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b)
-      throws IllegalArgumentException {
-    if (base <=0 || height <= 0) {
+  public AbstractShape(String identifier, float x, float y, float base, float height,
+                       int r, int g, int b)
+          throws IllegalArgumentException {
+    if (base <= 0 || height <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.identifier = identifier;
@@ -56,12 +56,12 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public int getBase() {
+  public float getBase() {
     return this.base;
   }
 
   @Override
-  public int getHeight() {
+  public float getHeight() {
     return this.height;
   }
 
@@ -79,7 +79,7 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public Shape resize(int newBase, int newHeight) throws IllegalArgumentException {
+  public Shape resize(float newBase, float newHeight) throws IllegalArgumentException {
     if (newBase <= 0 || newHeight <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }

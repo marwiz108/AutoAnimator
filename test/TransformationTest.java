@@ -1,6 +1,3 @@
-import static org.junit.Assert.*;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +11,10 @@ import model.transformation.ChangeVisibilityT;
 import model.transformation.MoveT;
 import model.transformation.ResizeT;
 import model.transformation.Transformation;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TransformationTest {
   Shape ref;
@@ -79,14 +80,14 @@ public class TransformationTest {
 
   @Test
   public void testToStringMove() {
-    assertEquals("Shape rectangle moves from (0, 0) " +
-            "to (100, 0) from t=5 to t=15", move.toString());
+    assertEquals("Shape rectangle moves from (0.0, 0.0) " +
+            "to (100.0, 0.0) from t=5 to t=15", move.toString());
   }
 
   @Test
   public void testToStringResize() {
-    assertEquals("Shape rectangle Scales from Base: 50, Height: 30 " +
-            "to Base: 75, Height: 30 from t=5 to t=15", resize.toString());
+    assertEquals("Shape rectangle Scales from Base: 50.0, Height: 30.0 " +
+            "to Base: 75.0, Height: 30.0 from t=5 to t=15", resize.toString());
   }
 
   @Test
@@ -118,28 +119,28 @@ public class TransformationTest {
 
   @Test
   public void testExecuteAtFrameMove() {
-    assertEquals("(0, 0)", move.executeAtFrame(0).getPosition().toString());
-    assertEquals("(10, 0)", move.executeAtFrame(5).getPosition().toString());
-    assertEquals("(60, 0)", move.executeAtFrame(10).getPosition().toString());
-    assertEquals("(100, 0)", move.executeAtFrame(15).getPosition().toString());
-    assertEquals("(100, 0)", move.executeAtFrame(20).getPosition().toString());
+    assertEquals("(0.0, 0.0)", move.executeAtFrame(0).getPosition().toString());
+    assertEquals("(10.0, 0.0)", move.executeAtFrame(5).getPosition().toString());
+    assertEquals("(60.0, 0.0)", move.executeAtFrame(10).getPosition().toString());
+    assertEquals("(100.0, 0.0)", move.executeAtFrame(15).getPosition().toString());
+    assertEquals("(100.0, 0.0)", move.executeAtFrame(20).getPosition().toString());
   }
 
   @Test
   public void testExecuteAtFrameResize() {
-    assertEquals(50, resize.executeAtFrame(0).getBase());
-    assertEquals(30, resize.executeAtFrame(0).getHeight());
+    assertEquals(50, resize.executeAtFrame(0).getBase(), 0);
+    assertEquals(30, resize.executeAtFrame(0).getHeight(), 0);
 
-    assertEquals(52, resize.executeAtFrame(5).getBase());
-    assertEquals(30, resize.executeAtFrame(5).getHeight());
+    assertEquals(52, resize.executeAtFrame(5).getBase(), 0);
+    assertEquals(30, resize.executeAtFrame(5).getHeight(), 0);
 
-    assertEquals(65, resize.executeAtFrame(10).getBase());
-    assertEquals(30, resize.executeAtFrame(10).getHeight());
+    assertEquals(65, resize.executeAtFrame(10).getBase(), 0);
+    assertEquals(30, resize.executeAtFrame(10).getHeight(), 0);
 
-    assertEquals(75, resize.executeAtFrame(15).getBase());
-    assertEquals(30, resize.executeAtFrame(15).getHeight());
+    assertEquals(75, resize.executeAtFrame(15).getBase(), 0);
+    assertEquals(30, resize.executeAtFrame(15).getHeight(), 0);
 
-    assertEquals(75, resize.executeAtFrame(20).getBase());
-    assertEquals(30, resize.executeAtFrame(20).getHeight());
+    assertEquals(75, resize.executeAtFrame(20).getBase(), 0);
+    assertEquals(30, resize.executeAtFrame(20).getHeight(), 0);
   }
 }
