@@ -31,6 +31,9 @@ public abstract class AbstractShape implements Shape {
    */
   public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b)
       throws IllegalArgumentException {
+    if (x < 0 || y < 0) {
+      throw new IllegalArgumentException("Position coordinates must be positive.");
+    }
     if (base <=0 || height <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
@@ -51,7 +54,10 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void setPosition(int x, int y) {
+  public void setPosition(int x, int y) throws IllegalArgumentException {
+    if (x < 0 || y < 0) {
+      throw new IllegalArgumentException("Position coordinates must be positive.");
+    }
     this.reference.updatePosition(x, y);
   }
 
