@@ -28,14 +28,7 @@ public class ChangeVisibilityT extends AbstractTransformation {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    for (int f = 0; f <= this.endFrame; f++) {
-      if (f >= this.startFrame) {
-        this.shape.setVisibility(true);
-      }
-      if (f == this.endFrame) {
-        this.shape.setVisibility(false);
-      }
-    }
+    this.shape.setVisibility(frame >= this.startFrame && frame < this.endFrame);
     return this.shape;
   }
 }
