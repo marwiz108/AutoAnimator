@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -93,23 +94,52 @@ public class TransformationTest {
     assertEquals("java.awt.Color[r=255,g=0,b=0]",
             changeColor.executeAtFrame(0).getColor().toString());
 
-//    assertEquals("", changeColor.executeAtFrame(0).getColor().toString());
+    assertEquals("java.awt.Color[r=229,g=0,b=25]",
+            changeColor.executeAtFrame(5).getColor().toString());
+
+    assertEquals("java.awt.Color[r=102,g=0,b=153]",
+            changeColor.executeAtFrame(10).getColor().toString());
 
     assertEquals("java.awt.Color[r=0,g=0,b=255]",
             changeColor.executeAtFrame(15).getColor().toString());
 
-    System.out.println(changeColor.executeAtFrame(10).getColor().toString());
+    assertEquals("java.awt.Color[r=0,g=0,b=255]",
+            changeColor.executeAtFrame(20).getColor().toString());
   }
 
   @Test
   public void testExecuteAtFrameVis() {
+    assertFalse(changeVis.executeAtFrame(0).isVisible());
+    assertTrue(changeVis.executeAtFrame(5).isVisible());
+    assertTrue(changeVis.executeAtFrame(14).isVisible());
+    assertFalse(changeVis.executeAtFrame(15).isVisible());
+    assertFalse(changeVis.executeAtFrame(20).isVisible());
   }
 
   @Test
   public void testExecuteAtFrameMove() {
+    assertEquals("(0, 0)", move.executeAtFrame(0).getPosition().toString());
+    assertEquals("(10, 0)", move.executeAtFrame(5).getPosition().toString());
+    assertEquals("(60, 0)", move.executeAtFrame(10).getPosition().toString());
+    assertEquals("(100, 0)", move.executeAtFrame(15).getPosition().toString());
+    assertEquals("(100, 0)", move.executeAtFrame(20).getPosition().toString());
   }
 
   @Test
   public void testExecuteAtFrameResize() {
+    assertEquals(50, resize.executeAtFrame(0).getBase());
+    assertEquals(30, resize.executeAtFrame(0).getHeight());
+
+    assertEquals(52, resize.executeAtFrame(5).getBase());
+    assertEquals(30, resize.executeAtFrame(5).getHeight());
+
+    assertEquals(65, resize.executeAtFrame(10).getBase());
+    assertEquals(30, resize.executeAtFrame(10).getHeight());
+
+    assertEquals(75, resize.executeAtFrame(15).getBase());
+    assertEquals(30, resize.executeAtFrame(15).getHeight());
+
+    assertEquals(75, resize.executeAtFrame(20).getBase());
+    assertEquals(30, resize.executeAtFrame(20).getHeight());
   }
 }
