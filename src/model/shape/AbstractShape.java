@@ -28,7 +28,7 @@ public abstract class AbstractShape implements Shape {
    * @throws IllegalArgumentException if the base or height is negative, or if r, g, b are outside
    * the allowed range.
    */
-  public AbstractShape(String identifier, int x, int y, int base, int height, int r, int g, int b)
+  public AbstractShape(String identifier, float x, float y, float base, float height, int r, int g, int b)
       throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
@@ -53,7 +53,7 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void setPosition(int x, int y) throws IllegalArgumentException {
+  public void setPosition(float x, float y) throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
     }
