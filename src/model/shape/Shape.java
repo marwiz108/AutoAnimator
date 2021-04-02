@@ -23,7 +23,7 @@ public interface Shape {
   /**
    * Sets the position of the shape.
    */
-  void setPosition(int x, int y);
+  void setPosition(float x, float y);
 
   /**
    * Returns a copy of the shape with the same attributes.
@@ -61,6 +61,10 @@ public interface Shape {
 
   /**
    * Sets colour of the shape to an rgb value.
+   *
+   * @param r
+   * @param g
+   * @param b
    */
   void setColor(int r, int g, int b);
 

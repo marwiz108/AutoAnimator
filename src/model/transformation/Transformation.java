@@ -28,6 +28,6 @@ public interface Transformation {
    * @return the value the parameter will have at the given frame.
    * @throws IllegalArgumentException if the frame is negative.
    */
-  int getValueAtFrame(int frame, float initialValue, float finalValue) throws IllegalArgumentException;
+  float getValueAtFrame(int frame, float initialValue, float finalValue) throws IllegalArgumentException;
 
 }

@@ -41,23 +41,23 @@ public class TransformationTest {
 
   @Test
   public void testGetValueAtFrame() {
-    int frame0 = move.getValueAtFrame(0, 0, 100);
-    int frame5 = move.getValueAtFrame(5, 0, 100);
-    int frame10 = move.getValueAtFrame(10, 0, 100);
-    int frame15 = move.getValueAtFrame(15, 0, 100);
-    int frame20 = move.getValueAtFrame(20, 0, 100);
+    float frame0 = move.getValueAtFrame(0, 0, 100);
+    float frame5 = move.getValueAtFrame(5, 0, 100);
+    float frame10 = move.getValueAtFrame(10, 0, 100);
+    float frame15 = move.getValueAtFrame(15, 0, 100);
+    float frame20 = move.getValueAtFrame(20, 0, 100);
 
-    assertEquals(0, frame0);
-    assertEquals(10, frame5);
-    assertEquals(60, frame10);
-    assertEquals(100, frame15);
-    assertEquals(100, frame20);
+    assertEquals(0, frame0, 0);
+    assertEquals(10, frame5, 0);
+    assertEquals(60, frame10, 0);
+    assertEquals(100, frame15, 0);
+    assertEquals(100, frame20, 0);
 
-    int yFrame0 = move.getValueAtFrame(0, 0, 0);
-    int yFrame15 = move.getValueAtFrame(20, 0, 0);
+    float yFrame0 = move.getValueAtFrame(0, 0, 0);
+    float yFrame15 = move.getValueAtFrame(20, 0, 0);
 
-    assertEquals(0, yFrame0);
-    assertEquals(0, yFrame15);
+    assertEquals(0, yFrame0, 0);
+    assertEquals(0, yFrame15, 0);
   }
 
   @Test (expected = IllegalArgumentException.class)
