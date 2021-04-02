@@ -51,7 +51,7 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void setPosition(int x, int y) {
+  public void setPosition(float x, float y) {
     this.reference.updatePosition(x, y);
   }
 

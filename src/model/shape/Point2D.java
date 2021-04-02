@@ -26,7 +26,7 @@ public class Point2D {
     return this.y;
   }
 
-  public void updatePosition(int x, int y) {
+  public void updatePosition(float x, float y) {
     this.x = x;
     this.y = y;
   }
