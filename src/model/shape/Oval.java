@@ -7,7 +7,7 @@ package model.shape;
 public class Oval extends AbstractShape {
 
   // x and y position is the center of the oval
-  public Oval(String identifier, int x, int y, int base, int height, int r, int g, int b) {
+  public Oval(String identifier, float x, float y, float base, float height, int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
   }
 
@@ -18,8 +18,8 @@ public class Oval extends AbstractShape {
 
   @Override
   public Shape copy() {
-    int x = this.reference.getX();
-    int y = this.reference.getY();
+    float x = this.reference.getX();
+    float y = this.reference.getY();
     return new Oval(this.identifier, x, y, this.base, this.height,
             this.color.getRed(),
             this.color.getGreen(),
