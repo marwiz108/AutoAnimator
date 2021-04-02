@@ -1,15 +1,14 @@
 package model.shape;
 
 /**
- * This class represents a 2D point.
- * This stores the position as coordinates x and y.
+ * This class represents a 2D point. This stores the position as coordinates x and y.
  */
 public class Point2D {
 
-  private int x;
-  private int y;
+  private float x;
+  private float y;
 
-  public Point2D(int x, int y) {
+  public Point2D(float x, float y) {
     this.x = x;
     this.y = y;
   }
@@ -19,15 +18,15 @@ public class Point2D {
     return String.format("(%s, %s)", this.x, this.y);
   }
 
-  public int getX() {
+  public float getX() {
     return this.x;
   }
 
-  public int getY() {
+  public float getY() {
     return this.y;
   }
 
-  public void updatePosition(int x, int y) {
+  public void updatePosition(float x, float y) {
     this.x = x;
     this.y = y;
   }

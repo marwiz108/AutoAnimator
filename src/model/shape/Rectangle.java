@@ -1,7 +1,5 @@
 package model.shape;
 
-import org.w3c.dom.css.Rect;
-
 /**
  * This class represents a model.shape.Rectangle shape.
  * A rectangle has a corner, base and height.
@@ -9,7 +7,8 @@ import org.w3c.dom.css.Rect;
 public class Rectangle extends AbstractShape {
 
   // x and y position is the min. left corner
-  public Rectangle(String identifier, int x, int y, int base, int height, int r, int g, int b) {
+  public Rectangle(String identifier, float x, float y, float base, float height,
+                   int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
   }
 
@@ -20,8 +19,8 @@ public class Rectangle extends AbstractShape {
 
   @Override
   public Shape copy() {
-    int x = this.reference.getX();
-    int y = this.reference.getY();
+    float x = this.reference.getX();
+    float y = this.reference.getY();
     return new Rectangle(this.identifier, x, y, this.base, this.height,
             this.color.getRed(),
             this.color.getGreen(),

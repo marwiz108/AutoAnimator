@@ -35,7 +35,7 @@ public abstract class AbstractTransformation implements Transformation {
   }
 
   @Override
-  public int getValueAtFrame(int frame, int initialValue, int finalValue)
+  public float getValueAtFrame(int frame, float initialValue, float finalValue)
           throws IllegalArgumentException {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
@@ -43,7 +43,7 @@ public abstract class AbstractTransformation implements Transformation {
     double diff = finalValue - initialValue;
     double range = this.endFrame - this.startFrame;
     double step = diff / range;
-    double acc = (double) initialValue;
+    double acc = initialValue;
     for (int f = 0; f < this.endFrame; f++) {
       if (f >= this.startFrame) {
         acc += step;

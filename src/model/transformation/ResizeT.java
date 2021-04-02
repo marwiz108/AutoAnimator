@@ -5,18 +5,20 @@ import model.shape.Shape;
  */
 public class ResizeT extends AbstractTransformation {
 
-  public enum Dimension {
-    BASE, HEIGHT;
+  private String toStringHelp(float base, float height) {
+    return String.format("Base: %.1f, Height: %.1f", base, height);
   }
+
   private final Dimension baseOrHeight;
   private final int initialValue;
   private final int finalValue;
 
   /**
    * Constructor for the ResizeT class.
-   * @param shape the initial Shape object.
+   *
+   * @param shape      the initial Shape object.
    * @param startFrame the starting frame of the transformation.
-   * @param endFrame the ending frame of the transformation.
+   * @param endFrame   the ending frame of the transformation.
    */
   public ResizeT(Shape shape, int startFrame, int endFrame, Dimension dimension,
                  int initialValue, int finalValue) {
@@ -26,8 +28,8 @@ public class ResizeT extends AbstractTransformation {
     this.finalValue = finalValue;
   }
 
-  private String toStringHelp(int base, int height) {
-    return String.format("Base: %d, Height: %d", base, height);
+  public enum Dimension {
+    BASE, HEIGHT
   }
 
   @Override
@@ -47,7 +49,7 @@ public class ResizeT extends AbstractTransformation {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    int newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
+    float newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
     if (this.baseOrHeight == Dimension.BASE) {
       this.shape.resize(newValue, this.shape.getHeight());
     } else {
