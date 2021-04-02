@@ -30,6 +30,18 @@ public class ShapeTest {
   }
 
   @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidX() {
+    Shape newOval = new Oval("oval", -20, 50,
+        0, 50, 0, 0, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testConstructorWithInvalidY() {
+    Shape newOval = new Oval("oval", 100, -50,
+        0, 50, 0, 0, 255);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidBase() {
     Shape newOval = new Oval("oval", 100, 50,
         0, 50, 0, 0, 255);
@@ -77,6 +89,16 @@ public class ShapeTest {
     this.rectangle.setPosition(250, 150);
     assertEquals(250, this.rectangle.getPosition().getX(), 0);
     assertEquals(150, this.rectangle.getPosition().getY(), 0);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testSetPositionWithInvalidX() {
+    this.oval.setPosition(-35, 25);
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testSetPositionWithInvalidY() {
+    this.oval.setPosition(35, -25);
   }
 
   @Test
