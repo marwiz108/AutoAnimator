@@ -21,6 +21,24 @@ public class MoveT extends AbstractTransformation {
     this.endPos = endPos;
   }
 
+  /**
+   * Constructor for MoveT that takes int arguments for position.
+   *
+   * @param shape      the initial Shape object.
+   * @param startFrame the starting frame.
+   * @param endFrame   the ending frame object.
+   * @param initialX   the initial x position of the Shape.
+   * @param initialY   the initial y position of the Shape.
+   * @param finalX     the final x position of the Shape.
+   * @param finalY     the final y position of the Shape.
+   */
+  public MoveT(Shape shape, int startFrame, int endFrame, int initialX, int initialY,
+               int finalX, int finalY) {
+    super(shape, startFrame, endFrame);
+    this.startPos = new Point2D(initialX, initialY);
+    this.endPos = new Point2D(finalX, finalY);
+  }
+
   @Override
   public String toString() {
     return super.toString("moves",
@@ -34,8 +52,9 @@ public class MoveT extends AbstractTransformation {
     }
     float newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
     float newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
-    this.shape.setPosition(newX, newY);
+    Shape shapeAtFrame = this.shape.copy();
+    shapeAtFrame.setPosition(newX, newY);
 
-    return this.shape;
+    return shapeAtFrame;
   }
 }

@@ -23,6 +23,7 @@ public class Canvas {
 
   /**
    * Adds a Shape object with its identifier as a key to the map of initial shapes.
+   *
    * @param shape the Shape object
    */
   public void addShape(Shape shape) {
@@ -30,11 +31,23 @@ public class Canvas {
   }
 
   /**
-   * Adds a Transformation object to the list of transformations.
+   * Remove a Shape by id.
+   *
+   * @param id the identifier of the Shape to be removed.
+   */
+  public void removeShape(String id) {
+    this.initialShapes.remove(id);
+  }
+
+  /**
+   * Adds a Transformation object to the list of transformations, then sorts the list so all
+   * transformations are order of starting frame.
+   *
    * @param transformation the Transformation object
    */
   public void addTransformation(Transformation transformation) {
     this.transformations.add(transformation);
+    this.sortTransformations();
   }
 
   /**
@@ -52,9 +65,18 @@ public class Canvas {
    */
   public String toString() {
     StringBuilder canvasStr = new StringBuilder();
-    canvasStr.append("Shapes:\n");
-    initialShapes.forEach((k, v) -> canvasStr.append(v.toString() + "\n\n"));
-    transformations.forEach(transformation -> canvasStr.append(transformation.toString() + "\n"));
+    if (!this.initialShapes.isEmpty()) {
+      canvasStr.append("Shapes:\n");
+      initialShapes.forEach((k, v) -> canvasStr.append(v.toString() + "\n\n"));
+    } else {
+      canvasStr.append("No shapes in the animation.\n");
+    }
+    if (!this.transformations.isEmpty()) {
+      canvasStr.append("Transformations:\n");
+      transformations.forEach(transformation -> canvasStr.append(transformation.toString() + "\n"));
+    } else {
+      canvasStr.append("No transformations in the animation.\n");
+    }
     return canvasStr.toString();
   }
 
