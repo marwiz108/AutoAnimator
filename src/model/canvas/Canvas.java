@@ -43,9 +43,14 @@ public class Canvas {
    *
    * @param shapeID the identifier of the shape
    * @param transformation the Transformation object
+   * @throws IllegalArgumentException if shape with given identifier is not found
    */
-  public void addTransformation(String shapeID, Transformation transformation) {
+  public void addTransformation(String shapeID, Transformation transformation)
+      throws IllegalArgumentException {
     Shape shape = this.initialShapes.get(shapeID);
+    if (shape == null) {
+      throw new IllegalArgumentException("Shape not found.");
+    }
     shape.addTransformation(transformation);
   }
 
