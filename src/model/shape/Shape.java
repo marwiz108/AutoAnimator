@@ -1,6 +1,8 @@
 package model.shape;
 
 import java.awt.*;
+import java.util.ArrayList;
+import model.transformation.Transformation;
 
 /**
  * This interface represents a shape.
@@ -79,5 +81,17 @@ public interface Shape {
    * @param val true or false
    */
   void setVisibility(boolean val);
+
+  /**
+   * Adds a transformation to the list of transformations for the shape.
+   * @param transformation the Transformation object to add
+   */
+  void addTransformation(Transformation transformation);
+
+  /**
+   * Returns the list of transformations for the shape.
+   * @return list of Transformation objects
+   */
+  ArrayList getTransformations();
 
 }

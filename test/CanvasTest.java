@@ -92,10 +92,10 @@ public class CanvasTest {
   public void testAddTransformation() {
     this.canvas.addShape(rectangle1);
     this.canvas.addShape(oval1);
-    this.canvas.addTransformation(changeRVis);
-    this.canvas.addTransformation(changeOVis);
-    this.canvas.addTransformation(resize);
-    this.canvas.addTransformation(move);
+    this.canvas.addTransformation("r", changeRVis);
+    this.canvas.addTransformation("o", changeOVis);
+    this.canvas.addTransformation("o", resize);
+    this.canvas.addTransformation("r", move);
 
     assertEquals(
             "Shapes:\n"
