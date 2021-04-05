@@ -50,11 +50,12 @@ public class ResizeT extends AbstractTransformation {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
     float newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
+    Shape shapeAtFrame = this.shape.copy();
     if (this.baseOrHeight == Dimension.BASE) {
-      this.shape.resize(newValue, this.shape.getHeight());
+      shapeAtFrame.resize(newValue, shapeAtFrame.getHeight());
     } else {
-      this.shape.resize(this.shape.getBase(), newValue);
+      shapeAtFrame.resize(shapeAtFrame.getBase(), newValue);
     }
-    return this.shape;
+    return shapeAtFrame;
   }
 }

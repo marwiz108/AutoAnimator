@@ -42,33 +42,80 @@ public class CanvasTest {
 //    this.changeColor = new ChangeColorT()
 
     this.move = new MoveT(rectangle1, 10, 20, p2, p3);
-    this.resize = new ResizeT(oval1, 0, 5, ResizeT.Dimension.BASE,
+    this.resize = new ResizeT(oval1, 15, 20, ResizeT.Dimension.BASE,
             60, 80);
   }
 
   @Test
   public void testAddShape() {
     this.canvas.addShape(oval1);
-    assertEquals("Shapes:\n"
-            + "Name: o\n"
-            + "Type: oval\n"
-            + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
-            + "Color: (255, 178, 102)\n\n", this.canvas.toString());
+    assertEquals(
+            "Shapes:\n"
+                    + "Name: o\n"
+                    + "Type: oval\n"
+                    + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+                    + "Color: (255, 178, 102)\n\n"
+                    + "No transformations in the animation.\n",
+            this.canvas.toString());
 
     this.canvas.addShape(rectangle1);
-    assertEquals("Shapes:\n"
-            + "Name: o\n"
-            + "Type: oval\n"
-            + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
-            + "Color: (255, 178, 102)\n\n"
-            + "Name: r\n"
-            + "Type: rectangle\n"
-            + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
-            + "Color: (51, 153, 255)\n\n", this.canvas.toString());
+    assertEquals(
+            "Shapes:\n"
+                    + "Name: o\n"
+                    + "Type: oval\n"
+                    + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+                    + "Color: (255, 178, 102)\n\n"
+                    + "Name: r\n"
+                    + "Type: rectangle\n"
+                    + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+                    + "Color: (51, 153, 255)\n\n"
+                    + "No transformations in the animation.\n",
+            this.canvas.toString());
+  }
+
+  @Test
+  public void testRemoveShape() {
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+    this.canvas.removeShape("o");
+    assertEquals(
+            "Shapes:\n"
+                    + "Name: r\n"
+                    + "Type: rectangle\n"
+                    + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+                    + "Color: (51, 153, 255)\n"
+                    + "\n"
+                    + "No transformations in the animation.\n", this.canvas.toString());
   }
 
   @Test
   public void testAddTransformation() {
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+    this.canvas.addTransformation(changeRVis);
+    this.canvas.addTransformation(changeOVis);
+    this.canvas.addTransformation(resize);
+    this.canvas.addTransformation(move);
+
+    assertEquals(
+            "Shapes:\n"
+                    + "Name: r\n"
+                    + "Type: rectangle\n"
+                    + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+                    + "Color: (51, 153, 255)\n"
+                    + "\n"
+                    + "Name: o\n"
+                    + "Type: oval\n"
+                    + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+                    + "Color: (255, 178, 102)\n"
+                    + "\n"
+                    + "Transformations:\n"
+                    + "Shape o appears at t=0 and disappears at t=10\n"
+                    + "Shape r appears at t=5 and disappears at t=15\n"
+                    + "Shape r moves from (200.0, 80.0) to (25.0, 100.0) from t=10 to t=20\n"
+                    + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 80.0, " +
+                    "Height: 30.0 from t=15 to t=20\n", this.canvas.toString()
+    );
   }
 
   @Test
@@ -88,11 +135,8 @@ public class CanvasTest {
             + "Name: o\n"
             + "Type: oval\n"
             + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
-            + "Color: (255, 178, 102)\n\n", this.canvas.toString());
+            + "Color: (255, 178, 102)\n\n" +
+            "No transformations in the animation.\n", this.canvas.toString());
   }
 
-  @Test
-  public void testSortTransformations() {
-
-  }
 }
