@@ -7,7 +7,7 @@ import model.shape.Shape;
 /**
  * Changes the color of a Shape over a specified range of frames.
  */
-public class ChangeColorT extends AbstractTransformation {
+public class ChangeColorT extends AbstractTransformation<int[]> {
 
   private final Color startColor;
   private final Color endColor;
@@ -61,17 +61,17 @@ public class ChangeColorT extends AbstractTransformation {
   }
 
   @Override
-  public Shape executeAtFrame(int frame) {
+  public int[] executeAtFrame(int frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    int newR = (int) this.getValueAtFrame(frame, this.startColor.getRed(), this.endColor.getRed());
-    int newG = (int) this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColor.getGreen());
-    int newB = (int) this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColor.getBlue());
+    int newR = (int) this.getValueAtFrame(frame, this.startColor.getRed(),
+            this.endColor.getRed());
+    int newG = (int) this.getValueAtFrame(frame, this.startColor.getGreen(),
+            this.endColor.getGreen());
+    int newB = (int) this.getValueAtFrame(frame, this.startColor.getBlue(),
+            this.endColor.getBlue());
 
-    Shape shapeAtFrame = this.shape.copy();
-    shapeAtFrame.setColor(newR, newG, newB);
-
-    return shapeAtFrame;
+    return new int[]{newR, newG, newB};
   }
 }

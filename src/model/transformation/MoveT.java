@@ -4,16 +4,17 @@ import model.shape.Shape;
 /**
  * Moves a Shape from one position to another over a specified number of frames.
  */
-public class MoveT extends AbstractTransformation {
+public class MoveT extends AbstractTransformation<float[]> {
 
   Point2D startPos;
   Point2D endPos;
 
   /**
    * Constructor for the MoveT class.
-   * @param shape the initial Shape object.
+   *
+   * @param shape      the initial Shape object.
    * @param startFrame the starting frame of the transformation.
-   * @param endFrame the ending frame of the transformation.
+   * @param endFrame   the ending frame of the transformation.
    */
   public MoveT(Shape shape, int startFrame, int endFrame, Point2D startPos, Point2D endPos) {
     super(shape, startFrame, endFrame);
@@ -46,15 +47,13 @@ public class MoveT extends AbstractTransformation {
   }
 
   @Override
-  public Shape executeAtFrame(int frame) {
+  public float[] executeAtFrame(int frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
     float newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
     float newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
-    Shape shapeAtFrame = this.shape.copy();
-    shapeAtFrame.setPosition(newX, newY);
 
-    return shapeAtFrame;
+    return new float[]{newX, newY};
   }
 }

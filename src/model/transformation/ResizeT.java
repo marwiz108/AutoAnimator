@@ -46,18 +46,15 @@ public class ResizeT extends AbstractTransformation {
     return super.toString("Scales", pre, post);
   }
 
+  public Dimension getBaseOrHeight() {
+    return this.baseOrHeight;
+  }
+
   @Override
-  public Shape executeAtFrame(int frame) {
+  public Object executeAtFrame(int frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    float newValue = this.getValueAtFrame(frame, this.initialValue, this.finalValue);
-    Shape shapeAtFrame = this.shape.copy();
-    if (this.baseOrHeight == Dimension.BASE) {
-      shapeAtFrame.resize(newValue, shapeAtFrame.getHeight());
-    } else {
-      shapeAtFrame.resize(shapeAtFrame.getBase(), newValue);
-    }
-    return shapeAtFrame;
+    return this.getValueAtFrame(frame, this.initialValue, this.finalValue);
   }
 }

@@ -5,13 +5,14 @@ import model.shape.Shape;
 /**
  * Transformation that changes the visibility of a Shape at the appropriate frame(s).
  */
-public class ChangeVisibilityT extends AbstractTransformation {
+public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
 
   /**
    * Constructor for the ChangeVisibilityT class.
-   * @param shape the initial Shape object.
+   *
+   * @param shape      the initial Shape object.
    * @param startFrame the starting frame of the transformation.
-   * @param endFrame the ending frame of the transformation.
+   * @param endFrame   the ending frame of the transformation.
    */
   public ChangeVisibilityT(Shape shape, int startFrame, int endFrame) {
     super(shape, startFrame, endFrame);
@@ -24,12 +25,10 @@ public class ChangeVisibilityT extends AbstractTransformation {
   }
 
   @Override
-  public Shape executeAtFrame(int frame) {
+  public Boolean executeAtFrame(int frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    Shape shapeAtFrame = this.shape.copy();
-    shapeAtFrame.setVisibility(frame >= this.startFrame && frame < this.endFrame);
-    return shapeAtFrame;
+    return frame >= this.startFrame && frame < this.endFrame;
   }
 }

@@ -3,10 +3,10 @@ package model.transformation;
 import model.shape.Shape;
 
 /**
- * Abstract class for the Transformation interface that contains common functionality for
- * all Transformation objects.
+ * Abstract class for the Transformation interface that contains common functionality for all
+ * Transformation objects.
  */
-public abstract class AbstractTransformation implements Transformation {
+public abstract class AbstractTransformation<T> implements Transformation<T> {
 
   protected final Shape shape;
   protected final int startFrame;
