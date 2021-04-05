@@ -6,7 +6,7 @@ package model.shape;
  */
 public class Rectangle extends AbstractShape {
 
-  // x and y position is the min. left corner
+  // x and y position is the top left corner
   public Rectangle(String identifier, float x, float y, float base, float height,
                    int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
