@@ -20,12 +20,11 @@ public class Canvas {
   }
 
   /**
-   * Adds a Shape object and its identifier to the map of initial shapes.
-   * @param key string identifier/name of the shape
+   * Adds a Shape object with its identifier as a key to the map of initial shapes.
    * @param shape the Shape object
    */
-  public void addShape(String key, Shape shape) {
-    this.initialShapes.put(key, shape);
+  public void addShape(Shape shape) {
+    this.initialShapes.put(shape.getIdentifier(), shape);
   }
 
   /**
