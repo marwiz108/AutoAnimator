@@ -14,11 +14,9 @@ import model.transformation.Transformation;
  */
 public class Canvas {
   private final LinkedHashMap<String, Shape> initialShapes;
-  private final ArrayList<Transformation> transformations;
 
   public Canvas() {
     this.initialShapes = new LinkedHashMap<>();
-    this.transformations = new ArrayList<>();
   }
 
   /**
@@ -43,11 +41,17 @@ public class Canvas {
    * Adds a Transformation object to the list of transformations, then sorts the list so all
    * transformations are order of starting frame.
    *
+   * @param shapeID the identifier of the shape
    * @param transformation the Transformation object
+   * @throws IllegalArgumentException if shape with given identifier is not found
    */
-  public void addTransformation(Transformation transformation) {
-    this.transformations.add(transformation);
-    this.sortTransformations();
+  public void addTransformation(String shapeID, Transformation transformation)
+      throws IllegalArgumentException {
+    Shape shape = this.initialShapes.get(shapeID);
+    if (shape == null) {
+      throw new IllegalArgumentException("Shape not found.");
+    }
+    shape.addTransformation(transformation);
   }
 
   /**
@@ -71,7 +75,15 @@ public class Canvas {
     } else {
       canvasStr.append("No shapes in the animation.\n");
     }
-    if (!this.transformations.isEmpty()) {
+
+    ArrayList<Transformation> transformations = new ArrayList<>();
+    for (Shape shape:this.initialShapes.values()) {
+      if (!shape.getTransformations().isEmpty()) {
+        transformations.addAll(0,shape.getTransformations());
+      }
+    }
+    if (!transformations.isEmpty()) {
+      this.sortTransformations(transformations);
       canvasStr.append("Transformations:\n");
       transformations.forEach(transformation -> canvasStr.append(transformation.toString() + "\n"));
     } else {
@@ -83,8 +95,8 @@ public class Canvas {
   /**
    * Sort the transformations in the list by their starting frame.
    */
-  private void sortTransformations() {
+  private void sortTransformations(ArrayList transformations) {
     Comparator<Transformation> c = (o1, o2) -> o1.getStartFrame() - o2.getStartFrame();
-    this.transformations.sort(c);
+    transformations.sort(c);
   }
 }

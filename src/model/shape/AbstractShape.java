@@ -1,6 +1,8 @@
 package model.shape;
 
 import java.awt.*;
+import java.util.ArrayList;
+import model.transformation.Transformation;
 
 /**
  * Abstract class for a Shape object that stores common functionality for all shapes.
@@ -13,6 +15,7 @@ public abstract class AbstractShape implements Shape {
   protected Point2D reference;
   Color color;
   boolean visible;
+  protected ArrayList<Transformation> transformations;
 
   /**
    * Constructor that is used to create an abstract shape. Is called by children of the
@@ -42,6 +45,7 @@ public abstract class AbstractShape implements Shape {
     this.height = height;
     this.setColor(r, g, b);
     this.visible = false;
+    this.transformations = new ArrayList<>();
   }
 
   @Override
@@ -101,6 +105,16 @@ public abstract class AbstractShape implements Shape {
   @Override
   public void setVisibility(boolean val) {
     this.visible = val;
+  }
+
+  @Override
+  public void addTransformation(Transformation transformation) {
+    this.transformations.add(transformation);
+  }
+
+  @Override
+  public ArrayList getTransformations() {
+    return this.transformations;
   }
 
   protected String toString(String shapeType) {
