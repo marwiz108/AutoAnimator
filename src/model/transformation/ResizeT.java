@@ -10,18 +10,20 @@ public class ResizeT extends AbstractTransformation {
   }
 
   private final Dimension baseOrHeight;
-  private final int initialValue;
-  private final int finalValue;
+  private final float initialValue;
+  private final float finalValue;
 
   /**
    * Constructor for the ResizeT class.
    *
-   * @param shape      the initial Shape object.
-   * @param startFrame the starting frame of the transformation.
-   * @param endFrame   the ending frame of the transformation.
+   * @param shape        the initial Shape object.
+   * @param startFrame   the starting frame of the transformation.
+   * @param endFrame     the ending frame of the transformation.
+   * @param initialValue the initial magnitude of the base or height.
+   * @param finalValue   the final magnitude of the base or height.
    */
   public ResizeT(Shape shape, int startFrame, int endFrame, Dimension dimension,
-                 int initialValue, int finalValue) {
+                 float initialValue, float finalValue) {
     super(shape, startFrame, endFrame);
     this.baseOrHeight = dimension;
     this.initialValue = initialValue;
