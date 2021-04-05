@@ -118,14 +118,21 @@ public class CanvasTest {
     );
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void testAddTransformationWithInvalidShape() {
+    this.canvas.addTransformation("t", resize);
+  }
+
   @Test
   public void testGetShapesAtFrame() {
   }
 
   @Test
-  public void testToString() {
+  public void testToStringWithTransformations() {
     this.canvas.addShape(rectangle1);
     this.canvas.addShape(oval1);
+    this.canvas.addTransformation("r", changeRVis);
+    this.canvas.addTransformation("r", move);
 
     assertEquals("Shapes:\n"
             + "Name: r\n"
@@ -135,8 +142,52 @@ public class CanvasTest {
             + "Name: o\n"
             + "Type: oval\n"
             + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
-            + "Color: (255, 178, 102)\n\n" +
-            "No transformations in the animation.\n", this.canvas.toString());
+            + "Color: (255, 178, 102)\n\n"
+            + "Transformations:\n"
+            + "Shape r appears at t=5 and disappears at t=15\n"
+            + "Shape r moves from (200.0, 80.0) to (25.0, 100.0) from t=10 to t=20\n",
+        this.canvas.toString());
+
+    this.canvas.addTransformation("o", changeOVis);
+    this.canvas.addTransformation("o", resize);
+
+    assertEquals("Shapes:\n"
+        + "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+        + "Color: (51, 153, 255)\n\n"
+        + "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+        + "Color: (255, 178, 102)\n\n"
+        + "Transformations:\n"
+        + "Shape o appears at t=0 and disappears at t=10\n"
+        + "Shape r appears at t=5 and disappears at t=15\n"
+        + "Shape r moves from (200.0, 80.0) to (25.0, 100.0) from t=10 to t=20\n"
+        + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 80.0, " +
+        "Height: 30.0 from t=15 to t=20\n", this.canvas.toString());
   }
 
+  @Test
+  public void testToStringNoTransformations() {
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+
+    assertEquals("Shapes:\n"
+        + "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+        + "Color: (51, 153, 255)\n\n"
+        + "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+        + "Color: (255, 178, 102)\n\n"
+        + "No transformations in the animation.\n", this.canvas.toString());
+  }
+
+  @Test
+  public void testToStringNoShapes() {
+    assertEquals("No shapes in the animation.\n"
+        + "No transformations in the animation.\n", this.canvas.toString());
+  }
 }
