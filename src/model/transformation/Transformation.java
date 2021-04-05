@@ -1,24 +1,22 @@
 package model.transformation;
 
-import model.shape.Shape;
-
 /**
- * Transformation interface that defines behavior shared by all transformation objects.
- * A transformation has one Shape and must be able to determine the state of that Shape
- * at any given (viable) frame number.
+ * Transformation interface that defines behavior shared by all transformation objects. A
+ * transformation has one Shape and must be able to determine the state of that Shape at any given
+ * (viable) frame number.
  */
-public interface Transformation {
+public interface Transformation<T> {
 
   /**
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
    * frame.
    *
    * @param frame the frame to be rendered.
-   * @return A COPY of the original shape object that reflects results of the transformation at the
-   * given frame.
+   * @return the result of the transformation at a given frame. Will be used to set the Shape
+   * state at the given frame.
    * @throws IllegalArgumentException if the given frame is negative
    */
-  Shape executeAtFrame(int frame) throws IllegalArgumentException;
+  T executeAtFrame(int frame) throws IllegalArgumentException;
 
   /**
    * Return the starting frame of the transformation.
