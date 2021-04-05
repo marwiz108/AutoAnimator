@@ -1,6 +1,7 @@
-import model.canvas.Canvas;
 import org.junit.Before;
 import org.junit.Test;
+
+import model.canvas.Canvas;
 
 public class CanvasTest {
 
@@ -26,5 +27,10 @@ public class CanvasTest {
 
   @Test
   public void testToString() {
+  }
+
+  @Test
+  public void testSortTransformations() {
+
   }
 }

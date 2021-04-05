@@ -1,7 +1,9 @@
 package model.canvas;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+
 import model.shape.Shape;
 import model.transformation.Transformation;
 
@@ -57,7 +59,11 @@ public class Canvas {
     return canvasStr.toString();
   }
 
+  /**
+   * Sort the transformations in the list by their starting frame.
+   */
   private void sortTransformations() {
-    return;
+    Comparator<Transformation> c = (o1, o2) -> o1.getStartFrame() - o2.getStartFrame();
+    this.transformations.sort(c);
   }
 }
