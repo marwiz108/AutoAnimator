@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
+import java.util.Arrays;
 
 import model.shape.Point2D;
 import model.shape.Rectangle;
@@ -12,6 +13,7 @@ import model.transformation.MoveT;
 import model.transformation.ResizeT;
 import model.transformation.Transformation;
 
+import static model.transformation.dimension.BASE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -35,7 +37,7 @@ public class TransformationTest {
     move = new MoveT(ref, 5, 15, start, end);
     changeColor = new ChangeColorT(ref, 5, 15, c1, c2);
     changeVis = new ChangeVisibilityT(ref, 5, 15);
-    resize = new ResizeT(ref, 5, 15, ResizeT.Dimension.BASE,
+    resize = new ResizeT(ref, 5, 15, BASE,
             50, 75);
   }
 
@@ -122,37 +124,34 @@ public class TransformationTest {
 
   @Test
   public void testExecuteAtFrameVis() {
-    assertFalse((Boolean) changeVis.executeAtFrame(0));
-    assertTrue((Boolean) changeVis.executeAtFrame(5));
-    assertTrue((Boolean) changeVis.executeAtFrame(14));
-    assertFalse((Boolean) changeVis.executeAtFrame(15));
-    assertFalse((Boolean) changeVis.executeAtFrame(20));
+    assertFalse((boolean) changeVis.executeAtFrame(0));
+    assertTrue((boolean) changeVis.executeAtFrame(5));
+    assertTrue((boolean) changeVis.executeAtFrame(14));
+    assertFalse((boolean) changeVis.executeAtFrame(15));
+    assertFalse((boolean) changeVis.executeAtFrame(20));
   }
-//
-//  @Test
-//  public void testExecuteAtFrameMove() {
-//    assertEquals("(0.0, 0.0)", move.executeAtFrame(0).getPosition().toString());
-//    assertEquals("(10.0, 0.0)", move.executeAtFrame(5).getPosition().toString());
-//    assertEquals("(60.0, 0.0)", move.executeAtFrame(10).getPosition().toString());
-//    assertEquals("(100.0, 0.0)", move.executeAtFrame(15).getPosition().toString());
-//    assertEquals("(100.0, 0.0)", move.executeAtFrame(20).getPosition().toString());
-//  }
-//
-//  @Test
-//  public void testExecuteAtFrameResize() {
-//    assertEquals(50, resize.executeAtFrame(0).getBase(), 0);
-//    assertEquals(30, resize.executeAtFrame(0).getHeight(), 0);
-//
-//    assertEquals(52, resize.executeAtFrame(5).getBase(), 0);
-//    assertEquals(30, resize.executeAtFrame(5).getHeight(), 0);
-//
-//    assertEquals(65, resize.executeAtFrame(10).getBase(), 0);
-//    assertEquals(30, resize.executeAtFrame(10).getHeight(), 0);
-//
-//    assertEquals(75, resize.executeAtFrame(15).getBase(), 0);
-//    assertEquals(30, resize.executeAtFrame(15).getHeight(), 0);
-//
-//    assertEquals(75, resize.executeAtFrame(20).getBase(), 0);
-//    assertEquals(30, resize.executeAtFrame(20).getHeight(), 0);
-//  }
+
+  //
+  @Test
+  public void testExecuteAtFrameMove() {
+    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(0)));
+    assertEquals("[10.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(5)));
+    assertEquals("[60.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(10)));
+    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(15)));
+    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(20)));
+  }
+
+  @Test
+  public void testExecuteAtFrameResize() {
+    assertEquals(BASE, ((ResizeT) resize).getDimension());
+    assertEquals(50, (float) resize.executeAtFrame(0), 0);
+
+    assertEquals(52, (float) resize.executeAtFrame(5), 0);
+
+    assertEquals(65, (float) resize.executeAtFrame(10), 0);
+
+    assertEquals(75, (float) resize.executeAtFrame(15), 0);
+
+    assertEquals(75, (float) resize.executeAtFrame(20), 0);
+  }
 }

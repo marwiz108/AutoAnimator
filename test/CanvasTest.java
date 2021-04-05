@@ -10,6 +10,7 @@ import model.transformation.ChangeColorT;
 import model.transformation.ChangeVisibilityT;
 import model.transformation.MoveT;
 import model.transformation.ResizeT;
+import model.transformation.dimension;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,7 +43,7 @@ public class CanvasTest {
 //    this.changeColor = new ChangeColorT()
 
     this.move = new MoveT(rectangle1, 10, 20, p2, p3);
-    this.resize = new ResizeT(oval1, 15, 20, ResizeT.Dimension.BASE,
+    this.resize = new ResizeT(oval1, 15, 20, dimension.BASE,
             60, 80);
   }
 
