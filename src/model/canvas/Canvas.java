@@ -2,7 +2,6 @@ package model.canvas;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import model.shape.Shape;
 import model.transformation.Transformation;
 
@@ -12,8 +11,30 @@ import model.transformation.Transformation;
  * all shape objects at a given frame.
  */
 public class Canvas {
-  private HashMap<String, Shape> initialShapes;
-  private ArrayList<Transformation> transformations;
+  private final HashMap<String, Shape> initialShapes;
+  private final ArrayList<Transformation> transformations;
+
+  public Canvas() {
+    this.initialShapes = new HashMap<>();
+    this.transformations = new ArrayList<>();
+  }
+
+  /**
+   * Adds a Shape object and its identifier to the map of initial shapes.
+   * @param key string identifier/name of the shape
+   * @param shape the Shape object
+   */
+  public void addShape(String key, Shape shape) {
+    this.initialShapes.put(key, shape);
+  }
+
+  /**
+   * Adds a Transformation object to the list of transformations.
+   * @param transformation the Transformation object
+   */
+  public void addTransformation(Transformation transformation) {
+    this.transformations.add(transformation);
+  }
 
   /**
    * Get the state of all shapes at a given frame.
@@ -22,5 +43,21 @@ public class Canvas {
    */
   public ArrayList<Shape> getShapesAtFrame(int frame) {
     return null;
+  }
+
+  /**
+   * Returns a text description of the shapes and their transformations.
+   * @return string representation of each shape and the transformations
+   */
+  public String toString() {
+    StringBuilder canvasStr = new StringBuilder();
+    canvasStr.append("Shapes:\n");
+    initialShapes.forEach((k, v) -> canvasStr.append(v.toString() + "\n\n"));
+    transformations.forEach(transformation -> canvasStr.append(transformation.toString() + "\n"));
+    return canvasStr.toString();
+  }
+
+  private void sortTransformations() {
+    return;
   }
 }
