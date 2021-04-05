@@ -31,11 +31,18 @@ public class CanvasTest {
         + "Name: o\n"
         + "Type: oval\n"
         + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
-        + "Color: (255, 0, 0)\n\n", this.canvas.toString());
+        + "Color: (255, 178, 102)\n\n", this.canvas.toString());
 
     this.canvas.addShape(rectangle1);
     assertEquals("Shapes:\n"
-        + "Name: r");
+        + "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+        + "Color: (255, 178, 102)\n\n"
+        + "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+        + "Color: (51, 153, 255)\n\n", this.canvas.toString());
   }
 
   @Test
@@ -48,5 +55,17 @@ public class CanvasTest {
 
   @Test
   public void testToString() {
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+
+    assertEquals("Shapes:\n"
+        + "Name: r\n"
+        + "Type: rectangle\n"
+        + "Position: (200.0, 80.0), Base: 50.0, Height: 10.0\n"
+        + "Color: (51, 153, 255)\n\n"
+        + "Name: o\n"
+        + "Type: oval\n"
+        + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
+        + "Color: (255, 178, 102)\n\n", this.canvas.toString());
   }
 }
