@@ -32,8 +32,8 @@ public class MoveT extends AbstractTransformation {
    * @param finalX     the final x position of the Shape.
    * @param finalY     the final y position of the Shape.
    */
-  public MoveT(Shape shape, int startFrame, int endFrame, int initialX, int initialY,
-               int finalX, int finalY) {
+  public MoveT(Shape shape, int startFrame, int endFrame, float initialX, float initialY,
+               float finalX, float finalY) {
     super(shape, startFrame, endFrame);
     this.startPos = new Point2D(initialX, initialY);
     this.endPos = new Point2D(finalX, finalY);
