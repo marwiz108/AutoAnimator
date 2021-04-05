@@ -10,14 +10,22 @@ import model.shape.Shape;
 public interface Transformation {
 
   /**
-   * Determine the state (position, visibility, size, or color) of the Shape object at
-   * the current frame.
+   * Determine the state (position, visibility, size, or color) of the Shape object at the current
+   * frame.
+   *
    * @param frame the frame to be rendered.
-   * @return A COPY of the original shape object that reflects results of the transformation
-   * at the given frame.
+   * @return A COPY of the original shape object that reflects results of the transformation at the
+   * given frame.
    * @throws IllegalArgumentException if the given frame is negative
    */
   Shape executeAtFrame(int frame) throws IllegalArgumentException;
+
+  /**
+   * Return the starting frame of the transformation.
+   *
+   * @return the start frame.
+   */
+  int getStartFrame();
 
   /**
    * Determine the the value of some parameter at a given frame.
