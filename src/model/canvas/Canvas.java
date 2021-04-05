@@ -2,7 +2,7 @@ package model.canvas;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import model.shape.Shape;
 import model.transformation.Transformation;
@@ -13,17 +13,16 @@ import model.transformation.Transformation;
  * all shape objects at a given frame.
  */
 public class Canvas {
-  private final HashMap<String, Shape> initialShapes;
+  private final LinkedHashMap<String, Shape> initialShapes;
   private final ArrayList<Transformation> transformations;
 
   public Canvas() {
-    this.initialShapes = new HashMap<>();
+    this.initialShapes = new LinkedHashMap<>();
     this.transformations = new ArrayList<>();
   }
 
   /**
    * Adds a Shape object with its identifier as a key to the map of initial shapes.
-   *
    * @param shape the Shape object
    */
   public void addShape(Shape shape) {
