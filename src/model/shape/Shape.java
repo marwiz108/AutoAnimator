@@ -100,5 +100,5 @@ public interface Shape {
    *
    * @return list of Transformation objects.
    */
-  ArrayList getTransformations();
+  ArrayList<Transformation> getTransformations();
 }
