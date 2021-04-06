@@ -8,6 +8,7 @@ public class Rectangle extends AbstractShape {
   /**
    * Constructor for a Rectangle. Note that the reference point for a Rectangle is the top left
    * corner.
+   *
    * @param identifier the identifier used to reference this shape.
    * @param x the x-coordinate of the reference point of this shape.
    * @param y the y-coordinate of the reference point of this shape.
@@ -17,8 +18,8 @@ public class Rectangle extends AbstractShape {
    * @param g the green value of this shape (0 - 255).
    * @param b the blue value of this shape (0 - 255).
    */
-  public Rectangle(String identifier, float x, float y, float base, float height,
-                   int r, int g, int b) {
+  public Rectangle(
+          String identifier, float x, float y, float base, float height, int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
   }
 
@@ -31,10 +32,14 @@ public class Rectangle extends AbstractShape {
   public Shape copy() {
     float x = this.reference.getX();
     float y = this.reference.getY();
-    return new Rectangle(this.identifier, x, y, this.base, this.height,
+    return new Rectangle(
+            this.identifier,
+            x,
+            y,
+            this.base,
+            this.height,
             this.color.getRed(),
             this.color.getGreen(),
             this.color.getBlue());
   }
-
 }

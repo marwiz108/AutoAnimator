@@ -24,6 +24,7 @@ public class Canvas {
 
   /**
    * Returns a text description of the shapes and their transformations.
+   *
    * @return string representation of each shape and the transformations.
    */
   public String toString() {
@@ -36,9 +37,9 @@ public class Canvas {
     }
 
     ArrayList<Transformation> transformations = new ArrayList<>();
-    for (Shape shape:this.initialShapes.values()) {
+    for (Shape shape : this.initialShapes.values()) {
       if (!shape.getTransformations().isEmpty()) {
-        transformations.addAll(0,shape.getTransformations());
+        transformations.addAll(0, shape.getTransformations());
       }
     }
     if (!transformations.isEmpty()) {

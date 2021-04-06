@@ -14,9 +14,10 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
 
   /**
    * Super constructor for all extending classes.
-   * @param shape the shape object that this transformation acts upon.
+   *
+   * @param shape      the shape object that this transformation acts upon.
    * @param startFrame the frame where the transformation starts.
-   * @param endFrame the frame where the transformation ends.
+   * @param endFrame   the frame where the transformation ends.
    */
   public AbstractTransformation(Shape shape, int startFrame, int endFrame)
           throws IllegalArgumentException {
@@ -32,16 +33,17 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
    * Function that creates a String representation of an abstract Transformation. Must be called by
    * a child class to fill in missing information.
    *
-   * @param action   the "kind" of transformation the child class is (move, resize, etc).
+   * @param action the "kind" of transformation the child class is (move, resize, etc).
    * @param startVal The starting value of the Shape's appropriate field at the beginning of the
-   *                 Transformation.
-   * @param endVal   the final value of the Shape's appropriate field at the end of the
-   *                 Transformation.
+   *     Transformation.
+   * @param endVal the final value of the Shape's appropriate field at the end of the
+   *     Transformation.
    * @return String representation.
    */
   protected String toString(String action, String startVal, String endVal) {
     String id = this.shape.getIdentifier();
-    return String.format("Shape %s %s from %s to %s from t=%d to t=%d",
+    return String.format(
+            "Shape %s %s from %s to %s from t=%d to t=%d",
             id, action, startVal, endVal, this.startFrame, this.endFrame);
   }
 
@@ -70,5 +72,4 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
     }
     return (int) acc;
   }
-
 }

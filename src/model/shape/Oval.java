@@ -7,6 +7,7 @@ public class Oval extends AbstractShape {
 
   /**
    * Constructor for an Oval. Note that the reference point for an Oval is the center.
+   *
    * @param identifier the identifier used to reference this shape.
    * @param x the x-coordinate of the reference point of this shape.
    * @param y the y-coordinate of the reference point of this shape.
@@ -29,10 +30,14 @@ public class Oval extends AbstractShape {
   public Shape copy() {
     float x = this.reference.getX();
     float y = this.reference.getY();
-    return new Oval(this.identifier, x, y, this.base, this.height,
+    return new Oval(
+            this.identifier,
+            x,
+            y,
+            this.base,
+            this.height,
             this.color.getRed(),
             this.color.getGreen(),
             this.color.getBlue());
   }
-
 }

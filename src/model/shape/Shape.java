@@ -13,24 +13,28 @@ public interface Shape {
 
   /**
    * Returns a copy of the shape with the same attributes.
+   *
    * @return new Shape copy of the shape.
    */
   Shape copy();
 
   /**
    * Returns the identifier for the shape.
+   *
    * @return the identifier.
    */
   String getIdentifier();
 
   /**
    * Returns the position of the shape.
+   *
    * @return Point2D as a reference to shape position.
    */
   Point2D getPosition();
 
   /**
    * Sets the position of the shape.
+   *
    * @param x the x coordinate of the new position.
    * @param y the y coordinate of the new position.
    */
@@ -58,9 +62,7 @@ public interface Shape {
    */
   float getHeight();
 
-  /**
-   * Returns colour of the shape to an rgb value.
-   */
+  /** Returns colour of the shape to an rgb value. */
   Color getColor();
 
   /**
@@ -74,26 +76,29 @@ public interface Shape {
 
   /**
    * Returns whether the shape is visible on the canvas.
+   *
    * @return true if shape appears, false otherwise.
    */
   boolean isVisible();
 
   /**
    * Sets the visibility attribute to true of false.
+   *
    * @param val true or false depending on if the shape should be visible or not.
    */
   void setVisibility(boolean val);
 
   /**
    * Adds a transformation to the list of transformations for the shape.
+   *
    * @param transformation the Transformation object to add.
    */
   void addTransformation(Transformation transformation);
 
   /**
    * Returns the list of transformations for the shape.
+   *
    * @return list of Transformation objects.
    */
   ArrayList getTransformations();
-
 }

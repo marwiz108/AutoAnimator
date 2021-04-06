@@ -14,27 +14,28 @@ public abstract class AbstractShape implements Shape {
   protected float base;
   protected float height;
   protected Point2D reference;
-  Color color;
-  boolean visible;
   protected ArrayList<Transformation> transformations;
+  protected Color color;
+  protected boolean visible;
 
   /**
    * Constructor that is used to create an abstract shape. Is called by children of the
    * AbstractShape class.
    *
    * @param identifier The identifier that is used to find the Shape.
-   * @param x          the x-coordinate of the reference point.
-   * @param y          the y-coordinate of the reference point.
-   * @param base       the magnitude of the base of the shape.
-   * @param height     the magnitude of the height of the shape.
-   * @param r          the red value of the shape's color (0 <= r <= 255)
-   * @param g          the green value of the shape's color (0 <= g <= 255)
-   * @param b          the blue value of the shape's color (0 <= b <= 255)
+   * @param x the x-coordinate of the reference point.
+   * @param y the y-coordinate of the reference point.
+   * @param base the magnitude of the base of the shape.
+   * @param height the magnitude of the height of the shape.
+   * @param r the red value of the shape's color (0 <= r <= 255)
+   * @param g the green value of the shape's color (0 <= g <= 255)
+   * @param b the blue value of the shape's color (0 <= b <= 255)
    * @throws IllegalArgumentException if the base or height is negative, or if r, g, b are outside
-   *                                  the allowed range.
+   *     the allowed range.
    */
-  public AbstractShape(String identifier, float x, float y, float base, float height,
-                       int r, int g, int b) throws IllegalArgumentException {
+  public AbstractShape(
+          String identifier, float x, float y, float base, float height, int r, int g, int b)
+          throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
     }
@@ -51,7 +52,9 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public String getIdentifier() { return this.identifier; }
+  public String getIdentifier() {
+    return this.identifier;
+  }
 
   @Override
   public Point2D getPosition() {
@@ -96,7 +99,6 @@ public abstract class AbstractShape implements Shape {
     }
     this.base = newBase;
     this.height = newHeight;
-    return;
   }
 
   @Override
@@ -115,16 +117,19 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public ArrayList getTransformations() {
+  public ArrayList<Transformation> getTransformations() {
     return this.transformations;
   }
 
   protected String toString(String shapeType) {
     return String.format(
             "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
-            this.identifier, shapeType, this.getPosition().toString(),
-            this.base, this.height, this.colorToString()
-    );
+            this.identifier,
+            shapeType,
+            this.getPosition().toString(),
+            this.base,
+            this.height,
+            this.colorToString());
   }
 
   /**
@@ -133,8 +138,7 @@ public abstract class AbstractShape implements Shape {
    * @return the string representation of the Color.
    */
   private String colorToString() {
-    return String.format("(%s, %s, %s)",
-            this.color.getRed(), this.color.getGreen(), this.color.getBlue());
+    return String.format(
+            "(%s, %s, %s)", this.color.getRed(), this.color.getGreen(), this.color.getBlue());
   }
-
 }

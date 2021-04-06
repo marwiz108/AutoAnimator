@@ -10,9 +10,9 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   /**
    * Constructor for the ChangeVisibilityT class.
    *
-   * @param shape      the initial Shape object.
+   * @param shape the initial Shape object.
    * @param startFrame the starting frame of the transformation.
-   * @param endFrame   the ending frame of the transformation.
+   * @param endFrame the ending frame of the transformation.
    */
   public ChangeVisibilityT(Shape shape, int startFrame, int endFrame) {
     super(shape, startFrame, endFrame);
@@ -20,7 +20,8 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
 
   @Override
   public String toString() {
-    return String.format("Shape %s appears at t=%d and disappears at t=%d",
+    return String.format(
+            "Shape %s appears at t=%d and disappears at t=%d",
             this.shape.getIdentifier(), this.startFrame, this.endFrame);
   }
 

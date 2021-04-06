@@ -19,56 +19,43 @@ public class ShapeTest {
 
   @Before
   public void setUp() {
-    this.oval = new Oval("o",
-                      500, 100, 60, 30,
-                      255, 0, 0
-    );
-    this.rectangle = new Rectangle("r",
-                      200, 200, 50, 100,
-                      0, 0, 255
-    );
+    this.oval = new Oval("o", 500, 100, 60, 30, 255, 0, 0);
+    this.rectangle = new Rectangle("r", 200, 200, 50, 100, 0, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidX() {
-    Shape newOval = new Oval("oval", -20, 50,
-        0, 50, 0, 0, 255);
+    Shape newOval = new Oval("oval", -20, 50, 0, 50, 0, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidY() {
-    Shape newOval = new Oval("oval", 100, -50,
-        0, 50, 0, 0, 255);
+    Shape newOval = new Oval("oval", 100, -50, 0, 50, 0, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidBase() {
-    Shape newOval = new Oval("oval", 100, 50,
-        0, 50, 0, 0, 255);
+    Shape newOval = new Oval("oval", 100, 50, 0, 50, 0, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidHeight() {
-    Shape newRect = new Rectangle("rectangle", 80, 260,
-        5, -3, 0, 0, 255);
+    Shape newRect = new Rectangle("rectangle", 80, 260, 5, -3, 0, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidColorR() {
-    Shape newOval = new Oval("oval", 100, 50,
-        50, 20, 321, 0, 255);
+    Shape newOval = new Oval("oval", 100, 50, 50, 20, 321, 0, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidColorG() {
-    Shape newRect = new Rectangle("rectangle", 80, 260,
-        5, 12, 0, -4, 255);
+    Shape newRect = new Rectangle("rectangle", 80, 260, 5, 12, 0, -4, 255);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidColorB() {
-    Shape newRect = new Rectangle("rectangle", 80, 260,
-        5, 12, 0, 72, 256);
+    Shape newRect = new Rectangle("rectangle", 80, 260, 5, 12, 0, 72, 256);
   }
 
   @Test
@@ -91,12 +78,12 @@ public class ShapeTest {
     assertEquals(150, this.rectangle.getPosition().getY(), 0);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testSetPositionWithInvalidX() {
     this.oval.setPosition(-35, 25);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testSetPositionWithInvalidY() {
     this.oval.setPosition(35, -25);
   }
@@ -163,12 +150,12 @@ public class ShapeTest {
     assertEquals(80, this.rectangle.getHeight(), 0);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testResizeWithInvalidBase() {
     this.oval.resize(-10, 30);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testResizeWithInvalidHeight() {
     this.rectangle.resize(50, 0);
   }
@@ -184,16 +171,18 @@ public class ShapeTest {
 
   @Test
   public void testToString() {
-    String ovalStr = "Name: o\n"
-            + "Type: oval\n"
-            + "Position: (500.0, 100.0), Base: 60.0, Height: 30.0\n"
-            + "Color: (255, 0, 0)";
+    String ovalStr =
+            "Name: o\n"
+                    + "Type: oval\n"
+                    + "Position: (500.0, 100.0), Base: 60.0, Height: 30.0\n"
+                    + "Color: (255, 0, 0)";
     assertEquals(ovalStr, this.oval.toString());
 
-    String rectStr = "Name: r\n"
-            + "Type: rectangle\n"
-            + "Position: (200.0, 200.0), Base: 50.0, Height: 100.0\n"
-            + "Color: (0, 0, 255)";
+    String rectStr =
+            "Name: r\n"
+                    + "Type: rectangle\n"
+                    + "Position: (200.0, 200.0), Base: 50.0, Height: 100.0\n"
+                    + "Color: (0, 0, 255)";
     assertEquals(rectStr, this.rectangle.toString());
   }
 }
