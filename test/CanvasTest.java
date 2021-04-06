@@ -39,12 +39,20 @@ public class CanvasTest {
     Point2D p4 = new Point2D(150, 200);
     this.canvas = new Canvas();
     this.oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
-    this.rectangle1 = new Rectangle("r", 200, 80, 50, 10, 51, 153, 255);
+    this.rectangle1 = new Rectangle("r",
+            200,
+            80,
+            50,
+            10,
+            51,
+            153,
+            255);
     this.changeRVis = new ChangeVisibilityT(rectangle1, 5, 15);
     this.changeOVis = new ChangeVisibilityT(oval1, 0, 10);
 
     this.changeRColor =
-            new ChangeColorT(rectangle1, 7, 12, this.rectangle1.getColor(), new Color(51, 153, 255));
+            new ChangeColorT(rectangle1, 7, 12, this.rectangle1.getColor(),
+                    new Color(51, 153, 255));
     this.changeOColor =
             new ChangeColorT(
                     oval1,
@@ -58,7 +66,12 @@ public class CanvasTest {
                     153);
 
     this.move = new MoveT(rectangle1, 10, 20, p2, p3);
-    this.resize = new ResizeT(oval1, 15, 20, dimension.BASE, 60, 80);
+    this.resize = new ResizeT(oval1,
+            15,
+            20,
+            dimension.BASE,
+            60,
+            80);
   }
 
   // Test for getShapesAtFrame is not yet implemented.
