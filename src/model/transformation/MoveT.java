@@ -1,4 +1,5 @@
 package model.transformation;
+
 import model.shape.Point2D;
 import model.shape.Shape;
 /**
@@ -6,15 +7,17 @@ import model.shape.Shape;
  */
 public class MoveT extends AbstractTransformation<float[]> {
 
-  Point2D startPos;
-  Point2D endPos;
+  private final Point2D startPos;
+  private final Point2D endPos;
 
   /**
-   * Constructor for the MoveT class.
+   * Constructor for a MoveT Transformation.
    *
-   * @param shape      the initial Shape object.
-   * @param startFrame the starting frame of the transformation.
-   * @param endFrame   the ending frame of the transformation.
+   * @param shape the Shape object of the Transformation.
+   * @param startFrame the first frame of the Transformation.
+   * @param endFrame the last frame of the Transformation.
+   * @param startPos the starting location of the reference point of the Shape.
+   * @param endPos the ending location of the reference point of the Shape.
    */
   public MoveT(Shape shape, int startFrame, int endFrame, Point2D startPos, Point2D endPos) {
     super(shape, startFrame, endFrame);
@@ -33,8 +36,14 @@ public class MoveT extends AbstractTransformation<float[]> {
    * @param finalX     the final x position of the Shape.
    * @param finalY     the final y position of the Shape.
    */
-  public MoveT(Shape shape, int startFrame, int endFrame, float initialX, float initialY,
-               float finalX, float finalY) {
+  public MoveT(
+          Shape shape,
+          int startFrame,
+          int endFrame,
+          float initialX,
+          float initialY,
+          float finalX,
+          float finalY) {
     super(shape, startFrame, endFrame);
     this.startPos = new Point2D(initialX, initialY);
     this.endPos = new Point2D(finalX, finalY);
@@ -42,10 +51,15 @@ public class MoveT extends AbstractTransformation<float[]> {
 
   @Override
   public String toString() {
-    return super.toString("moves",
-            this.startPos.toString(), this.endPos.toString());
+    return super.toString("moves", this.startPos.toString(), this.endPos.toString());
   }
 
+  /**
+   * Implementation of ExecuteAtFrame for a MoveT Transformation.
+   *
+   * @param frame the frame to be rendered.
+   * @return an array of Floats that represents the position in [x, y] format.
+   */
   @Override
   public float[] executeAtFrame(int frame) {
     if (frame < 0) {
@@ -54,6 +68,6 @@ public class MoveT extends AbstractTransformation<float[]> {
     float newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
     float newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
 
-    return new float[]{newX, newY};
+    return new float[] {newX, newY};
   }
 }

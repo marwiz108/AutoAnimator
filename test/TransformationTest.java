@@ -27,8 +27,7 @@ public class TransformationTest {
 
   @Before
   public void setUp() {
-    ref = new Rectangle("rectangle", 0, 0, 50,
-            30, 255, 0, 0);
+    ref = new Rectangle("rectangle", 0, 0, 50, 30, 255, 0, 0);
     Point2D start = new Point2D(0, 0);
     Point2D end = new Point2D(100, 0);
     Color c1 = new Color(255, 0, 0);
@@ -37,8 +36,7 @@ public class TransformationTest {
     move = new MoveT(ref, 5, 15, start, end);
     changeColor = new ChangeColorT(ref, 5, 15, c1, c2);
     changeVis = new ChangeVisibilityT(ref, 5, 15);
-    resize = new ResizeT(ref, 5, 15, BASE,
-            50, 75);
+    resize = new ResizeT(ref, 5, 15, BASE, 50, 75);
   }
 
   @Test
@@ -62,34 +60,36 @@ public class TransformationTest {
     assertEquals(0, yFrame15, 0);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testGetValueAtFrameInvalid() {
-    move.getValueAtFrame(-1,
-            0, 100);
+    move.getValueAtFrame(-1, 0, 100);
   }
 
   @Test
   public void testToStringColor() {
-    assertEquals("Shape rectangle changes color from (255, 0, 0) " +
-            "to (0, 0, 255) from t=5 to t=15", changeColor.toString());
+    assertEquals(
+            "Shape rectangle changes color from (255, 0, 0) " + "to (0, 0, 255) from t=5 to t=15",
+            changeColor.toString());
   }
 
   @Test
   public void testToStringVis() {
-    assertEquals("Shape rectangle appears at t=5 and disappears at t=15",
-            changeVis.toString());
+    assertEquals("Shape rectangle appears at t=5 and disappears at t=15", changeVis.toString());
   }
 
   @Test
   public void testToStringMove() {
-    assertEquals("Shape rectangle moves from (0.0, 0.0) " +
-            "to (100.0, 0.0) from t=5 to t=15", move.toString());
+    assertEquals(
+            "Shape rectangle moves from (0.0, 0.0) " + "to (100.0, 0.0) from t=5 to t=15",
+            move.toString());
   }
 
   @Test
   public void testToStringResize() {
-    assertEquals("Shape rectangle Scales from Base: 50.0, Height: 30.0 " +
-            "to Base: 75.0, Height: 30.0 from t=5 to t=15", resize.toString());
+    assertEquals(
+            "Shape rectangle Scales from Base: 50.0, Height: 30.0 "
+                    + "to Base: 75.0, Height: 30.0 from t=5 to t=15",
+            resize.toString());
   }
 
   @Test
@@ -119,7 +119,6 @@ public class TransformationTest {
     assertEquals(0, cAt20[0]);
     assertEquals(0, cAt20[1]);
     assertEquals(255, cAt20[2]);
-
   }
 
   @Test
