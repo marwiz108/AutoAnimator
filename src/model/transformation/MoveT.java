@@ -9,12 +9,15 @@ public class MoveT extends AbstractTransformation<float[]> {
   Point2D startPos;
   Point2D endPos;
 
+
   /**
-   * Constructor for the MoveT class.
+   * Constructor for a MoveT Transformation.
    *
-   * @param shape      the initial Shape object.
-   * @param startFrame the starting frame of the transformation.
-   * @param endFrame   the ending frame of the transformation.
+   * @param shape      the Shape object of the Transformation.
+   * @param startFrame the first frame of the Transformation.
+   * @param endFrame   the last frame of the Transformation.
+   * @param startPos   the starting location of the reference point of the Shape.
+   * @param endPos     the ending location of the reference point of the Shape.
    */
   public MoveT(Shape shape, int startFrame, int endFrame, Point2D startPos, Point2D endPos) {
     super(shape, startFrame, endFrame);
@@ -46,6 +49,12 @@ public class MoveT extends AbstractTransformation<float[]> {
             this.startPos.toString(), this.endPos.toString());
   }
 
+  /**
+   * Implementation of ExecuteAtFrame for a MoveT Transformation.
+   *
+   * @param frame the frame to be rendered.
+   * @return an array of Floats that represents the position in [x, y] format.
+   */
   @Override
   public float[] executeAtFrame(int frame) {
     if (frame < 0) {

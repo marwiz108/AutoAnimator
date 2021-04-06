@@ -6,6 +6,14 @@ import model.shape.Shape;
  */
 public class ResizeT extends AbstractTransformation<Float> {
 
+  /**
+   * Helper function for toString that creates a detailed message about Base and Height of the
+   * Shape.
+   *
+   * @param base   The Base of the Shape.
+   * @param height the Height of the Shape.
+   * @return String message to be used in toString.
+   */
   private String toStringHelp(float base, float height) {
     return String.format("Base: %.1f, Height: %.1f", base, height);
   }
@@ -31,6 +39,11 @@ public class ResizeT extends AbstractTransformation<Float> {
     this.finalValue = finalValue;
   }
 
+  /**
+   * Get the dimension that this Resize Transformation is acting upon.
+   *
+   * @return BASE or HEIGHT.
+   */
   public dimension getDimension() {
     return baseOrHeight;
   }

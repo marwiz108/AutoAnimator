@@ -1,6 +1,8 @@
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.awt.Color;
+import java.awt.*;
+
 import model.canvas.Canvas;
 import model.shape.Oval;
 import model.shape.Point2D;
@@ -11,8 +13,9 @@ import model.transformation.ChangeVisibilityT;
 import model.transformation.MoveT;
 import model.transformation.ResizeT;
 import model.transformation.dimension;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 
 public class CanvasTest {
 

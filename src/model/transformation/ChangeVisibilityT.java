@@ -24,6 +24,12 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
             this.shape.getIdentifier(), this.startFrame, this.endFrame);
   }
 
+  /**
+   * Implementation of ExecuteAtFrame for a ChangeVisibilityT Transformation.
+   *
+   * @param frame the frame to be rendered.
+   * @return true if the shape is visible, false otherwise.
+   */
   @Override
   public Boolean executeAtFrame(int frame) {
     if (frame < 0) {

@@ -34,12 +34,12 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
    * @param shape      initial Shape object.
    * @param startFrame the frame where this transformation starts.
    * @param endFrame   the final frame of the transformation.
-   * @param initialR   the initial red value (0 - 255)
-   * @param initialG   the initial green value (0 - 255)
-   * @param initialB   the initial blue value (0 - 255)
-   * @param finalR     the final red value (0 - 255)
-   * @param finalG     the final green value (0 - 255)
-   * @param finalB     the final blue value (0 - 255)
+   * @param initialR   the initial red value (0 - 255).
+   * @param initialG   the initial green value (0 - 255).
+   * @param initialB   the initial blue value (0 - 255).
+   * @param finalR     the final red value (0 - 255).
+   * @param finalG     the final green value (0 - 255).
+   * @param finalB     the final blue value (0 - 255).
    */
   public ChangeColorT(Shape shape, int startFrame, int endFrame,
                       int initialR, int initialG, int initialB,
@@ -49,6 +49,14 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
     this.endColor = new Color(finalR, finalG, finalB);
   }
 
+  /**
+   * Helper function for toString.
+   *
+   * @param r the red value.
+   * @param g the green value.
+   * @param b the blue value.
+   * @return string in the format (r, g, b).
+   */
   private String toStringHelp(int r, int g, int b) {
     return String.format("(%d, %d, %d)", r, g, b);
   }
@@ -60,6 +68,12 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
     return super.toString("changes color", start, end);
   }
 
+  /**
+   * Implementation of ExecuteAtFrame for a ChangeColorT Transformation.
+   *
+   * @param frame the frame to be rendered.
+   * @return the r, g, b values of the Color in an int array in the format [r, g, b].
+   */
   @Override
   public int[] executeAtFrame(int frame) {
     if (frame < 0) {

@@ -12,9 +12,10 @@ public interface Transformation<T> {
    * frame.
    *
    * @param frame the frame to be rendered.
-   * @return the result of the transformation at a given frame. Will be used to set the Shape
-   * state at the given frame.
-   * @throws IllegalArgumentException if the given frame is negative
+   * @return the result of the transformation at a given frame. Will be used to set the Shape state
+   * at the given frame. Note: the return type is different for each subclass and must be cast to
+   * the appropriate data type to work properly.
+   * @throws IllegalArgumentException if the given frame is negative.
    */
   T executeAtFrame(int frame) throws IllegalArgumentException;
 

@@ -2,13 +2,20 @@ package model.shape;
 
 import java.awt.*;
 import java.util.ArrayList;
+
 import model.transformation.Transformation;
 
 /**
- * This interface represents a shape.
- * A Shape has a 2D reference point for it's position, a base and height.
+ * This interface represents a shape. A Shape has a 2D reference point for it's position, a base and
+ * height, and a list of all Transformations that will be applied to it.
  */
 public interface Shape {
+
+  /**
+   * Returns a copy of the shape with the same attributes.
+   * @return new Shape copy of the shape.
+   */
+  Shape copy();
 
   /**
    * Returns the identifier for the shape.
@@ -18,29 +25,24 @@ public interface Shape {
 
   /**
    * Returns the position of the shape.
-   * @return x and y coordinates of shape position
+   * @return Point2D as a reference to shape position.
    */
   Point2D getPosition();
 
   /**
    * Sets the position of the shape.
+   * @param x the x coordinate of the new position.
+   * @param y the y coordinate of the new position.
    */
   void setPosition(float x, float y);
-
-  /**
-   * Returns a copy of the shape with the same attributes.
-   * @return new Shape copy of the shape
-   */
-  Shape copy();
 
   /**
    * Resizes the shape by the given factor.
    *
    * @param newBase   the new base of the Shape object.
    * @param newHeight the new height of the Shape object.
-   * @return a copy of the shape resized by the factor
    */
-  Shape resize(float newBase, float newHeight);
+  void resize(float newBase, float newHeight);
 
   /**
    * Get the base of the Shape.
@@ -64,33 +66,33 @@ public interface Shape {
   /**
    * Sets colour of the shape to an rgb value.
    *
-   * @param r
-   * @param g
-   * @param b
+   * @param r the red value (0 - 255).
+   * @param g the green value (0 - 255).
+   * @param b the blue value (0 - 255).
    */
   void setColor(int r, int g, int b);
 
   /**
    * Returns whether the shape is visible on the canvas.
-   * @return true if shape appears, false otherwise
+   * @return true if shape appears, false otherwise.
    */
   boolean isVisible();
 
   /**
    * Sets the visibility attribute to true of false.
-   * @param val true or false
+   * @param val true or false depending on if the shape should be visible or not.
    */
   void setVisibility(boolean val);
 
   /**
    * Adds a transformation to the list of transformations for the shape.
-   * @param transformation the Transformation object to add
+   * @param transformation the Transformation object to add.
    */
   void addTransformation(Transformation transformation);
 
   /**
    * Returns the list of transformations for the shape.
-   * @return list of Transformation objects
+   * @return list of Transformation objects.
    */
   ArrayList getTransformations();
 

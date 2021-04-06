@@ -19,7 +19,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
    * @param endFrame the frame where the transformation ends.
    */
   public AbstractTransformation(Shape shape, int startFrame, int endFrame)
-          throws IllegalArgumentException{
+          throws IllegalArgumentException {
     if (shape == null || startFrame < 0 || endFrame < 0) {
       throw new IllegalArgumentException("Invalid values for Transformation constructor.");
     }
@@ -28,6 +28,17 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
     this.endFrame = endFrame;
   }
 
+  /**
+   * Function that creates a String representation of an abstract Transformation. Must be called by
+   * a child class to fill in missing information.
+   *
+   * @param action   the "kind" of transformation the child class is (move, resize, etc).
+   * @param startVal The starting value of the Shape's appropriate field at the beginning of the
+   *                 Transformation.
+   * @param endVal   the final value of the Shape's appropriate field at the end of the
+   *                 Transformation.
+   * @return String representation.
+   */
   protected String toString(String action, String startVal, String endVal) {
     String id = this.shape.getIdentifier();
     return String.format("Shape %s %s from %s to %s from t=%d to t=%d",

@@ -2,6 +2,7 @@ package model.shape;
 
 import java.awt.*;
 import java.util.ArrayList;
+
 import model.transformation.Transformation;
 
 /**
@@ -20,23 +21,24 @@ public abstract class AbstractShape implements Shape {
   /**
    * Constructor that is used to create an abstract shape. Is called by children of the
    * AbstractShape class.
+   *
    * @param identifier The identifier that is used to find the Shape.
-   * @param x the x coordinate of the reference point.
-   * @param y the y coordinate of the reference point.
-   * @param base the magnitude of the base of the shape.
-   * @param height the magnitude of the height of the shape.
-   * @param r the red value of the shape's color (0 <= r <= 255)
-   * @param g the green value of the shape's color (0 <= g <= 255)
-   * @param b the blue value of the shape's color (0 <= b <= 255)
+   * @param x          the x-coordinate of the reference point.
+   * @param y          the y-coordinate of the reference point.
+   * @param base       the magnitude of the base of the shape.
+   * @param height     the magnitude of the height of the shape.
+   * @param r          the red value of the shape's color (0 <= r <= 255)
+   * @param g          the green value of the shape's color (0 <= g <= 255)
+   * @param b          the blue value of the shape's color (0 <= b <= 255)
    * @throws IllegalArgumentException if the base or height is negative, or if r, g, b are outside
-   * the allowed range.
+   *                                  the allowed range.
    */
-  public AbstractShape(String identifier, float x, float y, float base, float height, int r, int g, int b)
-      throws IllegalArgumentException {
+  public AbstractShape(String identifier, float x, float y, float base, float height,
+                       int r, int g, int b) throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
     }
-    if (base <=0 || height <= 0) {
+    if (base <= 0 || height <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.identifier = identifier;
@@ -88,13 +90,13 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public Shape resize(float newBase, float newHeight) throws IllegalArgumentException {
+  public void resize(float newBase, float newHeight) throws IllegalArgumentException {
     if (newBase <= 0 || newHeight <= 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.base = newBase;
     this.height = newHeight;
-    return this;
+    return;
   }
 
   @Override
@@ -119,15 +121,20 @@ public abstract class AbstractShape implements Shape {
 
   protected String toString(String shapeType) {
     return String.format(
-        "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
-        this.identifier, shapeType, this.getPosition().toString(),
-        this.base, this.height, this.colorToString()
+            "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
+            this.identifier, shapeType, this.getPosition().toString(),
+            this.base, this.height, this.colorToString()
     );
   }
 
+  /**
+   * Function that prints out a color in an easily readable format.
+   *
+   * @return the string representation of the Color.
+   */
   private String colorToString() {
     return String.format("(%s, %s, %s)",
-        this.color.getRed(), this.color.getGreen(), this.color.getBlue());
+            this.color.getRed(), this.color.getGreen(), this.color.getBlue());
   }
 
 }
