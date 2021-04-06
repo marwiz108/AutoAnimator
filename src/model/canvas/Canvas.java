@@ -102,7 +102,7 @@ public class Canvas {
    *
    * @param transformations a list of transformations to sort.
    */
-  private void sortTransformations(ArrayList transformations) {
+  private void sortTransformations(ArrayList<Transformation> transformations) {
     Comparator<Transformation> c = (o1, o2) -> o1.getStartFrame() - o2.getStartFrame();
     transformations.sort(c);
   }

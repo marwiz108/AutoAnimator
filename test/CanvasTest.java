@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
+import java.awt.Color;
 
 import model.canvas.Canvas;
 import model.shape.Oval;
@@ -16,6 +16,9 @@ import model.transformation.dimension;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests for the Canvas class.
+ */
 public class CanvasTest {
 
   private Canvas canvas;
@@ -36,12 +39,20 @@ public class CanvasTest {
     Point2D p4 = new Point2D(150, 200);
     this.canvas = new Canvas();
     this.oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
-    this.rectangle1 = new Rectangle("r", 200, 80, 50, 10, 51, 153, 255);
+    this.rectangle1 = new Rectangle("r",
+            200,
+            80,
+            50,
+            10,
+            51,
+            153,
+            255);
     this.changeRVis = new ChangeVisibilityT(rectangle1, 5, 15);
     this.changeOVis = new ChangeVisibilityT(oval1, 0, 10);
 
     this.changeRColor =
-            new ChangeColorT(rectangle1, 7, 12, this.rectangle1.getColor(), new Color(51, 153, 255));
+            new ChangeColorT(rectangle1, 7, 12, this.rectangle1.getColor(),
+                    new Color(51, 153, 255));
     this.changeOColor =
             new ChangeColorT(
                     oval1,
@@ -55,8 +66,15 @@ public class CanvasTest {
                     153);
 
     this.move = new MoveT(rectangle1, 10, 20, p2, p3);
-    this.resize = new ResizeT(oval1, 15, 20, dimension.BASE, 60, 80);
+    this.resize = new ResizeT(oval1,
+            15,
+            20,
+            dimension.BASE,
+            60,
+            80);
   }
+
+  // Test for getShapesAtFrame is not yet implemented.
 
   @Test
   public void testAddShape() {
@@ -137,10 +155,6 @@ public class CanvasTest {
   }
 
   @Test
-  public void testGetShapesAtFrame() {
-  }
-
-  @Test
   public void testToStringWithTransformations() {
     this.canvas.addShape(rectangle1);
     this.canvas.addShape(oval1);
@@ -160,7 +174,8 @@ public class CanvasTest {
                     + "Color: (255, 178, 102)\n\n"
                     + "Transformations:\n"
                     + "Shape r appears at t=5 and disappears at t=15\n"
-                    + "Shape r changes color from (51, 153, 255) to (51, 153, 255) from t=7 to t=12\n"
+                    + "Shape r changes color from (51, 153, 255) to "
+                    + "(51, 153, 255) from t=7 to t=12\n"
                     + "Shape r moves from (200.0, 80.0) to (25.0, 100.0) from t=10 to t=20\n",
             this.canvas.toString());
 
@@ -180,9 +195,11 @@ public class CanvasTest {
                     + "Color: (255, 178, 102)\n\n"
                     + "Transformations:\n"
                     + "Shape o appears at t=0 and disappears at t=10\n"
-                    + "Shape o changes color from (255, 178, 102) to (255, 255, 153) from t=2 to t=6\n"
+                    + "Shape o changes color from (255, 178, 102) to "
+                    + "(255, 255, 153) from t=2 to t=6\n"
                     + "Shape r appears at t=5 and disappears at t=15\n"
-                    + "Shape r changes color from (51, 153, 255) to (51, 153, 255) from t=7 to t=12\n"
+                    + "Shape r changes color from (51, 153, 255) to (51, 153, 255) "
+                    + "from t=7 to t=12\n"
                     + "Shape r moves from (200.0, 80.0) to (25.0, 100.0) from t=10 to t=20\n"
                     + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 80.0, "
                     + "Height: 30.0 from t=15 to t=20\n",

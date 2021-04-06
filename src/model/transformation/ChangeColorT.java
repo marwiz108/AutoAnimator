@@ -1,6 +1,6 @@
 package model.transformation;
 
-import java.awt.*;
+import java.awt.Color;
 
 import model.shape.Shape;
 

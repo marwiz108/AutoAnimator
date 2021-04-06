@@ -1,6 +1,7 @@
 package model.transformation;
 
 import model.shape.Shape;
+
 /**
  * Changes the size of a Shape over a specified range of frames.
  */

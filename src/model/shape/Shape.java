@@ -1,6 +1,6 @@
 package model.shape;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 
 import model.transformation.Transformation;
@@ -100,5 +100,5 @@ public interface Shape {
    *
    * @return list of Transformation objects.
    */
-  ArrayList getTransformations();
+  ArrayList<Transformation> getTransformations();
 }
