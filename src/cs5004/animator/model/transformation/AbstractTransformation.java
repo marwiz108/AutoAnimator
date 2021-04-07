@@ -1,6 +1,6 @@
-package model.transformation;
+package cs5004.animator.model.transformation;
 
-import model.shape.Shape;
+import cs5004.animator.model.shape.Shape;
 
 /**
  * Abstract class for the Transformation interface that contains common functionality for all

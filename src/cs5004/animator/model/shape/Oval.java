@@ -1,7 +1,8 @@
-package model.shape;
+package cs5004.animator.model.shape;
 
 /**
- * This class represents an model.shape.Oval shape. An oval has a center, base and height.
+ * This class represents an cs5004.animator.controller.model.shape.Oval shape. An oval has a center,
+ * base and height.
  */
 public class Oval extends AbstractShape {
 

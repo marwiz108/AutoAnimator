@@ -1,4 +1,4 @@
-package model.shape;
+package cs5004.animator.model.shape;
 
 /**
  * This class represents a 2D point. This stores the position as coordinates x and y.

@@ -1,8 +1,8 @@
-package model.transformation;
+package cs5004.animator.model.transformation;
 
 import java.awt.Color;
 
-import model.shape.Shape;
+import cs5004.animator.model.shape.Shape;
 
 /**
  * Changes the color of a Shape over a specified range of frames.
