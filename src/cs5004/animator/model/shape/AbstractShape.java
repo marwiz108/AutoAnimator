@@ -1,9 +1,9 @@
-package model.shape;
+package cs5004.animator.model.shape;
 
 import java.awt.Color;
 import java.util.ArrayList;
 
-import model.transformation.Transformation;
+import cs5004.animator.model.transformation.Transformation;
 
 /**
  * Abstract class for a Shape object that stores common functionality for all shapes.

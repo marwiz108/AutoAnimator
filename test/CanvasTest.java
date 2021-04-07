@@ -3,16 +3,16 @@ import org.junit.Test;
 
 import java.awt.Color;
 
-import model.canvas.Canvas;
-import model.shape.Oval;
-import model.shape.Point2D;
-import model.shape.Rectangle;
-import model.shape.Shape;
-import model.transformation.ChangeColorT;
-import model.transformation.ChangeVisibilityT;
-import model.transformation.MoveT;
-import model.transformation.ResizeT;
-import model.transformation.dimension;
+import cs5004.animator.model.canvas.Canvas;
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Point2D;
+import cs5004.animator.model.shape.Rectangle;
+import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.ChangeColorT;
+import cs5004.animator.model.transformation.ChangeVisibilityT;
+import cs5004.animator.model.transformation.MoveT;
+import cs5004.animator.model.transformation.ResizeT;
+import cs5004.animator.model.transformation.dimension;
 
 import static org.junit.Assert.assertEquals;
 

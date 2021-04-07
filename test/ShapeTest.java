@@ -1,9 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import model.shape.Oval;
-import model.shape.Rectangle;
-import model.shape.Shape;
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Rectangle;
+import cs5004.animator.model.shape.Shape;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

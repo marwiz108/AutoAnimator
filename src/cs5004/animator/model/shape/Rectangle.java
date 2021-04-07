@@ -1,7 +1,8 @@
-package model.shape;
+package cs5004.animator.model.shape;
 
 /**
- * This class represents a model.shape.Rectangle shape. A rectangle has a corner, base and height.
+ * This class represents a cs5004.animator.controller.model.shape.Rectangle shape. A rectangle has a
+ * corner, base and height.
  */
 public class Rectangle extends AbstractShape {
 

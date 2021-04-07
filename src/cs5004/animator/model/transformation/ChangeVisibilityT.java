@@ -1,6 +1,6 @@
-package model.transformation;
+package cs5004.animator.model.transformation;
 
-import model.shape.Shape;
+import cs5004.animator.model.shape.Shape;
 
 /**
  * Transformation that changes the visibility of a Shape at the appropriate frame(s).

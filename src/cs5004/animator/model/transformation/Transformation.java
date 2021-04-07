@@ -1,4 +1,5 @@
-package model.transformation;
+package cs5004.animator.model.transformation;
+//TODO Add error handling for conflicting transformations (and tests)
 
 /**
  * Transformation interface that defines behavior shared by all transformation objects. A

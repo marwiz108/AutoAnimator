@@ -1,11 +1,13 @@
-package model.canvas;
+package cs5004.animator.model.canvas;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 
-import model.shape.Shape;
-import model.transformation.Transformation;
+import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.Transformation;
+
+//TODO Create interface for Canvas
 
 /**
  * Represents the canvas for the animation. Contains the initial shape objects and all
@@ -55,7 +57,7 @@ public class Canvas {
   /**
    * Get the state of all shapes at a given frame.
    *
-   * @param frame the frame that will eventually be rendered in the view.
+   * @param frame the frame that will eventually be rendered in the cs5004.animator.view.
    * @return A list of all shape objects to be rendered in the frame.
    */
   public ArrayList<Shape> getShapesAtFrame(int frame) {
