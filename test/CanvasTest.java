@@ -119,6 +119,8 @@ public class CanvasTest {
             this.canvas.toString());
   }
 
+  // TODO add tests for conflicting transformations
+
   @Test
   public void testAddTransformation() {
     this.canvas.addShape(rectangle1);

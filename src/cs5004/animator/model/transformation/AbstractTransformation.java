@@ -52,6 +52,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
     return this.startFrame;
   }
 
+  // TODO use given formula to update this method
   @Override
   public float getValueAtFrame(int frame, float initialValue, float finalValue)
           throws IllegalArgumentException {
