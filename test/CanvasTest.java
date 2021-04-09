@@ -1,9 +1,7 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.awt.Color;
+import static org.junit.Assert.assertEquals;
 
 import cs5004.animator.model.canvas.Canvas;
+import cs5004.animator.model.canvas.CanvasModel;
 import cs5004.animator.model.shape.Oval;
 import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
@@ -13,8 +11,9 @@ import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.MoveT;
 import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.dimension;
-
-import static org.junit.Assert.assertEquals;
+import java.awt.Color;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for the Canvas class.
@@ -37,7 +36,7 @@ public class CanvasTest {
     Point2D p2 = new Point2D(200, 80);
     Point2D p3 = new Point2D(25, 100);
     Point2D p4 = new Point2D(150, 200);
-    this.canvas = new Canvas();
+    this.canvas = new CanvasModel();
     this.oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
     this.rectangle1 = new Rectangle("r",
             200,
