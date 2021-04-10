@@ -15,9 +15,7 @@ import cs5004.animator.model.transformation.Transformation;
 public class CanvasModel implements Canvas {
   private final LinkedHashMap<String, Shape> initialShapes;
 
-  /**
-   * Constructor for a Canvas that creates an empty list of transformations.
-   */
+  /** Constructor for a Canvas that creates an empty list of transformations. */
   public CanvasModel() {
     this.initialShapes = new LinkedHashMap<>();
   }
@@ -65,7 +63,7 @@ public class CanvasModel implements Canvas {
 
   @Override
   public void addTransformation(String shapeID, Transformation transformation)
-          throws IllegalArgumentException {
+      throws IllegalArgumentException {
     Shape shape = this.initialShapes.get(shapeID);
     if (shape == null) {
       throw new IllegalArgumentException("Shape not found.");
@@ -79,7 +77,7 @@ public class CanvasModel implements Canvas {
    * @param transformations a list of transformations to sort.
    */
   private void sortTransformations(ArrayList<Transformation> transformations) {
-    Comparator<Transformation> c = (o1, o2) -> o1.getStartFrame() - o2.getStartFrame();
+    Comparator<Transformation> c = (o1, o2) -> (int) (o1.getStartFrame() - o2.getStartFrame());
     transformations.sort(c);
   }
 }
