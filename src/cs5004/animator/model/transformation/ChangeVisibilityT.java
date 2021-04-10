@@ -2,9 +2,7 @@ package cs5004.animator.model.transformation;
 
 import cs5004.animator.model.shape.Shape;
 
-/**
- * Transformation that changes the visibility of a Shape at the appropriate frame(s).
- */
+/** Transformation that changes the visibility of a Shape at the appropriate frame(s). */
 public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
 
   /**
@@ -21,8 +19,8 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   @Override
   public String toString() {
     return String.format(
-            "Shape %s appears at t=%d and disappears at t=%d",
-            this.shape.getIdentifier(), this.startFrame, this.endFrame);
+        "Shape %s appears at t=%.2f and disappears at t=%.2f",
+        this.shape.getIdentifier(), this.startFrame, this.endFrame);
   }
 
   /**

@@ -9,20 +9,26 @@ import cs5004.animator.model.shape.Shape;
 public abstract class AbstractTransformation<T> implements Transformation<T> {
 
   protected final Shape shape;
-  protected final int startFrame;
-  protected final int endFrame;
+  protected final float startFrame;
+  protected final float endFrame;
 
   /**
    * Super constructor for all extending classes.
    *
-   * @param shape      the shape object that this transformation acts upon.
+   * @param shape the shape object that this transformation acts upon.
    * @param startFrame the frame where the transformation starts.
-   * @param endFrame   the frame where the transformation ends.
+   * @param endFrame the frame where the transformation ends.
    */
   public AbstractTransformation(Shape shape, int startFrame, int endFrame)
-          throws IllegalArgumentException {
+      throws IllegalArgumentException {
     if (shape == null || startFrame < 0 || endFrame < 0) {
       throw new IllegalArgumentException("Invalid values for Transformation constructor.");
+    }
+    if (Math.abs(endFrame - startFrame) < 0.001) {
+      throw new IllegalArgumentException("Start and end frame must be different.");
+    }
+    if (startFrame > endFrame) {
+      throw new IllegalArgumentException("Start frame must come before end frame.");
     }
     this.shape = shape.copy();
     this.startFrame = startFrame;
@@ -43,34 +49,29 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   protected String toString(String action, String startVal, String endVal) {
     String id = this.shape.getIdentifier();
     return String.format(
-            "Shape %s %s from %s to %s from t=%d to t=%d",
-            id, action, startVal, endVal, this.startFrame, this.endFrame);
+        "Shape %s %s from %s to %s from t=%.2f to t=%.2f",
+        id, action, startVal, endVal, this.startFrame, this.endFrame);
   }
 
   @Override
-  public int getStartFrame() {
+  public float getStartFrame() {
     return this.startFrame;
   }
 
-  // TODO use given formula to update this method
   @Override
-  public float getValueAtFrame(int frame, float initialValue, float finalValue)
-          throws IllegalArgumentException {
+  public float getValueAtFrame(float frame, float initialValue, float finalValue)
+      throws IllegalArgumentException {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    double diff = finalValue - initialValue;
-    double range = this.endFrame - this.startFrame;
-    double step = diff / range;
-    double acc = initialValue;
-    for (int f = 0; f < this.endFrame; f++) {
-      if (f >= this.startFrame) {
-        acc += step;
-      }
-      if (f == frame) {
-        break;
-      }
+    if (frame < this.startFrame) {
+      return initialValue;
     }
-    return (int) acc;
+    if (frame > this.endFrame) {
+      return finalValue;
+    }
+    float a = initialValue * ((this.endFrame - frame) / (this.endFrame - this.startFrame));
+    float b = finalValue * ((frame - this.startFrame) / (this.endFrame - this.startFrame));
+    return a + b;
   }
 }

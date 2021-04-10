@@ -1,5 +1,5 @@
 package cs5004.animator.model.transformation;
-//TODO Add error handling for conflicting transformations (and tests)
+// TODO Add error handling for conflicting transformations (and tests)
 
 /**
  * Transformation interface that defines behavior shared by all transformation objects. A
@@ -25,17 +25,17 @@ public interface Transformation<T> {
    *
    * @return the start frame.
    */
-  int getStartFrame();
+  float getStartFrame();
 
   /**
    * Determine the the value of some parameter at a given frame.
    *
-   * @param frame        the frame to calculate the value at.
+   * @param frame the frame to calculate the value at.
    * @param initialValue The starting value of the parameter.
-   * @param finalValue   the ending value of the parameter.
+   * @param finalValue the ending value of the parameter.
    * @return the value the parameter will have at the given frame.
    * @throws IllegalArgumentException if the frame is negative.
    */
-  float getValueAtFrame(int frame, float initialValue, float finalValue)
-          throws IllegalArgumentException;
+  float getValueAtFrame(float frame, float initialValue, float finalValue)
+      throws IllegalArgumentException;
 }

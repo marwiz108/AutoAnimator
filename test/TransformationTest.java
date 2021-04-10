@@ -18,9 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Tests for the Transformation interface.
- */
+/** Tests for the Transformation interface. */
 public class TransformationTest {
   Shape ref;
   Transformation move;
@@ -42,6 +40,31 @@ public class TransformationTest {
     resize = new ResizeT(ref, 5, 15, BASE, 50, 75);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalid1() {
+    Transformation tmp = new ChangeVisibilityT(null, 0, 10);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalid2() {
+    Transformation tmp = new ChangeVisibilityT(ref, 0, -10);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalid3() {
+    Transformation tmp = new ChangeVisibilityT(ref, -1, 10);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalid4() {
+    Transformation tmp = new ChangeVisibilityT(ref, 10, 0);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalid5() {
+    Transformation tmp = new ChangeVisibilityT(ref, 1, 1);
+  }
+
   @Test
   public void testGetValueAtFrame() {
     float frame0 = move.getValueAtFrame(0, 0, 100);
@@ -49,10 +72,10 @@ public class TransformationTest {
     float frame10 = move.getValueAtFrame(10, 0, 100);
     float frame15 = move.getValueAtFrame(15, 0, 100);
     float frame20 = move.getValueAtFrame(20, 0, 100);
-
+    //    System.out.println(move.getValueAtFrame(F, 0, 100));
     assertEquals(0, frame0, 0);
-    assertEquals(10, frame5, 0);
-    assertEquals(60, frame10, 0);
+    assertEquals(0, frame5, 0);
+    assertEquals(50, frame10, 0);
     assertEquals(100, frame15, 0);
     assertEquals(100, frame20, 0);
 
@@ -71,28 +94,29 @@ public class TransformationTest {
   @Test
   public void testToStringColor() {
     assertEquals(
-            "Shape rectangle changes color from (255, 0, 0) " + "to (0, 0, 255) from t=5 to t=15",
-            changeColor.toString());
+        "Shape rectangle changes color from (255, 0, 0) " + "to (0, 0, 255) from t=5.00 to t=15.00",
+        changeColor.toString());
   }
 
   @Test
   public void testToStringVis() {
-    assertEquals("Shape rectangle appears at t=5 and disappears at t=15", changeVis.toString());
+    assertEquals(
+        "Shape rectangle appears at t=5.00 and disappears at t=15.00", changeVis.toString());
   }
 
   @Test
   public void testToStringMove() {
     assertEquals(
-            "Shape rectangle moves from (0.0, 0.0) " + "to (100.0, 0.0) from t=5 to t=15",
-            move.toString());
+        "Shape rectangle moves from (0.0, 0.0) " + "to (100.0, 0.0) " + "from t=5.00 to t=15.00",
+        move.toString());
   }
 
   @Test
   public void testToStringResize() {
     assertEquals(
-            "Shape rectangle Scales from Base: 50.0, Height: 30.0 "
-                    + "to Base: 75.0, Height: 30.0 from t=5 to t=15",
-            resize.toString());
+        "Shape rectangle Scales from Base: 50.0, Height: 30.0 "
+            + "to Base: 75.0, Height: 30.0 from t=5.00 to t=15.00",
+        resize.toString());
   }
 
   @Test
@@ -107,13 +131,13 @@ public class TransformationTest {
     assertEquals(0, cAt0[1]);
     assertEquals(0, cAt0[2]);
 
-    assertEquals(229, cAt5[0]);
+    assertEquals(255, cAt5[0]);
     assertEquals(0, cAt5[1]);
-    assertEquals(25, cAt5[2]);
+    assertEquals(0, cAt5[2]);
 
-    assertEquals(102, cAt10[0]);
+    assertEquals(127, cAt10[0]);
     assertEquals(0, cAt10[1]);
-    assertEquals(153, cAt10[2]);
+    assertEquals(127, cAt10[2]);
 
     assertEquals(0, cAt15[0]);
     assertEquals(0, cAt15[1]);
@@ -137,8 +161,8 @@ public class TransformationTest {
   @Test
   public void testExecuteAtFrameMove() {
     assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(0)));
-    assertEquals("[10.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(5)));
-    assertEquals("[60.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(10)));
+    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(5)));
+    assertEquals("[50.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(10)));
     assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(15)));
     assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(20)));
   }
@@ -146,11 +170,12 @@ public class TransformationTest {
   @Test
   public void testExecuteAtFrameResize() {
     assertEquals(BASE, ((ResizeT) resize).getDimension());
+
     assertEquals(50, (float) resize.executeAtFrame(0), 0);
 
-    assertEquals(52, (float) resize.executeAtFrame(5), 0);
+    assertEquals(50, (float) resize.executeAtFrame(5), 0);
 
-    assertEquals(65, (float) resize.executeAtFrame(10), 0);
+    assertEquals(62.5, (float) resize.executeAtFrame(10), 0);
 
     assertEquals(75, (float) resize.executeAtFrame(15), 0);
 
