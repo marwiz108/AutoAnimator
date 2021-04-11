@@ -1,5 +1,4 @@
 package cs5004.animator.model.transformation;
-// TODO Add error handling for conflicting transformations (and tests)
 
 /**
  * Transformation interface that defines behavior shared by all transformation objects. A
@@ -7,6 +6,13 @@ package cs5004.animator.model.transformation;
  * (viable) frame number.
  */
 public interface Transformation<T> {
+
+  /**
+   * Get the type of Transformation.
+   *
+   * @return the type of the Transformation object.
+   */
+  TransformationType getType();
 
   /**
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
@@ -26,6 +32,13 @@ public interface Transformation<T> {
    * @return the start frame.
    */
   float getStartFrame();
+
+  /**
+   * Return the ending frame of the transformation.
+   *
+   * @return the end frame.
+   */
+  float getEndFrame();
 
   /**
    * Determine the the value of some parameter at a given frame.

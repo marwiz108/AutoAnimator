@@ -21,6 +21,8 @@ import static org.junit.Assert.assertTrue;
 /** Tests for the Transformation interface. */
 public class TransformationTest {
   Shape ref;
+  Point2D start;
+  Point2D end;
   Transformation move;
   Transformation changeColor;
   Transformation changeVis;
@@ -29,8 +31,8 @@ public class TransformationTest {
   @Before
   public void setUp() {
     ref = new Rectangle("rectangle", 0, 0, 50, 30, 255, 0, 0);
-    Point2D start = new Point2D(0, 0);
-    Point2D end = new Point2D(100, 0);
+    start = new Point2D(0, 0);
+    end = new Point2D(100, 0);
     Color c1 = new Color(255, 0, 0);
     Color c2 = new Color(0, 0, 255);
 
@@ -63,6 +65,13 @@ public class TransformationTest {
   @Test(expected = IllegalArgumentException.class)
   public void testInvalid5() {
     Transformation tmp = new ChangeVisibilityT(ref, 1, 1);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConflicting() {
+    Transformation conflict = new MoveT(ref, 10, 20, start, end);
+    ref.addTransformation(move);
+    ref.addTransformation(conflict);
   }
 
   @Test

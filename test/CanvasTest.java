@@ -10,6 +10,7 @@ import cs5004.animator.model.transformation.ChangeColorT;
 import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.MoveT;
 import cs5004.animator.model.transformation.ResizeT;
+import cs5004.animator.model.transformation.Transformation;
 import cs5004.animator.model.transformation.dimension;
 import java.awt.Color;
 import org.junit.Before;
@@ -27,13 +28,15 @@ public class CanvasTest {
   private ChangeColorT changeOColor;
   private MoveT move;
   private ResizeT resize;
+  private Point2D p1;
+  private Point2D p4;
 
   @Before
   public void setUp() {
-    Point2D p1 = new Point2D(50, 150);
+    p1 = new Point2D(50, 150);
     Point2D p2 = new Point2D(200, 80);
     Point2D p3 = new Point2D(25, 100);
-    Point2D p4 = new Point2D(150, 200);
+    p4 = new Point2D(150, 200);
     this.canvas = new CanvasModel();
     this.oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
     this.rectangle1 = new Rectangle("r", 200, 80, 50, 10, 51, 153, 255);
@@ -102,8 +105,6 @@ public class CanvasTest {
             + "No transformations in the animation.\n",
         this.canvas.toString());
   }
-
-  // TODO add tests for conflicting transformations
 
   @Test
   public void testAddTransformation() {
@@ -190,6 +191,28 @@ public class CanvasTest {
             + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 80.0, "
             + "Height: 30.0 from t=15.00 to t=20.00\n",
         this.canvas.toString());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConflict1() {
+    Transformation conflict = new MoveT(rectangle1, 5, 15, p1, p4);
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+    this.canvas.addTransformation("r", changeRVis);
+    this.canvas.addTransformation("r", changeRColor);
+    this.canvas.addTransformation("r", move);
+    this.canvas.addTransformation("r", conflict);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConflict2() {
+    Transformation conflict = new ChangeVisibilityT(rectangle1, 6, 14);
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+    this.canvas.addTransformation("r", changeRVis);
+    this.canvas.addTransformation("r", changeRColor);
+    this.canvas.addTransformation("r", move);
+    this.canvas.addTransformation("r", conflict);
   }
 
   @Test
