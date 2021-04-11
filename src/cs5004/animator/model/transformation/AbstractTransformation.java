@@ -59,6 +59,11 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   }
 
   @Override
+  public float getEndFrame() {
+    return this.endFrame;
+  }
+
+  @Override
   public float getValueAtFrame(float frame, float initialValue, float finalValue)
       throws IllegalArgumentException {
     if (frame < 0) {

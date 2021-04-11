@@ -2,9 +2,7 @@ package cs5004.animator.model.transformation;
 
 import cs5004.animator.model.shape.Shape;
 
-/**
- * Changes the size of a Shape over a specified range of frames.
- */
+/** Changes the size of a Shape over a specified range of frames. */
 public class ResizeT extends AbstractTransformation<Float> {
 
   private final dimension baseOrHeight;
@@ -14,19 +12,19 @@ public class ResizeT extends AbstractTransformation<Float> {
   /**
    * Constructor for the ResizeT class.
    *
-   * @param shape        the initial Shape object.
-   * @param startFrame   the starting frame of the transformation.
-   * @param endFrame     the ending frame of the transformation.
+   * @param shape the initial Shape object.
+   * @param startFrame the starting frame of the transformation.
+   * @param endFrame the ending frame of the transformation.
    * @param initialValue the initial magnitude of the base or height.
-   * @param finalValue   the final magnitude of the base or height.
+   * @param finalValue the final magnitude of the base or height.
    */
   public ResizeT(
-          Shape shape,
-          int startFrame,
-          int endFrame,
-          dimension dimension,
-          float initialValue,
-          float finalValue) {
+      Shape shape,
+      int startFrame,
+      int endFrame,
+      dimension dimension,
+      float initialValue,
+      float finalValue) {
     super(shape, startFrame, endFrame);
     this.baseOrHeight = dimension;
     this.initialValue = initialValue;
@@ -37,7 +35,7 @@ public class ResizeT extends AbstractTransformation<Float> {
    * Helper function for toString that creates a detailed message about Base and Height of the
    * Shape.
    *
-   * @param base   The Base of the Shape.
+   * @param base The Base of the Shape.
    * @param height the Height of the Shape.
    * @return String message to be used in toString.
    */
@@ -64,6 +62,11 @@ public class ResizeT extends AbstractTransformation<Float> {
       post = toStringHelp(finalValue, this.shape.getHeight());
     }
     return super.toString("Scales", pre, post);
+  }
+
+  @Override
+  public TransformationType getType() {
+    return TransformationType.Resize;
   }
 
   @Override

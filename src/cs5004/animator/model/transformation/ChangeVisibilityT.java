@@ -23,6 +23,11 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
         this.shape.getIdentifier(), this.startFrame, this.endFrame);
   }
 
+  @Override
+  public TransformationType getType() {
+    return TransformationType.ChangeVis;
+  }
+
   /**
    * Implementation of ExecuteAtFrame for a ChangeVisibilityT Transformation.
    *

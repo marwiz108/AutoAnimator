@@ -5,9 +5,7 @@ import java.util.ArrayList;
 
 import cs5004.animator.model.transformation.Transformation;
 
-/**
- * Abstract class for a Shape object that stores common functionality for all shapes.
- */
+/** Abstract class for a Shape object that stores common functionality for all shapes. */
 public abstract class AbstractShape implements Shape {
 
   protected final String identifier;
@@ -34,8 +32,8 @@ public abstract class AbstractShape implements Shape {
    *     the allowed range.
    */
   public AbstractShape(
-          String identifier, float x, float y, float base, float height, int r, int g, int b)
-          throws IllegalArgumentException {
+      String identifier, float x, float y, float base, float height, int r, int g, int b)
+      throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
     }
@@ -112,8 +110,16 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public void addTransformation(Transformation transformation) {
-    this.transformations.add(transformation);
+  public void addTransformation(Transformation newT) throws IllegalArgumentException {
+    for (Transformation myT : this.transformations) {
+      if (myT.getType() == newT.getType()) {
+        if (!(myT.getStartFrame() >= newT.getEndFrame()
+            || myT.getEndFrame() <= newT.getStartFrame())) {
+          throw new IllegalArgumentException("Conflicting Transformation - could not add.");
+        }
+      }
+    }
+    this.transformations.add(newT);
   }
 
   @Override
@@ -123,13 +129,13 @@ public abstract class AbstractShape implements Shape {
 
   protected String toString(String shapeType) {
     return String.format(
-            "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
-            this.identifier,
-            shapeType,
-            this.getPosition().toString(),
-            this.base,
-            this.height,
-            this.colorToString());
+        "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
+        this.identifier,
+        shapeType,
+        this.getPosition().toString(),
+        this.base,
+        this.height,
+        this.colorToString());
   }
 
   /**
@@ -139,6 +145,6 @@ public abstract class AbstractShape implements Shape {
    */
   private String colorToString() {
     return String.format(
-            "(%s, %s, %s)", this.color.getRed(), this.color.getGreen(), this.color.getBlue());
+        "(%s, %s, %s)", this.color.getRed(), this.color.getGreen(), this.color.getBlue());
   }
 }
