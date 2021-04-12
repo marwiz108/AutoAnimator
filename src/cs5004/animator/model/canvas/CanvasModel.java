@@ -48,6 +48,10 @@ public class CanvasModel implements Canvas {
 
   @Override
   public ArrayList<Shape> getShapesAtFrame(int frame) {
+    // TODO Implement getShapesAtFrame method
+    //    for (Shape s : this.initialShapes.values()) {
+    //
+    //    }
     return null;
   }
 
