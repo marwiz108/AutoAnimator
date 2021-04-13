@@ -6,7 +6,7 @@ import java.io.FileReader;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
 
-public class CanvasBuilder implements AnimationBuilder<ICanvas> {
+public final class Builder implements AnimationBuilder<ICanvas> {
 
   @Override
   public ICanvas build() throws FileNotFoundException {
