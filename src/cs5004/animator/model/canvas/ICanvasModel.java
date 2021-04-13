@@ -14,11 +14,33 @@ import cs5004.animator.model.transformation.dimension;
  * transformations that will be applied throughout the animation. Can return the state of all shape
  * objects at a given frame.
  */
-public class ICanvasModel implements ICanvas {
+public final class ICanvasModel implements ICanvas {
   private final LinkedHashMap<String, Shape> initialShapes;
+  private final int leftMostX;
+  private final int topMostY;
+  private final int borderWidth;
+  private final int borderHeight;
+  /**
+   * Constructor for a ICanvas that creates an empty list of transformations.
+   *
+   * @param leftMostX
+   * @param topMostY
+   * @param borderWidth
+   * @param borderHeight
+   */
+  public ICanvasModel(int leftMostX, int topMostY, int borderWidth, int borderHeight) {
+    this.leftMostX = leftMostX;
+    this.topMostY = topMostY;
+    this.borderWidth = borderWidth;
+    this.borderHeight = borderHeight;
+    this.initialShapes = new LinkedHashMap<>();
+  }
 
-  /** Constructor for a ICanvas that creates an empty list of transformations. */
   public ICanvasModel() {
+    this.leftMostX = 0;
+    this.topMostY = 0;
+    this.borderWidth = 360;
+    this.borderHeight = 360;
     this.initialShapes = new LinkedHashMap<>();
   }
 
