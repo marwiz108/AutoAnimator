@@ -36,6 +36,8 @@ public interface ICanvas {
    */
   ArrayList<Shape> getShapesAtFrame(float frame);
 
+  Shape getShapeById(String id);
+
   /**
    * Adds a Shape object with its identifier as a key to the map of initial shapes.
    *
