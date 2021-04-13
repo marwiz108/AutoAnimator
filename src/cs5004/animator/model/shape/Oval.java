@@ -22,6 +22,10 @@ public class Oval extends AbstractShape {
     super(identifier, x, y, base, height, r, g, b);
   }
 
+  public Oval(String name) {
+    super(name);
+  }
+
   @Override
   public String toString() {
     return super.toString("oval");
@@ -32,13 +36,13 @@ public class Oval extends AbstractShape {
     float x = this.reference.getX();
     float y = this.reference.getY();
     return new Oval(
-            this.identifier,
-            x,
-            y,
-            this.base,
-            this.height,
-            this.color.getRed(),
-            this.color.getGreen(),
-            this.color.getBlue());
+        this.identifier,
+        x,
+        y,
+        this.base,
+        this.height,
+        this.color.getRed(),
+        this.color.getGreen(),
+        this.color.getBlue());
   }
 }

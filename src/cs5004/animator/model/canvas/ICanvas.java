@@ -12,6 +12,16 @@ import java.util.ArrayList;
 public interface ICanvas {
 
   /**
+   * Set the starting position and the border size of the ICanvas.
+   *
+   * @param leftMostX the minimum x value (top left corner).
+   * @param topMostY the minimum y value (top left corner).
+   * @param borderWidth the width of the ICanvas.
+   * @param borderHeight the height of the ICanvas.
+   */
+  void setCanvasBounds(int leftMostX, int topMostY, int borderWidth, int borderHeight);
+
+  /**
    * Returns a text description of the shapes and their transformations.
    *
    * @return string representation of each shape and the transformations.
