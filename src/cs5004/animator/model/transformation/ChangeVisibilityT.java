@@ -35,7 +35,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
    * @return true if the shape is visible, false otherwise.
    */
   @Override
-  public Boolean executeAtFrame(int frame) {
+  public Boolean executeAtFrame(float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
