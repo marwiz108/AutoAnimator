@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 
 import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.Transformation;
+import cs5004.animator.model.transformation.TransformationType;
 import cs5004.animator.model.transformation.dimension;
 
 /**
@@ -53,28 +54,24 @@ public class ICanvasModel implements ICanvas {
     ArrayList<Shape> shapes = new ArrayList<>();
     for (Shape initial : this.initialShapes.values()) {
       Shape s = initial.copy();
-      for (Transformation t : s.getTransformations()) {
-        switch (t.getType()) {
-          case ChangeColor:
-            int[] newColor = (int[]) t.executeAtFrame(frame);
-            s.setColor(newColor[0], newColor[1], newColor[2]);
-            break;
-          case ChangeVis:
-            boolean vis = (boolean) t.executeAtFrame(frame);
-            s.setVisibility(vis);
-            break;
-          case Move:
-            float[] newPos = (float[]) t.executeAtFrame(frame);
-            s.setPosition(newPos[0], newPos[1]);
-            break;
-          case Resize:
-            float newValue = (float) t.executeAtFrame(frame);
-            if (t.getDimension() == dimension.BASE) {
-              s.resize(newValue, s.getHeight());
-            } else {
-              s.resize(s.getBase(), newValue);
-            }
-            break;
+      for (Transformation t : initial.getTransformations()) {
+        TransformationType type = t.getType();
+        if (type == TransformationType.ChangeColor) {
+          int[] newColor = (int[]) t.executeAtFrame(frame);
+          s.setColor(newColor[0], newColor[1], newColor[2]);
+        } else if (type == TransformationType.ChangeVis) {
+          boolean vis = (boolean) t.executeAtFrame(frame);
+          s.setVisibility(vis);
+        } else if (type == TransformationType.Move) {
+          float[] newPos = (float[]) t.executeAtFrame(frame);
+          s.setPosition(newPos[0], newPos[1]);
+        } else if (type == TransformationType.Resize) {
+          float newValue = (float) t.executeAtFrame(frame);
+          if (t.getDimension() == dimension.BASE) {
+            s.resize(newValue, s.getHeight());
+          } else {
+            s.resize(s.getBase(), newValue);
+          }
         }
       }
       shapes.add(s);
