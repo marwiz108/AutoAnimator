@@ -65,7 +65,7 @@ public class MoveT extends AbstractTransformation<float[]> {
    * @return an array of Floats that represents the position in [x, y] format.
    */
   @Override
-  public float[] executeAtFrame(int frame) {
+  public float[] executeAtFrame(float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }

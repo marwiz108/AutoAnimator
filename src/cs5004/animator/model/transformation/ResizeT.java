@@ -70,7 +70,7 @@ public class ResizeT extends AbstractTransformation<Float> {
   }
 
   @Override
-  public Float executeAtFrame(int frame) {
+  public Float executeAtFrame(float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
