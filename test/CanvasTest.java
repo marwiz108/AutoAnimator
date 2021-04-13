@@ -1,7 +1,7 @@
 import static org.junit.Assert.assertEquals;
 
-import cs5004.animator.model.canvas.Canvas;
-import cs5004.animator.model.canvas.CanvasModel;
+import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.model.shape.Oval;
 import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
@@ -13,13 +13,15 @@ import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.Transformation;
 import cs5004.animator.model.transformation.dimension;
 import java.awt.Color;
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
-/** Tests for the Canvas class. */
+/** Tests for the ICanvas class. */
 public class CanvasTest {
 
-  private Canvas canvas;
+  private ICanvas canvas;
   private Shape oval1;
   private Shape rectangle1;
   private ChangeVisibilityT changeRVis;
@@ -37,7 +39,7 @@ public class CanvasTest {
     Point2D p2 = new Point2D(200, 80);
     Point2D p3 = new Point2D(25, 100);
     p4 = new Point2D(150, 200);
-    this.canvas = new CanvasModel();
+    this.canvas = new ICanvasModel();
     this.oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
     this.rectangle1 = new Rectangle("r", 200, 80, 50, 10, 51, 153, 255);
     this.changeRVis = new ChangeVisibilityT(rectangle1, 5, 15);
@@ -239,5 +241,26 @@ public class CanvasTest {
     assertEquals(
         "No shapes in the animation.\n" + "No transformations in the animation.\n",
         this.canvas.toString());
+  }
+
+  @Test
+  public void testGetShapesAtFrame() {
+    this.canvas.addShape(rectangle1);
+    this.canvas.addShape(oval1);
+    this.canvas.addTransformation("r", changeRVis);
+    this.canvas.addTransformation("r", changeRColor);
+    this.canvas.addTransformation("r", move);
+    this.canvas.addTransformation("o", changeOVis);
+    this.canvas.addTransformation("o", changeOColor);
+    this.canvas.addTransformation("o", resize);
+
+    ArrayList<Shape> shapes = this.canvas.getShapesAtFrame(0);
+    ArrayList<Shape> shapes2 = this.canvas.getShapesAtFrame(15);
+    for (Shape s : shapes) {
+      System.out.println(s.toString());
+    }
+    for (Shape s : shapes2) {
+      System.out.println(s.toString());
+    }
   }
 }

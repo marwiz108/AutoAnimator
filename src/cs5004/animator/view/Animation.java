@@ -1,33 +1,21 @@
 package cs5004.animator.view;
 
-import java.awt.*;
-
 import javax.swing.*;
 
-import cs5004.animator.model.canvas.Canvas;
-import cs5004.animator.model.canvas.CanvasModel;
+import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.model.shape.Oval;
 import cs5004.animator.model.shape.Rectangle;
 import cs5004.animator.model.shape.Shape;
 
-public class Animation implements AnimationView {
-  private final JFrame f;
-  private final JPanel panel;
-  private final JScrollPane pane;
+public class Animation extends JPanel implements AnimationView {
 
-  public Animation(Canvas c, int width, int height) {
-    this.f = new JFrame("Animation View");
-    this.f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.f.setPreferredSize(new Dimension(width, height));
-    this.panel = new JPanel();
-    this.pane = new JScrollPane(this.panel);
-    this.f.getContentPane().add(this.pane, BorderLayout.CENTER);
-    this.f.pack();
-    this.f.setVisible(true);
+  public Animation(ICanvas c, int w, int h) {
+    // TODO create constructor for Animation
   }
 
   public static void main(String[] args) {
-    Canvas c = new CanvasModel();
+    ICanvas c = new ICanvasModel();
     Shape oval1 = new Oval("o", 50, 150, 60, 30, 255, 178, 102);
     Shape rectangle1 = new Rectangle("r", 200, 80, 50, 10, 51, 153, 255);
     c.addShape(oval1);

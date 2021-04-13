@@ -15,6 +15,13 @@ public interface Transformation<T> {
   TransformationType getType();
 
   /**
+   * Used in resize to tell if the base or the height will be changed.
+   *
+   * @return base or height.
+   */
+  dimension getDimension();
+
+  /**
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
    * frame.
    *
@@ -24,7 +31,7 @@ public interface Transformation<T> {
    *     to the appropriate data type to work properly.
    * @throws IllegalArgumentException if the given frame is negative.
    */
-  T executeAtFrame(int frame) throws IllegalArgumentException;
+  T executeAtFrame(float frame) throws IllegalArgumentException;
 
   /**
    * Return the starting frame of the transformation.

@@ -54,6 +54,11 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   }
 
   @Override
+  public dimension getDimension() {
+    return null;
+  }
+
+  @Override
   public float getStartFrame() {
     return this.startFrame;
   }

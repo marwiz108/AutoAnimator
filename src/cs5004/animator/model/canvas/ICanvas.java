@@ -5,11 +5,11 @@ import cs5004.animator.model.transformation.Transformation;
 import java.util.ArrayList;
 
 /**
- *  * transformations that will be applied throughout the animation. Can return the state of all shape
- * Represents the canvass for the animation. Contains the initial shape objects and all
- *  * objects at a given frame.
+ * * transformations that will be applied throughout the animation. Can return the state of all
+ * shape Represents the canvass for the animation. Contains the initial shape objects and all *
+ * objects at a given frame.
  */
-public interface Canvas {
+public interface ICanvas {
 
   /**
    * Returns a text description of the shapes and their transformations.
@@ -24,7 +24,7 @@ public interface Canvas {
    * @param frame the frame that will eventually be rendered in the cs5004.animator.view.
    * @return A list of all shape objects to be rendered in the frame.
    */
-  ArrayList<Shape> getShapesAtFrame(int frame);
+  ArrayList<Shape> getShapesAtFrame(float frame);
 
   /**
    * Adds a Shape object with its identifier as a key to the map of initial shapes.
@@ -44,11 +44,10 @@ public interface Canvas {
    * Adds a Transformation object to the list of transformations, then sorts the list so all
    * transformations are order of starting frame.
    *
-   * @param shapeID        the identifier of the shape.
+   * @param shapeID the identifier of the shape.
    * @param transformation the Transformation object.
    * @throws IllegalArgumentException if shape with given identifier is not found.
    */
   void addTransformation(String shapeID, Transformation transformation)
       throws IllegalArgumentException;
-
 }

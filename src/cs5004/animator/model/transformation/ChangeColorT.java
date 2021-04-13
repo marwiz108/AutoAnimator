@@ -85,7 +85,7 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
    * @return the r, g, b values of the Color in an int array in the format [r, g, b].
    */
   @Override
-  public int[] executeAtFrame(int frame) {
+  public int[] executeAtFrame(float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
