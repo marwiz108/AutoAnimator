@@ -1,6 +1,7 @@
 package cs5004.animator.model.canvas;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -12,6 +13,7 @@ import cs5004.animator.model.transformation.Transformation;
 import cs5004.animator.model.transformation.TransformationType;
 import cs5004.animator.model.transformation.dimension;
 import cs5004.animator.util.AnimationBuilder;
+import cs5004.animator.util.AnimationReader;
 
 /**
  * Represents the canvas for the animation. Contains the initial shape objects and all
@@ -126,11 +128,21 @@ public final class ICanvasModel implements ICanvas {
   }
 
   public static final class Builder implements AnimationBuilder<ICanvas> {
-    ICanvas c = new ICanvasModel();
+    ICanvas c;
+
+    public Builder() throws FileNotFoundException {
+      this.c = new ICanvasModel();
+      Readable r = new FileReader("src/cs5004/animator/view/examples/smalldemo.txt");
+      AnimationReader.parseFile(r, this);
+    }
+
+    public ICanvas getCanvas() {
+      return this.c;
+    }
 
     @Override
     public ICanvas build() throws FileNotFoundException {
-      return null;
+      return this.c;
     }
 
     @Override
