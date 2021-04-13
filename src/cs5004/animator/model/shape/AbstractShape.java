@@ -49,6 +49,21 @@ public abstract class AbstractShape implements Shape {
     this.transformations = new ArrayList<>();
   }
 
+  /**
+   * Creates a shape with default (0) values.
+   *
+   * @param id the shape identifier.
+   */
+  public AbstractShape(String id) {
+    this.identifier = id;
+    this.reference = new Point2D(0, 0);
+    this.base = 0;
+    this.height = 0;
+    this.setColor(0, 0, 0);
+    this.visible = false;
+    this.transformations = new ArrayList<>();
+  }
+
   @Override
   public String getIdentifier() {
     return this.identifier;

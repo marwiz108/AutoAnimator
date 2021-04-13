@@ -1,13 +1,17 @@
 package cs5004.animator.model.canvas;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Rectangle;
 import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.Transformation;
 import cs5004.animator.model.transformation.TransformationType;
 import cs5004.animator.model.transformation.dimension;
+import cs5004.animator.util.AnimationBuilder;
 
 /**
  * Represents the canvas for the animation. Contains the initial shape objects and all
@@ -16,32 +20,22 @@ import cs5004.animator.model.transformation.dimension;
  */
 public final class ICanvasModel implements ICanvas {
   private final LinkedHashMap<String, Shape> initialShapes;
-  private final int leftMostX;
-  private final int topMostY;
-  private final int borderWidth;
-  private final int borderHeight;
-  /**
-   * Constructor for a ICanvas that creates an empty list of transformations.
-   *
-   * @param leftMostX
-   * @param topMostY
-   * @param borderWidth
-   * @param borderHeight
-   */
-  public ICanvasModel(int leftMostX, int topMostY, int borderWidth, int borderHeight) {
+  private int leftMostX;
+  private int topMostY;
+  private int borderWidth;
+  private int borderHeight;
+
+  /** Constructor for a ICanvas that creates an empty list of transformations. */
+  public ICanvasModel() {
+    this.initialShapes = new LinkedHashMap<>();
+  }
+
+  @Override
+  public void setCanvasBounds(int leftMostX, int topMostY, int borderWidth, int borderHeight) {
     this.leftMostX = leftMostX;
     this.topMostY = topMostY;
     this.borderWidth = borderWidth;
     this.borderHeight = borderHeight;
-    this.initialShapes = new LinkedHashMap<>();
-  }
-
-  public ICanvasModel() {
-    this.leftMostX = 0;
-    this.topMostY = 0;
-    this.borderWidth = 360;
-    this.borderHeight = 360;
-    this.initialShapes = new LinkedHashMap<>();
   }
 
   @Override
@@ -129,5 +123,52 @@ public final class ICanvasModel implements ICanvas {
   private void sortTransformations(ArrayList<Transformation> transformations) {
     Comparator<Transformation> c = (o1, o2) -> (int) (o1.getStartFrame() - o2.getStartFrame());
     transformations.sort(c);
+  }
+
+  public static final class Builder implements AnimationBuilder<ICanvas> {
+    ICanvas c = new ICanvasModel();
+
+    @Override
+    public ICanvas build() throws FileNotFoundException {
+      return null;
+    }
+
+    @Override
+    public AnimationBuilder<ICanvas> setBounds(int x, int y, int width, int height) {
+      this.c.setCanvasBounds(x, y, width, height);
+      return this;
+    }
+
+    @Override
+    public AnimationBuilder<ICanvas> declareShape(String name, String type) {
+      if (type.equals("rectangle")) {
+        this.c.addShape(new Rectangle(name));
+      } else if (type.equals("ellipse")) {
+        this.c.addShape(new Oval(name));
+      } // add other shapes here if needed
+      return this;
+    }
+
+    @Override
+    public AnimationBuilder<ICanvas> addMotion(
+        String name,
+        int t1,
+        int x1,
+        int y1,
+        int w1,
+        int h1,
+        int r1,
+        int g1,
+        int b1,
+        int t2,
+        int x2,
+        int y2,
+        int w2,
+        int h2,
+        int r2,
+        int g2,
+        int b2) {
+      return null;
+    }
   }
 }

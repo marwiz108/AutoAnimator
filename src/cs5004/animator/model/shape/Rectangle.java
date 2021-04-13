@@ -20,8 +20,12 @@ public class Rectangle extends AbstractShape {
    * @param b the blue value of this shape (0 - 255).
    */
   public Rectangle(
-          String identifier, float x, float y, float base, float height, int r, int g, int b) {
+      String identifier, float x, float y, float base, float height, int r, int g, int b) {
     super(identifier, x, y, base, height, r, g, b);
+  }
+
+  public Rectangle(String name) {
+    super(name);
   }
 
   @Override
@@ -34,13 +38,13 @@ public class Rectangle extends AbstractShape {
     float x = this.reference.getX();
     float y = this.reference.getY();
     return new Rectangle(
-            this.identifier,
-            x,
-            y,
-            this.base,
-            this.height,
-            this.color.getRed(),
-            this.color.getGreen(),
-            this.color.getBlue());
+        this.identifier,
+        x,
+        y,
+        this.base,
+        this.height,
+        this.color.getRed(),
+        this.color.getGreen(),
+        this.color.getBlue());
   }
 }
