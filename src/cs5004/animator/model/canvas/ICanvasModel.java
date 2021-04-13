@@ -1,5 +1,6 @@
 package cs5004.animator.model.canvas;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -7,8 +8,12 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 
 import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
 import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.ChangeColorT;
+import cs5004.animator.model.transformation.MoveT;
+import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.Transformation;
 import cs5004.animator.model.transformation.TransformationType;
 import cs5004.animator.model.transformation.dimension;
@@ -98,6 +103,11 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
+  public Shape getShapeById(String id) {
+    return this.initialShapes.get(id);
+  }
+
+  @Override
   public void addShape(Shape shape) {
     this.initialShapes.put(shape.getIdentifier(), shape);
   }
@@ -180,6 +190,37 @@ public final class ICanvasModel implements ICanvas {
         int r2,
         int g2,
         int b2) {
+
+      Shape thisShape = this.c.getShapeById(name);
+      if (!thisShape.isInitialized()) {
+        thisShape.setPosition(x1, y1);
+        thisShape.setColor(r1, g1, b1);
+        thisShape.resize(w1, h1);
+        thisShape.initialize();
+      }
+      //      if (t1 != t2) {
+      //        Transformation visibility = new ChangeVisibilityT(thisShape, t1, t2);
+      //      }
+      Color c1 = new Color(r1, g1, b1);
+      Color c2 = new Color(r2, g2, b2);
+      if (!(c1.equals(c2))) {
+        Transformation color = new ChangeColorT(thisShape, t1, t2, c1, c2);
+        this.c.addTransformation(name, color);
+      }
+      if (!(x1 == x2 && y1 == y2)) {
+        Transformation move =
+            new MoveT(thisShape, t1, t2, new Point2D(x1, y1), new Point2D(x2, y2));
+        this.c.addTransformation(name, move);
+      }
+      if (w1 != w2) {
+        Transformation resizeBase = new ResizeT(thisShape, t1, t2, dimension.BASE, w1, w2);
+        this.c.addTransformation(name, resizeBase);
+      }
+      if (h1 != h2) {
+        Transformation resizeHeight = new ResizeT(thisShape, t1, t2, dimension.HEIGHT, h1, h2);
+        this.c.addTransformation(name, resizeHeight);
+      }
+      //      this.c.addTransformation(name, visibility);
       return null;
     }
   }

@@ -15,6 +15,7 @@ public abstract class AbstractShape implements Shape {
   protected ArrayList<Transformation> transformations;
   protected Color color;
   protected boolean visible;
+  protected boolean isInitialized;
 
   /**
    * Constructor that is used to create an abstract shape. Is called by children of the
@@ -37,7 +38,7 @@ public abstract class AbstractShape implements Shape {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("Position coordinates must be positive.");
     }
-    if (base <= 0 || height <= 0) {
+    if (base < 0 || height < 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
     this.identifier = identifier;
@@ -46,6 +47,7 @@ public abstract class AbstractShape implements Shape {
     this.height = height;
     this.setColor(r, g, b);
     this.visible = false;
+    this.isInitialized = true;
     this.transformations = new ArrayList<>();
   }
 
@@ -61,7 +63,18 @@ public abstract class AbstractShape implements Shape {
     this.height = 0;
     this.setColor(0, 0, 0);
     this.visible = false;
+    this.isInitialized = false;
     this.transformations = new ArrayList<>();
+  }
+
+  @Override
+  public boolean isInitialized() {
+    return this.isInitialized;
+  }
+
+  @Override
+  public void initialize() {
+    this.isInitialized = true;
   }
 
   @Override
@@ -126,14 +139,14 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void addTransformation(Transformation newT) throws IllegalArgumentException {
-    for (Transformation myT : this.transformations) {
-      if (myT.getType() == newT.getType()) {
-        if (!(myT.getStartFrame() >= newT.getEndFrame()
-            || myT.getEndFrame() <= newT.getStartFrame())) {
-          throw new IllegalArgumentException("Conflicting Transformation - could not add.");
-        }
-      }
-    }
+    //    for (Transformation myT : this.transformations) {
+    //      if (myT.getType() == newT.getType()) {
+    //        if (!(myT.getStartFrame() >= newT.getEndFrame()
+    //            || myT.getEndFrame() <= newT.getStartFrame())) {
+    //          throw new IllegalArgumentException("Conflicting Transformation - could not add.");
+    //        }
+    //      }
+    //    }
     this.transformations.add(newT);
   }
 

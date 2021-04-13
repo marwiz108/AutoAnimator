@@ -18,6 +18,10 @@ public interface Shape {
    */
   Shape copy();
 
+  boolean isInitialized();
+
+  void initialize();
+
   /**
    * Returns the identifier for the shape.
    *
@@ -43,7 +47,7 @@ public interface Shape {
   /**
    * Resizes the shape by the given factor.
    *
-   * @param newBase   the new base of the Shape object.
+   * @param newBase the new base of the Shape object.
    * @param newHeight the new height of the Shape object.
    */
   void resize(float newBase, float newHeight);
