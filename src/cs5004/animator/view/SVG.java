@@ -4,13 +4,18 @@ import cs5004.animator.model.canvas.ICanvas;
 
 public class SVG extends AbstractTextView {
 
+  public SVG(ICanvas canvas) {
+    super(canvas);
+  }
+
   @Override
-  public String generateText(ICanvas canvas) {
+  public String generateText() {
     return "";
   }
 
   @Override
-  public void createFile() {
+  public void createFile(String filename) {
+    // this.text goes in a xml file
     return;
   }
 }
