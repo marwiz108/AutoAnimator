@@ -12,10 +12,4 @@ public class SVG extends AbstractTextView {
   public String generateText() {
     return "";
   }
-
-  @Override
-  public void createFile(String filename) {
-    // this.text goes in a xml file
-    return;
-  }
 }

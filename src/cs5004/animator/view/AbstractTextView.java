@@ -1,6 +1,9 @@
 package cs5004.animator.view;
 
 import cs5004.animator.model.canvas.ICanvas;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -32,6 +35,22 @@ public abstract class AbstractTextView implements TextView {
 
     this.frame.pack();
     this.frame.setVisible(true);
+  }
+
+  @Override
+  public void createFile(String filename) {
+    // creates .txt file for Text and .xml file for SVG
+    try {
+      FileWriter newFile = new FileWriter(filename);
+
+      BufferedWriter writer = new BufferedWriter(newFile);
+      writer.write(this.text);
+
+      writer.close();
+    } catch (IOException e) {
+      System.out.println("Error occurred.");
+      e.printStackTrace();
+    }
   }
 
   @Override

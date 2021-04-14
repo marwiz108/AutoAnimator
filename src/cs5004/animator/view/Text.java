@@ -18,11 +18,6 @@ public class Text extends AbstractTextView {
     return this.canvas.toString();
   }
 
-  @Override
-  public void createFile(String filename) {
-    // create text file, add this.text
-  }
-
   public static void main(String[] args) {
     ICanvas canvas = new ICanvasModel();
     Shape oval = new Oval("o", 50, 50,
@@ -34,7 +29,8 @@ public class Text extends AbstractTextView {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
-        new Text(canvas);
+        Text textview = new Text(canvas);
+        textview.createFile("testing.txt");
       }
     });
   }
