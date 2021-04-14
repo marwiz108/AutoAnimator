@@ -73,7 +73,6 @@ public final class ICanvasModel implements ICanvas {
 
   @Override
   public ArrayList<Shape> getShapesAtFrame(float frame) {
-    // TODO Implement getShapesAtFrame method
     ArrayList<Shape> shapes = new ArrayList<>();
     for (Shape initial : this.initialShapes.values()) {
       Shape s = initial.copy();
@@ -140,9 +139,9 @@ public final class ICanvasModel implements ICanvas {
   public static final class Builder implements AnimationBuilder<ICanvas> {
     ICanvas c;
 
-    public Builder() throws FileNotFoundException {
+    public Builder(String inFile) throws FileNotFoundException {
       this.c = new ICanvasModel();
-      Readable r = new FileReader("src/cs5004/animator/view/examples/smalldemo.txt");
+      Readable r = new FileReader(inFile);
       AnimationReader.parseFile(r, this);
     }
 
@@ -190,7 +189,7 @@ public final class ICanvasModel implements ICanvas {
         int r2,
         int g2,
         int b2) {
-
+      // TODO find a way to record visibility transformations
       Shape thisShape = this.c.getShapeById(name);
       if (!thisShape.isInitialized()) {
         thisShape.setPosition(x1, y1);
@@ -198,9 +197,7 @@ public final class ICanvasModel implements ICanvas {
         thisShape.resize(w1, h1);
         thisShape.initialize();
       }
-      //      if (t1 != t2) {
-      //        Transformation visibility = new ChangeVisibilityT(thisShape, t1, t2);
-      //      }
+
       Color c1 = new Color(r1, g1, b1);
       Color c2 = new Color(r2, g2, b2);
       if (!(c1.equals(c2))) {
@@ -220,7 +217,6 @@ public final class ICanvasModel implements ICanvas {
         Transformation resizeHeight = new ResizeT(thisShape, t1, t2, dimension.HEIGHT, h1, h2);
         this.c.addTransformation(name, resizeHeight);
       }
-      //      this.c.addTransformation(name, visibility);
       return null;
     }
   }
