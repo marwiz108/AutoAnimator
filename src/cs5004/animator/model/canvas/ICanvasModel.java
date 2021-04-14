@@ -136,6 +136,26 @@ public final class ICanvasModel implements ICanvas {
     transformations.sort(c);
   }
 
+  @Override
+  public int getLeftMostX() {
+    return leftMostX;
+  }
+
+  @Override
+  public int getTopMostY() {
+    return topMostY;
+  }
+
+  @Override
+  public int getBorderWidth() {
+    return borderWidth;
+  }
+
+  @Override
+  public int getBorderHeight() {
+    return borderHeight;
+  }
+
   public static final class Builder implements AnimationBuilder<ICanvas> {
     ICanvas c;
 
