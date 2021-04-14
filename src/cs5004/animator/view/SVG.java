@@ -1,6 +1,11 @@
 package cs5004.animator.view;
 
 import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.model.canvas.ICanvasModel;
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.MoveT;
+import javax.swing.SwingUtilities;
 
 public class SVG extends AbstractTextView {
 
@@ -10,6 +15,25 @@ public class SVG extends AbstractTextView {
 
   @Override
   public String generateText() {
-    return "";
+    return "<svg width=\"100\" height=\"100\">\n"
+        + "  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n"
+        + "</svg>";
+  }
+
+  public static void main(String[] args) {
+    ICanvas canvas = new ICanvasModel();
+    Shape oval = new Oval("o", 50, 50,
+        30, 60, 255, 0, 0);
+    canvas.addShape(oval);
+    canvas.addTransformation(oval.getIdentifier(),
+        new MoveT(oval, 2, 6, 50, 50, 100, 100));
+
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        SVG svgview = new SVG(canvas);
+        svgview.createFile("testing-svg.xml");
+      }
+    });
   }
 }
