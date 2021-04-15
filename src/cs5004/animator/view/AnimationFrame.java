@@ -22,31 +22,32 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
 
   public AnimationFrame(ICanvas c) {
     this.canvas = c;
-    JPanel panel = new AnimationPanel(c.getShapesAtFrame(6));
-    panel.setPreferredSize(new Dimension(c.getBorderWidth(), c.getBorderHeight()));
+    createAndShowGUI();
+  }
+
+  private void createAndShowGUI() {
+    JPanel panel = new AnimationPanel(this.canvas.getShapesAtFrame(0));
+    panel.setPreferredSize(
+        new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     JScrollPane scroll = new JScrollPane(panel);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setLayout(new BorderLayout());
     add(scroll, BorderLayout.CENTER);
-    setSize(new Dimension(c.getBorderWidth(), c.getBorderHeight()));
+    setSize(new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     setVisible(true);
-  }
-
-  public static void main(String[] args) {
-    ICanvas c = new ICanvasModel();
-    c.setCanvasBounds(0, 0, 1000, 700);
-    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
-    //    Shape rect = new Rectangle("r", )
-    c.addShape(oval);
-    c.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 500, 500));
-
-    SwingUtilities.invokeLater(
-        new Runnable() {
-          @Override
-          public void run() {
-            AnimationFrame animationFrame = new AnimationFrame(c);
-          }
-        });
+    //    ICanvas c = new ICanvasModel();
+    //    c.setCanvasBounds(0, 0, 1000, 700);
+    //    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
+    //    //    Shape rect = new Rectangle("r", )
+    //    c.addShape(oval);
+    //    c.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 500, 500));
+    //    SwingUtilities.invokeLater(
+    //        new Runnable() {
+    //          @Override
+    //          public void run() {
+    //            AnimationFrame animationFrame = new AnimationFrame(c);
+    //          }
+    //        });
   }
 
   @Override

@@ -26,6 +26,7 @@ import cs5004.animator.util.AnimationReader;
  * objects at a given frame.
  */
 public final class ICanvasModel implements ICanvas {
+  // TODO create a dynamic shape hashmap from initialshapes that gets mutated
   private final LinkedHashMap<String, Shape> initialShapes;
   private int leftMostX;
   private int topMostY;
