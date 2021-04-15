@@ -28,6 +28,7 @@ import cs5004.animator.util.AnimationReader;
 public final class ICanvasModel implements ICanvas {
   // TODO create a dynamic shape hashmap from initialshapes that gets mutated
   private final LinkedHashMap<String, Shape> initialShapes;
+  private final LinkedHashMap<String, Shape> dynamicShapes;
   private int leftMostX;
   private int topMostY;
   private int borderWidth;
@@ -36,6 +37,7 @@ public final class ICanvasModel implements ICanvas {
   /** Constructor for a ICanvas that creates an empty list of transformations. */
   public ICanvasModel() {
     this.initialShapes = new LinkedHashMap<>();
+    dynamicShapes = new LinkedHashMap<>();
   }
 
   @Override
@@ -110,6 +112,7 @@ public final class ICanvasModel implements ICanvas {
   @Override
   public void addShape(Shape shape) {
     this.initialShapes.put(shape.getIdentifier(), shape);
+    this.dynamicShapes.put(shape.getIdentifier(), shape);
   }
 
   @Override
