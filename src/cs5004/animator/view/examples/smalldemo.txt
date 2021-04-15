@@ -3,7 +3,7 @@
 canvas 200 70 360 360
 # declares a rectangle shape named R
 shape R rectangle
-# describes the motions of shape R, between two moments of animation:
+# describes the motions of shape R, between two moments of animationFrame:
 # t == tick
 # (x,y) == position
 # (w,h) == dimensions
