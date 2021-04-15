@@ -58,4 +58,11 @@ public interface Transformation<T> {
    */
   float getValueAtFrame(float frame, float initialValue, float finalValue)
       throws IllegalArgumentException;
+
+  /**
+   * Returns an SVG text output of the transformations/animations.
+   *
+   * @return text as SVG representation of the transformations
+   */
+  String toSVGString();
 }

@@ -29,6 +29,13 @@ public interface ICanvas {
   String toString();
 
   /**
+   * Returns an SVG text output of the canvas with its shapes and their animations.
+   *
+   * @return text as SVG representation of the canvas with its shapes and their animations
+   */
+  String toSVGString();
+
+  /**
    * Get the state of all shapes at a given frame.
    *
    * @param frame the frame that will eventually be rendered in the cs5004.animator.view.

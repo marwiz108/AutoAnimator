@@ -72,6 +72,18 @@ public final class ICanvasModel implements ICanvas {
     return canvasStr.toString();
   }
 
+  public String toSVGString() {
+    StringBuilder svgStr = new StringBuilder();
+    svgStr.append(String.format("<svg viewBox=\"%d %d %d %d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
+        this.leftMostX, this.topMostY, this.borderWidth, this.borderHeight));
+    if (!this.initialShapes.isEmpty()) {
+      this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString()));
+    }
+    svgStr.append("</svg>");
+
+    return svgStr.toString();
+  }
+
   @Override
   public ArrayList<Shape> getShapesAtFrame(float frame) {
     ArrayList<Shape> shapes = new ArrayList<>();
