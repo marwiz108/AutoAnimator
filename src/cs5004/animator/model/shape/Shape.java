@@ -1,6 +1,6 @@
 package cs5004.animator.model.shape;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 
 import cs5004.animator.model.transformation.Transformation;
@@ -112,4 +112,6 @@ public interface Shape {
    * @return text as SVG representation of the shapes with their animations
    */
   String toSVGString();
+
+  void fill(Graphics2D g);
 }

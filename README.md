@@ -2,13 +2,13 @@
 
 ## Canvas
 
-The Canvas contains all Shape objects that will appear in the animation, and can also be thought of
-as the screen. The Canvas is able to render all Shapes in the appropriate position, size, and color
-at any given frame throughout the animation. Shapes are tracked using a LinkedHashMap, which takes a
-Shape identifier as a key. The LinkedHashMap stores the original Shape object in the order they were
-added, so the Canvas can be reset if needed. Shapes can be added or removed from the Canvas.
-Transformations can also be added directly to the Canvas, given the identifier of the Shape they
-will act upon.
+The Canvas contains all Shape objects that will appear in the animationFrame, and can also be
+thought of as the screen. The Canvas is able to render all Shapes in the appropriate position, size,
+and color at any given frame throughout the animationFrame. Shapes are tracked using a
+LinkedHashMap, which takes a Shape identifier as a key. The LinkedHashMap stores the original Shape
+object in the order they were added, so the Canvas can be reset if needed. Shapes can be added or
+removed from the Canvas. Transformations can also be added directly to the Canvas, given the
+identifier of the Shape they will act upon.
 
 ## Shape Interface
 

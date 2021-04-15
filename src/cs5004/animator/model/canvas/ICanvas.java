@@ -69,4 +69,12 @@ public interface ICanvas {
    */
   void addTransformation(String shapeID, Transformation transformation)
       throws IllegalArgumentException;
+
+  int getLeftMostX();
+
+  int getTopMostY();
+
+  int getBorderWidth();
+
+  int getBorderHeight();
 }
