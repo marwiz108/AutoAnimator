@@ -1,6 +1,6 @@
 package cs5004.animator.model.shape;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 
 import cs5004.animator.model.transformation.Transformation;
@@ -139,6 +139,8 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void addTransformation(Transformation newT) throws IllegalArgumentException {
+    // TODO Find a way to check for conflicting Transformations that doesn't cause errors
+
     //    for (Transformation myT : this.transformations) {
     //      if (myT.getType() == newT.getType()) {
     //        if (!(myT.getStartFrame() >= newT.getEndFrame()

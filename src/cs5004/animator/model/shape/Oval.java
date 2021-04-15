@@ -1,5 +1,7 @@
 package cs5004.animator.model.shape;
 
+import java.awt.*;
+
 /**
  * This class represents an cs5004.animator.controller.model.shape.Oval shape. An oval has a center,
  * base and height.
@@ -29,6 +31,15 @@ public class Oval extends AbstractShape {
   @Override
   public String toString() {
     return super.toString("oval");
+  }
+
+  @Override
+  public void fill(Graphics2D g) {
+    g.fillOval(
+        (int) this.reference.getX(),
+        (int) this.reference.getY(),
+        (int) this.base,
+        (int) this.height);
   }
 
   @Override

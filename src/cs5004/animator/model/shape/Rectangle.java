@@ -1,5 +1,7 @@
 package cs5004.animator.model.shape;
 
+import java.awt.*;
+
 /**
  * This class represents a cs5004.animator.controller.model.shape.Rectangle shape. A rectangle has a
  * corner, base and height.
@@ -31,6 +33,15 @@ public class Rectangle extends AbstractShape {
   @Override
   public String toString() {
     return super.toString("rectangle");
+  }
+
+  @Override
+  public void fill(Graphics2D g) {
+    g.fillRect(
+        (int) this.reference.getX(),
+        (int) this.reference.getY(),
+        (int) this.base,
+        (int) this.height);
   }
 
   @Override
