@@ -53,6 +53,18 @@ public class MoveT extends AbstractTransformation<float[]> {
     return super.toString("moves", this.startPos.toString(), this.endPos.toString());
   }
 
+  public String toSVGString() {
+    StringBuilder svgText = new StringBuilder();
+    svgText.append(String.format("<animate attributeName=\"x\" "
+            + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />\n",
+        this.startPos.getX(), this.endPos.getX(), this.startFrame, this.endFrame - this.startFrame));
+    svgText.append(String.format("<animate attributeName=\"y\" "
+            + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+        this.startPos.getY(), this.endPos.getY(), this.startFrame, this.endFrame - this.startFrame));
+
+    return svgText.toString();
+  }
+
   @Override
   public TransformationType getType() {
     return TransformationType.Move;

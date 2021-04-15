@@ -106,5 +106,12 @@ public interface Shape {
    */
   ArrayList<Transformation> getTransformations();
 
+  /**
+   * Returns an SVG text output of the shapes with their animations.
+   *
+   * @return text as SVG representation of the shapes with their animations
+   */
+  String toSVGString();
+
   void fill(Graphics2D g);
 }

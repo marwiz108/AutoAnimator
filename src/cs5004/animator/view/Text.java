@@ -30,7 +30,7 @@ public class Text extends AbstractTextView {
       @Override
       public void run() {
         Text textview = new Text(canvas);
-        textview.createFile("testing.txt");
+        textview.createFile("test-txt.txt");
       }
     });
   }

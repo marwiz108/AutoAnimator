@@ -168,6 +168,17 @@ public abstract class AbstractShape implements Shape {
         this.colorToString());
   }
 
+  protected String toSVGString(String type) {
+    StringBuilder svgText = new StringBuilder();
+    svgText.append(String.format("<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n",
+        type, this.reference.getX(), this.reference.getY(), this.base / 2, this.height / 2,
+        this.color.getRed(), this.color.getGreen(), this.color.getBlue()));
+    this.transformations.forEach(t -> svgText.append(t.toSVGString() + "\n"));
+    svgText.append(String.format("</%s>\n", type));
+
+    return svgText.toString();
+  }
+
   /**
    * Function that prints out a color in an easily readable format.
    *

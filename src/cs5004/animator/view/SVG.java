@@ -15,9 +15,7 @@ public class SVG extends AbstractTextView {
 
   @Override
   public String generateText() {
-    return "<svg width=\"100\" height=\"100\">\n"
-        + "  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n"
-        + "</svg>";
+    return this.canvas.toSVGString();
   }
 
   public static void main(String[] args) {
@@ -32,7 +30,7 @@ public class SVG extends AbstractTextView {
       @Override
       public void run() {
         SVG svgview = new SVG(canvas);
-        svgview.createFile("testing-svg.xml");
+        svgview.createFile("test-svg.xml");
       }
     });
   }
