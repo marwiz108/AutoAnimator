@@ -10,7 +10,7 @@ import cs5004.animator.view.AnimationView;
 public final class EasyAnimator {
   public static void main(String[] args) throws FileNotFoundException {
     ICanvasModel.Builder builder =
-        new ICanvasModel.Builder("src/cs5004/animator/view/examples/smalldemo.txt");
+        new ICanvasModel.Builder("src/cs5004/animator/view/examples/buildings.txt");
     AnimationView aView = new AnimationFrame(builder.getCanvas());
     System.out.println(builder.getCanvas().toString());
   }

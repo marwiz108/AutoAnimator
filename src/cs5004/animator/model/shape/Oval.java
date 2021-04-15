@@ -34,9 +34,9 @@ public class Oval extends AbstractShape {
   }
 
   @Override
-
   public String toSVGString() {
     return super.toSVGString("ellipse");
+  }
 
   public void fill(Graphics2D g) {
     g.fillOval(

@@ -13,25 +13,24 @@ public class SVG extends AbstractTextView {
     super(canvas);
   }
 
+  public static void main(String[] args) {
+    ICanvas canvas = new ICanvasModel();
+    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
+    canvas.addShape(oval);
+    canvas.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 100, 100));
+
+    SwingUtilities.invokeLater(
+        new Runnable() {
+          @Override
+          public void run() {
+            SVG svgview = new SVG(canvas);
+            svgview.createFile("test-svg.xml");
+          }
+        });
+  }
+
   @Override
   public String generateText() {
     return this.canvas.toSVGString();
-  }
-
-  public static void main(String[] args) {
-    ICanvas canvas = new ICanvasModel();
-    Shape oval = new Oval("o", 50, 50,
-        30, 60, 255, 0, 0);
-    canvas.addShape(oval);
-    canvas.addTransformation(oval.getIdentifier(),
-        new MoveT(oval, 2, 6, 50, 50, 100, 100));
-
-    SwingUtilities.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        SVG svgview = new SVG(canvas);
-        svgview.createFile("test-svg.xml");
-      }
-    });
   }
 }

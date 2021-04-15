@@ -20,7 +20,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   public String toString() {
     return String.format(
         "Shape %s appears at t=%.2f and disappears at t=%.2f",
-        this.shape.getIdentifier(), this.startFrame, this.endFrame);
+        this.initialShape.getIdentifier(), this.startFrame, this.endFrame);
   }
 
   public String toSVGString() {
@@ -36,11 +36,12 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   /**
    * Implementation of ExecuteAtFrame for a ChangeVisibilityT Transformation.
    *
+   * @param s
    * @param frame the frame to be rendered.
    * @return true if the shape is visible, false otherwise.
    */
   @Override
-  public Boolean executeAtFrame(float frame) {
+  public Boolean executeAtFrame(Shape s, float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }

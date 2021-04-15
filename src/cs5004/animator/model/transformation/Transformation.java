@@ -1,5 +1,7 @@
 package cs5004.animator.model.transformation;
 
+import cs5004.animator.model.shape.Shape;
+
 /**
  * Transformation interface that defines behavior shared by all transformation objects. A
  * transformation has one Shape and must be able to determine the state of that Shape at any given
@@ -25,13 +27,14 @@ public interface Transformation<T> {
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
    * frame.
    *
+   * @param s
    * @param frame the frame to be rendered.
    * @return the result of the transformation at a given frame. Will be used to set the Shape state
    *     at the given frame. Note: the return type is different for each subclass and must be cast
    *     to the appropriate data type to work properly.
    * @throws IllegalArgumentException if the given frame is negative.
    */
-  T executeAtFrame(float frame) throws IllegalArgumentException;
+  T executeAtFrame(Shape s, float frame) throws IllegalArgumentException;
 
   /**
    * Return the starting frame of the transformation.
@@ -51,12 +54,13 @@ public interface Transformation<T> {
    * Determine the the value of some parameter at a given frame.
    *
    * @param frame the frame to calculate the value at.
+   * @param currentValue
    * @param initialValue The starting value of the parameter.
    * @param finalValue the ending value of the parameter.
    * @return the value the parameter will have at the given frame.
    * @throws IllegalArgumentException if the frame is negative.
    */
-  float getValueAtFrame(float frame, float initialValue, float finalValue)
+  float getValueAtFrame(float frame, float currentValue, float initialValue, float finalValue)
       throws IllegalArgumentException;
 
   /**

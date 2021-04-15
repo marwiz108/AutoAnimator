@@ -76,11 +76,11 @@ public class TransformationTest {
 
   @Test
   public void testGetValueAtFrame() {
-    float frame0 = move.getValueAtFrame(0, 0, 100);
-    float frame5 = move.getValueAtFrame(5, 0, 100);
-    float frame10 = move.getValueAtFrame(10, 0, 100);
-    float frame15 = move.getValueAtFrame(15, 0, 100);
-    float frame20 = move.getValueAtFrame(20, 0, 100);
+    float frame0 = move.getValueAtFrame(0, 0, 0, 100);
+    float frame5 = move.getValueAtFrame(5, 0, 0, 100);
+    float frame10 = move.getValueAtFrame(10, 0, 0, 100);
+    float frame15 = move.getValueAtFrame(15, 0, 0, 100);
+    float frame20 = move.getValueAtFrame(20, 0, 0, 100);
     //    System.out.println(move.getValueAtFrame(F, 0, 100));
     assertEquals(0, frame0, 0);
     assertEquals(0, frame5, 0);
@@ -88,8 +88,8 @@ public class TransformationTest {
     assertEquals(100, frame15, 0);
     assertEquals(100, frame20, 0);
 
-    float yFrame0 = move.getValueAtFrame(0, 0, 0);
-    float yFrame15 = move.getValueAtFrame(20, 0, 0);
+    float yFrame0 = move.getValueAtFrame(0, 0, 0, 0);
+    float yFrame15 = move.getValueAtFrame(20, 0, 0, 0);
 
     assertEquals(0, yFrame0, 0);
     assertEquals(0, yFrame15, 0);
@@ -97,7 +97,7 @@ public class TransformationTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testGetValueAtFrameInvalid() {
-    move.getValueAtFrame(-1, 0, 100);
+    move.getValueAtFrame(-1, 0, 0, 100);
   }
 
   @Test
@@ -130,11 +130,11 @@ public class TransformationTest {
 
   @Test
   public void testExecuteAtFrameColor() {
-    int[] cAt0 = (int[]) this.changeColor.executeAtFrame(0);
-    int[] cAt5 = (int[]) this.changeColor.executeAtFrame(5);
-    int[] cAt10 = (int[]) this.changeColor.executeAtFrame(10);
-    int[] cAt15 = (int[]) this.changeColor.executeAtFrame(15);
-    int[] cAt20 = (int[]) this.changeColor.executeAtFrame(20);
+    int[] cAt0 = (int[]) this.changeColor.executeAtFrame(ref, 0);
+    int[] cAt5 = (int[]) this.changeColor.executeAtFrame(ref, 5);
+    int[] cAt10 = (int[]) this.changeColor.executeAtFrame(ref, 10);
+    int[] cAt15 = (int[]) this.changeColor.executeAtFrame(ref, 15);
+    int[] cAt20 = (int[]) this.changeColor.executeAtFrame(ref, 20);
 
     assertEquals(255, cAt0[0]);
     assertEquals(0, cAt0[1]);
@@ -159,35 +159,35 @@ public class TransformationTest {
 
   @Test
   public void testExecuteAtFrameVis() {
-    assertFalse((boolean) changeVis.executeAtFrame(0));
-    assertTrue((boolean) changeVis.executeAtFrame(5));
-    assertTrue((boolean) changeVis.executeAtFrame(14));
-    assertFalse((boolean) changeVis.executeAtFrame(15));
-    assertFalse((boolean) changeVis.executeAtFrame(20));
+    assertFalse((boolean) changeVis.executeAtFrame(ref, 0));
+    assertTrue((boolean) changeVis.executeAtFrame(ref, 5));
+    assertTrue((boolean) changeVis.executeAtFrame(ref, 14));
+    assertFalse((boolean) changeVis.executeAtFrame(ref, 15));
+    assertFalse((boolean) changeVis.executeAtFrame(ref, 20));
   }
 
   //
   @Test
   public void testExecuteAtFrameMove() {
-    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(0)));
-    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(5)));
-    assertEquals("[50.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(10)));
-    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(15)));
-    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(20)));
+    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(ref, 0)));
+    assertEquals("[0.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(ref, 5)));
+    assertEquals("[50.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(ref, 10)));
+    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(ref, 15)));
+    assertEquals("[100.0, 0.0]", Arrays.toString((float[]) move.executeAtFrame(ref, 20)));
   }
 
   @Test
   public void testExecuteAtFrameResize() {
-    assertEquals(BASE, ((ResizeT) resize).getDimension());
+    assertEquals(BASE, resize.getDimension());
 
-    assertEquals(50, (float) resize.executeAtFrame(0), 0);
+    assertEquals(50, (float) resize.executeAtFrame(ref, 0), 0);
 
-    assertEquals(50, (float) resize.executeAtFrame(5), 0);
+    assertEquals(50, (float) resize.executeAtFrame(ref, 5), 0);
 
-    assertEquals(62.5, (float) resize.executeAtFrame(10), 0);
+    assertEquals(62.5, (float) resize.executeAtFrame(ref, 10), 0);
 
-    assertEquals(75, (float) resize.executeAtFrame(15), 0);
+    assertEquals(75, (float) resize.executeAtFrame(ref, 15), 0);
 
-    assertEquals(75, (float) resize.executeAtFrame(20), 0);
+    assertEquals(75, (float) resize.executeAtFrame(ref, 20), 0);
   }
 }

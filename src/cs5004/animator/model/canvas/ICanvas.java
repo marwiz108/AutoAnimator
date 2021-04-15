@@ -35,6 +35,8 @@ public interface ICanvas {
    */
   String toSVGString();
 
+  void resetDynamicShapes();
+
   /**
    * Get the state of all shapes at a given frame.
    *

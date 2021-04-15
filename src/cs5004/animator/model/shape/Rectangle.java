@@ -38,7 +38,8 @@ public class Rectangle extends AbstractShape {
   @Override
   public String toSVGString() {
     return super.toSVGString("rect");
-    
+  }
+
   public void fill(Graphics2D g) {
     g.fillRect(
         (int) this.reference.getX(),
