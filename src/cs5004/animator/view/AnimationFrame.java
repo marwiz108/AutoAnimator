@@ -9,19 +9,20 @@ import javax.swing.*;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Rectangle;
 import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.MoveT;
 
 public class AnimationFrame extends JFrame implements AnimationView, ActionListener {
 
-//  private final JPanel panel;
-//  private final JFrame f;
-//  private final JScrollPane scrollPane;
+  //  private final JPanel panel;
+  //  private final JFrame f;
+  //  private final JScrollPane scrollPane;
   private final ICanvas canvas;
 
   public AnimationFrame(ICanvas c) {
     this.canvas = c;
-    JPanel panel = new AnimationPanel();
+    JPanel panel = new AnimationPanel(c.getShapesAtFrame(6));
     panel.setPreferredSize(new Dimension(c.getBorderWidth(), c.getBorderHeight()));
     JScrollPane scroll = new JScrollPane(panel);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,19 +34,19 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
 
   public static void main(String[] args) {
     ICanvas c = new ICanvasModel();
-    c.setCanvasBounds(0,0, 1000, 700);
-    Shape oval = new Oval("o", 50, 50,
-            30, 60, 255, 0, 0);
+    c.setCanvasBounds(0, 0, 1000, 700);
+    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
+    //    Shape rect = new Rectangle("r", )
     c.addShape(oval);
-    c.addTransformation(oval.getIdentifier(),
-            new MoveT(oval, 2, 6, 50, 50, 100, 100));
+    c.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 500, 500));
 
-    SwingUtilities.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        AnimationFrame animationFrame = new AnimationFrame(c);
-      }
-    });
+    SwingUtilities.invokeLater(
+        new Runnable() {
+          @Override
+          public void run() {
+            AnimationFrame animationFrame = new AnimationFrame(c);
+          }
+        });
   }
 
   @Override
@@ -74,6 +75,5 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
   }
 
   @Override
-  public void actionPerformed(ActionEvent e) {
-  }
+  public void actionPerformed(ActionEvent e) {}
 }
