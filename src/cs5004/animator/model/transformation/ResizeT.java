@@ -64,6 +64,21 @@ public class ResizeT extends AbstractTransformation<Float> {
     return super.toString("Scales", pre, post);
   }
 
+  public String toSVGString() {
+    StringBuilder svgText = new StringBuilder();
+    if (this.baseOrHeight == dimension.HEIGHT) {
+      svgText.append(String.format("<animateTransform attributeName=\"ry\" "
+          + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+          this.initialValue, this.finalValue, this.startFrame, this.endFrame - this.startFrame));
+    } else {
+      svgText.append(String.format("<animateTransform attributeName=\"rx\" "
+              + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+          this.initialValue, this.finalValue, this.startFrame, this.endFrame - this.startFrame));
+    }
+
+    return svgText.toString();
+  }
+
   @Override
   public TransformationType getType() {
     return TransformationType.Resize;

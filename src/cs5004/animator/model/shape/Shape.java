@@ -105,4 +105,11 @@ public interface Shape {
    * @return list of Transformation objects.
    */
   ArrayList<Transformation> getTransformations();
+
+  /**
+   * Returns an SVG text output of the shapes with their animations.
+   *
+   * @return text as SVG representation of the shapes with their animations
+   */
+  String toSVGString();
 }

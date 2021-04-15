@@ -32,6 +32,11 @@ public class Oval extends AbstractShape {
   }
 
   @Override
+  public String toSVGString() {
+    return super.toSVGString("ellipse");
+  }
+
+  @Override
   public Shape copy() {
     float x = this.reference.getX();
     float y = this.reference.getY();
