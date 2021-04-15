@@ -35,9 +35,6 @@ public abstract class AbstractShape implements Shape {
   public AbstractShape(
       String identifier, float x, float y, float base, float height, int r, int g, int b)
       throws IllegalArgumentException {
-    if (x < 0 || y < 0) {
-      throw new IllegalArgumentException("Position coordinates must be positive.");
-    }
     if (base < 0 || height < 0) {
       throw new IllegalArgumentException("Shape dimensions must be positive.");
     }
@@ -89,9 +86,9 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void setPosition(float x, float y) throws IllegalArgumentException {
-    if (x < 0 || y < 0) {
-      throw new IllegalArgumentException("Position coordinates must be positive.");
-    }
+    //    if (x < 0 || y < 0) {
+    //      throw new IllegalArgumentException("Position coordinates must be positive.");
+    //    }
     this.reference.updatePosition(x, y);
   }
 
@@ -170,9 +167,17 @@ public abstract class AbstractShape implements Shape {
 
   protected String toSVGString(String type) {
     StringBuilder svgText = new StringBuilder();
-    svgText.append(String.format("<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n",
-        type, this.reference.getX(), this.reference.getY(), this.base / 2, this.height / 2,
-        this.color.getRed(), this.color.getGreen(), this.color.getBlue()));
+    svgText.append(
+        String.format(
+            "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n",
+            type,
+            this.reference.getX(),
+            this.reference.getY(),
+            this.base / 2,
+            this.height / 2,
+            this.color.getRed(),
+            this.color.getGreen(),
+            this.color.getBlue()));
     this.transformations.forEach(t -> svgText.append(t.toSVGString() + "\n"));
     svgText.append(String.format("</%s>\n", type));
 

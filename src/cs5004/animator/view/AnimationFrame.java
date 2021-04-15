@@ -15,9 +15,6 @@ import cs5004.animator.model.transformation.MoveT;
 
 public class AnimationFrame extends JFrame implements AnimationView, ActionListener {
 
-  //  private final JPanel panel;
-  //  private final JFrame f;
-  //  private final JScrollPane scrollPane;
   private final ICanvas canvas;
 
   public AnimationFrame(ICanvas c) {
@@ -26,7 +23,7 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
   }
 
   private void createAndShowGUI() {
-    JPanel panel = new AnimationPanel(this.canvas.getShapesAtFrame(0));
+    JPanel panel = new AnimationPanel(this.canvas.getShapesAtFrame(153));
     panel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     JScrollPane scroll = new JScrollPane(panel);
@@ -35,19 +32,6 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
     add(scroll, BorderLayout.CENTER);
     setSize(new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     setVisible(true);
-    //    ICanvas c = new ICanvasModel();
-    //    c.setCanvasBounds(0, 0, 1000, 700);
-    //    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
-    //    //    Shape rect = new Rectangle("r", )
-    //    c.addShape(oval);
-    //    c.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 500, 500));
-    //    SwingUtilities.invokeLater(
-    //        new Runnable() {
-    //          @Override
-    //          public void run() {
-    //            AnimationFrame animationFrame = new AnimationFrame(c);
-    //          }
-    //        });
   }
 
   @Override

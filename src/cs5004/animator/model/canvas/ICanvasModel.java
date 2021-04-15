@@ -76,8 +76,10 @@ public final class ICanvasModel implements ICanvas {
 
   public String toSVGString() {
     StringBuilder svgStr = new StringBuilder();
-    svgStr.append(String.format("<svg viewBox=\"%d %d %d %d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
-        this.leftMostX, this.topMostY, this.borderWidth, this.borderHeight));
+    svgStr.append(
+        String.format(
+            "<svg viewBox=\"%d %d %d %d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
+            this.leftMostX, this.topMostY, this.borderWidth, this.borderHeight));
     if (!this.initialShapes.isEmpty()) {
       this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString()));
     }
@@ -87,23 +89,32 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
+  public void resetDynamicShapes() {
+    for (String id : this.initialShapes.keySet()) {
+      this.dynamicShapes.replace(id, this.initialShapes.get(id));
+    }
+  }
+
+  @Override
   public ArrayList<Shape> getShapesAtFrame(float frame) {
     ArrayList<Shape> shapes = new ArrayList<>();
-    for (Shape initial : this.initialShapes.values()) {
-      Shape s = initial.copy();
+    for (String id : this.initialShapes.keySet()) {
+      Shape initial = this.initialShapes.get(id);
+      Shape s = this.dynamicShapes.get(id);
+
       for (Transformation t : initial.getTransformations()) {
         TransformationType type = t.getType();
         if (type == TransformationType.ChangeColor) {
-          int[] newColor = (int[]) t.executeAtFrame(frame);
+          int[] newColor = (int[]) t.executeAtFrame(s, frame);
           s.setColor(newColor[0], newColor[1], newColor[2]);
         } else if (type == TransformationType.ChangeVis) {
-          boolean vis = (boolean) t.executeAtFrame(frame);
+          boolean vis = (boolean) t.executeAtFrame(s, frame);
           s.setVisibility(vis);
         } else if (type == TransformationType.Move) {
-          float[] newPos = (float[]) t.executeAtFrame(frame);
+          float[] newPos = (float[]) t.executeAtFrame(s, frame);
           s.setPosition(newPos[0], newPos[1]);
         } else if (type == TransformationType.Resize) {
-          float newValue = (float) t.executeAtFrame(frame);
+          float newValue = (float) t.executeAtFrame(s, frame);
           if (t.getDimension() == dimension.BASE) {
             s.resize(newValue, s.getHeight());
           } else {

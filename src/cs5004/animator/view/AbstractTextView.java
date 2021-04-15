@@ -24,8 +24,8 @@ public abstract class AbstractTextView implements TextView {
     this.frame = new JFrame("Easy Animator Text");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//    this.panel = new JPanel();
-//    this.panel.setBackground(Color.BLUE);
+    //    this.panel = new JPanel();
+    //    this.panel.setBackground(Color.BLUE);
 
     JTextArea textArea = new JTextArea(this.text);
     textArea.setEditable(false);

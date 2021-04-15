@@ -9,9 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * JUnit test class for the Shape interface.
- */
+/** JUnit test class for the Shape interface. */
 public class ShapeTest {
 
   private Shape oval;
@@ -172,17 +170,17 @@ public class ShapeTest {
   @Test
   public void testToString() {
     String ovalStr =
-            "Name: o\n"
-                    + "Type: oval\n"
-                    + "Position: (500.0, 100.0), Base: 60.0, Height: 30.0\n"
-                    + "Color: (255, 0, 0)";
+        "Name: o\n"
+            + "Type: oval\n"
+            + "Position: (500.0, 100.0), Base: 60.0, Height: 30.0\n"
+            + "Color: (255, 0, 0)";
     assertEquals(ovalStr, this.oval.toString());
 
     String rectStr =
-            "Name: r\n"
-                    + "Type: rectangle\n"
-                    + "Position: (200.0, 200.0), Base: 50.0, Height: 100.0\n"
-                    + "Color: (0, 0, 255)";
+        "Name: r\n"
+            + "Type: rectangle\n"
+            + "Position: (200.0, 200.0), Base: 50.0, Height: 100.0\n"
+            + "Color: (0, 0, 255)";
     assertEquals(rectStr, this.rectangle.toString());
   }
 }
