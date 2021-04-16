@@ -67,6 +67,7 @@ public class ResizeT extends AbstractTransformation<Float> {
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
     if (this.baseOrHeight == dimension.HEIGHT) {
+      // TODO change timeframes
       svgText.append(String.format("<animateTransform attributeName=\"ry\" "
           + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
           this.initialValue, this.finalValue, this.startFrame, this.endFrame - this.startFrame));
