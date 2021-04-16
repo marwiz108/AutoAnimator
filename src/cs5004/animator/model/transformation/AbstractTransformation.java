@@ -70,6 +70,17 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   }
 
   @Override
+  public boolean hasConflictingTransformation(Transformation newT) {
+    if (this.getType() == newT.getType()) {
+      if (newT.getStartFrame() >= this.startFrame
+          || newT.getStartFrame() <= this.endFrame) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
   public float getValueAtFrame(
       float frame, float currentValue, float initialValue, float finalValue)
       throws IllegalArgumentException {
