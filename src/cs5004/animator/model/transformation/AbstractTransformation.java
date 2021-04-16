@@ -9,7 +9,7 @@ import cs5004.animator.model.shape.Shape;
 public abstract class AbstractTransformation<T> implements Transformation<T> {
 
   // TODO abstract shapes should always look at the dynamic shape Hashmap in canvas
-  protected final Shape shape;
+  protected final Shape initialShape;
   protected final float startFrame;
   protected final float endFrame;
 
@@ -31,7 +31,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
     if (startFrame > endFrame) {
       throw new IllegalArgumentException("Start frame must come before end frame.");
     }
-    this.shape = shape.copy();
+    this.initialShape = shape.copy();
     this.startFrame = startFrame;
     this.endFrame = endFrame;
   }
@@ -48,7 +48,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
    * @return String representation.
    */
   protected String toString(String action, String startVal, String endVal) {
-    String id = this.shape.getIdentifier();
+    String id = this.initialShape.getIdentifier();
     return String.format(
         "Shape %s %s from %s to %s from t=%.2f to t=%.2f",
         id, action, startVal, endVal, this.startFrame, this.endFrame);
@@ -81,14 +81,15 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   }
 
   @Override
-  public float getValueAtFrame(float frame, float initialValue, float finalValue)
+  public float getValueAtFrame(
+      float frame, float currentValue, float initialValue, float finalValue)
       throws IllegalArgumentException {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
     if (frame < this.startFrame) {
       // TODO Fix so this returns the CURRENT value
-      return 0;
+      return currentValue;
     }
     if (frame > this.endFrame) {
       return finalValue;

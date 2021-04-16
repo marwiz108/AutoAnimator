@@ -55,12 +55,22 @@ public class MoveT extends AbstractTransformation<float[]> {
 
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
-    svgText.append(String.format("<animate attributeName=\"x\" "
-            + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />\n",
-        this.startPos.getX(), this.endPos.getX(), this.startFrame, this.endFrame - this.startFrame));
-    svgText.append(String.format("<animate attributeName=\"y\" "
-            + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
-        this.startPos.getY(), this.endPos.getY(), this.startFrame, this.endFrame - this.startFrame));
+    svgText.append(
+        String.format(
+            "<animate attributeName=\"x\" "
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />\n",
+            this.startPos.getX(),
+            this.endPos.getX(),
+            this.startFrame,
+            this.endFrame - this.startFrame));
+    svgText.append(
+        String.format(
+            "<animate attributeName=\"y\" "
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+            this.startPos.getY(),
+            this.endPos.getY(),
+            this.startFrame,
+            this.endFrame - this.startFrame));
 
     return svgText.toString();
   }
@@ -93,16 +103,21 @@ public class MoveT extends AbstractTransformation<float[]> {
   /**
    * Implementation of ExecuteAtFrame for a MoveT Transformation.
    *
+   * @param s
    * @param frame the frame to be rendered.
    * @return an array of Floats that represents the position in [x, y] format.
    */
   @Override
-  public float[] executeAtFrame(float frame) {
+  public float[] executeAtFrame(Shape s, float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    float newX = this.getValueAtFrame(frame, this.startPos.getX(), this.endPos.getX());
-    float newY = this.getValueAtFrame(frame, this.startPos.getY(), this.endPos.getY());
+    float newX =
+        this.getValueAtFrame(
+            frame, s.getPosition().getX(), this.startPos.getX(), this.endPos.getX());
+    float newY =
+        this.getValueAtFrame(
+            frame, s.getPosition().getY(), this.startPos.getY(), this.endPos.getY());
 
     return new float[] {newX, newY};
   }

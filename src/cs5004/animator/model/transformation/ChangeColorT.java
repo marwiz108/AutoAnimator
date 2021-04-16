@@ -75,12 +75,19 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
 
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
-    svgText.append(String.format("<animate attributeName=\"fill\" "
-            + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
-            + "begin=\"%.1f\" dur=\"%.1fs\" />\n",
-        this.startColor.getRed(), this.startColor.getGreen(), this.startColor.getBlue(),
-        this.endColor.getRed(), this.endColor.getGreen(), this.endColor.getBlue(),
-        this.startFrame, this.endFrame - this.startFrame));
+    svgText.append(
+        String.format(
+            "<animate attributeName=\"fill\" "
+                + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
+                + "begin=\"%.1f\" dur=\"%.1fs\" />\n",
+            this.startColor.getRed(),
+            this.startColor.getGreen(),
+            this.startColor.getBlue(),
+            this.endColor.getRed(),
+            this.endColor.getGreen(),
+            this.endColor.getBlue(),
+            this.startFrame,
+            this.endFrame - this.startFrame));
 
     return svgText.toString();
   }
@@ -93,19 +100,30 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
   /**
    * Implementation of ExecuteAtFrame for a ChangeColorT Transformation.
    *
+   * @param s
    * @param frame the frame to be rendered.
    * @return the r, g, b values of the Color in an int array in the format [r, g, b].
    */
   @Override
-  public int[] executeAtFrame(float frame) {
+  public int[] executeAtFrame(Shape s, float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    int newR = (int) this.getValueAtFrame(frame, this.startColor.getRed(), this.endColor.getRed());
+    int newR =
+        (int)
+            this.getValueAtFrame(
+                frame, s.getColor().getRed(), this.startColor.getRed(), this.endColor.getRed());
     int newG =
-        (int) this.getValueAtFrame(frame, this.startColor.getGreen(), this.endColor.getGreen());
+        (int)
+            this.getValueAtFrame(
+                frame,
+                s.getColor().getGreen(),
+                this.startColor.getGreen(),
+                this.endColor.getGreen());
     int newB =
-        (int) this.getValueAtFrame(frame, this.startColor.getBlue(), this.endColor.getBlue());
+        (int)
+            this.getValueAtFrame(
+                frame, s.getColor().getBlue(), this.startColor.getBlue(), this.endColor.getBlue());
 
     return new int[] {newR, newG, newB};
   }

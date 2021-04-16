@@ -255,16 +255,11 @@ public class CanvasTest {
     this.canvas.addTransformation("o", resize);
 
     ArrayList<Shape> shapes = this.canvas.getShapesAtFrame(0);
-    ArrayList<Shape> shapes2 = this.canvas.getShapesAtFrame(20);
     StringBuilder before = new StringBuilder();
     StringBuilder after = new StringBuilder();
     for (Shape s : shapes) {
       before.append(s.toString());
       before.append("\n");
-    }
-    for (Shape s : shapes2) {
-      after.append(s.toString());
-      after.append("\n");
     }
     assertEquals(
         "Name: r\n"
@@ -276,6 +271,13 @@ public class CanvasTest {
             + "Position: (50.0, 150.0), Base: 60.0, Height: 30.0\n"
             + "Color: (255, 178, 102)\n",
         before.toString());
+
+    ArrayList<Shape> shapes2 = this.canvas.getShapesAtFrame(20);
+    for (Shape s : shapes2) {
+      after.append(s.toString());
+      after.append("\n");
+    }
+
     assertEquals(
         "Name: r\n"
             + "Type: rectangle\n"

@@ -54,12 +54,12 @@ public class ResizeT extends AbstractTransformation<Float> {
 
   @Override
   public String toString() {
-    String pre = toStringHelp(this.shape.getBase(), this.shape.getHeight());
+    String pre = toStringHelp(this.initialShape.getBase(), this.initialShape.getHeight());
     String post;
     if (this.baseOrHeight == dimension.HEIGHT) {
-      post = toStringHelp(this.shape.getBase(), finalValue);
+      post = toStringHelp(this.initialShape.getBase(), finalValue);
     } else {
-      post = toStringHelp(finalValue, this.shape.getHeight());
+      post = toStringHelp(finalValue, this.initialShape.getHeight());
     }
     return super.toString("Scales", pre, post);
   }
@@ -67,14 +67,23 @@ public class ResizeT extends AbstractTransformation<Float> {
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
     if (this.baseOrHeight == dimension.HEIGHT) {
-      // TODO change timeframes
-      svgText.append(String.format("<animateTransform attributeName=\"ry\" "
-          + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
-          this.initialValue, this.finalValue, this.startFrame, this.endFrame - this.startFrame));
+      svgText.append(
+          String.format(
+              "<animateTransform attributeName=\"ry\" "
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+              this.initialValue,
+              this.finalValue,
+              this.startFrame,
+              this.endFrame - this.startFrame));
     } else {
-      svgText.append(String.format("<animateTransform attributeName=\"rx\" "
-              + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
-          this.initialValue, this.finalValue, this.startFrame, this.endFrame - this.startFrame));
+      svgText.append(
+          String.format(
+              "<animateTransform attributeName=\"rx\" "
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+              this.initialValue,
+              this.finalValue,
+              this.startFrame,
+              this.endFrame - this.startFrame));
     }
 
     return svgText.toString();
@@ -97,10 +106,14 @@ public class ResizeT extends AbstractTransformation<Float> {
   }
 
   @Override
-  public Float executeAtFrame(float frame) {
+  public Float executeAtFrame(Shape s, float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
-    return this.getValueAtFrame(frame, this.initialValue, this.finalValue);
+    if (this.baseOrHeight == dimension.HEIGHT) {
+      return this.getValueAtFrame(frame, s.getHeight(), this.initialValue, this.finalValue);
+    } else {
+      return this.getValueAtFrame(frame, s.getBase(), this.initialValue, this.finalValue);
+    }
   }
 }

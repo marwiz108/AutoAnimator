@@ -1,32 +1,23 @@
 package cs5004.animator.view;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
-import cs5004.animator.model.canvas.ICanvasModel;
-import cs5004.animator.model.shape.Oval;
-import cs5004.animator.model.shape.Rectangle;
-import cs5004.animator.model.shape.Shape;
-import cs5004.animator.model.transformation.MoveT;
 
-public class AnimationFrame extends JFrame implements AnimationView, ActionListener {
+public class AnimationFrame extends JFrame implements IView, AnimationView {
 
-  //  private final JPanel panel;
-  //  private final JFrame f;
-  //  private final JScrollPane scrollPane;
   private final ICanvas canvas;
 
-  public AnimationFrame(ICanvas c) {
+  public AnimationFrame(ICanvas c, int timerDelay) {
     this.canvas = c;
-    createAndShowGUI();
+    createAndShowGUI(timerDelay);
   }
 
-  private void createAndShowGUI() {
-    JPanel panel = new AnimationPanel(this.canvas.getShapesAtFrame(0));
+  @Override
+  public void createAndShowGUI(int delay) {
+    JPanel panel = new AnimationPanel(this.canvas, delay);
     panel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     JScrollPane scroll = new JScrollPane(panel);
@@ -35,24 +26,6 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
     add(scroll, BorderLayout.CENTER);
     setSize(new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     setVisible(true);
-    //    ICanvas c = new ICanvasModel();
-    //    c.setCanvasBounds(0, 0, 1000, 700);
-    //    Shape oval = new Oval("o", 50, 50, 30, 60, 255, 0, 0);
-    //    //    Shape rect = new Rectangle("r", )
-    //    c.addShape(oval);
-    //    c.addTransformation(oval.getIdentifier(), new MoveT(oval, 2, 6, 50, 50, 500, 500));
-    //    SwingUtilities.invokeLater(
-    //        new Runnable() {
-    //          @Override
-    //          public void run() {
-    //            AnimationFrame animationFrame = new AnimationFrame(c);
-    //          }
-    //        });
-  }
-
-  @Override
-  public void renderAtFrame(float frame) {
-    return;
   }
 
   @Override
@@ -74,7 +47,4 @@ public class AnimationFrame extends JFrame implements AnimationView, ActionListe
   public void playFromFrame(float frame, float speed, boolean reverse) {
     return;
   }
-
-  @Override
-  public void actionPerformed(ActionEvent e) {}
 }

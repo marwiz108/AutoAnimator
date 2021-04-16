@@ -1,7 +1,8 @@
 package cs5004.animator.view;
 
 public interface AnimationView {
-  void renderAtFrame(float frame);
+
+  void createAndShowGUI(int delay);
 
   void reset();
 
