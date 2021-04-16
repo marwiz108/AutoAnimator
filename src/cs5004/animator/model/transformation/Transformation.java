@@ -23,7 +23,12 @@ public interface Transformation<T> {
    */
   dimension getDimension();
 
-  // TODO javadoc
+  /**
+   * Determines if another Transformation has conflicting instructions.
+   *
+   * @param t the other Transformation object.
+   * @return true if the other Transformation conflicts with this one.
+   */
   boolean hasConflictingTransformation(Transformation t);
 
   /**

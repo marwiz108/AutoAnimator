@@ -26,7 +26,6 @@ import cs5004.animator.util.AnimationReader;
  * objects at a given frame.
  */
 public final class ICanvasModel implements ICanvas {
-  // TODO create a dynamic shape hashmap from initialshapes that gets mutated
   private final LinkedHashMap<String, Shape> initialShapes;
   private final LinkedHashMap<String, Shape> dynamicShapes;
   private int leftMostX;
@@ -57,7 +56,6 @@ public final class ICanvasModel implements ICanvas {
     } else {
       canvasStr.append("No shapes in the animation.\n");
     }
-
     ArrayList<Transformation> transformations = new ArrayList<>();
     for (Shape shape : this.initialShapes.values()) {
       if (!shape.getTransformations().isEmpty()) {
@@ -74,6 +72,7 @@ public final class ICanvasModel implements ICanvas {
     return canvasStr.toString();
   }
 
+  @Override
   public String toSVGString() {
     StringBuilder svgStr = new StringBuilder();
     svgStr.append(
@@ -183,15 +182,27 @@ public final class ICanvasModel implements ICanvas {
     return borderHeight;
   }
 
+  /** Class that builds a canvas object by reading from an input file. */
   public static final class Builder implements AnimationBuilder<ICanvas> {
     ICanvas c;
 
+    /**
+     * Constructor for the Builder class.
+     *
+     * @param inFile the input file to read from.
+     * @throws FileNotFoundException if the file is not found.
+     */
     public Builder(String inFile) throws FileNotFoundException {
       this.c = new ICanvasModel();
       Readable r = new FileReader(inFile);
       AnimationReader.parseFile(r, this);
     }
 
+    /**
+     * Retruns the ICanvas that was built.
+     *
+     * @return the ICanvas object.
+     */
     public ICanvas getCanvas() {
       return this.c;
     }

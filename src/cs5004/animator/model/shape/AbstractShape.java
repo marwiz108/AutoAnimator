@@ -149,6 +149,12 @@ public abstract class AbstractShape implements Shape {
     return this.transformations;
   }
 
+  /**
+   * Constructs a general string representation of a Shape. Must be given a type.
+   *
+   * @param shapeType the type of shape that is being described.
+   * @return a formatted string representation.
+   */
   protected String toString(String shapeType) {
     return String.format(
         "Name: %s\nType: %s\nPosition: %s, Base: %s, Height: %s\nColor: %s",
@@ -160,8 +166,13 @@ public abstract class AbstractShape implements Shape {
         this.colorToString());
   }
 
+  /**
+   * Constructs a general description of a Shape in XML format. Must be given a type.
+   *
+   * @param type the type of shpae that is being described.
+   * @return XML description of a Shape.
+   */
   protected String toSVGString(String type) {
-    // TODO remove cx for rectangles
     StringBuilder svgText = new StringBuilder();
     String template;
     if (type.equals("ellipse")) {

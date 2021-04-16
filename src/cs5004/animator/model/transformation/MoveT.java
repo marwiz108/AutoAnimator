@@ -53,6 +53,7 @@ public class MoveT extends AbstractTransformation<float[]> {
     return super.toString("moves", this.startPos.toString(), this.endPos.toString());
   }
 
+  @Override
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
     svgText.append(
@@ -82,22 +83,16 @@ public class MoveT extends AbstractTransformation<float[]> {
 
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
-//    newT = (MoveT)newT;
+    //    newT = (MoveT)newT;
     if (Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
         && Math.abs(this.endPos.getY() - this.startPos.getY()) == 0) {
-      if (Math.abs(((MoveT) newT).endPos.getX() - ((MoveT) newT).startPos.getX()) > 0) {
-        return true;
-      }
+      return Math.abs(((MoveT) newT).endPos.getX() - ((MoveT) newT).startPos.getX()) > 0;
     } else if (Math.abs(this.endPos.getX() - this.startPos.getX()) == 0
         && Math.abs(this.endPos.getY() - this.endPos.getY()) > 0) {
-      if (Math.abs(((MoveT) newT).endPos.getY() - ((MoveT) newT).endPos.getY()) > 0) {
-        return true;
-      }
-    } else if (Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
-        && Math.abs(this.endPos.getY() - this.startPos.getY()) > 0) {
-      return true;
-    }
-    return false;
+      return Math.abs(((MoveT) newT).endPos.getY() - ((MoveT) newT).endPos.getY()) > 0;
+    } else
+      return Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
+          && Math.abs(this.endPos.getY() - this.startPos.getY()) > 0;
   }
 
   /**
