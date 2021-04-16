@@ -11,11 +11,6 @@ public class ViewFactoryImpl implements ViewFactory {
   }
 
   @Override
-  public IView create(String viewType) {
-    return create(viewType, 1000);
-  }
-
-  @Override
   public IView create(String viewType, int delay) {
     if (viewType.equals("text")) {
       return new Text(this.canvas);

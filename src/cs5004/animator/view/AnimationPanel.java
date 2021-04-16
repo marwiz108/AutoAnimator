@@ -12,19 +12,19 @@ import cs5004.animator.model.shape.Shape;
 public class AnimationPanel extends JPanel implements ActionListener {
   private final ICanvas canvas;
   private final Timer timer;
-  private int tick;
+  private int frame;
 
   public AnimationPanel(ICanvas c, int delay) {
     this.canvas = c;
     this.timer = new Timer(delay, this);
-    this.tick = 0;
+    this.frame = 0;
   }
 
   @Override
   public void paintComponent(Graphics g) {
     Graphics2D g2 = (Graphics2D) g;
     super.paintComponent(g2);
-    for (Shape s : this.canvas.getShapesAtFrame(this.tick)) {
+    for (Shape s : this.canvas.getShapesAtFrame(this.frame)) {
       g.setColor(s.getColor());
       s.fill(g2);
     }
@@ -33,7 +33,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    this.tick = this.tick + 1;
+    this.frame = this.frame + 1;
     repaint();
   }
 }
