@@ -166,10 +166,17 @@ public abstract class AbstractShape implements Shape {
   }
 
   protected String toSVGString(String type) {
+    // TODO remove cx for rectangles
     StringBuilder svgText = new StringBuilder();
+    String template;
+    if (type.equals("ellipse")) {
+      template = "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+    } else {
+      template = "<%s x=\"%f\" y=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+    }
     svgText.append(
         String.format(
-            "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n",
+            template,
             type,
             this.reference.getX(),
             this.reference.getY(),

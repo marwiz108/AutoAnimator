@@ -1,0 +1,8 @@
+Shapes:
+Name: o
+Type: oval
+Position: (50.0, 50.0), Base: 30.0, Height: 60.0
+Color: (255, 0, 0)
+
+Transformations:
+Shape o moves from (50.0, 50.0) to (100.0, 100.0) from t=2.00 to t=6.00
