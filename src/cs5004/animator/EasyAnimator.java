@@ -9,8 +9,8 @@ import cs5004.animator.view.AnimationView;
 public final class EasyAnimator {
   public static void main(String[] args) throws FileNotFoundException {
     ICanvasModel.Builder builder =
-        new ICanvasModel.Builder("src/cs5004/animator/view/examples/toh-12.txt");
-    AnimationView aView = new AnimationFrame(builder.getCanvas(), 1);
+        new ICanvasModel.Builder("src/cs5004/animator/view/examples/big-bang-big-crunch.txt");
+    AnimationView aView = new AnimationFrame(builder.getCanvas(), 100);
     //    TextView svgView = new SVG(builder.getCanvas());
     //    TextView txtView = new Text(builder.getCanvas());
     System.out.println(builder.getCanvas().toString());
