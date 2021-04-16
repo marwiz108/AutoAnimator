@@ -11,6 +11,7 @@ public class SVG extends AbstractTextView {
 
   public SVG(ICanvas canvas) {
     super(canvas);
+    this.createFile("testEasyAnimator.svg");
   }
 
   public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class SVG extends AbstractTextView {
           @Override
           public void run() {
             SVG svgview = new SVG(canvas);
-            svgview.createFile("test-svg.xml");
+            svgview.createFile("test-svg.svg");
           }
         });
   }

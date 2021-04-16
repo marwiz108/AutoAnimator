@@ -1,0 +1,539 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.000000" y="0.000000" rx="400.000000" ry="400.000000" fill="rgb(33, 94, 248)">
+        <animate attributeName="fill" attributeType="XML" from="rgb(33, 94, 248)"
+                 to="rgb(16, 45, 248)" begin="50.0" dur="40.0s"/>
+
+    </rect>
+    <rect x="80.000000" y="424.000000" rx="50.000000" ry="163.000000" fill="rgb(0, 0, 0)">
+    </rect>
+    <rect x="260.000000" y="365.000000" rx="50.000000" ry="192.500000" fill="rgb(0, 0, 0)">
+    </rect>
+    <rect x="440.000000" y="375.000000" rx="50.000000" ry="187.500000" fill="rgb(0, 0, 0)">
+    </rect>
+    <rect x="620.000000" y="445.000000" rx="50.000000" ry="152.500000" fill="rgb(0, 0, 0)">
+    </rect>
+    <rect x="100.000000" y="850.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="850.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="850.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="850.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="100.000000" y="890.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="890.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="890.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="890.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="100.000000" y="930.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="930.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="930.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="930.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="82.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="100.000000" y="970.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="970.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="970.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="970.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="100.000000" y="1010.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1010.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="1010.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1010.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="147.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="100.000000" y="1050.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1050.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="140.000000" y="1050.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1050.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="100.000000" y="1090.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="100.0" to="100.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1090.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="147.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="140.000000" y="1090.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="140.0" to="140.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1090.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="93.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="280.000000" y="-750.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-750.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-750.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-750.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="108.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="280.000000" y="-710.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-710.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="95.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="320.000000" y="-710.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-710.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="280.000000" y="-670.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-670.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-670.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-670.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="280.000000" y="-630.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-630.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-630.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-630.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="148.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="280.000000" y="-590.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-590.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-590.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-590.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="280.000000" y="-550.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-550.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-550.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-550.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="99.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="280.000000" y="-510.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-510.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-510.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-510.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="280.000000" y="-470.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-470.0" to="430.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-470.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-470.0" to="430.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="280.000000" y="-430.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="280.0" to="280.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-430.0" to="390.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="320.000000" y="-430.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="320.0" to="320.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-430.0" to="390.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="850.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="850.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="127.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="500.000000" y="850.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="850.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="890.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="890.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="83.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="500.000000" y="890.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="890.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="930.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="930.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="500.000000" y="930.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="930.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="970.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="970.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="500.000000" y="970.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="970.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="1010.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1010.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="500.000000" y="1010.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1010.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="112.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="460.000000" y="1050.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1050.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="128.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="500.000000" y="1050.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1050.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="460.000000" y="1090.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1090.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="500.000000" y="1090.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1090.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="96.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="460.000000" y="1130.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="460.0" to="460.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1130.0" to="430.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="500.000000" y="1130.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="500.0" to="500.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="1130.0" to="430.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="640.000000" y="-750.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-750.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="680.000000" y="-750.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-750.0" to="710.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="135.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="640.000000" y="-710.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-710.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="103.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="680.000000" y="-710.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-710.0" to="670.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="640.000000" y="-670.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-670.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="680.000000" y="-670.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-670.0" to="630.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="640.000000" y="-630.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-630.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="81.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="680.000000" y="-630.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-630.0" to="590.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="119.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="640.000000" y="-590.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-590.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="680.000000" y="-590.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-590.0" to="550.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="640.000000" y="-550.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-550.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+    </rect>
+    <rect x="680.000000" y="-550.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-550.0" to="510.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="100.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="640.000000" y="-510.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="640.0" to="640.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-510.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="99.0" dur="5.0s"/>
+
+    </rect>
+    <rect x="680.000000" y="-510.000000" rx="10.000000" ry="10.000000" fill="rgb(255, 255, 255)">
+        <animate attributeName="x" attributeType="XML" from="680.0" to="680.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="-510.0" to="470.0" begin="20.0"
+                 dur="40.0s"/>
+        <animate attributeName="fill" attributeType="XML" from="rgb(255, 255, 255)"
+                 to="rgb(255, 255, 0)" begin="99.0" dur="5.0s"/>
+
+    </rect>
+    <ellipse cx="200.000000" cy="200.000000" rx="50.000000" ry="50.000000"
+             fill="rgb(229, 229, 255)">
+    </ellipse>
+    <ellipse cx="400.000000" cy="0.000000" rx="50.000000" ry="50.000000" fill="rgb(33, 94, 248)">
+        <animate attributeName="fill" attributeType="XML" from="rgb(33, 94, 248)"
+                 to="rgb(16, 45, 248)" begin="50.0" dur="40.0s"/>
+
+        <animate attributeName="x" attributeType="XML" from="400.0" to="230.0" begin="50.0"
+                 dur="40.0s"/>
+        <animate attributeName="y" attributeType="XML" from="0.0" to="180.0" begin="50.0"
+                 dur="40.0s"/>
+    </ellipse>
+    <ellipse cx="223.000000" cy="66.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="585.000000" cy="211.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="489.000000" cy="77.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="374.000000" cy="286.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="708.000000" cy="281.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="508.000000" cy="260.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="529.000000" cy="70.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="332.000000" cy="65.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="311.000000" cy="147.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="170.000000" cy="281.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="719.000000" cy="102.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="524.000000" cy="264.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="768.000000" cy="194.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="766.000000" cy="179.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="510.000000" cy="78.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="621.000000" cy="149.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="491.000000" cy="252.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="405.000000" cy="63.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="550.000000" cy="267.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="108.000000" cy="197.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="737.000000" cy="78.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="795.000000" cy="137.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="184.000000" cy="125.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="134.000000" cy="230.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="244.000000" cy="153.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="259.000000" cy="119.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="322.000000" cy="269.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="412.000000" cy="182.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="674.000000" cy="137.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="46.000000" cy="246.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="388.000000" cy="315.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="185.000000" cy="236.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="550.000000" cy="232.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="656.000000" cy="101.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="283.000000" cy="111.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="649.000000" cy="326.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="691.000000" cy="267.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="113.000000" cy="276.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="604.000000" cy="302.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+    <ellipse cx="462.000000" cy="162.000000" rx="3.000000" ry="3.000000" fill="rgb(255, 255, 255)">
+    </ellipse>
+</svg>
