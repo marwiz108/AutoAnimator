@@ -139,16 +139,11 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void addTransformation(Transformation newT) throws IllegalArgumentException {
-    // TODO Find a way to check for conflicting Transformations that doesn't cause errors
-
-    //    for (Transformation myT : this.transformations) {
-    //      if (myT.getType() == newT.getType()) {
-    //        if (!(myT.getStartFrame() >= newT.getEndFrame()
-    //            || myT.getEndFrame() <= newT.getStartFrame())) {
-    //          throw new IllegalArgumentException("Conflicting Transformation - could not add.");
-    //        }
-    //      }
-    //    }
+    for (Transformation myT : this.transformations) {
+      if (myT.hasConflictingTransformation(newT)) {
+        throw new IllegalArgumentException("Conflicting Transformation - could not add.");
+      }
+    }
     this.transformations.add(newT);
   }
 

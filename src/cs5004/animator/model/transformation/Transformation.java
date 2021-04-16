@@ -21,6 +21,9 @@ public interface Transformation<T> {
    */
   dimension getDimension();
 
+  // TODO javadoc
+  boolean hasConflictingTransformation(Transformation t);
+
   /**
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
    * frame.
