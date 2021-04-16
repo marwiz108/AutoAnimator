@@ -2,6 +2,8 @@ package cs5004.animator.view;
 
 public interface AnimationView {
 
+  void createAndShowGUI(int delay);
+
   void reset();
 
   void play();

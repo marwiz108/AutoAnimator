@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public abstract class AbstractTextView implements TextView {
+public abstract class AbstractTextView implements IView, TextView {
 
   protected ICanvas canvas;
   protected JFrame frame;

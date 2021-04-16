@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public class AnimationFrame extends JFrame implements AnimationView {
+public class AnimationFrame extends JFrame implements IView, AnimationView {
 
   private final ICanvas canvas;
 
@@ -15,7 +15,8 @@ public class AnimationFrame extends JFrame implements AnimationView {
     createAndShowGUI(timerDelay);
   }
 
-  private void createAndShowGUI(int delay) {
+  @Override
+  public void createAndShowGUI(int delay) {
     JPanel panel = new AnimationPanel(this.canvas, delay);
     panel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
