@@ -95,6 +95,17 @@ public class ResizeT extends AbstractTransformation<Float> {
   }
 
   @Override
+  public boolean hasConflictingTransformation(Transformation newT) {
+    if (super.hasConflictingTransformation(newT)) {
+      if ((this.baseOrHeight == dimension.BASE && newT.getDimension() == dimension.BASE)
+          || (this.baseOrHeight == dimension.HEIGHT && newT.getDimension() == dimension.HEIGHT)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
   public Float executeAtFrame(Shape s, float frame) {
     if (frame < 0) {
       throw new IllegalArgumentException("Frame cannot be negative.");
