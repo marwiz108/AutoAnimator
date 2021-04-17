@@ -170,29 +170,35 @@ public abstract class AbstractShape implements Shape {
    * Constructs a general description of a Shape in XML format. Must be given a type.
    *
    * @param type the type of shpae that is being described.
+   * @param template the template string passed by the child class.
+   * @param delay the delay (in ms) between each frame.
    * @return XML description of a Shape.
    */
-  protected String toSVGString(String type) {
-    StringBuilder svgText = new StringBuilder();
-    String template;
+  protected String toSVGString(String type, String template, float delay) {
+    float b;
+    float h;
     if (type.equals("ellipse")) {
-      template = "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+      b = this.base / 2;
+      h = this.height / 2;
     } else {
-      template = "<%s x=\"%f\" y=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+      b = this.base;
+      h = this.height;
     }
+    StringBuilder svgText = new StringBuilder();
     svgText.append(
         String.format(
             template,
             type,
-            this.reference.getX(),
-            this.reference.getY(),
-            this.base / 2,
-            this.height / 2,
+            this.identifier,
+            Math.round(this.reference.getX()),
+            Math.round(this.reference.getY()),
+            Math.round(b),
+            Math.round(h),
             this.color.getRed(),
             this.color.getGreen(),
             this.color.getBlue()));
-    this.transformations.forEach(t -> svgText.append(t.toSVGString() + "\n"));
-    svgText.append(String.format("</%s>\n", type));
+    this.transformations.forEach(t -> svgText.append(t.toSVGString(type, delay) + "\n"));
+    svgText.append(String.format("\t</%s>\n", type));
 
     return svgText.toString();
   }

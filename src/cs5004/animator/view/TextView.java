@@ -10,8 +10,9 @@ public interface TextView {
    * Returns the string representation of the text to be outputted.
    *
    * @return text to output
+   * @param delay
    */
-  String generateText();
+  String generateText(float delay);
 
   /** Creates the JFrame and JPanel for the view. */
   void createFile(String filename);

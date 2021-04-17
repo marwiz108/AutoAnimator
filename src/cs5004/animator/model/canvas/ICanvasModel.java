@@ -73,14 +73,14 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(float delay) {
     StringBuilder svgStr = new StringBuilder();
     svgStr.append(
         String.format(
             "<svg viewBox=\"%d %d %d %d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
             this.leftMostX, this.topMostY, this.borderWidth, this.borderHeight));
     if (!this.initialShapes.isEmpty()) {
-      this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString()));
+      this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString(delay)));
     }
     svgStr.append("</svg>");
 

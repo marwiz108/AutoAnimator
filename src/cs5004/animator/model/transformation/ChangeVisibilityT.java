@@ -24,7 +24,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(String type, float delay) {
     // TODO this
     return "";
   }
