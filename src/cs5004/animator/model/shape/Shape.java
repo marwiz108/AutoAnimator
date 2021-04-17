@@ -105,6 +105,8 @@ public interface Shape {
    */
   void addTransformation(Transformation transformation);
 
+  void setFrames();
+
   /**
    * Returns the list of transformations for the shape.
    *

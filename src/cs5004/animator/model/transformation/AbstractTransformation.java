@@ -19,7 +19,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
    * @param startFrame the frame where the transformation starts.
    * @param endFrame the frame where the transformation ends.
    */
-  public AbstractTransformation(Shape shape, int startFrame, int endFrame)
+  public AbstractTransformation(Shape shape, float startFrame, float endFrame)
       throws IllegalArgumentException {
     if (shape == null || startFrame < 0 || endFrame < 0) {
       throw new IllegalArgumentException("Invalid values for Transformation constructor.");
