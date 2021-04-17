@@ -71,7 +71,8 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
     if (this.getType() == newT.getType()) {
-      return (newT.getStartFrame() >= this.startFrame && newT.getStartFrame() < this.endFrame) || newT.getStartFrame() <= this.endFrame;
+      return (newT.getStartFrame() > this.startFrame && newT.getStartFrame() < this.endFrame)
+          || newT.getStartFrame() < this.endFrame;
     }
     return false;
   }

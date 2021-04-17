@@ -21,9 +21,13 @@ public abstract class AbstractTextView implements IView, TextView {
    *
    * @param canvas the canvas object containing the shape and transformation data.
    */
-  public AbstractTextView(ICanvas canvas) {
+  public AbstractTextView(ICanvas canvas, String outFile) {
     this.canvas = canvas;
     this.text = this.generateText();
+
+    if (outFile != null) {
+      this.createFile(outFile);
+    }
 
     this.frame = new JFrame("Easy Animator Text");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

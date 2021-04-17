@@ -17,8 +17,7 @@ public class SVG extends AbstractTextView {
    * @param outFile the name of the eventual .SVG file.
    */
   public SVG(ICanvas canvas, String outFile) {
-    super(canvas);
-    this.createFile(outFile);
+    super(canvas, outFile);
   }
 
   // TODO remove main method

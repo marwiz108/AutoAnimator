@@ -24,20 +24,13 @@ public final class EasyAnimator {
     int delay = 1000;
     String outFile = null;
 
-    // -in buildings.txt -view visual -speed 24
-    //    inFile = "src/cs5004/animator/view/examples/buildings.txt";
-    //    viewType = "visual";
-    //    int fps = 24;
-    //    delay = 1000 / fps;
-    //    outFile = "";
-
     for (int i = 0; i < args.length; i++) {
       if (args[i].equals("-in")) {
         inFile = "src/cs5004/animator/view/examples/" + args[i + 1];
       } else if (args[i].equals("-view")) {
         viewType = args[i + 1];
       } else if (args[i].equals("-out")) {
-        outFile = "src/cs5004/animator/view/output" + args[i + 1];
+        outFile = "src/cs5004/animator/view/output/" + args[i + 1];
       } else if (args[i].equals("-speed")) {
         delay = Integer.parseInt(args[i + 1]);
       }
@@ -51,7 +44,5 @@ public final class EasyAnimator {
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     factory.create(viewType, outFile, delay);
-
-    //    System.out.println(builder.getCanvas().toString());
   }
 }
