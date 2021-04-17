@@ -1,6 +1,7 @@
 package cs5004.animator;
 
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.ViewFactory;
@@ -24,14 +25,22 @@ public final class EasyAnimator {
     String outFile = null;
 
     // -in buildings.txt -view visual -speed 24
-    inFile = "src/cs5004/animator/view/examples/buildings.txt";
-    viewType = "visual";
-    int fps = 24;
-    delay = 1000 / fps;
-    outFile = "";
+    //    inFile = "src/cs5004/animator/view/examples/buildings.txt";
+    //    viewType = "visual";
+    //    int fps = 24;
+    //    delay = 1000 / fps;
+    //    outFile = "";
 
-    for (String s : args) {
-      System.out.println(s);
+    for (int i = 0; i < args.length; i++) {
+      if (args[i].equals("-in")) {
+        inFile = "src/cs5004/animator/view/examples/" + args[i + 1];
+      } else if (args[i].equals("-view")) {
+        viewType = args[i + 1];
+      } else if (args[i].equals("-out")) {
+        outFile = "src/cs5004/animator/view/output" + args[i + 1];
+      } else if (args[i].equals("-speed")) {
+        delay = Integer.parseInt(args[i + 1]);
+      }
     }
 
     ICanvasModel.Builder builder = null;
@@ -40,7 +49,7 @@ public final class EasyAnimator {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-    ViewFactory factory = new ViewFactoryImpl(builder.getCanvas());
+    ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     factory.create(viewType, outFile, delay);
 
     //    System.out.println(builder.getCanvas().toString());
