@@ -67,11 +67,83 @@ public class TransformationTest {
     Transformation tmp = new ChangeVisibilityT(ref, 1, 1);
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void testConflicting() {
-    Transformation conflict = new MoveT(ref, 10, 20, start, end);
+  @Test
+  public void testCorrectMove() {
+    Transformation newT = new MoveT(ref, 5, 15,
+        new Point2D(0, 0), new Point2D(0, 45));
+
     ref.addTransformation(move);
-    ref.addTransformation(conflict);
+    assertFalse(move.hasConflictingTransformation(newT));
+  }
+
+  @Test
+  public void testCorrectMove2() {
+    Transformation newT = new MoveT(ref, 0, 4,
+        new Point2D(0, 0), new Point2D(0, 45));
+
+    ref.addTransformation(move);
+    assertFalse(move.hasConflictingTransformation(newT));
+  }
+
+  @Test
+  public void testConflictingMove() {
+    Transformation conflict = new MoveT(ref, 10, 18,
+        new Point2D(50, 0), new Point2D(20, 0));
+
+    ref.addTransformation(move);
+    assertTrue(move.hasConflictingTransformation(conflict));
+  }
+
+  @Test
+  public void testCorrectResize() {
+    Transformation newT = new ResizeT(ref, 3, 10,
+        HEIGHT, 30, 60);
+
+    ref.addTransformation(resize);
+    assertFalse(resize.hasConflictingTransformation(newT));
+  }
+
+  @Test
+  public void testConflictingResize() {
+    Transformation conflict = new ResizeT(ref, 3, 9,
+        BASE, 30, 50);
+
+    ref.addTransformation(resize);
+    assertTrue(resize.hasConflictingTransformation(conflict));
+  }
+
+  @Test
+  public void testCorrectColorChange() {
+    Transformation newT = new ChangeColorT(ref, 16, 20,
+        new Color(0, 0, 255), new Color(255, 255, 0));
+
+    ref.addTransformation(changeColor);
+    assertFalse(changeColor.hasConflictingTransformation(newT));
+  }
+
+  @Test
+  public void testConflictingColorChange() {
+    Transformation conflict = new ChangeColorT(ref, 12, 20,
+        new Color(255, 0, 0), new Color(0, 0, 255));
+
+    ref.addTransformation(changeColor);
+    assertTrue(changeColor.hasConflictingTransformation(conflict));
+  }
+
+  @Test
+  public void testCorrectVisibilityChange() {
+    Transformation newT = new ChangeVisibilityT(ref, 20, 25);
+
+    ref.addTransformation(changeVis);
+    assertFalse(changeVis.hasConflictingTransformation(newT));
+  }
+
+  @Test
+  public void testConflictingVisibilityChange() {
+    Transformation conflict = new ChangeVisibilityT(ref, 5, 10);
+
+    ref.addTransformation(changeVis);
+    assertTrue(changeVis.hasConflictingTransformation(conflict));
   }
 
   @Test
