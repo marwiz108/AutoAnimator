@@ -12,7 +12,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
    * @param startFrame the starting frame of the transformation.
    * @param endFrame the ending frame of the transformation.
    */
-  public ChangeVisibilityT(Shape shape, int startFrame, int endFrame) {
+  public ChangeVisibilityT(Shape shape, float startFrame, float endFrame) {
     super(shape, startFrame, endFrame);
   }
 
@@ -37,7 +37,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   /**
    * Implementation of ExecuteAtFrame for a ChangeVisibilityT Transformation.
    *
-   * @param s
+   * @param s the shape object.
    * @param frame the frame to be rendered.
    * @return true if the shape is visible, false otherwise.
    */

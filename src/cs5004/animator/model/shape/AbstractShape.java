@@ -3,6 +3,7 @@ package cs5004.animator.model.shape;
 import java.awt.*;
 import java.util.ArrayList;
 
+import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.Transformation;
 
 /** Abstract class for a Shape object that stores common functionality for all shapes. */
@@ -15,6 +16,8 @@ public abstract class AbstractShape implements Shape {
   protected ArrayList<Transformation> transformations;
   protected Color color;
   protected boolean visible;
+  protected float startFrame = 0;
+  protected float endFrame = 0;
   protected boolean isInitialized;
 
   /**
@@ -86,9 +89,6 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void setPosition(float x, float y) throws IllegalArgumentException {
-    //    if (x < 0 || y < 0) {
-    //      throw new IllegalArgumentException("Position coordinates must be positive.");
-    //    }
     this.reference.updatePosition(x, y);
   }
 
@@ -142,6 +142,22 @@ public abstract class AbstractShape implements Shape {
       }
     }
     this.transformations.add(newT);
+  }
+
+  @Override
+  public void setFrames() {
+    this.startFrame = this.transformations.get(0).getStartFrame();
+    this.endFrame = this.transformations.get(0).getEndFrame();
+    for (Transformation t : this.transformations) {
+      if (t.getStartFrame() < this.startFrame) {
+        this.startFrame = t.getStartFrame();
+      }
+      if (t.getEndFrame() > this.endFrame) {
+        this.endFrame = t.getEndFrame();
+      }
+    }
+    Transformation vis = new ChangeVisibilityT(this, this.startFrame, this.endFrame);
+    this.addTransformation(vis);
   }
 
   @Override

@@ -40,6 +40,13 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
+  public void setAllFrames() {
+    for (Shape s : this.initialShapes.values()) {
+      s.setFrames();
+    }
+  }
+
+  @Override
   public void setCanvasBounds(int leftMostX, int topMostY, int borderWidth, int borderHeight) {
     this.leftMostX = leftMostX;
     this.topMostY = topMostY;
@@ -209,6 +216,7 @@ public final class ICanvasModel implements ICanvas {
 
     @Override
     public ICanvas build() throws FileNotFoundException {
+      this.c.setAllFrames();
       return this.c;
     }
 

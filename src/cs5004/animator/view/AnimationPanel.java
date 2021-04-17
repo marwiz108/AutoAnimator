@@ -25,8 +25,12 @@ public class AnimationPanel extends JPanel implements ActionListener {
     Graphics2D g2 = (Graphics2D) g;
     super.paintComponent(g2);
     for (Shape s : this.canvas.getShapesAtFrame(this.frame)) {
-      g.setColor(s.getColor());
-      s.fill(g2);
+      if (s.isVisible()) {
+        g.setColor(s.getColor());
+        s.fill(g2);
+      } else {
+
+      }
     }
     this.timer.start();
   }

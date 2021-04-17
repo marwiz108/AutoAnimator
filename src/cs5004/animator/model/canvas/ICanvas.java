@@ -12,6 +12,8 @@ import cs5004.animator.model.transformation.Transformation;
  */
 public interface ICanvas {
 
+  void setAllFrames();
+
   /**
    * Set the starting position and the border size of the ICanvas.
    *

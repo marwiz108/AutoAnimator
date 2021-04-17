@@ -44,5 +44,6 @@ public final class EasyAnimator {
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     factory.create(viewType, outFile, delay);
+    System.out.println(builder.getCanvas());
   }
 }
