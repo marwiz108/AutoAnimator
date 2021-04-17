@@ -84,15 +84,19 @@ public class MoveT extends AbstractTransformation<float[]> {
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
     //    newT = (MoveT)newT;
-    if (Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
-        && Math.abs(this.endPos.getY() - this.startPos.getY()) == 0) {
-      return Math.abs(((MoveT) newT).endPos.getX() - ((MoveT) newT).startPos.getX()) > 0;
-    } else if (Math.abs(this.endPos.getX() - this.startPos.getX()) == 0
-        && Math.abs(this.endPos.getY() - this.endPos.getY()) > 0) {
-      return Math.abs(((MoveT) newT).endPos.getY() - ((MoveT) newT).endPos.getY()) > 0;
-    } else
-      return Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
-          && Math.abs(this.endPos.getY() - this.startPos.getY()) > 0;
+    if (super.hasConflictingTransformation()) {
+      if (Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
+          && Math.abs(this.endPos.getY() - this.startPos.getY()) == 0) {
+        return Math.abs(((MoveT) newT).endPos.getX() - ((MoveT) newT).startPos.getX()) > 0;
+      } else if (Math.abs(this.endPos.getX() - this.startPos.getX()) == 0
+          && Math.abs(this.endPos.getY() - this.endPos.getY()) > 0) {
+        return Math.abs(((MoveT) newT).endPos.getY() - ((MoveT) newT).endPos.getY()) > 0;
+      } else {
+        return Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
+            && Math.abs(this.endPos.getY() - this.startPos.getY()) > 0;
+      }
+    }
+    return false;
   }
 
   /**
