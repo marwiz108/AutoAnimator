@@ -255,7 +255,6 @@ public final class ICanvasModel implements ICanvas {
         int r2,
         int g2,
         int b2) {
-      // TODO find a way to record visibility transformations
       Shape thisShape = this.c.getShapeById(name);
       if (!thisShape.isInitialized()) {
         thisShape.setPosition(x1, y1);

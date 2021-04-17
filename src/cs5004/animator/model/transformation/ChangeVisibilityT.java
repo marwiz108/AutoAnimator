@@ -25,8 +25,14 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
 
   @Override
   public String toSVGString(String type, float delay) {
-    // TODO this
-    return "";
+    return String.format(
+            "\t\t<animate attributeName=\"visibility\" "
+                + "attributeType=\"XML\" from=\"hidden\" to=\"visible\" begin=\"%.1fms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+            this.startFrame * delay)
+        + String.format(
+            "\t\t<animate attributeName=\"visibility\" "
+                + "attributeType=\"XML\" from=\"visible\" to=\"hidden\" begin=\"%.1fms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+            this.endFrame * delay);
   }
 
   @Override
