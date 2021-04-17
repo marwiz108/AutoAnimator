@@ -11,8 +11,7 @@ import cs5004.animator.model.transformation.MoveT;
 public class Text extends AbstractTextView {
 
   public Text(ICanvas canvas, String outFile) {
-    super(canvas);
-    this.createFile(outFile);
+    super(canvas, outFile);
   }
 
   // TODO remove main method
