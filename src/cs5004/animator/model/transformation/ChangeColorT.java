@@ -80,7 +80,7 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
         String.format(
             "\t\t<animate attributeName=\"fill\" "
                 + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
-                + "begin=\"%.1fms\" dur=\"%.1fms\" />\n",
+                + "begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>\n",
             this.startColor.getRed(),
             this.startColor.getGreen(),
             this.startColor.getBlue(),

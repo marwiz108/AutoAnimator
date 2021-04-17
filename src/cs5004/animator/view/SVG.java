@@ -9,7 +9,6 @@ import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.MoveT;
 
 public class SVG extends AbstractTextView {
-  float delay;
   /**
    * Constructor for an SVG view.
    *
@@ -18,8 +17,7 @@ public class SVG extends AbstractTextView {
    * @param delay the delay (in ms) between each frame.
    */
   public SVG(ICanvas canvas, String outFile, float delay) {
-    super(canvas, outFile);
-    this.delay = delay;
+    super(canvas, outFile, delay);
   }
 
   // TODO remove main method
@@ -40,7 +38,7 @@ public class SVG extends AbstractTextView {
   }
 
   @Override
-  public String generateText() {
+  public String generateText(float delay) {
     return this.canvas.toSVGString(this.delay);
   }
 }

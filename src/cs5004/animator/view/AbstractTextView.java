@@ -15,15 +15,18 @@ public abstract class AbstractTextView implements IView, TextView {
   protected JPanel panel;
   protected JScrollPane scrollPane;
   protected String text;
+  protected float delay;
 
   /**
    * Super constructor for a TextView.
    *
    * @param canvas the canvas object containing the shape and transformation data.
+   * @param delay
    */
-  public AbstractTextView(ICanvas canvas, String outFile) {
+  public AbstractTextView(ICanvas canvas, String outFile, float delay) {
     this.canvas = canvas;
-    this.text = this.generateText();
+    this.delay = delay;
+    this.text = this.generateText(delay);
 
     if (outFile != null) {
       this.createFile(outFile);

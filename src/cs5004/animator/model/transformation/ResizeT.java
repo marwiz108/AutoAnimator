@@ -80,7 +80,7 @@ public class ResizeT extends AbstractTransformation<Float> {
       svgText.append(
           String.format(
               "\t\t<animateTransform attributeName=\"%s\" "
-                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" />",
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>",
               height,
               this.initialValue,
               this.finalValue,
@@ -90,7 +90,7 @@ public class ResizeT extends AbstractTransformation<Float> {
       svgText.append(
           String.format(
               "\t\t<animateTransform attributeName=\"%s\" "
-                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" />",
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>",
               base,
               this.initialValue,
               this.finalValue,
