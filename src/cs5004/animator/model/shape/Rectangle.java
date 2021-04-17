@@ -45,7 +45,7 @@ public class Rectangle extends AbstractShape {
 
     return super.toSVGString(
         "rect",
-        "\t<%s id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"rgb(%d, %d, %d)\" >\n",
+        "\t<%s id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
         delay);
   }
 

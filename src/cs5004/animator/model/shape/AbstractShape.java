@@ -193,12 +193,18 @@ public abstract class AbstractShape implements Shape {
   protected String toSVGString(String type, String template, float delay) {
     float b;
     float h;
+    String v;
     if (type.equals("ellipse")) {
       b = this.base / 2;
       h = this.height / 2;
     } else {
       b = this.base;
       h = this.height;
+    }
+    if (this.isVisible()) {
+      v = "visible";
+    } else {
+      v = "hidden";
     }
     StringBuilder svgText = new StringBuilder();
     svgText.append(
@@ -212,7 +218,8 @@ public abstract class AbstractShape implements Shape {
             Math.round(h),
             this.color.getRed(),
             this.color.getGreen(),
-            this.color.getBlue()));
+            this.color.getBlue(),
+            v));
     this.transformations.forEach(t -> svgText.append(t.toSVGString(type, delay) + "\n"));
     svgText.append(String.format("\t</%s>\n", type));
 

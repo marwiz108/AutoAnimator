@@ -43,7 +43,7 @@ public class Oval extends AbstractShape {
 
     return super.toSVGString(
         "ellipse",
-        "\t<%s id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" fill=\"rgb(%d, %d, %d)\" >\n",
+        "\t<%s id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
         delay);
   }
 
