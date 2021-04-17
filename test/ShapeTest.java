@@ -159,6 +159,38 @@ public class ShapeTest {
   }
 
   @Test
+  public void testAddTransformation() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+
+    this.oval.addTransformation(move);
+    assertEquals(1, this.oval.getTransformations().size());
+  }
+
+  @Test
+  public void testAddMultipleTransformations() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+    Transformation resize = new ResizeT(oval, 8, 20,
+        dimension.HEIGHT, 30, 100);
+
+    this.oval.addTransformation(move);
+    this.oval.addTransformation(resize);
+    assertEquals(2, this.oval.getTransformations().size());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testAddConflictingTransformation() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+    Transformation move2 = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(50, 20));
+
+    this.oval.addTransformation(move);
+    this.oval.addTransformation(move2);
+  }
+
+  @Test
   public void testSetVisibility() {
     assertFalse(this.oval.isVisible());
     this.oval.setVisibility(true);
