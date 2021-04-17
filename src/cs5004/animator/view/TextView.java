@@ -15,8 +15,4 @@ public interface TextView {
 
   /** Creates the JFrame and JPanel for the view. */
   void createFile(String filename);
-
-  /** Renders the output of the view onto the file/window. */
-  // TODO is this method needed?
-  void render();
 }

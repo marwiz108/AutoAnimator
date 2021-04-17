@@ -53,9 +53,4 @@ public abstract class AbstractTextView implements IView, TextView {
       e.printStackTrace();
     }
   }
-
-  @Override
-  public void render() {
-    return;
-  }
 }
