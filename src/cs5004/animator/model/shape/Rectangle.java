@@ -26,6 +26,11 @@ public class Rectangle extends AbstractShape {
     super(identifier, x, y, base, height, r, g, b);
   }
 
+  /**
+   * Constructor for a rectangle that creates an empty rectangle object.
+   *
+   * @param name the identifier of the Oval.
+   */
   public Rectangle(String name) {
     super(name);
   }
@@ -40,6 +45,7 @@ public class Rectangle extends AbstractShape {
     return super.toSVGString("rect");
   }
 
+  @Override
   public void fill(Graphics2D g) {
     g.fillRect(
         (int) this.reference.getX(),

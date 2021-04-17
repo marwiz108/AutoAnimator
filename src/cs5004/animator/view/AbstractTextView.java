@@ -1,13 +1,12 @@
 package cs5004.animator.view;
 
-import cs5004.animator.model.canvas.ICanvas;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+
+import javax.swing.*;
+
+import cs5004.animator.model.canvas.ICanvas;
 
 public abstract class AbstractTextView implements IView, TextView {
 
@@ -17,15 +16,17 @@ public abstract class AbstractTextView implements IView, TextView {
   protected JScrollPane scrollPane;
   protected String text;
 
+  /**
+   * Super constructor for a TextView.
+   *
+   * @param canvas the canvas object containing the shape and transformation data.
+   */
   public AbstractTextView(ICanvas canvas) {
     this.canvas = canvas;
     this.text = this.generateText();
 
     this.frame = new JFrame("Easy Animator Text");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    //    this.panel = new JPanel();
-    //    this.panel.setBackground(Color.BLUE);
 
     JTextArea textArea = new JTextArea(this.text);
     textArea.setEditable(false);

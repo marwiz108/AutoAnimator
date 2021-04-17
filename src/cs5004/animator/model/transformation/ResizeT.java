@@ -64,6 +64,7 @@ public class ResizeT extends AbstractTransformation<Float> {
     return super.toString("Scales", pre, post);
   }
 
+  @Override
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
     if (this.baseOrHeight == dimension.HEIGHT) {
@@ -97,10 +98,8 @@ public class ResizeT extends AbstractTransformation<Float> {
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
     if (super.hasConflictingTransformation(newT)) {
-      if ((this.baseOrHeight == dimension.BASE && newT.getDimension() == dimension.BASE)
-          || (this.baseOrHeight == dimension.HEIGHT && newT.getDimension() == dimension.HEIGHT)) {
-        return true;
-      }
+      return (this.baseOrHeight == dimension.BASE && newT.getDimension() == dimension.BASE)
+          || (this.baseOrHeight == dimension.HEIGHT && newT.getDimension() == dimension.HEIGHT);
     }
     return false;
   }

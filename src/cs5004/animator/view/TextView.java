@@ -17,5 +17,6 @@ public interface TextView {
   void createFile(String filename);
 
   /** Renders the output of the view onto the file/window. */
+  // TODO is this method needed?
   void render();
 }

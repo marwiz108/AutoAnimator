@@ -24,6 +24,11 @@ public class Oval extends AbstractShape {
     super(identifier, x, y, base, height, r, g, b);
   }
 
+  /**
+   * Constructor for an oval that creates an empty Oval object.
+   *
+   * @param name the identifier of the Oval.
+   */
   public Oval(String name) {
     super(name);
   }
@@ -38,6 +43,7 @@ public class Oval extends AbstractShape {
     return super.toSVGString("ellipse");
   }
 
+  @Override
   public void fill(Graphics2D g) {
     g.fillOval(
         (int) this.reference.getX(),

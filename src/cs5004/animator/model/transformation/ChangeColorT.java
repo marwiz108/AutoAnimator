@@ -73,6 +73,7 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
     return super.toString("changes color", start, end);
   }
 
+  @Override
   public String toSVGString() {
     StringBuilder svgText = new StringBuilder();
     svgText.append(

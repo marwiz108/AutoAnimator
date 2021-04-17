@@ -10,13 +10,19 @@ public class AnimationFrame extends JFrame implements IView, AnimationView {
 
   private final ICanvas canvas;
 
+  /**
+   * Constructor for an AnimationFrame.
+   *
+   * @param c the canvas object that is to be animated.
+   * @param timerDelay the delay in milliseconds between frames of the animation.
+   */
   public AnimationFrame(ICanvas c, int timerDelay) {
     this.canvas = c;
-    createAndShowGUI(timerDelay);
+    createAndShow(timerDelay);
   }
 
   @Override
-  public void createAndShowGUI(int delay) {
+  public void createAndShow(int delay) {
     JPanel panel = new AnimationPanel(this.canvas, delay);
     panel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
@@ -44,7 +50,7 @@ public class AnimationFrame extends JFrame implements IView, AnimationView {
   }
 
   @Override
-  public void playFromFrame(float frame, float speed, boolean reverse) {
+  public void playFromFrame(float frame, boolean reverse) {
     return;
   }
 }

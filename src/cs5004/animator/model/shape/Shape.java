@@ -18,8 +18,14 @@ public interface Shape {
    */
   Shape copy();
 
+  /**
+   * Determine if a Shape has been initialized.
+   *
+   * @return true if the shape has been given initial values, false otherwise.
+   */
   boolean isInitialized();
 
+  /** Sets the initialized field to true. */
   void initialize();
 
   /**
@@ -113,5 +119,10 @@ public interface Shape {
    */
   String toSVGString();
 
+  /**
+   * Draws the shape on a JPanel.
+   *
+   * @param g the Graphics2D object that represents this shape.
+   */
   void fill(Graphics2D g);
 }

@@ -8,7 +8,6 @@ import cs5004.animator.model.shape.Shape;
  */
 public abstract class AbstractTransformation<T> implements Transformation<T> {
 
-  // TODO abstract shapes should always look at the dynamic shape Hashmap in canvas
   protected final Shape initialShape;
   protected final float startFrame;
   protected final float endFrame;
@@ -72,10 +71,7 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
     if (this.getType() == newT.getType()) {
-      if ((newT.getStartFrame() >= this.startFrame && newT.getStartFrame() < this.endFrame)
-          || newT.getStartFrame() <= this.endFrame) {
-        return true;
-      }
+      return (newT.getStartFrame() >= this.startFrame && newT.getStartFrame() < this.endFrame) || newT.getStartFrame() <= this.endFrame;
     }
     return false;
   }
@@ -88,7 +84,6 @@ public abstract class AbstractTransformation<T> implements Transformation<T> {
       throw new IllegalArgumentException("Frame cannot be negative.");
     }
     if (frame < this.startFrame) {
-      // TODO Fix so this returns the CURRENT value
       return currentValue;
     }
     if (frame > this.endFrame) {

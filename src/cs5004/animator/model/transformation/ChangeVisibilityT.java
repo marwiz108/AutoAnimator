@@ -23,6 +23,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
         this.initialShape.getIdentifier(), this.startFrame, this.endFrame);
   }
 
+  @Override
   public String toSVGString() {
     // TODO this
     return "";

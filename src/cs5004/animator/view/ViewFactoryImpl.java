@@ -6,21 +6,21 @@ public class ViewFactoryImpl implements ViewFactory {
 
   private final ICanvas canvas;
 
+  /**
+   * Constructor for the ViewFactoryImpl.
+   *
+   * @param c the canvas with all the view information.
+   */
   public ViewFactoryImpl(ICanvas c) {
     this.canvas = c;
   }
 
   @Override
-  public IView create(String viewType) {
-    return create(viewType, 1000);
-  }
-
-  @Override
-  public IView create(String viewType, int delay) {
+  public IView create(String viewType, String outFile, int delay) {
     if (viewType.equals("text")) {
-      return new Text(this.canvas);
+      return new Text(this.canvas, outFile);
     } else if (viewType.equals("svg")) {
-      return new SVG(this.canvas);
+      return new SVG(this.canvas, outFile);
     } else if (viewType.equals("visual")) {
       return new AnimationFrame(this.canvas, delay);
     }

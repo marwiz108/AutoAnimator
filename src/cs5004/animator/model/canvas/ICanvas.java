@@ -1,8 +1,9 @@
 package cs5004.animator.model.canvas;
 
+import java.util.ArrayList;
+
 import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.Transformation;
-import java.util.ArrayList;
 
 /**
  * * transformations that will be applied throughout the animation. Can return the state of all
@@ -35,6 +36,7 @@ public interface ICanvas {
    */
   String toSVGString();
 
+  /** Resets the mutated shapes in the canvas to their original states. */
   void resetDynamicShapes();
 
   /**
@@ -72,11 +74,31 @@ public interface ICanvas {
   void addTransformation(String shapeID, Transformation transformation)
       throws IllegalArgumentException;
 
+  /**
+   * Returns the left-most x value.
+   *
+   * @return x value.
+   */
   int getLeftMostX();
 
+  /**
+   * Returns the top-most y value.
+   *
+   * @return y value.
+   */
   int getTopMostY();
 
+  /**
+   * Returns the border width of the canvas.
+   *
+   * @return border width.
+   */
   int getBorderWidth();
 
+  /**
+   * Returns the border height of the canvas.
+   *
+   * @return border height.
+   */
   int getBorderHeight();
 }
