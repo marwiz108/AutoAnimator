@@ -84,7 +84,7 @@ public class MoveT extends AbstractTransformation<float[]> {
   @Override
   public boolean hasConflictingTransformation(Transformation newT) {
     //    newT = (MoveT)newT;
-    if (super.hasConflictingTransformation()) {
+    if (super.hasConflictingTransformation(newT)) {
       if (Math.abs(this.endPos.getX() - this.startPos.getX()) > 0
           && Math.abs(this.endPos.getY() - this.startPos.getY()) == 0) {
         return Math.abs(((MoveT) newT).endPos.getX() - ((MoveT) newT).startPos.getX()) > 0;
@@ -102,7 +102,7 @@ public class MoveT extends AbstractTransformation<float[]> {
   /**
    * Implementation of ExecuteAtFrame for a MoveT Transformation.
    *
-   * @param s
+   * @param s the shape to move
    * @param frame the frame to be rendered.
    * @return an array of Floats that represents the position in [x, y] format.
    */
