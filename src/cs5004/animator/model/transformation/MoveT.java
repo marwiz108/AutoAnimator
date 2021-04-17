@@ -54,24 +54,37 @@ public class MoveT extends AbstractTransformation<float[]> {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(String type, float delay) {
+    String x;
+    String y;
+    if (type.equals("ellipse")) {
+      x = "cx";
+      y = "cy";
+    } else {
+      x = "x";
+      y = "y";
+    }
+    //    System.out.println(delay);
+    //    System.out.println(delay);
     StringBuilder svgText = new StringBuilder();
     svgText.append(
         String.format(
-            "<animate attributeName=\"x\" "
-                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />\n",
+            "\t\t<animate attributeName=\"%s\" "
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" />\n",
+            x,
             this.startPos.getX(),
             this.endPos.getX(),
-            this.startFrame,
-            this.endFrame - this.startFrame));
+            this.startFrame * delay,
+            (this.endFrame - this.startFrame) * delay));
     svgText.append(
         String.format(
-            "<animate attributeName=\"y\" "
-                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+            "\t\t<animate attributeName=\"%s\" "
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" />",
+            y,
             this.startPos.getY(),
             this.endPos.getY(),
-            this.startFrame,
-            this.endFrame - this.startFrame));
+            this.startFrame * delay,
+            (this.endFrame - this.startFrame) * delay));
 
     return svgText.toString();
   }

@@ -74,21 +74,21 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(String type, float delay) {
     StringBuilder svgText = new StringBuilder();
     svgText.append(
         String.format(
-            "<animate attributeName=\"fill\" "
+            "\t\t<animate attributeName=\"fill\" "
                 + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
-                + "begin=\"%.1f\" dur=\"%.1fs\" />\n",
+                + "begin=\"%.1fms\" dur=\"%.1fms\" />\n",
             this.startColor.getRed(),
             this.startColor.getGreen(),
             this.startColor.getBlue(),
             this.endColor.getRed(),
             this.endColor.getGreen(),
             this.endColor.getBlue(),
-            this.startFrame,
-            this.endFrame - this.startFrame));
+            this.startFrame * delay,
+            (this.endFrame - this.startFrame) * delay));
 
     return svgText.toString();
   }

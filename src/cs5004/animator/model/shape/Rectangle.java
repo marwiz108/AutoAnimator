@@ -41,8 +41,12 @@ public class Rectangle extends AbstractShape {
   }
 
   @Override
-  public String toSVGString() {
-    return super.toSVGString("rect");
+  public String toSVGString(float delay) {
+
+    return super.toSVGString(
+        "rect",
+        "\t<%s id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"rgb(%d, %d, %d)\" >\n",
+        delay);
   }
 
   @Override

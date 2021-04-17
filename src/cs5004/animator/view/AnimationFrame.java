@@ -16,9 +16,9 @@ public class AnimationFrame extends JFrame implements IView, AnimationView {
    * @param c the canvas object that is to be animated.
    * @param timerDelay the delay in milliseconds between frames of the animation.
    */
-  public AnimationFrame(ICanvas c, int timerDelay) {
+  public AnimationFrame(ICanvas c, float timerDelay) {
     this.canvas = c;
-    createAndShow(timerDelay);
+    createAndShow((int) timerDelay);
   }
 
   @Override

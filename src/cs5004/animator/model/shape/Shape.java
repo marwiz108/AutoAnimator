@@ -116,8 +116,9 @@ public interface Shape {
    * Returns an SVG text output of the shapes with their animations.
    *
    * @return text as SVG representation of the shapes with their animations
+   * @param delay the delay (in ms) between each frame.
    */
-  String toSVGString();
+  String toSVGString(float delay);
 
   /**
    * Draws the shape on a JPanel.

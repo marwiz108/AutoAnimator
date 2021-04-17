@@ -18,7 +18,6 @@ public final class EasyAnimator {
    * @param args the user defined arguments passed to the animation.
    */
   public static void main(String[] args) {
-    // TODO get this working using args
     String inFile = null;
     String viewType = null;
     int delay = 1000;
@@ -32,10 +31,11 @@ public final class EasyAnimator {
       } else if (args[i].equals("-out")) {
         outFile = "src/cs5004/animator/view/output/" + args[i + 1];
       } else if (args[i].equals("-speed")) {
-        delay = Integer.parseInt(args[i + 1]);
+        delay = 1000 / Integer.parseInt(args[i + 1]);
       }
     }
-
+    System.out.print("Passed: ");
+    System.out.println(delay);
     ICanvasModel.Builder builder = null;
     try {
       builder = new ICanvasModel.Builder(inFile);

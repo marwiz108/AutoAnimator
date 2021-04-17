@@ -9,15 +9,17 @@ import cs5004.animator.model.shape.Shape;
 import cs5004.animator.model.transformation.MoveT;
 
 public class SVG extends AbstractTextView {
-
+  float delay;
   /**
    * Constructor for an SVG view.
    *
    * @param canvas the canvas object with data to be animated.
    * @param outFile the name of the eventual .SVG file.
+   * @param delay the delay (in ms) between each frame.
    */
-  public SVG(ICanvas canvas, String outFile) {
+  public SVG(ICanvas canvas, String outFile, float delay) {
     super(canvas, outFile);
+    this.delay = delay;
   }
 
   // TODO remove main method
@@ -31,14 +33,14 @@ public class SVG extends AbstractTextView {
         new Runnable() {
           @Override
           public void run() {
-            SVG svgview = new SVG(canvas, "test-svg.svg");
-            //            svgview.createFile("test-svg.svg");
+            //            SVG svgview = new SVG(canvas, "test-svg.svg", this);
+            //            //            svgview.createFile("test-svg.svg");
           }
         });
   }
 
   @Override
   public String generateText() {
-    return this.canvas.toSVGString();
+    return this.canvas.toSVGString(this.delay);
   }
 }
