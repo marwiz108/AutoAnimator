@@ -1,8 +1,8 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.awt.Color;
-import java.util.Arrays;
+import static cs5004.animator.model.transformation.dimension.BASE;
+import static cs5004.animator.model.transformation.dimension.HEIGHT;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
@@ -12,11 +12,10 @@ import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.MoveT;
 import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.Transformation;
-
-import static cs5004.animator.model.transformation.dimension.BASE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.awt.Color;
+import java.util.Arrays;
+import org.junit.Before;
+import org.junit.Test;
 
 /** Tests for the Transformation interface. */
 public class TransformationTest {

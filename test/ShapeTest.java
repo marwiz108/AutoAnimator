@@ -1,13 +1,17 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import cs5004.animator.model.shape.Oval;
-import cs5004.animator.model.shape.Rectangle;
-import cs5004.animator.model.shape.Shape;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Point2D;
+import cs5004.animator.model.shape.Rectangle;
+import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.MoveT;
+import cs5004.animator.model.transformation.ResizeT;
+import cs5004.animator.model.transformation.Transformation;
+import cs5004.animator.model.transformation.dimension;
+import org.junit.Before;
+import org.junit.Test;
 
 /** JUnit test class for the Shape interface. */
 public class ShapeTest {
