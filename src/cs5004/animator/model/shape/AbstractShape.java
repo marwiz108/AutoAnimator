@@ -175,10 +175,16 @@ public abstract class AbstractShape implements Shape {
   protected String toSVGString(String type) {
     StringBuilder svgText = new StringBuilder();
     String template;
-    if (type.equals("ellipse")) {
-      template = "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+    StringBuilder visibility = new StringBuilder();
+    if (this.isVisible()) {
+      visibility.append("visible");
     } else {
-      template = "<%s x=\"%f\" y=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" >\n";
+      visibility.append("hidden");
+    }
+    if (type.equals("ellipse")) {
+      template = "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\" >\n";
+    } else {
+      template = "<%s x=\"%f\" y=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\" >\n";
     }
     svgText.append(
         String.format(
@@ -190,7 +196,8 @@ public abstract class AbstractShape implements Shape {
             this.height / 2,
             this.color.getRed(),
             this.color.getGreen(),
-            this.color.getBlue()));
+            this.color.getBlue(),
+            visibility.toString()));
     this.transformations.forEach(t -> svgText.append(t.toSVGString() + "\n"));
     svgText.append(String.format("</%s>\n", type));
 
