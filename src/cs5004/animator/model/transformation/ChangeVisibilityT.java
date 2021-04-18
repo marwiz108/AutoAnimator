@@ -29,7 +29,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
         + "from=\"hidden\" to=\"visible\" begin=\"%.1fs\" dur=\"%.1fs\" />\n",
         this.startFrame, this.endFrame - this.startFrame)
         + String.format("<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"hidden\" to=\"visible\" begin=\"%.1fs\" dur=\"%.1fs\" />\n",
+        + "from=\"visible\" to=\"hidden\" begin=\"%.1fs\" dur=\"%.1fs\" />\n",
         this.endFrame, this.endFrame);
   }
 
