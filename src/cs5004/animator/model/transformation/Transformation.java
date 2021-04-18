@@ -75,6 +75,8 @@ public interface Transformation<T> {
    * Returns an SVG text output of the transformations/animations.
    *
    * @return text as SVG representation of the transformations
+   * @param type The type of shape.
+   * @param delay the delay (in ms) between each frame.
    */
-  String toSVGString();
+  String toSVGString(String type, float delay);
 }

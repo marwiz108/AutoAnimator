@@ -65,26 +65,37 @@ public class ResizeT extends AbstractTransformation<Float> {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(String type, float delay) {
+    String base;
+    String height;
+    if (type.equals("ellipse")) {
+      base = "rx";
+      height = "ry";
+    } else {
+      base = "width";
+      height = "height";
+    }
     StringBuilder svgText = new StringBuilder();
     if (this.baseOrHeight == dimension.HEIGHT) {
       svgText.append(
           String.format(
-              "<animateTransform attributeName=\"ry\" "
-                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+              "\t\t<animateTransform attributeName=\"%s\" "
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>",
+              height,
               this.initialValue,
               this.finalValue,
-              this.startFrame,
-              this.endFrame - this.startFrame));
+              this.startFrame * delay,
+              (this.endFrame - this.startFrame) * delay));
     } else {
       svgText.append(
           String.format(
-              "<animateTransform attributeName=\"rx\" "
-                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1f\" dur=\"%.1fs\" />",
+              "\t\t<animateTransform attributeName=\"%s\" "
+                  + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>",
+              base,
               this.initialValue,
               this.finalValue,
-              this.startFrame,
-              this.endFrame - this.startFrame));
+              this.startFrame * delay,
+              (this.endFrame - this.startFrame) * delay));
     }
 
     return svgText.toString();

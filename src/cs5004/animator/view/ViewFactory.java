@@ -10,5 +10,5 @@ public interface ViewFactory {
    * @param delay the delay between frames of the animation.
    * @return The view object.
    */
-  IView create(String viewType, String outFile, int delay);
+  IView create(String viewType, String outFile, float delay);
 }

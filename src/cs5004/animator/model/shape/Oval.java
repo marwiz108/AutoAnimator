@@ -39,8 +39,12 @@ public class Oval extends AbstractShape {
   }
 
   @Override
-  public String toSVGString() {
-    return super.toSVGString("ellipse");
+  public String toSVGString(float delay) {
+
+    return super.toSVGString(
+        "ellipse",
+        "\t<%s id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
+        delay);
   }
 
   @Override

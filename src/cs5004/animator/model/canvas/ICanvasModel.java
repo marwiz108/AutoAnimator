@@ -40,6 +40,13 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
+  public void setAllFrames() {
+    for (Shape s : this.initialShapes.values()) {
+      s.setFrames();
+    }
+  }
+
+  @Override
   public void setCanvasBounds(int leftMostX, int topMostY, int borderWidth, int borderHeight) {
     this.leftMostX = leftMostX;
     this.topMostY = topMostY;
@@ -73,14 +80,14 @@ public final class ICanvasModel implements ICanvas {
   }
 
   @Override
-  public String toSVGString() {
+  public String toSVGString(float delay) {
     StringBuilder svgStr = new StringBuilder();
     svgStr.append(
         String.format(
             "<svg viewBox=\"%d %d %d %d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
             this.leftMostX, this.topMostY, this.borderWidth, this.borderHeight));
     if (!this.initialShapes.isEmpty()) {
-      this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString()));
+      this.initialShapes.forEach((k, v) -> svgStr.append(v.toSVGString(delay)));
     }
     svgStr.append("</svg>");
 
@@ -209,6 +216,7 @@ public final class ICanvasModel implements ICanvas {
 
     @Override
     public ICanvas build() throws FileNotFoundException {
+      this.c.setAllFrames();
       return this.c;
     }
 
@@ -247,7 +255,6 @@ public final class ICanvasModel implements ICanvas {
         int r2,
         int g2,
         int b2) {
-      // TODO find a way to record visibility transformations
       Shape thisShape = this.c.getShapeById(name);
       if (!thisShape.isInitialized()) {
         thisShape.setPosition(x1, y1);

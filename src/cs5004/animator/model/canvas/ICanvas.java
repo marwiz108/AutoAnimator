@@ -12,6 +12,8 @@ import cs5004.animator.model.transformation.Transformation;
  */
 public interface ICanvas {
 
+  void setAllFrames();
+
   /**
    * Set the starting position and the border size of the ICanvas.
    *
@@ -33,8 +35,9 @@ public interface ICanvas {
    * Returns an SVG text output of the canvas with its shapes and their animations.
    *
    * @return text as SVG representation of the canvas with its shapes and their animations
+   * @param delay the delay (in ms) between each frame.
    */
-  String toSVGString();
+  String toSVGString(float delay);
 
   /** Resets the mutated shapes in the canvas to their original states. */
   void resetDynamicShapes();

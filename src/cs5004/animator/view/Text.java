@@ -10,9 +10,8 @@ import cs5004.animator.model.transformation.MoveT;
 
 public class Text extends AbstractTextView {
 
-  public Text(ICanvas canvas, String outFile) {
-    super(canvas);
-    this.createFile(outFile);
+  public Text(ICanvas canvas, String outFile, float delay) {
+    super(canvas, outFile, delay);
   }
 
   // TODO remove main method
@@ -26,14 +25,14 @@ public class Text extends AbstractTextView {
         new Runnable() {
           @Override
           public void run() {
-            Text textview = new Text(canvas, "test-txt.txt");
+            Text textview = new Text(canvas, "test-txt.txt", 500);
             //            textview.createFile("test-txt.txt");
           }
         });
   }
 
   @Override
-  public String generateText() {
+  public String generateText(float delay) {
     return this.canvas.toString();
   }
 }

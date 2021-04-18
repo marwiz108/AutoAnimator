@@ -3,6 +3,7 @@ package cs5004.animator.model.shape;
 import java.awt.*;
 import java.util.ArrayList;
 
+import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.Transformation;
 
 /** Abstract class for a Shape object that stores common functionality for all shapes. */
@@ -15,6 +16,8 @@ public abstract class AbstractShape implements Shape {
   protected ArrayList<Transformation> transformations;
   protected Color color;
   protected boolean visible;
+  protected float startFrame = 0;
+  protected float endFrame = 0;
   protected boolean isInitialized;
 
   /**
@@ -86,9 +89,6 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void setPosition(float x, float y) throws IllegalArgumentException {
-    //    if (x < 0 || y < 0) {
-    //      throw new IllegalArgumentException("Position coordinates must be positive.");
-    //    }
     this.reference.updatePosition(x, y);
   }
 
@@ -145,6 +145,22 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public void setFrames() {
+    this.startFrame = this.transformations.get(0).getStartFrame();
+    this.endFrame = this.transformations.get(0).getEndFrame();
+    for (Transformation t : this.transformations) {
+      if (t.getStartFrame() < this.startFrame) {
+        this.startFrame = t.getStartFrame();
+      }
+      if (t.getEndFrame() > this.endFrame) {
+        this.endFrame = t.getEndFrame();
+      }
+    }
+    Transformation vis = new ChangeVisibilityT(this, this.startFrame, this.endFrame);
+    this.addTransformation(vis);
+  }
+
+  @Override
   public ArrayList<Transformation> getTransformations() {
     return this.transformations;
   }
@@ -170,36 +186,42 @@ public abstract class AbstractShape implements Shape {
    * Constructs a general description of a Shape in XML format. Must be given a type.
    *
    * @param type the type of shpae that is being described.
+   * @param template the template string passed by the child class.
+   * @param delay the delay (in ms) between each frame.
    * @return XML description of a Shape.
    */
-  protected String toSVGString(String type) {
-    StringBuilder svgText = new StringBuilder();
-    String template;
-    StringBuilder visibility = new StringBuilder();
-    if (this.isVisible()) {
-      visibility.append("visible");
-    } else {
-      visibility.append("hidden");
-    }
+  protected String toSVGString(String type, String template, float delay) {
+    float b;
+    float h;
+    String v;
     if (type.equals("ellipse")) {
-      template = "<%s cx=\"%f\" cy=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\" >\n";
+      b = this.base / 2;
+      h = this.height / 2;
     } else {
-      template = "<%s x=\"%f\" y=\"%f\" rx=\"%f\" ry=\"%f\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\" >\n";
+      b = this.base;
+      h = this.height;
     }
+    if (this.isVisible()) {
+      v = "visible";
+    } else {
+      v = "hidden";
+    }
+    StringBuilder svgText = new StringBuilder();
     svgText.append(
         String.format(
             template,
             type,
-            this.reference.getX(),
-            this.reference.getY(),
-            this.base / 2,
-            this.height / 2,
+            this.identifier,
+            Math.round(this.reference.getX()),
+            Math.round(this.reference.getY()),
+            Math.round(b),
+            Math.round(h),
             this.color.getRed(),
             this.color.getGreen(),
             this.color.getBlue(),
-            visibility.toString()));
-    this.transformations.forEach(t -> svgText.append(t.toSVGString() + "\n"));
-    svgText.append(String.format("</%s>\n", type));
+            v));
+    this.transformations.forEach(t -> svgText.append(t.toSVGString(type, delay) + "\n"));
+    svgText.append(String.format("\t</%s>\n", type));
 
     return svgText.toString();
   }

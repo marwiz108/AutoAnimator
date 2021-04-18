@@ -12,7 +12,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
    * @param startFrame the starting frame of the transformation.
    * @param endFrame the ending frame of the transformation.
    */
-  public ChangeVisibilityT(Shape shape, int startFrame, int endFrame) {
+  public ChangeVisibilityT(Shape shape, float startFrame, float endFrame) {
     super(shape, startFrame, endFrame);
   }
 
@@ -24,13 +24,15 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   }
 
   @Override
-  public String toSVGString() {
-    return String.format("<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"hidden\" to=\"visible\" begin=\"%.1fs\" dur=\"%.1fs\" />\n",
-        this.startFrame, this.endFrame - this.startFrame)
-        + String.format("<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"visible\" to=\"hidden\" begin=\"%.1fs\" dur=\"%.1fs\" />\n",
-        this.endFrame, this.endFrame);
+  public String toSVGString(String type, float delay) {
+    return String.format(
+            "\t\t<animate attributeName=\"visibility\" "
+                + "attributeType=\"XML\" from=\"hidden\" to=\"visible\" begin=\"%.1fms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+            this.startFrame * delay)
+        + String.format(
+            "\t\t<animate attributeName=\"visibility\" "
+                + "attributeType=\"XML\" from=\"visible\" to=\"hidden\" begin=\"%.1fms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+            this.endFrame * delay);
   }
 
   @Override
@@ -41,7 +43,7 @@ public class ChangeVisibilityT extends AbstractTransformation<Boolean> {
   /**
    * Implementation of ExecuteAtFrame for a ChangeVisibilityT Transformation.
    *
-   * @param s
+   * @param s the shape object.
    * @param frame the frame to be rendered.
    * @return true if the shape is visible, false otherwise.
    */
