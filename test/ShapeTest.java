@@ -159,6 +159,38 @@ public class ShapeTest {
   }
 
   @Test
+  public void testAddTransformation() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+
+    this.oval.addTransformation(move);
+    assertEquals(1, this.oval.getTransformations().size());
+  }
+
+  @Test
+  public void testAddMultipleTransformations() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+    Transformation resize = new ResizeT(oval, 8, 20,
+        dimension.HEIGHT, 30, 100);
+
+    this.oval.addTransformation(move);
+    this.oval.addTransformation(resize);
+    assertEquals(2, this.oval.getTransformations().size());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testAddConflictingTransformation() {
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+    Transformation move2 = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(50, 20));
+
+    this.oval.addTransformation(move);
+    this.oval.addTransformation(move2);
+  }
+
+  @Test
   public void testSetVisibility() {
     assertFalse(this.oval.isVisible());
     this.oval.setVisibility(true);
@@ -182,5 +214,30 @@ public class ShapeTest {
             + "Position: (200.0, 200.0), Base: 50.0, Height: 100.0\n"
             + "Color: (0, 0, 255)";
     assertEquals(rectStr, this.rectangle.toString());
+  }
+
+  @Test
+  public void testToSVGString() {
+    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
+            + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
+        + "</ellipse>\n",
+        this.oval.toSVGString());
+
+    Transformation move = new MoveT(oval, 5, 15,
+        new Point2D(0, 0), new Point2D(80, 50));
+    Transformation resize = new ResizeT(oval, 8, 20,
+        dimension.HEIGHT, 30, 100);
+    this.oval.addTransformation(move);
+    this.oval.addTransformation(resize);
+    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
+        + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
+        + "<animate attributeName=\"x\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"80.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
+        + "<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"50.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
+        + "<animateTransform attributeName=\"ry\" attributeType=\"XML\" "
+        + "from=\"30.0\" to=\"100.0\" begin=\"8.0\" dur=\"12.0s\" />\n"
+        + "</ellipse>\n",
+        this.oval.toSVGString());
   }
 }
