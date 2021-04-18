@@ -202,10 +202,10 @@ public class ShapeTest {
 
   @Test
   public void testToSVGString() {
-    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
-            + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
-        + "</ellipse>\n",
-        this.oval.toSVGString());
+    assertEquals("\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" "
+            + "rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+        + "\t</ellipse>\n",
+        this.oval.toSVGString(1000));
 
     Transformation move = new MoveT(oval, 5, 15,
         new Point2D(0, 0), new Point2D(80, 50));
@@ -213,15 +213,15 @@ public class ShapeTest {
         dimension.HEIGHT, 30, 100);
     this.oval.addTransformation(move);
     this.oval.addTransformation(resize);
-    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
-        + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
-        + "<animate attributeName=\"x\" attributeType=\"XML\" from=\"0.0\" "
-        + "to=\"80.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
-        + "<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" "
-        + "to=\"50.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
-        + "<animateTransform attributeName=\"ry\" attributeType=\"XML\" "
-        + "from=\"30.0\" to=\"100.0\" begin=\"8.0\" dur=\"12.0s\" />\n"
-        + "</ellipse>\n",
-        this.oval.toSVGString());
+    assertEquals("\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" "
+        + "rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+        + "\t\t<animate attributeName=\"cx\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"80.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animate attributeName=\"cy\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"50.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animateTransform attributeName=\"ry\" attributeType=\"XML\" "
+        + "from=\"30.0\" to=\"100.0\" begin=\"8000.0ms\" dur=\"12000.0ms\" fill=\"freeze\"/>\n"
+        + "\t</ellipse>\n",
+        this.oval.toSVGString(1000));
   }
 }
