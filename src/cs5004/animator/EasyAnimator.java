@@ -25,17 +25,16 @@ public final class EasyAnimator {
 
     for (int i = 0; i < args.length; i++) {
       if (args[i].equals("-in")) {
-        inFile = "src/cs5004/animator/view/examples/" + args[i + 1];
+        inFile = args[i + 1];
       } else if (args[i].equals("-view")) {
         viewType = args[i + 1];
       } else if (args[i].equals("-out")) {
-        outFile = "src/cs5004/animator/view/output/" + args[i + 1];
+        outFile = args[i + 1];
       } else if (args[i].equals("-speed")) {
         delay = 1000 / Integer.parseInt(args[i + 1]);
       }
     }
-    System.out.print("Passed: ");
-    System.out.println(delay);
+
     ICanvasModel.Builder builder = null;
     try {
       builder = new ICanvasModel.Builder(inFile);
@@ -44,6 +43,5 @@ public final class EasyAnimator {
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     factory.create(viewType, outFile, delay);
-    System.out.println(builder.getCanvas());
   }
 }
