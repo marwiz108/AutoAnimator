@@ -1,8 +1,8 @@
-import static cs5004.animator.model.transformation.dimension.BASE;
-import static cs5004.animator.model.transformation.dimension.HEIGHT;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.awt.*;
+import java.util.Arrays;
 
 import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
@@ -12,10 +12,12 @@ import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.MoveT;
 import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.Transformation;
-import java.awt.Color;
-import java.util.Arrays;
-import org.junit.Before;
-import org.junit.Test;
+
+import static cs5004.animator.model.transformation.dimension.BASE;
+import static cs5004.animator.model.transformation.dimension.HEIGHT;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /** Tests for the Transformation interface. */
 public class TransformationTest {
@@ -68,8 +70,7 @@ public class TransformationTest {
 
   @Test
   public void testCorrectMove() {
-    Transformation newT = new MoveT(ref, 5, 15,
-        new Point2D(0, 0), new Point2D(0, 45));
+    Transformation newT = new MoveT(ref, 5, 15, new Point2D(0, 0), new Point2D(0, 45));
 
     ref.addTransformation(move);
     assertFalse(move.hasConflictingTransformation(newT));
@@ -77,8 +78,7 @@ public class TransformationTest {
 
   @Test
   public void testCorrectMove2() {
-    Transformation newT = new MoveT(ref, 0, 4,
-        new Point2D(0, 0), new Point2D(0, 45));
+    Transformation newT = new MoveT(ref, 0, 4, new Point2D(0, 0), new Point2D(0, 45));
 
     ref.addTransformation(move);
     assertFalse(move.hasConflictingTransformation(newT));
@@ -86,8 +86,7 @@ public class TransformationTest {
 
   @Test
   public void testConflictingMove() {
-    Transformation conflict = new MoveT(ref, 10, 18,
-        new Point2D(50, 0), new Point2D(20, 0));
+    Transformation conflict = new MoveT(ref, 10, 18, new Point2D(50, 0), new Point2D(20, 0));
 
     ref.addTransformation(move);
     assertTrue(move.hasConflictingTransformation(conflict));
@@ -95,17 +94,14 @@ public class TransformationTest {
 
   @Test
   public void testCorrectResize() {
-    Transformation newT = new ResizeT(ref, 3, 10,
-        HEIGHT, 30, 60);
-
+    Transformation newT = new ResizeT(ref, 3, 10, HEIGHT, 30, 60);
     ref.addTransformation(resize);
     assertFalse(resize.hasConflictingTransformation(newT));
   }
 
   @Test
   public void testConflictingResize() {
-    Transformation conflict = new ResizeT(ref, 3, 9,
-        BASE, 30, 50);
+    Transformation conflict = new ResizeT(ref, 3, 9, BASE, 30, 50);
 
     ref.addTransformation(resize);
     assertTrue(resize.hasConflictingTransformation(conflict));
@@ -113,8 +109,8 @@ public class TransformationTest {
 
   @Test
   public void testCorrectColorChange() {
-    Transformation newT = new ChangeColorT(ref, 16, 20,
-        new Color(0, 0, 255), new Color(255, 255, 0));
+    Transformation newT =
+        new ChangeColorT(ref, 16, 20, new Color(0, 0, 255), new Color(255, 255, 0));
 
     ref.addTransformation(changeColor);
     assertFalse(changeColor.hasConflictingTransformation(newT));
@@ -122,8 +118,8 @@ public class TransformationTest {
 
   @Test
   public void testConflictingColorChange() {
-    Transformation conflict = new ChangeColorT(ref, 12, 20,
-        new Color(255, 0, 0), new Color(0, 0, 255));
+    Transformation conflict =
+        new ChangeColorT(ref, 12, 20, new Color(255, 0, 0), new Color(0, 0, 255));
 
     ref.addTransformation(changeColor);
     assertTrue(changeColor.hasConflictingTransformation(conflict));
@@ -264,25 +260,29 @@ public class TransformationTest {
 
   @Test
   public void testToSVGString() {
-    assertEquals("\t\t<animate attributeName=\"fill\" attributeType=\"XML\" "
-        + "from=\"rgb(255, 0, 0)\" to=\"rgb(0, 0, 255)\" begin=\"5000.0ms\" "
-        + "dur=\"10000.0ms\" fill=\"freeze\"/>\n",
+    assertEquals(
+        "\t\t<animate attributeName=\"fill\" attributeType=\"XML\" "
+            + "from=\"rgb(255, 0, 0)\" to=\"rgb(0, 0, 255)\" begin=\"5000.0ms\" "
+            + "dur=\"10000.0ms\" fill=\"freeze\"/>\n",
         this.changeColor.toSVGString("rect", 1000));
 
-    assertEquals("\t\t<animate attributeName=\"x\" attributeType=\"XML\" "
-        + "from=\"0.0\" to=\"100.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
-        + "\t\t<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" to=\"0.0\" "
-        + "begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
+    assertEquals(
+        "\t\t<animate attributeName=\"x\" attributeType=\"XML\" "
+            + "from=\"0.0\" to=\"100.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+            + "\t\t<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" to=\"0.0\" "
+            + "begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
         this.move.toSVGString("rect", 1000));
 
-    assertEquals("\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"hidden\" to=\"visible\" begin=\"5000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n"
-        + "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"visible\" to=\"hidden\" begin=\"15000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+    assertEquals(
+        "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
+            + "from=\"hidden\" to=\"visible\" begin=\"5000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n"
+            + "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
+            + "from=\"visible\" to=\"hidden\" begin=\"15000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n",
         this.changeVis.toSVGString("rect", 1000));
 
-    assertEquals("\t\t<animateTransform attributeName=\"width\" attributeType=\"XML\" "
-        + "from=\"50.0\" to=\"75.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
+    assertEquals(
+        "\t\t<animateTransform attributeName=\"width\" attributeType=\"XML\" "
+            + "from=\"50.0\" to=\"75.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
         this.resize.toSVGString("rect", 1000));
   }
 }
