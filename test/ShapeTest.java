@@ -1,13 +1,17 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import cs5004.animator.model.shape.Oval;
-import cs5004.animator.model.shape.Rectangle;
-import cs5004.animator.model.shape.Shape;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import cs5004.animator.model.shape.Oval;
+import cs5004.animator.model.shape.Point2D;
+import cs5004.animator.model.shape.Rectangle;
+import cs5004.animator.model.shape.Shape;
+import cs5004.animator.model.transformation.MoveT;
+import cs5004.animator.model.transformation.ResizeT;
+import cs5004.animator.model.transformation.Transformation;
+import cs5004.animator.model.transformation.dimension;
+import org.junit.Before;
+import org.junit.Test;
 
 /** JUnit test class for the Shape interface. */
 public class ShapeTest {
@@ -22,18 +26,8 @@ public class ShapeTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testConstructorWithInvalidX() {
-    Shape newOval = new Oval("oval", -20, 50, 0, 50, 0, 0, 255);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testConstructorWithInvalidY() {
-    Shape newOval = new Oval("oval", 100, -50, 0, 50, 0, 0, 255);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
   public void testConstructorWithInvalidBase() {
-    Shape newOval = new Oval("oval", 100, 50, 0, 50, 0, 0, 255);
+    Shape newOval = new Oval("oval", 100, 50, -10, 50, 0, 0, 255);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -74,16 +68,6 @@ public class ShapeTest {
     this.rectangle.setPosition(250, 150);
     assertEquals(250, this.rectangle.getPosition().getX(), 0);
     assertEquals(150, this.rectangle.getPosition().getY(), 0);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testSetPositionWithInvalidX() {
-    this.oval.setPosition(-35, 25);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testSetPositionWithInvalidY() {
-    this.oval.setPosition(35, -25);
   }
 
   @Test
@@ -218,10 +202,10 @@ public class ShapeTest {
 
   @Test
   public void testToSVGString() {
-    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
-            + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
-        + "</ellipse>\n",
-        this.oval.toSVGString());
+    assertEquals("\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" "
+            + "rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+        + "\t</ellipse>\n",
+        this.oval.toSVGString(1000));
 
     Transformation move = new MoveT(oval, 5, 15,
         new Point2D(0, 0), new Point2D(80, 50));
@@ -229,15 +213,15 @@ public class ShapeTest {
         dimension.HEIGHT, 30, 100);
     this.oval.addTransformation(move);
     this.oval.addTransformation(resize);
-    assertEquals("<ellipse cx=\"500.000000\" cy=\"100.000000\" "
-        + "rx=\"30.000000\" ry=\"15.000000\" fill=\"rgb(255, 0, 0)\" >\n"
-        + "<animate attributeName=\"x\" attributeType=\"XML\" from=\"0.0\" "
-        + "to=\"80.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
-        + "<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" "
-        + "to=\"50.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
-        + "<animateTransform attributeName=\"ry\" attributeType=\"XML\" "
-        + "from=\"30.0\" to=\"100.0\" begin=\"8.0\" dur=\"12.0s\" />\n"
-        + "</ellipse>\n",
-        this.oval.toSVGString());
+    assertEquals("\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" "
+        + "rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+        + "\t\t<animate attributeName=\"cx\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"80.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animate attributeName=\"cy\" attributeType=\"XML\" from=\"0.0\" "
+        + "to=\"50.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animateTransform attributeName=\"ry\" attributeType=\"XML\" "
+        + "from=\"30.0\" to=\"100.0\" begin=\"8000.0ms\" dur=\"12000.0ms\" fill=\"freeze\"/>\n"
+        + "\t</ellipse>\n",
+        this.oval.toSVGString(1000));
   }
 }

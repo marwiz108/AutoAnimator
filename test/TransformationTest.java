@@ -1,8 +1,8 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.awt.Color;
-import java.util.Arrays;
+import static cs5004.animator.model.transformation.dimension.BASE;
+import static cs5004.animator.model.transformation.dimension.HEIGHT;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import cs5004.animator.model.shape.Point2D;
 import cs5004.animator.model.shape.Rectangle;
@@ -12,11 +12,10 @@ import cs5004.animator.model.transformation.ChangeVisibilityT;
 import cs5004.animator.model.transformation.MoveT;
 import cs5004.animator.model.transformation.ResizeT;
 import cs5004.animator.model.transformation.Transformation;
-
-import static cs5004.animator.model.transformation.dimension.BASE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.awt.Color;
+import java.util.Arrays;
+import org.junit.Before;
+import org.junit.Test;
 
 /** Tests for the Transformation interface. */
 public class TransformationTest {
@@ -265,24 +264,25 @@ public class TransformationTest {
 
   @Test
   public void testToSVGString() {
-    assertEquals("<animate attributeName=\"fill\" attributeType=\"XML\" "
-        + "from=\"rgb(255, 0, 0)\" to=\"rgb(0, 0, 255)\" begin=\"5.0\" dur=\"10.0s\" />\n",
-        this.changeColor.toSVGString());
+    assertEquals("\t\t<animate attributeName=\"fill\" attributeType=\"XML\" "
+        + "from=\"rgb(255, 0, 0)\" to=\"rgb(0, 0, 255)\" begin=\"5000.0ms\" "
+        + "dur=\"10000.0ms\" fill=\"freeze\"/>\n",
+        this.changeColor.toSVGString("rect", 1000));
 
-    assertEquals("<animate attributeName=\"x\" attributeType=\"XML\" "
-        + "from=\"0.0\" to=\"100.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
-        + "<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" to=\"0.0\" "
-        + "begin=\"5.0\" dur=\"10.0s\" />",
-        this.move.toSVGString());
+    assertEquals("\t\t<animate attributeName=\"x\" attributeType=\"XML\" "
+        + "from=\"0.0\" to=\"100.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" to=\"0.0\" "
+        + "begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
+        this.move.toSVGString("rect", 1000));
 
-    assertEquals("<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"hidden\" to=\"visible\" begin=\"5.0s\" dur=\"10.0s\" />\n"
-        + "<animate attributeName=\"visibility\" attributeType=\"XML\" "
-        + "from=\"hidden\" to=\"visible\" begin=\"15.0s\" dur=\"15.0s\" />\n",
-        this.changeVis.toSVGString());
+    assertEquals("\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
+        + "from=\"hidden\" to=\"visible\" begin=\"5000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n"
+        + "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
+        + "from=\"visible\" to=\"hidden\" begin=\"15000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+        this.changeVis.toSVGString("rect", 1000));
 
-    assertEquals("<animateTransform attributeName=\"rx\" attributeType=\"XML\" "
-        + "from=\"50.0\" to=\"75.0\" begin=\"5.0\" dur=\"10.0s\" />",
-        this.resize.toSVGString());
+    assertEquals("\t\t<animateTransform attributeName=\"width\" attributeType=\"XML\" "
+        + "from=\"50.0\" to=\"75.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>",
+        this.resize.toSVGString("rect", 1000));
   }
 }
