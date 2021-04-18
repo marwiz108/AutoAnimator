@@ -275,9 +275,7 @@ public class TransformationTest {
 
     assertEquals(
         "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
-            + "from=\"hidden\" to=\"visible\" begin=\"5000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n"
-            + "\t\t<animate attributeName=\"visibility\" attributeType=\"XML\" "
-            + "from=\"visible\" to=\"hidden\" begin=\"15000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n",
+            + "from=\"hidden\" to=\"visible\" begin=\"5000.0ms\" dur=\"1ms\" fill=\"freeze\"/>\n",
         this.changeVis.toSVGString("rect", 1000));
 
     assertEquals(
