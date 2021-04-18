@@ -260,6 +260,7 @@ public final class ICanvasModel implements ICanvas {
         thisShape.setPosition(x1, y1);
         thisShape.setColor(r1, g1, b1);
         thisShape.resize(w1, h1);
+        thisShape.setVisibility(true);
         thisShape.initialize();
       }
 
