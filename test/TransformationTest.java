@@ -262,4 +262,27 @@ public class TransformationTest {
 
     assertEquals(75, (float) resize.executeAtFrame(ref, 20), 0);
   }
+
+  @Test
+  public void testToSVGString() {
+    assertEquals("<animate attributeName=\"fill\" attributeType=\"XML\" "
+        + "from=\"rgb(255, 0, 0)\" to=\"rgb(0, 0, 255)\" begin=\"5.0\" dur=\"10.0s\" />\n",
+        this.changeColor.toSVGString());
+
+    assertEquals("<animate attributeName=\"x\" attributeType=\"XML\" "
+        + "from=\"0.0\" to=\"100.0\" begin=\"5.0\" dur=\"10.0s\" />\n"
+        + "<animate attributeName=\"y\" attributeType=\"XML\" from=\"0.0\" to=\"0.0\" "
+        + "begin=\"5.0\" dur=\"10.0s\" />",
+        this.move.toSVGString());
+
+    assertEquals("<animate attributeName=\"visibility\" attributeType=\"XML\" "
+        + "from=\"hidden\" to=\"visible\" begin=\"5.0s\" dur=\"10.0s\" />\n"
+        + "<animate attributeName=\"visibility\" attributeType=\"XML\" "
+        + "from=\"hidden\" to=\"visible\" begin=\"15.0s\" dur=\"15.0s\" />\n",
+        this.changeVis.toSVGString());
+
+    assertEquals("<animateTransform attributeName=\"rx\" attributeType=\"XML\" "
+        + "from=\"50.0\" to=\"75.0\" begin=\"5.0\" dur=\"10.0s\" />",
+        this.resize.toSVGString());
+  }
 }
