@@ -146,6 +146,9 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void setFrames() {
+    if (this.transformations.isEmpty()) {
+      return;
+    }
     this.startFrame = this.transformations.get(0).getStartFrame();
     this.endFrame = this.transformations.get(0).getEndFrame();
     for (Transformation t : this.transformations) {
