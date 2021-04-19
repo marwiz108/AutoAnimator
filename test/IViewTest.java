@@ -18,7 +18,9 @@ import static org.junit.Assert.assertTrue;
 
 /** Tests for the IView interface. */
 public class IViewTest {
-
+  // TODO add tests after adding transformations
+  // TODO add tests that check if methods throw OperationNotSupportedException when called by the
+  // wrong view type
   private IView text;
   private IView svg;
 

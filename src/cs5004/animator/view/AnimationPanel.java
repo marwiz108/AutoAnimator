@@ -9,11 +9,21 @@ import javax.swing.*;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.shape.Shape;
 
+/**
+ * Paints Graphics2D objects onto a panel, and keeps track of frames per second. Used to render
+ * shapes for the VisualView.
+ */
 public class AnimationPanel extends JPanel implements ActionListener {
   private final ICanvas canvas;
   private final Timer timer;
   private int frame;
 
+  /**
+   * Constructor for the AnimationPanel.
+   *
+   * @param c the canvas that is being rendered.
+   * @param delay the delay (in ms) between each frame.
+   */
   public AnimationPanel(ICanvas c, int delay) {
     this.canvas = c;
     this.timer = new Timer(delay, this);

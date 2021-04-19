@@ -6,14 +6,17 @@ import java.util.Objects;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.ViewFactory;
 import cs5004.animator.view.ViewFactoryImpl;
-// TODO Add error handling for invalid inputs to EasyAnimator
+
 /**
  * the entry point for EasyAnimator. This class defines all parameters needed to run an animation.
  */
 public final class EasyAnimator {
-
+  // TODO If the output set is not specified and the view needs it, the default should be
+  // System.out.
+  // TODO create the .jar files needed - note in readme the directory it must be placed into
   /**
-   * Main method that parses args and runs an animation view.
+   * Main method that parses args and runs an animation view. Note the .jar file must be placed in
+   * the src/cs5004/animator directory to work correctly.
    *
    * @param args the user defined arguments passed to the animation.
    */
@@ -38,7 +41,8 @@ public final class EasyAnimator {
     ICanvasModel.Builder builder = null;
     try {
       builder = new ICanvasModel.Builder(inFile);
-    } catch (FileNotFoundException e) {
+    } catch (FileNotFoundException | NullPointerException e) {
+      System.out.println("Input file not found!");
       e.printStackTrace();
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());

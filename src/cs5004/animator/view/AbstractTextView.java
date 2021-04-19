@@ -9,11 +9,11 @@ import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
+/** Abstract class for a text-based view that defines common methods for these classes. */
 public abstract class AbstractTextView implements IView {
 
   protected ICanvas canvas;
   protected JFrame frame;
-  protected JPanel panel;
   protected JScrollPane scrollPane;
   protected String text;
   protected float delay;
@@ -22,7 +22,7 @@ public abstract class AbstractTextView implements IView {
    * Super constructor for a TextView.
    *
    * @param canvas the canvas object containing the shape and transformation data.
-   * @param delay
+   * @param delay the delay (in ms) between each frame.
    */
   public AbstractTextView(ICanvas canvas, String outFile, float delay) {
     this.canvas = canvas;
