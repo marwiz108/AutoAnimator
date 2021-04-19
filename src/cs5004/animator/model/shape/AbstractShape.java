@@ -195,7 +195,7 @@ public abstract class AbstractShape implements Shape {
   /**
    * Constructs a general description of a Shape in XML format. Must be given a type.
    *
-   * @param type the type of shpae that is being described.
+   * @param type the type of shape that is being described.
    * @param template the template string passed by the child class.
    * @param delay the delay (in ms) between each frame.
    * @return XML description of a Shape.

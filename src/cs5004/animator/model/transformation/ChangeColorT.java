@@ -75,22 +75,19 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
 
   @Override
   public String toSVGString(String type, float delay) {
-    StringBuilder svgText = new StringBuilder();
-    svgText.append(
-        String.format(
-            "\t\t<animate attributeName=\"fill\" "
-                + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
-                + "begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>\n",
-            this.startColor.getRed(),
-            this.startColor.getGreen(),
-            this.startColor.getBlue(),
-            this.endColor.getRed(),
-            this.endColor.getGreen(),
-            this.endColor.getBlue(),
-            this.startFrame * delay,
-            (this.endFrame - this.startFrame) * delay));
 
-    return svgText.toString();
+    return String.format(
+        "\t\t<animate attributeName=\"fill\" "
+            + "attributeType=\"XML\" from=\"rgb(%d, %d, %d)\" to=\"rgb(%d, %d, %d)\" "
+            + "begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>\n",
+        this.startColor.getRed(),
+        this.startColor.getGreen(),
+        this.startColor.getBlue(),
+        this.endColor.getRed(),
+        this.endColor.getGreen(),
+        this.endColor.getBlue(),
+        this.startFrame * delay,
+        (this.endFrame - this.startFrame) * delay);
   }
 
   @Override
@@ -101,7 +98,7 @@ public class ChangeColorT extends AbstractTransformation<int[]> {
   /**
    * Implementation of ExecuteAtFrame for a ChangeColorT Transformation.
    *
-   * @param s
+   * @param s the shape object.
    * @param frame the frame to be rendered.
    * @return the r, g, b values of the Color in an int array in the format [r, g, b].
    */

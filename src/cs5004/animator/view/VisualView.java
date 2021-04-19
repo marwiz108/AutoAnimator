@@ -37,24 +37,16 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() {
-    return;
-  }
+  public void reset() {}
 
   @Override
-  public void play() {
-    return;
-  }
+  public void play() {}
 
   @Override
-  public void pause() {
-    return;
-  }
+  public void pause() {}
 
   @Override
-  public void playFromFrame(float frame, boolean reverse) {
-    return;
-  }
+  public void playFromFrame(float frame, boolean reverse) {}
 
   @Override
   public String generateText(float delay) throws OperationNotSupportedException {
