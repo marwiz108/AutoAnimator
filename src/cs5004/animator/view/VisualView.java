@@ -7,17 +7,18 @@ import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public class AnimationFrame extends JFrame implements IView {
+/** Visual view class. */
+public class VisualView extends JFrame implements IView {
 
   private final ICanvas canvas;
 
   /**
-   * Constructor for an AnimationFrame.
+   * Constructor for a VisualView.
    *
    * @param c the canvas object that is to be animated.
    * @param timerDelay the delay in milliseconds between frames of the animation.
    */
-  public AnimationFrame(ICanvas c, float timerDelay) {
+  public VisualView(ICanvas c, float timerDelay) {
     this.canvas = c;
     createAndShow((int) timerDelay);
   }
