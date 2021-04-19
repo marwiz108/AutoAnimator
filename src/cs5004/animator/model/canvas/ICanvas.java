@@ -32,9 +32,9 @@ public interface ICanvas {
   String toString();
 
   /**
-   * Returns an SVG text output of the canvas with its shapes and their animations.
+   * Returns an SVGView text output of the canvas with its shapes and their animations.
    *
-   * @return text as SVG representation of the canvas with its shapes and their animations
+   * @return text as SVGView representation of the canvas with its shapes and their animations
    * @param delay the delay (in ms) between each frame.
    */
   String toSVGString(float delay);
