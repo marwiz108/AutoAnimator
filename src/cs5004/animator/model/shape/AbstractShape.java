@@ -78,6 +78,16 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public void setStartFrame(float val) {
+    this.startFrame = val;
+  }
+
+  @Override
+  public void setEndFrame(float val) {
+    this.endFrame = val;
+  }
+
+  @Override
   public String getIdentifier() {
     return this.identifier;
   }
@@ -146,17 +156,14 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public void setFrames() {
-    if (this.transformations.isEmpty()) {
-      return;
-    }
-    this.startFrame = this.transformations.get(0).getStartFrame();
-    this.endFrame = this.transformations.get(0).getEndFrame();
-    for (Transformation t : this.transformations) {
-      if (t.getStartFrame() < this.startFrame) {
-        this.startFrame = t.getStartFrame();
-      }
-      if (t.getEndFrame() > this.endFrame) {
-        this.endFrame = t.getEndFrame();
+    if (!this.transformations.isEmpty()) {
+      for (Transformation t : this.transformations) {
+        if (t.getStartFrame() < this.startFrame) {
+          this.startFrame = t.getStartFrame();
+        }
+        if (t.getEndFrame() > this.endFrame) {
+          this.endFrame = t.getEndFrame();
+        }
       }
     }
     Transformation vis = new ChangeVisibilityT(this, this.startFrame, this.endFrame);
