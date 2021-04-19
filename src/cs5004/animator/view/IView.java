@@ -22,14 +22,6 @@ public interface IView {
   void reset() throws OperationNotSupportedException;
 
   /**
-   * Play the animation from the current frame.
-   *
-   * @throws OperationNotSupportedException if the operation is called on a view type that does not
-   *     support this functionality.
-   */
-  void play() throws OperationNotSupportedException;
-
-  /**
    * Pause the animation.
    *
    * @throws OperationNotSupportedException if the operation is called on a view type that does not
@@ -41,11 +33,10 @@ public interface IView {
    * Play the animation from a specified frame.
    *
    * @param frame the starting frame.
-   * @param reverse true if the animation is to be played in reverse.
    * @throws OperationNotSupportedException if the operation is called on a view type that does not
    *     support this functionality.
    */
-  void playFromFrame(float frame, boolean reverse) throws OperationNotSupportedException;
+  void playFromFrame(float frame) throws OperationNotSupportedException;
 
   /**
    * Returns the string representation of the text to be outputted.

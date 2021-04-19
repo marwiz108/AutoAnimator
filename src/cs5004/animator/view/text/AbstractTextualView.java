@@ -83,17 +83,12 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
-  public void play() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
   public void pause() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override
-  public void playFromFrame(float frame, boolean reverse) throws OperationNotSupportedException {
+  public void playFromFrame(float frame) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 }
