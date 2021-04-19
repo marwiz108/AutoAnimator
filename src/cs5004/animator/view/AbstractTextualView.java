@@ -19,7 +19,7 @@ public abstract class AbstractTextualView implements IView {
   protected float delay;
 
   /**
-   * Super constructor for a TextlView.
+   * Super constructor for a TextView and SVGView.
    *
    * @param canvas the canvas object containing the shape and transformation data.
    * @param delay the delay (in ms) between each frame.
@@ -35,7 +35,7 @@ public abstract class AbstractTextualView implements IView {
       System.out.println(this.text);
     }
 
-    this.frame = new JFrame("Easy Animator TextlView");
+    this.frame = new JFrame("Easy Animator TextView");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JTextArea textArea = new JTextArea(this.text);
@@ -50,7 +50,7 @@ public abstract class AbstractTextualView implements IView {
 
   @Override
   public void createFile(String filename) {
-    // creates .txt file for TextlView and .xml file for SVGView
+    // creates .txt file for TextView and .xml file for SVGView
     try {
       FileWriter newFile = new FileWriter(filename);
 

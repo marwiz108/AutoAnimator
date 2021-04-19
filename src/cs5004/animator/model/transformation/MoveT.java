@@ -64,8 +64,6 @@ public class MoveT extends AbstractTransformation<float[]> {
       x = "x";
       y = "y";
     }
-    //    System.out.println(delay);
-    //    System.out.println(delay);
     StringBuilder svgText = new StringBuilder();
     svgText.append(
         String.format(

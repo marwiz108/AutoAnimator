@@ -11,7 +11,7 @@ import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.SVGView;
-import cs5004.animator.view.TextlView;
+import cs5004.animator.view.TextView;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -27,7 +27,7 @@ public class IViewTest {
   @Before
   public void setUp() {
     ICanvas c = new ICanvasModel();
-    this.text = new TextlView(c, "test-text.txt");
+    this.text = new TextView(c, "test-text.txt");
     this.svg = new SVGView(c, "test-svg.svg", 1000);
   }
 
