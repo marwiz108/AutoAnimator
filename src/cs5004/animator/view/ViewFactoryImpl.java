@@ -1,6 +1,9 @@
 package cs5004.animator.view;
 
 import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.view.text.SVGView;
+import cs5004.animator.view.text.TextView;
+import cs5004.animator.view.visual.VisualView;
 
 /** Implementation of the ViewFactory interface. */
 public class ViewFactoryImpl implements ViewFactory {

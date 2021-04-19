@@ -1,4 +1,4 @@
-package cs5004.animator.view;
+package cs5004.animator.view.text;
 
 import cs5004.animator.model.canvas.ICanvas;
 
