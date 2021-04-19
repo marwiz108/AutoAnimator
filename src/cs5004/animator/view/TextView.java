@@ -10,7 +10,7 @@ public interface TextView {
    * Returns the string representation of the text to be outputted.
    *
    * @return text to output
-   * @param delay
+   * @param delay the delay (in ms) between each frame.
    */
   String generateText(float delay);
 

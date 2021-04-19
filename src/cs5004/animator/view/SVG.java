@@ -36,9 +36,4 @@ public class SVG extends AbstractTextView {
           }
         });
   }
-
-  @Override
-  public String generateText(float delay) {
-    return this.canvas.toSVGString(this.delay);
-  }
 }

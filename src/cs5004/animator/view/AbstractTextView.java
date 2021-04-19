@@ -4,11 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public abstract class AbstractTextView implements TextView {
+public abstract class AbstractTextView implements IView {
 
   protected ICanvas canvas;
   protected JFrame frame;
@@ -59,5 +60,35 @@ public abstract class AbstractTextView implements TextView {
       System.out.println("Error occurred.");
       e.printStackTrace();
     }
+  }
+
+  @Override
+  public String generateText(float delay) {
+    return this.canvas.toSVGString(this.delay);
+  }
+
+  @Override
+  public void createAndShow(int delay) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void reset() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void play() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void pause() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void playFromFrame(float frame, boolean reverse) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 }

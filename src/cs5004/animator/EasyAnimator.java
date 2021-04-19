@@ -6,7 +6,7 @@ import java.util.Objects;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.ViewFactory;
 import cs5004.animator.view.ViewFactoryImpl;
-
+// TODO Add error handling for invalid inputs to EasyAnimator
 /**
  * the entry point for EasyAnimator. This class defines all parameters needed to run an animation.
  */
