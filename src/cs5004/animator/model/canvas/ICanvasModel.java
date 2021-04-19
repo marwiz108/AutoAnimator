@@ -260,10 +260,14 @@ public final class ICanvasModel implements ICanvas {
         thisShape.setPosition(x1, y1);
         thisShape.setColor(r1, g1, b1);
         thisShape.resize(w1, h1);
-        thisShape.setVisibility(true);
+        //        thisShape.setVisibility(true);
+        if (t1 == t2) {
+          thisShape.setStartFrame(t1);
+          thisShape.setEndFrame(t2);
+        }
         thisShape.initialize();
       }
-
+      int currentTransformations = thisShape.getTransformations().size();
       Color c1 = new Color(r1, g1, b1);
       Color c2 = new Color(r2, g2, b2);
       if (!(c1.equals(c2))) {
@@ -282,6 +286,9 @@ public final class ICanvasModel implements ICanvas {
       if (h1 != h2) {
         Transformation resizeHeight = new ResizeT(thisShape, t1, t2, dimension.HEIGHT, h1, h2);
         this.c.addTransformation(name, resizeHeight);
+      }
+      if (thisShape.getTransformations().size() == currentTransformations) {
+        thisShape.setEndFrame(t2);
       }
       return null;
     }

@@ -25,11 +25,11 @@ public final class EasyAnimator {
 
     for (int i = 0; i < args.length; i++) {
       if (args[i].equals("-in")) {
-        inFile = args[i + 1];
+        inFile = "view/examples/" + args[i + 1];
       } else if (args[i].equals("-view")) {
         viewType = args[i + 1];
       } else if (args[i].equals("-out")) {
-        outFile = args[i + 1];
+        outFile = "view/output/" + args[i + 1];
       } else if (args[i].equals("-speed")) {
         delay = 1000 / Integer.parseInt(args[i + 1]);
       }

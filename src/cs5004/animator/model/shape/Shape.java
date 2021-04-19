@@ -29,6 +29,20 @@ public interface Shape {
   void initialize();
 
   /**
+   * Sets the starting frame of the shape.
+   *
+   * @param val the value of the starting frame.
+   */
+  void setStartFrame(float val);
+
+  /**
+   * Sets the ending frame of the shape.
+   *
+   * @param val the value of the ending frame.
+   */
+  void setEndFrame(float val);
+
+  /**
    * Returns the identifier for the shape.
    *
    * @return the identifier.
