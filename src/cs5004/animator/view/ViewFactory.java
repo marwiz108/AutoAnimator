@@ -4,14 +4,6 @@ package cs5004.animator.view;
 public interface ViewFactory {
 
   /**
-   * Create an animation view
-   *
-   * @param delay the delay (in ms) between frames.
-   * @return the animation view.
-   */
-  AnimationView create(float delay);
-
-  /**
    * Create a text view or svg view.
    *
    * @param viewType the type of view to create.
@@ -19,5 +11,5 @@ public interface ViewFactory {
    * @param delay the delay between frames of the animation.
    * @return The view object.
    */
-  TextView create(String viewType, String outFile, float delay);
+  IView create(String viewType, String outFile, float delay);
 }

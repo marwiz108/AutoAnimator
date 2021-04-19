@@ -42,10 +42,6 @@ public final class EasyAnimator {
       e.printStackTrace();
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
-    if (viewType.equals("visual")) {
-      factory.create(delay);
-    } else {
-      factory.create(viewType, outFile, delay);
-    }
+    factory.create(viewType, outFile, delay);
   }
 }
