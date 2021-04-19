@@ -20,15 +20,14 @@ import static org.junit.Assert.assertTrue;
 public class IViewTest {
   // TODO add tests after adding transformations
   // TODO add tests that check if methods throw OperationNotSupportedException when called by the
-  // wrong view type
   private IView text;
   private IView svg;
 
   @Before
   public void setUp() {
     ICanvas c = new ICanvasModel();
-    this.text = new TextView(c, "test-text.txt");
-    this.svg = new SVGView(c, "test-svg.svg", 1000);
+    this.text = new TextView(c, "test/output/test-text.txt");
+    this.svg = new SVGView(c, "test/output/test-svg.svg", 1000);
   }
 
   @Test
@@ -44,12 +43,12 @@ public class IViewTest {
 
   @Test
   public void createFile() throws OperationNotSupportedException {
-    this.text.createFile("text-file.txt");
-    Path textPath = Paths.get("text-file.txt");
+    this.text.createFile("test/output/text-file.txt");
+    Path textPath = Paths.get("test/output/text-file.txt");
     assertTrue(Files.exists(textPath));
 
-    this.svg.createFile("svg-file.svg");
-    Path svgPath = Paths.get("svg-file.svg");
+    this.svg.createFile("test/output/svg-file.svg");
+    Path svgPath = Paths.get("test/output/svg-file.svg");
     assertTrue(Files.exists(svgPath));
   }
 }

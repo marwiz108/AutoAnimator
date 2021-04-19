@@ -1,10 +1,12 @@
 package cs5004.animator.view;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.shape.Shape;

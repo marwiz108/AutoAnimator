@@ -26,8 +26,9 @@ public class ViewFactoryImpl implements ViewFactory {
           return new SVGView(this.canvas, outFile, delay);
         case "visual":
           return new VisualView(this.canvas, delay);
+        default:
+          throw new IllegalArgumentException("Could not parse view argument");
       }
-      throw new IllegalArgumentException("No view was specified!");
     } catch (NullPointerException e) {
       System.out.println("Error creating view");
       e.printStackTrace();

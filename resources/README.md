@@ -81,16 +81,38 @@ In order for the project to run successfully, the working directory must be set 
 directory.
 
 Functionality added that sets the bounds of the canvas on creation (canvas height and width, and
-minimum x and y values). Transformations are no longer added to the canvas, they are added to the
-shape object that they are being applied to and tracked in the Shape class. A static Builder class
-is added to ICanvas, that builds and sets up the canvas with its shapes and their transformations.
-Shapes can now be reset to their original attributes by storing the original shapes and keeping
-track of the changing shapes.
+minimum x and y values).
+
+The Canvas now contains two hashmaps with shape identifiers (keys) and shape objects (values). The
+first hashmaps contains the initial state of the shapes, and these shapes contain all
+Transformations. The second hashmap contains "dynamic" shape objects which are mutated throughout
+the course of the animation. This was done so that all Transformations acting on a shape would
+mutate the same shape resulting in their effects combining instead of creating new shapes where only
+one parameter is being changed at a time, which was a problem with our previous design. The hashmap
+containing initial shapes is there to keep all Transformations for each shape in one place, as well
+as allow the animation to be reset easily.
+
+the getShapesAtFrame method was implemented.
+
+A static Builder class is added to ICanvas, that builds and sets up the canvas with its shapes and
+their transformations. Shapes can now be reset to their original attributes by storing the original
+shapes and keeping track of the changing shapes.
+
+Shapes now keep track of their starting and ending frame, which is set based on the first and last
+frame found in that shape's list of transformations. This information is used to create the
+ChangeVisibility Transformation for that shape.
 
 Before adding transformations we loop through the transformations for the shape and check whether
 there is a conflicting transformation, e.g. a new transformation that clashes with the start or end
 frame of an existing one, or a transformation that is the opposite of an existing one, e.g. moving
 right and left at the same time.
+
+The getValueAtFrame method in abstract transformation was updated to take in a current value
+parameter. This was done because the method should not update the shape's parameter if the given
+frame falls outside the scope (startFrame - endFrame) of the Transformation calling it. Before this
+change, if the frame was outside the scope, the method would return initial value, which is not
+always the same as the current value (ex: shape currently at (0, 0) moves from initial = (50, 50)
+to final = (100, 100)).
 
 Added string methods to the canvas, shapes and transformation classes to output as SVG files.
 

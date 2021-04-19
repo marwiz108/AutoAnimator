@@ -1,6 +1,6 @@
 package cs5004.animator.model.shape;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 
 import cs5004.animator.model.transformation.ChangeVisibilityT;
