@@ -63,4 +63,5 @@ public interface IView {
    *     support this functionality.
    */
   void createFile(String filename) throws OperationNotSupportedException;
+
 }
