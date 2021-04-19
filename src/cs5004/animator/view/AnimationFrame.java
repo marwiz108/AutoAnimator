@@ -2,11 +2,12 @@ package cs5004.animator.view;
 
 import java.awt.*;
 
+import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public class AnimationFrame extends JFrame implements IView, AnimationView {
+public class AnimationFrame extends JFrame implements IView {
 
   private final ICanvas canvas;
 
@@ -52,5 +53,15 @@ public class AnimationFrame extends JFrame implements IView, AnimationView {
   @Override
   public void playFromFrame(float frame, boolean reverse) {
     return;
+  }
+
+  @Override
+  public String generateText(float delay) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void createFile(String filename) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 }
