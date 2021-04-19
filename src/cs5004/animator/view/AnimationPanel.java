@@ -38,8 +38,6 @@ public class AnimationPanel extends JPanel implements ActionListener {
       if (s.isVisible()) {
         g.setColor(s.getColor());
         s.fill(g2);
-      } else {
-
       }
     }
     this.timer.start();

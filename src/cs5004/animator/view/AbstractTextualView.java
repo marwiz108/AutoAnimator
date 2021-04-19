@@ -10,7 +10,7 @@ import javax.swing.*;
 import cs5004.animator.model.canvas.ICanvas;
 
 /** Abstract class for a text-based view that defines common methods for these classes. */
-public abstract class AbstractTextView implements IView {
+public abstract class AbstractTextualView implements IView {
 
   protected ICanvas canvas;
   protected JFrame frame;
@@ -19,12 +19,12 @@ public abstract class AbstractTextView implements IView {
   protected float delay;
 
   /**
-   * Super constructor for a TextView.
+   * Super constructor for a TextlView.
    *
    * @param canvas the canvas object containing the shape and transformation data.
    * @param delay the delay (in ms) between each frame.
    */
-  public AbstractTextView(ICanvas canvas, String outFile, float delay) {
+  public AbstractTextualView(ICanvas canvas, String outFile, float delay) {
     this.canvas = canvas;
     this.delay = delay;
     this.text = this.generateText(delay);
@@ -35,7 +35,7 @@ public abstract class AbstractTextView implements IView {
       System.out.println(this.text);
     }
 
-    this.frame = new JFrame("Easy Animator Text");
+    this.frame = new JFrame("Easy Animator TextlView");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JTextArea textArea = new JTextArea(this.text);
@@ -50,7 +50,7 @@ public abstract class AbstractTextView implements IView {
 
   @Override
   public void createFile(String filename) {
-    // creates .txt file for Text and .xml file for SVG
+    // creates .txt file for TextlView and .xml file for SVGView
     try {
       FileWriter newFile = new FileWriter(filename);
 

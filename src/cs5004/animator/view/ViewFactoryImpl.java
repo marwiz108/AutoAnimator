@@ -20,9 +20,9 @@ public class ViewFactoryImpl implements ViewFactory {
   public IView create(String viewType, String outFile, float delay) {
     try {
       if (viewType.equals("text")) {
-        return new Text(this.canvas, outFile);
+        return new TextlView(this.canvas, outFile);
       } else if (viewType.equals("svg")) {
-        return new SVG(this.canvas, outFile, delay);
+        return new SVGView(this.canvas, outFile, delay);
       } else if (viewType.equals("visual")) {
         return new VisualView(this.canvas, delay);
       }
