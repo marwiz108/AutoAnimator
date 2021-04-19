@@ -1,4 +1,4 @@
-package cs5004.animator.view;
+package cs5004.animator.view.visual;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

@@ -1,4 +1,4 @@
-package cs5004.animator.view;
+package cs5004.animator.view.text;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.view.IView;
 
 /** Abstract class for a text-based view that defines common methods for these classes. */
 public abstract class AbstractTextualView implements IView {

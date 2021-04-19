@@ -10,8 +10,8 @@ import javax.naming.OperationNotSupportedException;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.IView;
-import cs5004.animator.view.SVGView;
-import cs5004.animator.view.TextView;
+import cs5004.animator.view.text.SVGView;
+import cs5004.animator.view.text.TextView;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
