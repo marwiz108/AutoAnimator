@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public class AnimationFrame extends JFrame implements IView, AnimationView {
+public class AnimationFrame extends JFrame implements AnimationView {
 
   private final ICanvas canvas;
 

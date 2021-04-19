@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 
-public abstract class AbstractTextView implements IView, TextView {
+public abstract class AbstractTextView implements TextView {
 
   protected ICanvas canvas;
   protected JFrame frame;

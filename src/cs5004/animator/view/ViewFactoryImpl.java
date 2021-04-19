@@ -16,13 +16,16 @@ public class ViewFactoryImpl implements ViewFactory {
   }
 
   @Override
-  public IView create(String viewType, String outFile, float delay) {
+  public AnimationView create(float delay) {
+    return new AnimationFrame(this.canvas, delay);
+  }
+
+  @Override
+  public TextView create(String viewType, String outFile, float delay) {
     if (viewType.equals("text")) {
       return new Text(this.canvas, outFile);
     } else if (viewType.equals("svg")) {
       return new SVG(this.canvas, outFile, delay);
-    } else if (viewType.equals("visual")) {
-      return new AnimationFrame(this.canvas, delay);
     }
     throw new IllegalArgumentException("No view was specified!");
   }
