@@ -31,6 +31,8 @@ public abstract class AbstractTextView implements IView {
 
     if (outFile != null) {
       this.createFile(outFile);
+    } else {
+      System.out.println(this.text);
     }
 
     this.frame = new JFrame("Easy Animator Text");
