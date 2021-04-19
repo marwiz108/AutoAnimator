@@ -1,9 +1,12 @@
 package cs5004.animator.view;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import cs5004.animator.model.canvas.ICanvas;
 
@@ -37,16 +40,24 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() {}
+  public void reset() {
+    return;
+  }
 
   @Override
-  public void play() {}
+  public void play() {
+    return;
+  }
 
   @Override
-  public void pause() {}
+  public void pause() {
+    return;
+  }
 
   @Override
-  public void playFromFrame(float frame, boolean reverse) {}
+  public void playFromFrame(float frame, boolean reverse) {
+    return;
+  }
 
   @Override
   public String generateText(float delay) throws OperationNotSupportedException {

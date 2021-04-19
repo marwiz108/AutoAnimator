@@ -35,7 +35,7 @@ public interface Transformation<T> {
    * Determine the state (position, visibility, size, or color) of the Shape object at the current
    * frame.
    *
-   * @param s
+   * @param s the shape object in question.
    * @param frame the frame to be rendered.
    * @return the result of the transformation at a given frame. Will be used to set the Shape state
    *     at the given frame. Note: the return type is different for each subclass and must be cast
@@ -62,7 +62,8 @@ public interface Transformation<T> {
    * Determine the the value of some parameter at a given frame.
    *
    * @param frame the frame to calculate the value at.
-   * @param currentValue
+   * @param currentValue The current value of the parameter, in case the frame is outside the scope
+   *     of the transformation.
    * @param initialValue The starting value of the parameter.
    * @param finalValue the ending value of the parameter.
    * @return the value the parameter will have at the given frame.
@@ -74,9 +75,9 @@ public interface Transformation<T> {
   /**
    * Returns an SVGView text output of the transformations/animations.
    *
-   * @return text as SVGView representation of the transformations
    * @param type The type of shape.
    * @param delay the delay (in ms) between each frame.
+   * @return text as SVGView representation of the transformation.
    */
   String toSVGString(String type, float delay);
 }

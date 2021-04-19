@@ -1,6 +1,6 @@
 package cs5004.animator.model.canvas;
 
-import java.awt.*;
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;

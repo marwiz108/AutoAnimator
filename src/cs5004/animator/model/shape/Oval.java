@@ -1,6 +1,6 @@
 package cs5004.animator.model.shape;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 /**
  * This class represents an cs5004.animator.controller.model.shape.Oval shape. An oval has a center,
@@ -43,7 +43,8 @@ public class Oval extends AbstractShape {
 
     return super.toSVGString(
         "ellipse",
-        "\t<%s id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
+        "\t<%s id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" "
+            + "fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
         delay);
   }
 

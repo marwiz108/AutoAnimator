@@ -2,6 +2,7 @@ package cs5004.animator.view;
 
 import cs5004.animator.model.canvas.ICanvas;
 
+/** Textual view that creates SVG formatted output. */
 public class SVGView extends AbstractTextualView {
   /**
    * Constructor for an SVGView view.

@@ -1,6 +1,7 @@
 package cs5004.animator.model.shape;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import cs5004.animator.model.transformation.Transformation;
@@ -131,8 +132,8 @@ public interface Shape {
   /**
    * Returns an SVGView text output of the shapes with their animations.
    *
-   * @return text as SVGView representation of the shapes with their animations
    * @param delay the delay (in ms) between each frame.
+   * @return text as SVGView representation of the shapes with their animations
    */
   String toSVGString(float delay);
 

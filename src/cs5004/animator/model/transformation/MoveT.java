@@ -68,7 +68,8 @@ public class MoveT extends AbstractTransformation<float[]> {
     svgText.append(
         String.format(
             "\t\t<animate attributeName=\"%s\" "
-                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>\n",
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" "
+                + "dur=\"%.1fms\" fill=\"freeze\"/>\n",
             x,
             this.startPos.getX(),
             this.endPos.getX(),
@@ -77,7 +78,8 @@ public class MoveT extends AbstractTransformation<float[]> {
     svgText.append(
         String.format(
             "\t\t<animate attributeName=\"%s\" "
-                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" dur=\"%.1fms\" fill=\"freeze\"/>",
+                + "attributeType=\"XML\" from=\"%.1f\" to=\"%.1f\" begin=\"%.1fms\" "
+                + "dur=\"%.1fms\" fill=\"freeze\"/>",
             y,
             this.startPos.getY(),
             this.endPos.getY(),

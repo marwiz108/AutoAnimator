@@ -1,6 +1,6 @@
 package cs5004.animator.model.shape;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 /**
  * This class represents a cs5004.animator.controller.model.shape.Rectangle shape. A rectangle has a
@@ -45,7 +45,8 @@ public class Rectangle extends AbstractShape {
 
     return super.toSVGString(
         "rect",
-        "\t<%s id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
+        "\t<%s id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" "
+            + "fill=\"rgb(%d, %d, %d)\" visibility=\"%s\">\n",
         delay);
   }
 

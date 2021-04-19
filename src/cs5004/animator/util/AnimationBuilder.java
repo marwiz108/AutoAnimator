@@ -2,6 +2,11 @@ package cs5004.animator.util;
 
 import java.io.FileNotFoundException;
 
+/**
+ * Builds the model of an animation based off an input file.
+ *
+ * @param <Doc> the model interface.
+ */
 public interface AnimationBuilder<Doc> {
   /**
    * Constructs a final document.
