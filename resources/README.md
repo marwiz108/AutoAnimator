@@ -72,3 +72,53 @@ ExecuteAtFrame method returns an array of Integers that represents r,g,b respect
 
 ResizeT changes the size of a shape. However, a ResizeT object can only change one dimension
 (base or height). ExecuteAtFrame method returns a float that represents the new dimension.
+
+## Changes (Pt 2)
+
+Functionality added that sets the bounds of the canvas on creation (canvas height and width, and
+minimum x and y values). Transformations are no longer added to the canvas, they are added to
+the shape object that they are being applied to and tracked in the Shape class.
+A static Builder class is added to ICanvas, that builds and sets up the canvas with its shapes
+and their transformations. Shapes can now be reset to their original attributes by storing the
+original shapes and keeping track of the changing shapes.
+
+Before adding transformations we loop through the transformations for the shape and check whether
+there is a conflicting transformation, e.g. a new transformation that clashes with the start or
+end frame of an existing one, or a transformation that is the opposite of an existing one,
+e.g. moving right and left at the same time.
+
+Added string methods to the canvas, shapes and transformation classes to output as SVG files.
+
+## View Interface
+
+The IView is responsible for creating and displaying the canvas with the shapes, and displays the
+animations that apply to the shapes, so you get a visual representation of the movement of the shapes.
+The View interface also generates the text needed to output into for each type of text view (except
+for the visual animation view where it is not supported). The View also creates the appropriate
+file for each text view to output the svg or plaintext contents. Functionality to be able to pause
+and play, as well as play from a specified frame, and resetting the view, is defined in the
+interface to be implemented in the next part.
+
+### Abstract Text View
+
+The text view is responsible for outputting the animation as either plaintext or SVG. The delay
+between frames is specified on creation of the view. The text view does not support the methods
+for the visual view, such as play, pause, reset, playFromFrame and createAndShow. The sub-classes
+Text and SVG generate the plaintext and XML respectively, which gets input into a .txt file or
+.svg file. The SVG text file can be opened in a browser and show the animation.
+
+### Animation Panel
+The Animation Panel is a JPanel that has action listener capability, and uses the Timer. The
+paintComponent method is overridden from JComponent to get all the shapes at a frame and draw
+their state at that frame - for each shape in the canvas at that frame, if it is visible it will
+set the colour and fill it, then starts the timer at 0 for the animation. The Timer calls the method
+actionPerformed, with the specified delay between method calls. When actionPerformed gets called,
+the frame will increment and repaint the shapes at the next frame with paintComponent. This is what
+makes the graphics show continuously in the animation.
+
+### Visual View
+
+The visual view is responsible for displaying the canvas visually, and shows the shapes animating.
+The method createAndShow sets up the window that the animation will be played on. The methods
+generateText and createFile are not supported in this view because the view is only visual, there
+is no file output.
