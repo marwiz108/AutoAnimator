@@ -43,17 +43,12 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void play() {
-    return;
-  }
-
-  @Override
   public void pause() {
     return;
   }
 
   @Override
-  public void playFromFrame(float frame, boolean reverse) {
+  public void playFromFrame(float frame) {
     return;
   }
 

@@ -10,7 +10,10 @@ import javax.swing.Timer;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.shape.Shape;
-
+// TODO support loopback
+// TODO support play/pause
+// TODO support restart
+// TODO support change speed
 /**
  * Paints Graphics2D objects onto a panel, and keeps track of frames per second. Used to render
  * shapes for the VisualView.

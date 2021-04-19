@@ -14,13 +14,10 @@ public class InteractiveView extends JFrame implements IView {
   public void reset() throws OperationNotSupportedException {}
 
   @Override
-  public void play() throws OperationNotSupportedException {}
-
-  @Override
   public void pause() throws OperationNotSupportedException {}
 
   @Override
-  public void playFromFrame(float frame, boolean reverse) throws OperationNotSupportedException {}
+  public void playFromFrame(float frame) throws OperationNotSupportedException {}
 
   @Override
   public String generateText(float delay) throws OperationNotSupportedException {
