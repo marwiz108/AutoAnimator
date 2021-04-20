@@ -88,6 +88,11 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
+  public float getEndFrame() {
+    return this.endFrame;
+  }
+
+  @Override
   public String getIdentifier() {
     return this.identifier;
   }

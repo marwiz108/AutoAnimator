@@ -44,6 +44,13 @@ public interface Shape {
   void setEndFrame(float val);
 
   /**
+   * Get the last frame that the shape is visible.
+   *
+   * @return the end frame of the shape.
+   */
+  float getEndFrame();
+
+  /**
    * Returns the identifier for the shape.
    *
    * @return the identifier.

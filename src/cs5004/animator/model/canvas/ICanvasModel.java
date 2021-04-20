@@ -27,7 +27,7 @@ import cs5004.animator.util.AnimationReader;
  */
 public final class ICanvasModel implements ICanvas {
   private final LinkedHashMap<String, Shape> initialShapes;
-  private final LinkedHashMap<String, Shape> dynamicShapes;
+  private LinkedHashMap<String, Shape> dynamicShapes;
   private int leftMostX;
   private int topMostY;
   private int borderWidth;
@@ -37,6 +37,13 @@ public final class ICanvasModel implements ICanvas {
   public ICanvasModel() {
     this.initialShapes = new LinkedHashMap<>();
     dynamicShapes = new LinkedHashMap<>();
+  }
+
+  @Override
+  public ArrayList<Shape> getInitialShapes() {
+    ArrayList<Shape> shapes = new ArrayList<>();
+    shapes.addAll(this.initialShapes.values());
+    return shapes;
   }
 
   @Override
@@ -96,8 +103,9 @@ public final class ICanvasModel implements ICanvas {
 
   @Override
   public void resetDynamicShapes() {
+    this.dynamicShapes = new LinkedHashMap<>();
     for (String id : this.initialShapes.keySet()) {
-      this.dynamicShapes.replace(id, this.initialShapes.get(id));
+      this.dynamicShapes.put(id, initialShapes.get(id));
     }
   }
 

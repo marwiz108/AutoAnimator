@@ -39,6 +39,13 @@ public interface IView {
   void playFromFrame(float frame) throws OperationNotSupportedException;
 
   /**
+   * Sets the speed (in fps) of the animation.
+   *
+   * @param fps frames per second.
+   */
+  void setSpeed(int fps) throws OperationNotSupportedException;
+
+  /**
    * Returns the string representation of the text to be outputted.
    *
    * @param delay the delay (in ms) between each frame.
