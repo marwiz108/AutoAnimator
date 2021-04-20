@@ -3,9 +3,15 @@ package cs5004.animator;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 
+import javax.naming.OperationNotSupportedException;
+
+import cs5004.animator.controller.AnimationController;
+import cs5004.animator.controller.IController;
 import cs5004.animator.model.canvas.ICanvasModel;
+import cs5004.animator.view.IView;
 import cs5004.animator.view.ViewFactory;
 import cs5004.animator.view.ViewFactoryImpl;
+import cs5004.animator.view.visual.InteractiveView;
 
 /**
  * the entry point for EasyAnimator. This class defines all parameters needed to run an animation.
@@ -44,6 +50,10 @@ public final class EasyAnimator {
       e.printStackTrace();
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
-    factory.create(viewType, outFile, delay);
+    IView view = factory.create(viewType, outFile, delay);
+    try {
+      IController controller = new AnimationController(builder.getCanvas(), (InteractiveView) view);
+    } catch (OperationNotSupportedException ignore) {
+    }
   }
 }
