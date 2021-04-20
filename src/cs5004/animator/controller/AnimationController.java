@@ -1,15 +1,12 @@
 package cs5004.animator.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.naming.OperationNotSupportedException;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.visual.InteractiveView;
 
-public class AnimationController implements IController, ActionListener {
+public class AnimationController implements Features {
   // TODO implement the change speed - popout that has increase/decrease and a text entry? (Marwa)
   private final ICanvas canvas;
   private final IView view;
@@ -17,29 +14,13 @@ public class AnimationController implements IController, ActionListener {
   public AnimationController(ICanvas c, InteractiveView v) throws OperationNotSupportedException {
     this.canvas = c;
     this.view = v;
-    this.view.setListener(this);
+    //    this.view.setListener(this);
+    this.view.addFeatures(this);
     this.view.reset();
   }
 
   @Override
-  public void actionPerformed(ActionEvent e) {
-    System.out.println(e.getActionCommand());
-    switch (e.getActionCommand()) {
-      case ("Play/Pause"):
-        playPauseEvent();
-        break;
-      case ("Reset"):
-        resetEvent();
-        break;
-      case ("Loop"):
-        loopEvent();
-        break;
-      default:
-        throw new IllegalStateException("Unexpected value: " + e.getActionCommand());
-    }
-  }
-
-  private void playPauseEvent() {
+  public void playPauseEvent() {
     try {
       view.playPause();
     } catch (OperationNotSupportedException exception) {
@@ -47,7 +28,8 @@ public class AnimationController implements IController, ActionListener {
     }
   }
 
-  private void resetEvent() {
+  @Override
+  public void resetEvent() {
     try {
       view.reset();
     } catch (OperationNotSupportedException exception) {
@@ -55,7 +37,8 @@ public class AnimationController implements IController, ActionListener {
     }
   }
 
-  private void loopEvent() {
+  @Override
+  public void loopEvent() {
     try {
       view.toggleLoop();
     } catch (OperationNotSupportedException exception) {

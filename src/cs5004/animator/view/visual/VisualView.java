@@ -1,11 +1,11 @@
 package cs5004.animator.view.visual;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
+import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 
@@ -49,7 +49,7 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void setListener(ActionListener listener) throws OperationNotSupportedException {
+  public void addFeatures(Features features) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
@@ -59,22 +59,7 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void pause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
   public void setSpeed(int fps) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void increaseSpeed() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void decreaseSpeed() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 

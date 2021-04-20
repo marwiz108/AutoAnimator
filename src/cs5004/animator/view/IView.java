@@ -1,8 +1,8 @@
 package cs5004.animator.view;
 
-import java.awt.event.ActionListener;
-
 import javax.naming.OperationNotSupportedException;
+
+import cs5004.animator.controller.Features;
 
 /** General interface for a view that supports both visual and textual behavior. */
 public interface IView {
@@ -23,7 +23,7 @@ public interface IView {
    */
   void reset() throws OperationNotSupportedException;
 
-  void setListener(ActionListener listener) throws OperationNotSupportedException;
+  void addFeatures(Features features) throws OperationNotSupportedException;
 
   void toggleLoop() throws OperationNotSupportedException;
 
@@ -31,25 +31,11 @@ public interface IView {
   void playPause() throws OperationNotSupportedException;
 
   /**
-   * Pause the animation.
-   *
-   * @throws OperationNotSupportedException if the operation is called on a view type that does not
-   *     * support this functionality.
-   */
-  void pause() throws OperationNotSupportedException;
-
-  /**
    * Sets the speed (in fps) of the animation.
    *
    * @param fps frames per second.
    */
   void setSpeed(int fps) throws OperationNotSupportedException;
-
-  // TODO javadoc
-  void increaseSpeed() throws OperationNotSupportedException;
-
-  // TODO javadoc
-  void decreaseSpeed() throws OperationNotSupportedException;
 
   /**
    * Returns the string representation of the text to be outputted.
