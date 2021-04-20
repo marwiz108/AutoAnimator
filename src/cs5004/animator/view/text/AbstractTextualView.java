@@ -1,5 +1,6 @@
 package cs5004.animator.view.text;
 
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -83,7 +84,7 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
-  public void reset() throws OperationNotSupportedException {
+  public void reset(ActionListener listener) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 

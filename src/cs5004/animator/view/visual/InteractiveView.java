@@ -1,6 +1,7 @@
 package cs5004.animator.view.visual;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
@@ -40,9 +41,11 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() throws OperationNotSupportedException {
+  public void reset(ActionListener listener) {
     this.canvas.resetDynamicShapes();
-    this.playFromFrame(0);
+    this.guiPanel.setListeners(listener);
+    this.animationPanel.setFrame(0);
+    this.animationPanel.stopTimer();
   }
 
   @Override
