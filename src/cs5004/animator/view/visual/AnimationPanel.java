@@ -18,10 +18,12 @@ import cs5004.animator.model.shape.Shape;
 public class AnimationPanel extends JPanel implements ActionListener {
   private final ICanvas canvas;
   private final Timer timer;
+  private final int initialDelay;
   private int frame;
   // TODO initialShapes gets mutated somehow when looping - figure out what's going on!
   private boolean repeat = true;
   private int finalFrame = 0;
+  private boolean paused;
 
   /**
    * Constructor for the AnimationPanel.
@@ -32,6 +34,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   public AnimationPanel(ICanvas c, int delay) {
     this.canvas = c;
     this.timer = new Timer(delay, this);
+    this.initialDelay = delay;
     this.frame = 0;
     for (Shape s : this.canvas.getInitialShapes()) {
       if (s.getEndFrame() > this.finalFrame) {
@@ -72,10 +75,20 @@ public class AnimationPanel extends JPanel implements ActionListener {
     if (this.repeat) {
       if (this.frame > this.finalFrame) {
         this.canvas.resetDynamicShapes();
+//        System.out.println("HEEERRRREEEEE\n" + this.canvas.getInitialShapes());
         this.frame = 0;
       }
     }
     repaint();
+  }
+
+  public void toggleTimer() {
+    if (paused) {
+      this.timer.start();
+    } else {
+      this.timer.stop();
+    }
+    paused = !paused;
   }
 
   /** Pause the animation. */
@@ -95,5 +108,20 @@ public class AnimationPanel extends JPanel implements ActionListener {
    */
   public void setSpeed(int fps) {
     this.timer.setDelay(1000 / fps);
+  }
+
+  // TODO javadoc
+  public void resetSpeed() {
+    this.timer.setDelay(initialDelay);
+  }
+
+  // TODO javadoc
+  public void incrementSpeed() {
+    this.timer.setDelay((int)(this.timer.getDelay() * 0.9));
+  }
+
+  // TODO javadoc
+  public void decrementSpeed() {
+    this.timer.setDelay((int)(this.timer.getDelay() * 1.1));
   }
 }

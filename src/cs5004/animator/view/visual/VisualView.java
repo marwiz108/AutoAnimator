@@ -44,6 +44,11 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
+  public void playPause() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
   public void pause() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
@@ -55,6 +60,16 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void setSpeed(int fps) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void increaseSpeed() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void decreaseSpeed() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
