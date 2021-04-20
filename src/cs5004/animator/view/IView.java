@@ -20,9 +20,12 @@ public interface IView {
    *
    * @throws OperationNotSupportedException if the operation is called on a view type that does not
    *     * support this functionality.
-   * @param listener
    */
-  void reset(ActionListener listener) throws OperationNotSupportedException;
+  void reset() throws OperationNotSupportedException;
+
+  void setListener(ActionListener listener) throws OperationNotSupportedException;
+
+  void toggleLoop() throws OperationNotSupportedException;
 
   // TODO javadoc
   void playPause() throws OperationNotSupportedException;
@@ -34,15 +37,6 @@ public interface IView {
    *     * support this functionality.
    */
   void pause() throws OperationNotSupportedException;
-
-  /**
-   * Play the animation from a specified frame.
-   *
-   * @param frame the starting frame.
-   * @throws OperationNotSupportedException if the operation is called on a view type that does not
-   *     support this functionality.
-   */
-  void playFromFrame(float frame) throws OperationNotSupportedException;
 
   /**
    * Sets the speed (in fps) of the animation.

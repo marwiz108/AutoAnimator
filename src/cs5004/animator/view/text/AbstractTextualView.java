@@ -1,6 +1,5 @@
 package cs5004.animator.view.text;
 
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -74,6 +73,11 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
+  public void toggleLoop() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
   public void increaseSpeed() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
@@ -94,7 +98,7 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
-  public void reset(ActionListener listener) throws OperationNotSupportedException {
+  public void reset() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
@@ -105,11 +109,6 @@ public abstract class AbstractTextualView implements IView {
 
   @Override
   public void pause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void playFromFrame(float frame) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 }

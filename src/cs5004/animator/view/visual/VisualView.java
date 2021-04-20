@@ -39,7 +39,17 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset(ActionListener listener) throws OperationNotSupportedException {
+  public void reset() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void toggleLoop() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void setListener(ActionListener listener) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
@@ -50,11 +60,6 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void pause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void playFromFrame(float frame) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
