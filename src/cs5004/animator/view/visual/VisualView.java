@@ -38,18 +38,23 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() {
-    return;
+  public void reset() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override
-  public void pause() {
-    return;
+  public void pause() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override
-  public void playFromFrame(float frame) {
-    return;
+  public void playFromFrame(float frame) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void setSpeed(int fps) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override

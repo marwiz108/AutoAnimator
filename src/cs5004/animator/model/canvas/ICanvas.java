@@ -12,6 +12,13 @@ import cs5004.animator.model.transformation.Transformation;
  */
 public interface ICanvas {
 
+  /**
+   * Get all initial shapes in a canvas object.
+   *
+   * @return list of initial shapes.
+   */
+  ArrayList<Shape> getInitialShapes();
+
   void setAllFrames();
 
   /**
