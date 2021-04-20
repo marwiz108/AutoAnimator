@@ -21,7 +21,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   private final int initialDelay;
   private int frame;
   // TODO initialShapes gets mutated somehow when looping - figure out what's going on!
-  private boolean repeat = true;
+  private boolean repeat = false;
   private int finalFrame = 0;
   private boolean paused;
 
@@ -47,13 +47,9 @@ public class AnimationPanel extends JPanel implements ActionListener {
     this.frame = frame;
   }
 
-  /**
-   * Tell the animation to repeat or stop repeating.
-   *
-   * @param r true if the animation should repeat.
-   */
-  public void setRepeat(boolean r) {
-    this.repeat = r;
+  /** Tell the animation to repeat or stop repeating. */
+  public void toggleRepeat() {
+    this.repeat = !this.repeat;
   }
 
   @Override
@@ -75,7 +71,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
     if (this.repeat) {
       if (this.frame > this.finalFrame) {
         this.canvas.resetDynamicShapes();
-//        System.out.println("HEEERRRREEEEE\n" + this.canvas.getInitialShapes());
+        //        System.out.println("HEEERRRREEEEE\n" + this.canvas.getInitialShapes());
         this.frame = 0;
       }
     }
@@ -117,11 +113,11 @@ public class AnimationPanel extends JPanel implements ActionListener {
 
   // TODO javadoc
   public void incrementSpeed() {
-    this.timer.setDelay((int)(this.timer.getDelay() * 0.9));
+    this.timer.setDelay((int) (this.timer.getDelay() * 0.9));
   }
 
   // TODO javadoc
   public void decrementSpeed() {
-    this.timer.setDelay((int)(this.timer.getDelay() * 1.1));
+    this.timer.setDelay((int) (this.timer.getDelay() * 1.1));
   }
 }

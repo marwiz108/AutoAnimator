@@ -28,7 +28,6 @@ public class InteractiveView extends JFrame implements IView {
     JScrollPane scroll = new JScrollPane(this.animationPanel);
     this.guiPanel =
         new GUIPanel(
-            this,
             this.canvas.getLeftMostX(),
             this.canvas.getTopMostY() - this.canvas.getBorderHeight() - 10,
             this.canvas.getBorderWidth());
@@ -42,11 +41,22 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void reset(ActionListener listener) {
-    this.canvas.resetDynamicShapes();
-    this.guiPanel.setListeners(listener);
-    this.animationPanel.setFrame(0);
+  public void reset() {
     this.animationPanel.stopTimer();
+    this.canvas.resetDynamicShapes();
+    this.animationPanel.setFrame(0);
+    this.animationPanel.resetSpeed();
+    this.animationPanel.startTimer();
+  }
+
+  @Override
+  public void setListener(ActionListener listener) {
+    this.guiPanel.setListeners(listener);
+  }
+
+  @Override
+  public void toggleLoop() {
+    this.animationPanel.toggleRepeat();
   }
 
   @Override
@@ -57,13 +67,6 @@ public class InteractiveView extends JFrame implements IView {
   @Override
   public void pause() {
     this.animationPanel.stopTimer();
-  }
-
-  @Override
-  public void playFromFrame(float frame) {
-    this.animationPanel.setFrame((int) frame);
-    this.animationPanel.resetSpeed();
-    this.animationPanel.startTimer();
   }
 
   @Override
