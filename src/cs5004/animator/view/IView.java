@@ -1,5 +1,7 @@
 package cs5004.animator.view;
 
+import java.awt.event.ActionListener;
+
 import javax.naming.OperationNotSupportedException;
 
 /** General interface for a view that supports both visual and textual behavior. */
@@ -18,8 +20,9 @@ public interface IView {
    *
    * @throws OperationNotSupportedException if the operation is called on a view type that does not
    *     * support this functionality.
+   * @param listener
    */
-  void reset() throws OperationNotSupportedException;
+  void reset(ActionListener listener) throws OperationNotSupportedException;
 
   // TODO javadoc
   void playPause() throws OperationNotSupportedException;

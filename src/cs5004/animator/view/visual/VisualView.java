@@ -1,6 +1,7 @@
 package cs5004.animator.view.visual;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
@@ -38,7 +39,7 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() throws OperationNotSupportedException {
+  public void reset(ActionListener listener) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
