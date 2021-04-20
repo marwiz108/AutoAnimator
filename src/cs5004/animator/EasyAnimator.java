@@ -17,7 +17,6 @@ import cs5004.animator.view.visual.InteractiveView;
  * the entry point for EasyAnimator. This class defines all parameters needed to run an animation.
  */
 public final class EasyAnimator {
-  // TODO create the .jar files needed - note in readme the directory it must be placed into
   /**
    * Main method that parses args and runs an animation view. Note the .jar file must be placed in
    * the src directory to work correctly.

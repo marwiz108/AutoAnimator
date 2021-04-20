@@ -10,7 +10,7 @@ import cs5004.animator.view.IView;
 import cs5004.animator.view.visual.InteractiveView;
 
 public class AnimationController implements IController, ActionListener {
-
+  // TODO implement the change speed - popout that has increase/decrease and a text entry? (Marwa)
   private final ICanvas canvas;
   private final IView view;
 
