@@ -20,7 +20,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   private final Timer timer;
   private final int initialDelay;
   private int frame;
-  // TODO initialShapes gets mutated somehow when looping - figure out what's going on!
+  // TODO initialShapes gets mutated somehow when looping - figure out what's going on! (Peter)
   private boolean repeat = false;
   private int finalFrame = 0;
   private boolean paused;

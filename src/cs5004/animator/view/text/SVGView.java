@@ -1,9 +1,5 @@
 package cs5004.animator.view.text;
 
-import java.awt.event.ActionListener;
-
-import javax.naming.OperationNotSupportedException;
-
 import cs5004.animator.model.canvas.ICanvas;
 
 /** Textual view that creates SVG formatted output. */
@@ -17,11 +13,6 @@ public class SVGView extends AbstractTextualView {
    */
   public SVGView(ICanvas canvas, String outFile, float delay) {
     super(canvas, outFile, delay);
-  }
-
-  @Override
-  public void setListener(ActionListener listener) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override

@@ -20,11 +20,6 @@ public class TextView extends AbstractTextualView {
   }
 
   @Override
-  public void setListener(ActionListener listener) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
   public String generateText(float delay) {
     return this.canvas.toString();
   }
