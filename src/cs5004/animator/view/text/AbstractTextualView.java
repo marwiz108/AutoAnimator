@@ -73,6 +73,16 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
+  public void increaseSpeed() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void decreaseSpeed() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
   public String generateText(float delay) {
     return this.canvas.toSVGString(this.delay);
   }
@@ -84,6 +94,11 @@ public abstract class AbstractTextualView implements IView {
 
   @Override
   public void reset() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void playPause() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 

@@ -21,6 +21,9 @@ public interface IView {
    */
   void reset() throws OperationNotSupportedException;
 
+  // TODO javadoc
+  void playPause() throws OperationNotSupportedException;
+
   /**
    * Pause the animation.
    *
@@ -44,6 +47,12 @@ public interface IView {
    * @param fps frames per second.
    */
   void setSpeed(int fps) throws OperationNotSupportedException;
+
+  // TODO javadoc
+  void increaseSpeed() throws OperationNotSupportedException;
+
+  // TODO javadoc
+  void decreaseSpeed() throws OperationNotSupportedException;
 
   /**
    * Returns the string representation of the text to be outputted.

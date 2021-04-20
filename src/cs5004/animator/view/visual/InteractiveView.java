@@ -20,13 +20,14 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void createAndShow(int delay) throws OperationNotSupportedException {
+  public void createAndShow(int delay) {
     this.animationPanel = new AnimationPanel(this.canvas, delay);
     this.animationPanel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     JScrollPane scroll = new JScrollPane(this.animationPanel);
     this.guiPanel =
         new GUIPanel(
+            this,
             this.canvas.getLeftMostX(),
             this.canvas.getTopMostY() - this.canvas.getBorderHeight() - 10,
             this.canvas.getBorderWidth());
@@ -40,25 +41,42 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() throws OperationNotSupportedException {
+  public void reset() {
+    // TODO there is a lag when you reset - does this matter?
     this.canvas.resetDynamicShapes();
     this.playFromFrame(0);
   }
 
   @Override
-  public void pause() throws OperationNotSupportedException {
+  public void playPause() {
+    this.animationPanel.toggleTimer();
+  }
+
+  @Override
+  public void pause() {
     this.animationPanel.stopTimer();
   }
 
   @Override
-  public void playFromFrame(float frame) throws OperationNotSupportedException {
+  public void playFromFrame(float frame) {
     this.animationPanel.setFrame((int) frame);
+    this.animationPanel.resetSpeed();
     this.animationPanel.startTimer();
   }
 
   @Override
   public void setSpeed(int fps) {
     this.animationPanel.setSpeed(fps);
+  }
+
+  @Override
+  public void increaseSpeed() {
+    this.animationPanel.incrementSpeed();
+  }
+
+  @Override
+  public void decreaseSpeed() {
+    this.animationPanel.decrementSpeed();
   }
 
   @Override
