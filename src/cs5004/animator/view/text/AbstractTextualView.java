@@ -1,6 +1,5 @@
 package cs5004.animator.view.text;
 
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 
@@ -79,17 +79,7 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
-  public void setListener(ActionListener listener) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void increaseSpeed() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void decreaseSpeed() throws OperationNotSupportedException {
+  public void addFeatures(Features features) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
@@ -110,11 +100,6 @@ public abstract class AbstractTextualView implements IView {
 
   @Override
   public void playPause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void pause() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 }

@@ -1,8 +1,8 @@
 package cs5004.animator.view.visual;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
+
+import cs5004.animator.controller.Features;
 
 public class GUIPanel extends JPanel {
   private final JButton playPause = new JButton("Play/Pause");
@@ -21,10 +21,10 @@ public class GUIPanel extends JPanel {
     loop.isSelected();
   }
 
-  public void setListeners(ActionListener l) {
-    playPause.addActionListener(l);
-    reset.addActionListener(l);
-    changeSpeed.addActionListener(l);
-    loop.addActionListener(l);
+  public void addFeatures(Features features) {
+    playPause.addActionListener(l -> features.playPauseEvent());
+    reset.addActionListener(l -> features.resetEvent());
+    loop.addActionListener(l -> features.loopEvent());
+    //    changeSpeed.addActionListener();
   }
 }

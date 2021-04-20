@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.naming.OperationNotSupportedException;
 
 import cs5004.animator.controller.AnimationController;
-import cs5004.animator.controller.IController;
+import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvasModel;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.ViewFactory;
@@ -51,7 +51,7 @@ public final class EasyAnimator {
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     IView view = factory.create(viewType, outFile, delay);
     try {
-      IController controller = new AnimationController(builder.getCanvas(), (InteractiveView) view);
+      Features controller = new AnimationController(builder.getCanvas(), (InteractiveView) view);
     } catch (OperationNotSupportedException ignore) {
     }
   }

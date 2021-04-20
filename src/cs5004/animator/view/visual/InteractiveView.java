@@ -1,11 +1,11 @@
 package cs5004.animator.view.visual;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
+import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 
@@ -50,8 +50,8 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void setListener(ActionListener listener) {
-    this.guiPanel.setListeners(listener);
+  public void addFeatures(Features features) {
+    this.guiPanel.addFeatures(features);
   }
 
   @Override
@@ -65,23 +65,8 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void pause() {
-    this.animationPanel.stopTimer();
-  }
-
-  @Override
   public void setSpeed(int fps) {
     this.animationPanel.setSpeed(fps);
-  }
-
-  @Override
-  public void increaseSpeed() {
-    this.animationPanel.incrementSpeed();
-  }
-
-  @Override
-  public void decreaseSpeed() {
-    this.animationPanel.decrementSpeed();
   }
 
   @Override
