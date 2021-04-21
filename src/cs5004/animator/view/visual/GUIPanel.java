@@ -5,7 +5,7 @@ import javax.swing.*;
 import cs5004.animator.controller.Features;
 
 public class GUIPanel extends JPanel {
-  private final JButton playPause = new JButton("Play/Pause");
+  private final JButton playPause = new JButton("Pause");
   private final JButton reset = new JButton("Reset");
   private final JButton changeSpeed = new JButton("Change Speed");
   private final JCheckBox loop = new JCheckBox("Loop");
@@ -19,6 +19,10 @@ public class GUIPanel extends JPanel {
     add(loop);
     setVisible(true);
     loop.isSelected();
+  }
+
+  public void updatePlayPauseTitle(String title) {
+    this.playPause.setText(title);
   }
 
   public void addFeatures(Features features) {
