@@ -36,6 +36,8 @@ public interface Shape {
    */
   void setStartFrame(float val);
 
+  float getStartFrame();
+
   /**
    * Sets the ending frame of the shape.
    *
