@@ -105,7 +105,7 @@ public final class ICanvasModel implements ICanvas {
   public void resetDynamicShapes() {
     this.dynamicShapes = new LinkedHashMap<>();
     for (String id : this.initialShapes.keySet()) {
-      this.dynamicShapes.put(id, initialShapes.get(id));
+      this.dynamicShapes.put(id, initialShapes.get(id).copy());
     }
   }
 
@@ -149,7 +149,7 @@ public final class ICanvasModel implements ICanvas {
   @Override
   public void addShape(Shape shape) {
     this.initialShapes.put(shape.getIdentifier(), shape);
-    this.dynamicShapes.put(shape.getIdentifier(), shape);
+    this.dynamicShapes.put(shape.getIdentifier(), shape.copy());
   }
 
   @Override
@@ -268,36 +268,38 @@ public final class ICanvasModel implements ICanvas {
         thisShape.setPosition(x1, y1);
         thisShape.setColor(r1, g1, b1);
         thisShape.resize(w1, h1);
-        //        thisShape.setVisibility(true);
-        if (t1 == t2) {
-          thisShape.setStartFrame(t1);
-          thisShape.setEndFrame(t2);
-        }
+        thisShape.setStartFrame(t1);
+        thisShape.setEndFrame(t2);
         thisShape.initialize();
       }
       int currentTransformations = thisShape.getTransformations().size();
       Color c1 = new Color(r1, g1, b1);
       Color c2 = new Color(r2, g2, b2);
       if (!(c1.equals(c2))) {
-        Transformation color = new ChangeColorT(thisShape, t1, t2, c1, c2);
+        Transformation<int[]> color = new ChangeColorT(thisShape, t1, t2, c1, c2);
         this.c.addTransformation(name, color);
       }
       if (!(x1 == x2 && y1 == y2)) {
-        Transformation move =
+        Transformation<float[]> move =
             new MoveT(thisShape, t1, t2, new Point2D(x1, y1), new Point2D(x2, y2));
         this.c.addTransformation(name, move);
       }
       if (w1 != w2) {
-        Transformation resizeBase = new ResizeT(thisShape, t1, t2, dimension.BASE, w1, w2);
+        Transformation<Float> resizeBase = new ResizeT(thisShape, t1, t2, dimension.BASE, w1, w2);
         this.c.addTransformation(name, resizeBase);
       }
       if (h1 != h2) {
-        Transformation resizeHeight = new ResizeT(thisShape, t1, t2, dimension.HEIGHT, h1, h2);
+        Transformation<Float> resizeHeight =
+            new ResizeT(thisShape, t1, t2, dimension.HEIGHT, h1, h2);
         this.c.addTransformation(name, resizeHeight);
       }
-      if (thisShape.getTransformations().size() == currentTransformations) {
+      if (thisShape.getStartFrame() > t1) {
+        thisShape.setStartFrame(t1);
+      }
+      if (thisShape.getEndFrame() < t2) {
         thisShape.setEndFrame(t2);
       }
+
       return null;
     }
   }
