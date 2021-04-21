@@ -62,6 +62,11 @@ public class InteractiveView extends JFrame implements IView {
   @Override
   public void playPause() {
     this.animationPanel.toggleTimer();
+    if (this.animationPanel.isPaused()) {
+      this.guiPanel.updatePlayPauseTitle("Play");
+    } else {
+      this.guiPanel.updatePlayPauseTitle("Pause");
+    }
   }
 
   @Override

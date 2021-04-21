@@ -23,7 +23,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   // TODO initialShapes gets mutated somehow when looping - figure out what's going on! (Peter)
   private boolean repeat = false;
   private int finalFrame = 0;
-  private boolean paused;
+  private boolean paused = false;
 
   /**
    * Constructor for the AnimationPanel.
@@ -76,6 +76,10 @@ public class AnimationPanel extends JPanel implements ActionListener {
       }
     }
     repaint();
+  }
+
+  public boolean isPaused() {
+    return this.paused;
   }
 
   public void toggleTimer() {

@@ -14,7 +14,6 @@ public class AnimationController implements Features {
   public AnimationController(ICanvas c, InteractiveView v) throws OperationNotSupportedException {
     this.canvas = c;
     this.view = v;
-    //    this.view.setListener(this);
     this.view.addFeatures(this);
     this.view.reset();
   }
@@ -23,6 +22,7 @@ public class AnimationController implements Features {
   public void playPauseEvent() {
     try {
       view.playPause();
+
     } catch (OperationNotSupportedException exception) {
       exception.printStackTrace();
     }
