@@ -51,7 +51,7 @@ public final class EasyAnimator {
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     IView view = factory.create(viewType, outFile, delay);
     try {
-      Features controller = new AnimationController(builder.getCanvas(), (InteractiveView) view);
+      Features controller = new AnimationController((InteractiveView) view);
     } catch (OperationNotSupportedException ignore) {
     }
   }
