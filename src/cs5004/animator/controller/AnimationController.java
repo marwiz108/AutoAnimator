@@ -2,17 +2,21 @@ package cs5004.animator.controller;
 
 import javax.naming.OperationNotSupportedException;
 
-import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.visual.InteractiveView;
 
+/** Controller class for the interactive view. */
 public class AnimationController implements Features {
   // TODO implement the change speed - popout that has increase/decrease and a text entry? (Marwa)
-  private final ICanvas canvas;
   private final IView view;
 
-  public AnimationController(ICanvas c, InteractiveView v) throws OperationNotSupportedException {
-    this.canvas = c;
+  /**
+   * Instantiate a controller object.
+   *
+   * @param v the interactive view object that this controller deals with.
+   * @throws OperationNotSupportedException if the view passed is not an InteractiveView.
+   */
+  public AnimationController(InteractiveView v) throws OperationNotSupportedException {
     this.view = v;
     this.view.addFeatures(this);
     this.view.reset();

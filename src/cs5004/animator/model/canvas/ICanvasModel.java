@@ -41,9 +41,7 @@ public final class ICanvasModel implements ICanvas {
 
   @Override
   public ArrayList<Shape> getInitialShapes() {
-    ArrayList<Shape> shapes = new ArrayList<>();
-    shapes.addAll(this.initialShapes.values());
-    return shapes;
+    return new ArrayList<>(this.initialShapes.values());
   }
 
   @Override
@@ -214,7 +212,7 @@ public final class ICanvasModel implements ICanvas {
     }
 
     /**
-     * Retruns the ICanvas that was built.
+     * Returns the ICanvas that was built.
      *
      * @return the ICanvas object.
      */
@@ -223,7 +221,7 @@ public final class ICanvasModel implements ICanvas {
     }
 
     @Override
-    public ICanvas build() throws FileNotFoundException {
+    public ICanvas build() {
       this.c.setAllFrames();
       return this.c;
     }

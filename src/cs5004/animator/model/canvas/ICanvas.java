@@ -19,6 +19,9 @@ public interface ICanvas {
    */
   ArrayList<Shape> getInitialShapes();
 
+  /**
+   * Add a visibility transformation to each shape in the canvas that has it's start and end frame.
+   */
   void setAllFrames();
 
   /**
@@ -57,6 +60,12 @@ public interface ICanvas {
    */
   ArrayList<Shape> getShapesAtFrame(float frame);
 
+  /**
+   * Get a shape object by passing its identifier.
+   *
+   * @param id the shape id.
+   * @return the Shape object with that id.
+   */
   Shape getShapeById(String id);
 
   /**

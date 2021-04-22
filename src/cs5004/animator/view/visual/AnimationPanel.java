@@ -20,7 +20,6 @@ public class AnimationPanel extends JPanel implements ActionListener {
   private final Timer timer;
   private final int initialDelay;
   private int frame;
-  // TODO initialShapes gets mutated somehow when looping - figure out what's going on! (Peter)
   private boolean repeat = false;
   private int finalFrame = 0;
   private boolean paused = false;
@@ -43,6 +42,11 @@ public class AnimationPanel extends JPanel implements ActionListener {
     }
   }
 
+  /**
+   * Set the frame to a given value.
+   *
+   * @param frame the frame to render.
+   */
   public void setFrame(int frame) {
     this.frame = frame;
   }
@@ -78,10 +82,16 @@ public class AnimationPanel extends JPanel implements ActionListener {
     repaint();
   }
 
+  /**
+   * Determine if the view is paused.
+   *
+   * @return true if paused.
+   */
   public boolean isPaused() {
     return this.paused;
   }
 
+  /** Start the timer if stopped, pause the timer if it is running. */
   public void toggleTimer() {
     if (paused) {
       this.timer.start();
@@ -110,7 +120,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
     this.timer.setDelay(1000 / fps);
   }
 
-  // TODO javadoc
+  /** Reset the speed of the animation to the original value that was passed in. */
   public void resetSpeed() {
     this.timer.setDelay(initialDelay);
   }
