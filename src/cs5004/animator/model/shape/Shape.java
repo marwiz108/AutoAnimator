@@ -129,6 +129,10 @@ public interface Shape {
    */
   void addTransformation(Transformation transformation);
 
+  /**
+   * Create a ChangeVisibility transformation that defines the starting and ending frames of the
+   * shape.
+   */
   void setFrames();
 
   /**
