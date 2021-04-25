@@ -31,7 +31,6 @@ public class IViewTest {
   private IView text;
   private IView svg;
   private IView visual;
-  private IView interactive;
 
   @Before
   public void setUp() {
@@ -39,7 +38,6 @@ public class IViewTest {
     this.text = new TextView(c, "test/output/test-text.txt");
     this.svg = new SVGView(c, "test/output/test-svg.svg", 1000);
     this.visual = new VisualView(c, 1000);
-    this.interactive = new InteractiveView(c, 1000);
   }
 
   @Test(expected = OperationNotSupportedException.class)
@@ -51,6 +49,17 @@ public class IViewTest {
   public void testCreateAndShowThrowsExceptionForText() throws OperationNotSupportedException {
     this.text.createAndShow(1000);
   }
+
+  @Test (expected = OperationNotSupportedException.class)
+  public void testCreateFileThrowsExceptionForVisualView() throws OperationNotSupportedException {
+    this.visual.createFile("test-file.txt");
+  }
+
+  @Test (expected = OperationNotSupportedException.class)
+  public void testGenerateTextThrowsExceptionForVisualView() throws OperationNotSupportedException {
+    this.visual.generateText(1000);
+  }
+
   //
   //  @Test (expected = OperationNotSupportedException.class)
   //  public void testResetThrowsExceptionForSVG() throws OperationNotSupportedException {
