@@ -30,6 +30,8 @@ public interface IView {
   // TODO javadoc
   void playPause() throws OperationNotSupportedException;
 
+  void showSpeedControls() throws OperationNotSupportedException;
+
   /**
    * Sets the speed (in fps) of the animation.
    *

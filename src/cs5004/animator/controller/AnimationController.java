@@ -50,6 +50,15 @@ public class AnimationController implements Features {
     }
   }
 
+  @Override
+  public void changeSpeedEvent() {
+    try {
+      view.showSpeedControls();
+    } catch (OperationNotSupportedException e) {
+      e.printStackTrace();
+    }
+  }
+
   //  private void increaseSpeedEvent() {
   //    increaseSpeed.addActionListener(new ActionListener() {
   //      @Override

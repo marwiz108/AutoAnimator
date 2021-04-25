@@ -102,4 +102,9 @@ public abstract class AbstractTextualView implements IView {
   public void playPause() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
+
+  @Override
+  public void showSpeedControls() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
 }
