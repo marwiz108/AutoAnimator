@@ -11,7 +11,6 @@ public class GUIPanel extends JPanel implements Controls {
   private final JButton reset = new JButton("Reset");
   private final JButton changeSpeed = new JButton("Change Speed");
   private final JCheckBox loop = new JCheckBox("Loop");
-  private final JFrame speedControls = new JFrame("Speed Controls");
 
   /**
    * Constructor for a GUIPanel object that adds buttons to the frame.
@@ -31,21 +30,11 @@ public class GUIPanel extends JPanel implements Controls {
     loop.isSelected();
   }
 
-  /**
-   * Change the text displayed on the play/pause button.
-   *
-   * @param title the text to be displayed.
-   */
   @Override
   public void updatePlayPauseTitle(String title) {
     this.playPause.setText(title);
   }
 
-  /**
-   * Add listeners to the buttons of the GUI and pass functionality to the controller.
-   *
-   * @param features The controller object that handles the GUI.
-   */
   @Override
   public void addFeatures(Features features) {
     playPause.addActionListener(l -> features.playPauseEvent());

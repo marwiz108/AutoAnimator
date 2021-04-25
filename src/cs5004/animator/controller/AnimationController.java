@@ -66,29 +66,4 @@ public class AnimationController implements Features {
       e.printStackTrace();
     }
   }
-
-  //  private void increaseSpeedEvent() {
-  //    increaseSpeed.addActionListener(new ActionListener() {
-  //      @Override
-  //      public void actionPerformed(ActionEvent e) {
-  //        try {
-  //          v.increaseSpeed();
-  //        } catch (OperationNotSupportedException exception) {
-  //          exception.printStackTrace();
-  //        }
-  //      }
-  //    });
-  //  }
-  //
-  //  private void decreaseSpeedEvent() {
-  //    decreaseSpeed.addActionListener(new ActionListener() {
-  //      @Override
-  //      public void actionPerformed(ActionEvent e) {
-  //        try {
-  //          v.decreaseSpeed();
-  //        } catch (OperationNotSupportedException exception) {
-  //          exception.printStackTrace();
-  //        }
-  //      }
-  //    });
 }

@@ -11,6 +11,7 @@ import cs5004.animator.view.IView;
 import cs5004.animator.view.controls.GUIPanel;
 import cs5004.animator.view.controls.speedControls;
 
+/** View that allows for user interaction. */
 public class InteractiveView extends JFrame implements IView {
 
   private final ICanvas canvas;
@@ -19,6 +20,13 @@ public class InteractiveView extends JFrame implements IView {
   private GUIPanel guiPanel;
   private cs5004.animator.view.controls.speedControls speedControls;
 
+
+  /**
+   * Create an instance of InteractiveView.
+   *
+   * @param canvas reference to the model that contains information on Shape objects.
+   * @param delay the delay (in ms) between frames of the animation.
+   */
   public InteractiveView(ICanvas canvas, float delay) {
     this.canvas = canvas;
     createAndShow((int) delay);

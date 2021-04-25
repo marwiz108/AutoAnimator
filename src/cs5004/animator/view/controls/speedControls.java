@@ -7,17 +7,25 @@ import javax.swing.*;
 
 import cs5004.animator.controller.Features;
 
+/** GUI that can increase or decrease the speed of the animation. */
 public class speedControls extends JFrame implements Controls {
   private int fps;
   private final JButton increaseSpeed = new JButton("+");
   private final JButton decreaseSpeed = new JButton("-");
   private final JTextField currentFPS;
 
+  /**
+   * Create an instance of speedControls.
+   *
+   * @param fps the initial speed of the animation.
+   */
   public speedControls(int fps) {
     this.fps = fps;
     currentFPS = new JTextField(String.valueOf(this.fps), 3);
     currentFPS.setHorizontalAlignment(JTextField.CENTER);
+    currentFPS.setEditable(false);
     JTextArea fpsLabel = new JTextArea("Current FPS:");
+    fpsLabel.setEditable(false);
     setPreferredSize(new Dimension(200, 100));
     setLayout(new BorderLayout());
     add(decreaseSpeed, BorderLayout.WEST);
