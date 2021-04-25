@@ -42,6 +42,23 @@ public class AnimationPanel extends JPanel implements ActionListener {
     }
   }
 
+  @Override
+  public String toString() {
+    StringBuilder s = new StringBuilder();
+    s.append("Animation Panel: ");
+    s.append("Initial Delay=");
+    s.append(initialDelay);
+    s.append(" Current Frame=");
+    s.append(frame);
+    s.append(" Final Frame=");
+    s.append(finalFrame);
+    s.append(" Repeating=");
+    s.append(repeat);
+    s.append(" Paused=");
+    s.append(paused);
+    return s.toString();
+  }
+
   /**
    * Set the frame to a given value.
    *
@@ -75,7 +92,6 @@ public class AnimationPanel extends JPanel implements ActionListener {
     if (this.repeat) {
       if (this.frame > this.finalFrame) {
         this.canvas.resetDynamicShapes();
-        //        System.out.println("HEEERRRREEEEE\n" + this.canvas.getInitialShapes());
         this.frame = 0;
       }
     }
