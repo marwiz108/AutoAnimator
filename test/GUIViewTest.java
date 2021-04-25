@@ -63,9 +63,13 @@ public class GUIViewTest {
 
   @Test
   public void toggleLoop() {
-//    assertEquals(false, this.interactiveGUI.getAnimationPanel());
+    assertEquals("Animation Panel: Initial Delay=20 Current fps=50 Current Frame=0 "
+            + "Final Frame=100 Repeating=false Paused=false",
+        this.interactiveGUI.getAnimationPanel().toString());
     this.interactiveGUI.toggleLoop();
-//    assertEquals(true, this.interactiveGUI.getAnimationPanel());
+    assertEquals("Animation Panel: Initial Delay=20 Current fps=50 Current Frame=0 "
+            + "Final Frame=100 Repeating=true Paused=false",
+        this.interactiveGUI.getAnimationPanel().toString());
   }
 
   @Test
@@ -79,8 +83,15 @@ public class GUIViewTest {
 //  @Test
 //  public void showSpeedControls() {
 //  }
-//
-//  @Test
-//  public void setSpeed() {
-//  }
+
+  @Test
+  public void setSpeed() {
+    assertEquals("Animation Panel: Initial Delay=20 Current fps=50 Current Frame=0 "
+            + "Final Frame=100 Repeating=false Paused=false",
+        this.interactiveGUI.getAnimationPanel().toString());
+    this.interactiveGUI.setSpeed(80);
+    assertEquals("Animation Panel: Initial Delay=20 Current fps=80 Current Frame=0 "
+            + "Final Frame=100 Repeating=false Paused=false",
+        this.interactiveGUI.getAnimationPanel().toString());
+  }
 }
