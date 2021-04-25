@@ -1,11 +1,5 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.naming.OperationNotSupportedException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
@@ -19,11 +13,13 @@ import cs5004.animator.model.transformation.dimension;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.text.SVGView;
 import cs5004.animator.view.text.TextView;
-import cs5004.animator.view.visual.InteractiveView;
 import cs5004.animator.view.visual.VisualView;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.naming.OperationNotSupportedException;
+import org.junit.Before;
+import org.junit.Test;
 
 /** Tests for the IView interface. */
 public class IViewTest {
