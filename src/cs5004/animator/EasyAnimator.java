@@ -19,7 +19,7 @@ import cs5004.animator.view.visual.InteractiveView;
 public final class EasyAnimator {
   /**
    * Main method that parses args and runs an animation view. Note the .jar file must be placed in
-   * the src directory to work correctly.
+   * the resources directory to work correctly.
    *
    * @param args the user defined arguments passed to the animation.
    */

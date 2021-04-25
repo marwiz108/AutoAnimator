@@ -7,18 +7,21 @@ import javax.swing.*;
 
 import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.view.GUIView;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.controls.GUIPanel;
-import cs5004.animator.view.controls.speedControls;
+import cs5004.animator.view.controls.SaveControls;
+import cs5004.animator.view.controls.SpeedControls;
 
 /** View that allows for user interaction. */
-public class InteractiveView extends JFrame implements IView {
+public class InteractiveView extends JFrame implements IView, GUIView {
 
   private final ICanvas canvas;
   private final int fps;
   private AnimationPanel animationPanel;
   private GUIPanel guiPanel;
-  private cs5004.animator.view.controls.speedControls speedControls;
+  private SpeedControls speedControls;
+  private SaveControls saveControls;
 
 
   /**
@@ -35,7 +38,8 @@ public class InteractiveView extends JFrame implements IView {
 
   @Override
   public void createAndShow(int delay) {
-    this.speedControls = new speedControls(1000 / delay);
+    this.speedControls = new SpeedControls(1000 / delay);
+    this.saveControls = new SaveControls();
     this.animationPanel = new AnimationPanel(this.canvas, delay);
     this.animationPanel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));

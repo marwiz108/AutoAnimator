@@ -2,12 +2,12 @@ package cs5004.animator.controller;
 
 import javax.naming.OperationNotSupportedException;
 
-import cs5004.animator.view.IView;
+import cs5004.animator.view.GUIView;
 import cs5004.animator.view.visual.InteractiveView;
 
 /** Controller class for the interactive view. */
 public class AnimationController implements Features {
-  private final IView view;
+  private final GUIView view;
 
   /**
    * Instantiate a controller object.
@@ -66,4 +66,7 @@ public class AnimationController implements Features {
       e.printStackTrace();
     }
   }
+
+  @Override
+  public void showSaveControls() {}
 }

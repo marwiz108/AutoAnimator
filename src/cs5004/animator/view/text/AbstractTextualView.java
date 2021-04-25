@@ -5,11 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.JScrollPane;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
-import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 
@@ -69,42 +66,12 @@ public abstract class AbstractTextualView implements IView {
   }
 
   @Override
-  public void setSpeed(int fps) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void toggleLoop() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void addFeatures(Features features) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
   public String generateText(float delay) {
     return this.canvas.toSVGString(this.delay);
   }
 
   @Override
   public void createAndShow(int delay) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void reset() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void playPause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void showSpeedControls() throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 }
