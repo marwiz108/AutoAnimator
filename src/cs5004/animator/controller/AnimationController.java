@@ -51,9 +51,18 @@ public class AnimationController implements Features {
   }
 
   @Override
-  public void changeSpeedEvent() {
+  public void showSpeedControls() {
     try {
       view.showSpeedControls();
+    } catch (OperationNotSupportedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public void changeSpeed(int fps) {
+    try {
+      view.setSpeed(fps);
     } catch (OperationNotSupportedException e) {
       e.printStackTrace();
     }

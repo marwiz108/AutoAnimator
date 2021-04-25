@@ -1,11 +1,12 @@
-package cs5004.animator.view.visual;
+package cs5004.animator.view.controls;
 
+import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
 import cs5004.animator.controller.Features;
 
 /** Class that represents the GUI controls for the interactive view. */
-public class GUIPanel extends JPanel {
+public class GUIPanel extends JPanel implements Controls {
   private final JButton playPause = new JButton("Pause");
   private final JButton reset = new JButton("Reset");
   private final JButton changeSpeed = new JButton("Change Speed");
@@ -35,6 +36,7 @@ public class GUIPanel extends JPanel {
    *
    * @param title the text to be displayed.
    */
+  @Override
   public void updatePlayPauseTitle(String title) {
     this.playPause.setText(title);
   }
@@ -44,10 +46,21 @@ public class GUIPanel extends JPanel {
    *
    * @param features The controller object that handles the GUI.
    */
+  @Override
   public void addFeatures(Features features) {
     playPause.addActionListener(l -> features.playPauseEvent());
     reset.addActionListener(l -> features.resetEvent());
     loop.addActionListener(l -> features.loopEvent());
-    changeSpeed.addActionListener(l -> features.changeSpeedEvent());
+    changeSpeed.addActionListener(l -> features.showSpeedControls());
+  }
+
+  @Override
+  public void setFps(int newFPS) throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
+  public void showSpeedControls() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
   }
 }
