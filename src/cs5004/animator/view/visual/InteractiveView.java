@@ -19,7 +19,7 @@ public class InteractiveView extends JFrame implements IView {
   private GUIPanel guiPanel;
   private cs5004.animator.view.controls.speedControls speedControls;
 
-  public InteractiveView(ICanvas canvas, float delay) throws OperationNotSupportedException {
+  public InteractiveView(ICanvas canvas, float delay) {
     this.canvas = canvas;
     createAndShow((int) delay);
     fps = 1000 / (int) delay;
