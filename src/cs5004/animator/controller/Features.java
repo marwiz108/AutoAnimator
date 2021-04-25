@@ -21,4 +21,6 @@ public interface Features {
    * @param fps the speed to set the animation to.
    */
   void changeSpeed(int fps);
+
+  void showSaveControls();
 }

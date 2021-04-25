@@ -11,6 +11,7 @@ public class GUIPanel extends JPanel implements Controls {
   private final JButton reset = new JButton("Reset");
   private final JButton changeSpeed = new JButton("Change Speed");
   private final JCheckBox loop = new JCheckBox("Loop");
+  private final JButton save = new JButton("Save");
 
   /**
    * Constructor for a GUIPanel object that adds buttons to the frame.
@@ -25,7 +26,9 @@ public class GUIPanel extends JPanel implements Controls {
     add(reset);
     add(playPause);
     add(changeSpeed);
+    add(save);
     add(loop);
+
     setVisible(true);
     loop.isSelected();
   }
@@ -41,6 +44,7 @@ public class GUIPanel extends JPanel implements Controls {
     reset.addActionListener(l -> features.resetEvent());
     loop.addActionListener(l -> features.loopEvent());
     changeSpeed.addActionListener(l -> features.showSpeedControls());
+    save.addActionListener(l -> features.showSaveControls());
   }
 
   @Override

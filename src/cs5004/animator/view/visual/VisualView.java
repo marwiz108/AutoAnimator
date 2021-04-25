@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.naming.OperationNotSupportedException;
 import javax.swing.*;
 
-import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
 
@@ -39,42 +38,12 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void reset() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void toggleLoop() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void addFeatures(Features features) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void playPause() throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public void setSpeed(int fps) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
-  public String generateText(float delay) throws OperationNotSupportedException {
-    throw new OperationNotSupportedException("Operation not supported");
-  }
-
-  @Override
   public void createFile(String filename) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 
   @Override
-  public void showSpeedControls() throws OperationNotSupportedException {
+  public String generateText(float delay) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
 }
