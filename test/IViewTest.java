@@ -1,11 +1,5 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.naming.OperationNotSupportedException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.model.canvas.ICanvasModel;
@@ -19,11 +13,13 @@ import cs5004.animator.model.transformation.dimension;
 import cs5004.animator.view.IView;
 import cs5004.animator.view.text.SVGView;
 import cs5004.animator.view.text.TextView;
-import cs5004.animator.view.visual.InteractiveView;
 import cs5004.animator.view.visual.VisualView;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.naming.OperationNotSupportedException;
+import org.junit.Before;
+import org.junit.Test;
 
 /** Tests for the IView interface. */
 public class IViewTest {
@@ -31,7 +27,6 @@ public class IViewTest {
   private IView text;
   private IView svg;
   private IView visual;
-  private IView interactive;
 
   @Before
   public void setUp() {
@@ -39,7 +34,6 @@ public class IViewTest {
     this.text = new TextView(c, "test/output/test-text.txt");
     this.svg = new SVGView(c, "test/output/test-svg.svg", 1000);
     this.visual = new VisualView(c, 1000);
-    this.interactive = new InteractiveView(c, 1000);
   }
 
   @Test(expected = OperationNotSupportedException.class)
@@ -51,6 +45,17 @@ public class IViewTest {
   public void testCreateAndShowThrowsExceptionForText() throws OperationNotSupportedException {
     this.text.createAndShow(1000);
   }
+
+  @Test (expected = OperationNotSupportedException.class)
+  public void testCreateFileThrowsExceptionForVisualView() throws OperationNotSupportedException {
+    this.visual.createFile("test-file.txt");
+  }
+
+  @Test (expected = OperationNotSupportedException.class)
+  public void testGenerateTextThrowsExceptionForVisualView() throws OperationNotSupportedException {
+    this.visual.generateText(1000);
+  }
+
   //
   //  @Test (expected = OperationNotSupportedException.class)
   //  public void testResetThrowsExceptionForSVG() throws OperationNotSupportedException {
