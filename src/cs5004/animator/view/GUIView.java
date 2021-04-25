@@ -1,8 +1,16 @@
 package cs5004.animator.view;
 
 import cs5004.animator.controller.Features;
+import cs5004.animator.view.visual.AnimationPanel;
 
 public interface GUIView {
+
+  /**
+   * Returns the animation panel object.
+   * @return animation panel
+   */
+  AnimationPanel getAnimationPanel();
+
   /** Reset the animation to the first frame. */
   void reset();
 

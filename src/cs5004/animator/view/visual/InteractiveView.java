@@ -59,6 +59,11 @@ public class InteractiveView extends JFrame implements IView, GUIView {
   }
 
   @Override
+  public AnimationPanel getAnimationPanel() {
+    return this.animationPanel;
+  }
+
+  @Override
   public void reset() {
     this.speedControls.setFps(this.fps);
     this.guiPanel.updatePlayPauseTitle("Pause");
