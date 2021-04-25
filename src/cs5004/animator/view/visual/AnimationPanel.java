@@ -99,7 +99,6 @@ public class AnimationPanel extends JPanel implements ActionListener {
         this.frame = 0;
       }
     }
-    System.out.println(this.toString());
     repaint();
   }
 
