@@ -12,17 +12,19 @@ import cs5004.animator.view.IView;
 import cs5004.animator.view.controls.GUIPanel;
 import cs5004.animator.view.controls.SaveControls;
 import cs5004.animator.view.controls.SpeedControls;
+import cs5004.animator.view.text.SVGView;
+import cs5004.animator.view.text.TextView;
 
 /** View that allows for user interaction. */
 public class InteractiveView extends JFrame implements IView, GUIView {
 
   private final ICanvas canvas;
   private final int fps;
+  private int dynamicFps;
   private AnimationPanel animationPanel;
   private GUIPanel guiPanel;
   private SpeedControls speedControls;
   private SaveControls saveControls;
-
 
   /**
    * Create an instance of InteractiveView.
@@ -34,6 +36,7 @@ public class InteractiveView extends JFrame implements IView, GUIView {
     this.canvas = canvas;
     createAndShow((int) delay);
     fps = 1000 / (int) delay;
+    dynamicFps = this.fps;
   }
 
   @Override
@@ -74,6 +77,7 @@ public class InteractiveView extends JFrame implements IView, GUIView {
   public void addFeatures(Features features) {
     this.speedControls.addFeatures(features);
     this.guiPanel.addFeatures(features);
+    this.saveControls.addFeatures(features);
   }
 
   @Override
@@ -98,8 +102,29 @@ public class InteractiveView extends JFrame implements IView, GUIView {
 
   @Override
   public void setSpeed(int fps) {
+    this.dynamicFps = fps;
     this.speedControls.setFps(fps);
     this.animationPanel.setSpeed(fps);
+  }
+
+  @Override
+  public void showSaveControls() {
+    this.saveControls.setVisible(true);
+  }
+
+  @Override
+  public void saveFile(String ext) {
+    String outFile = "output/" + saveControls.getFilename() + ext;
+    float delay = 1000 / (float) this.dynamicFps;
+    IView saveAs;
+    ICanvas newCanvas = this.canvas;
+    newCanvas.resetDynamicShapes();
+    if (ext.equals(".svg")) {
+      saveAs = new SVGView(newCanvas, outFile, delay);
+    } else {
+      saveAs = new TextView(newCanvas, outFile);
+    }
+    saveControls.setVisible(false);
   }
 
   @Override

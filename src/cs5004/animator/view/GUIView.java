@@ -22,10 +22,14 @@ public interface GUIView {
   /** Shows the speed control panel. */
   void showSpeedControls();
 
+  void showSaveControls();
+
   /**
    * Sets the speed (in fps) of the animation.
    *
    * @param fps frames per second.
    */
   void setSpeed(int fps);
+
+  void saveFile(String ext);
 }

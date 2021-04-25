@@ -172,6 +172,9 @@ addShapes and resetDynamicShapes methods in ICanvasModel. These methods were not
 Shape.copy method, which resulted in the initial shapes being modified along with dynamic shapes.
 After adjusting these methods properly, the loop and reset features worked as expected.
 
+Another change that was made was to stop the textual view from showing a new window every time it is
+called. In order to show this view, the user must pass "NoSave" as the -out parameter.
+
 ### InteractiveView
 
 The InteractiveView Class displays the animation using the AnimationPanel similar to the VisualView,

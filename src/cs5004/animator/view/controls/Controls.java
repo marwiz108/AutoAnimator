@@ -32,10 +32,14 @@ public interface Controls {
    */
   void updatePlayPauseTitle(String title) throws OperationNotSupportedException;
 
+  //  void setFilename() throws OperationNotSupportedException;
+
   /**
    * Add action listeners that tell the controller to call the corresponding function in the view.
    *
    * @param features Controller object that handles the GUI.
    */
   void addFeatures(Features features);
+
+  String getFilename() throws OperationNotSupportedException;
 }

@@ -48,6 +48,16 @@ public class GUIPanel extends JPanel implements Controls {
   }
 
   @Override
+  public String getFilename() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  //  @Override
+  //  public void setFilename() throws OperationNotSupportedException {
+  //    throw new OperationNotSupportedException("Operation not supported");
+  //  }
+
+  @Override
   public void setFps(int newFPS) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
