@@ -3,8 +3,6 @@ package cs5004.animator;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 
-import javax.naming.OperationNotSupportedException;
-
 import cs5004.animator.controller.AnimationController;
 import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvasModel;
@@ -52,7 +50,7 @@ public final class EasyAnimator {
     IView view = factory.create(viewType, outFile, delay);
     try {
       Features controller = new AnimationController((InteractiveView) view);
-    } catch (OperationNotSupportedException | ClassCastException ignore) {
+    } catch (ClassCastException ignore) {
     }
   }
 }
