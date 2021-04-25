@@ -61,15 +61,20 @@ public class GUIViewTest {
 //  @Test
 //  public void addFeatures() {
 //  }
-//
-//  @Test
-//  public void toggleLoop() {
-//  }
 
   @Test
-  public void playPause() throws OperationNotSupportedException {
-//    this.interactive.createAndShow(1000);
-//    assertEquals();
+  public void toggleLoop() {
+//    assertEquals(false, this.interactiveGUI.getAnimationPanel());
+    this.interactiveGUI.toggleLoop();
+//    assertEquals(true, this.interactiveGUI.getAnimationPanel());
+  }
+
+  @Test
+  public void playPause() {
+    this.interactiveGUI.playPause();
+    assertEquals(true, this.interactiveGUI.getAnimationPanel().isPaused());
+    this.interactiveGUI.playPause();
+    assertEquals(false, this.interactiveGUI.getAnimationPanel().isPaused());
   }
 
 //  @Test
