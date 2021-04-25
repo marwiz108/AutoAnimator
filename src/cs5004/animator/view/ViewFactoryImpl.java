@@ -1,7 +1,5 @@
 package cs5004.animator.view;
 
-import javax.naming.OperationNotSupportedException;
-
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.text.SVGView;
 import cs5004.animator.view.text.TextView;
@@ -37,7 +35,7 @@ public class ViewFactoryImpl implements ViewFactory {
         default:
           throw new IllegalArgumentException("Could not parse view argument");
       }
-    } catch (NullPointerException | OperationNotSupportedException e) {
+    } catch (NullPointerException e) {
       System.out.println("Error creating view");
       e.printStackTrace();
       return null;

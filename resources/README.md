@@ -159,3 +159,47 @@ The visual view is responsible for displaying the canvas visually, and shows the
 The method createAndShow sets up the window that the animation will be played on. The methods
 generateText and createFile are not supported in this view because the view is only visual, there is
 no file output.
+
+## Changes (Pt 3)
+
+The first change that was made had to do with allowing the animation to loop. This change was made
+in the AnimationPanel class, and added a check for when that animation reached the last frame. After
+the last frame, the current frame is reset back to 0.
+
+This change introduced a bug where the shapes would not reset properly, and some end states would be
+preserved after reset. After some debugging, the cause of this bug was determined to be in the
+addShapes and resetDynamicShapes methods in ICanvasModel. These methods were not using the
+Shape.copy method, which resulted in the initial shapes being modified along with dynamic shapes.
+After adjusting these methods properly, the loop and reset features worked as expected.
+
+### InteractiveView
+
+The InteractiveView Class displays the animation using the AnimationPanel similar to the VisualView,
+but allows the user to interact with the animation. Using the InteractiveView, the user is able to
+play/pause the animation, reset the animation to its original state, toggle animation looping, and
+increment/decrement the speed of the animation.
+
+### Features
+
+Features is the interface for the InteractiveView controller. This interface contains methods for
+the operations that should be supported by the InteractiveView (play/pause, reset, change speed,
+loop). The implementing class AnimationController has a reference to an InteractiveView object and
+has methods that call the corresponding methods in InteractiveView when and Action Event happens.
+
+### Controls
+
+The Controls interface is responsible for defining behavior of any Controls that are used for an
+InteractiveView. These controls include the GUIPanel and speedControls. Controls contain buttons,
+and add ActionListeners to those buttons that call appropriate methods in the Controller when an
+Action Event is detected.
+
+#### GUIPanel
+
+the GUIPanel shows a list of controls at the bottom of the InteractiveView (play/pause, reset,
+change speed, loop).
+
+#### speedControls
+
+When the "change speed" button in the GUIPanel is clicked, it will open a new speed controls window.
+This window shows the current speed of the animation (fps) and "+" / "-" buttons which increment and
+decrement the speed respectively.
