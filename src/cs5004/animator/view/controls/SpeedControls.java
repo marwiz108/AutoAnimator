@@ -56,7 +56,17 @@ public class SpeedControls extends JFrame implements Controls {
   }
 
   @Override
+  public String getFilename() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
+
+  @Override
   public void updatePlayPauseTitle(String title) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
+
+  //  @Override
+  //  public void setFilename() throws OperationNotSupportedException {
+  //    throw new OperationNotSupportedException("Operation not supported");
+  //  }
 }

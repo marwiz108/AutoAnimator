@@ -23,4 +23,8 @@ public interface Features {
   void changeSpeed(int fps);
 
   void showSaveControls();
+
+  void saveAsSVG();
+
+  void saveAsTxt();
 }

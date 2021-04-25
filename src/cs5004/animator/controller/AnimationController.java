@@ -44,5 +44,17 @@ public class AnimationController implements Features {
   }
 
   @Override
-  public void showSaveControls() {}
+  public void showSaveControls() {
+    view.showSaveControls();
+  }
+
+  @Override
+  public void saveAsSVG() {
+    view.saveFile(".svg");
+  }
+
+  @Override
+  public void saveAsTxt() {
+    view.saveFile(".txt");
+  }
 }

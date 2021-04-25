@@ -30,12 +30,6 @@ public abstract class AbstractTextualView implements IView {
     this.delay = delay;
     this.text = this.generateText(delay);
 
-    if (outFile != null) {
-      this.createFile(outFile);
-    } else {
-      System.out.println(this.text);
-    }
-
     this.frame = new JFrame("Easy Animator TextView");
     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -46,7 +40,17 @@ public abstract class AbstractTextualView implements IView {
     this.frame.add(this.scrollPane);
 
     this.frame.pack();
-    this.frame.setVisible(true);
+    this.frame.setVisible(false);
+
+    if (outFile != null) {
+      if (outFile.equals("output/NoSave")) {
+        this.frame.setVisible(true);
+      } else {
+        this.createFile(outFile);
+      }
+    } else {
+      System.out.println(this.text);
+    }
   }
 
   @Override
