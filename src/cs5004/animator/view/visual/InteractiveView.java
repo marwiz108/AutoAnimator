@@ -20,6 +20,7 @@ public class InteractiveView extends JFrame implements IView {
   private GUIPanel guiPanel;
   private cs5004.animator.view.controls.speedControls speedControls;
 
+
   /**
    * Create an instance of InteractiveView.
    *
