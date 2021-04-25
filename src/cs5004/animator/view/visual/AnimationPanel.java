@@ -19,6 +19,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   private final ICanvas canvas;
   private final Timer timer;
   private final int initialDelay;
+  private int fps;
   private int frame;
   private boolean repeat = false;
   private int finalFrame = 0;
@@ -34,6 +35,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
     this.canvas = c;
     this.timer = new Timer(delay, this);
     this.initialDelay = delay;
+    this.fps = 1000 / delay;
     this.frame = 0;
     for (Shape s : this.canvas.getInitialShapes()) {
       if (s.getEndFrame() > this.finalFrame) {
@@ -48,6 +50,8 @@ public class AnimationPanel extends JPanel implements ActionListener {
     s.append("Animation Panel: ");
     s.append("Initial Delay=");
     s.append(initialDelay);
+    s.append(" Current fps=");
+    s.append(fps);
     s.append(" Current Frame=");
     s.append(frame);
     s.append(" Final Frame=");
@@ -95,6 +99,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
         this.frame = 0;
       }
     }
+    System.out.println(this.toString());
     repaint();
   }
 
@@ -142,6 +147,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
    * @param fps frames per second to set the animation to.
    */
   public void setSpeed(int fps) {
+    this.fps = fps;
     this.timer.setDelay(1000 / fps);
   }
 
