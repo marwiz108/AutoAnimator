@@ -14,6 +14,7 @@ public class InteractiveView extends JFrame implements IView {
   private final ICanvas canvas;
   private AnimationPanel animationPanel;
   private GUIPanel guiPanel;
+  private speedControls speedControls;
 
   public InteractiveView(ICanvas canvas, float delay) throws OperationNotSupportedException {
     this.canvas = canvas;
@@ -22,6 +23,7 @@ public class InteractiveView extends JFrame implements IView {
 
   @Override
   public void createAndShow(int delay) {
+    this.speedControls = new speedControls(delay);
     this.animationPanel = new AnimationPanel(this.canvas, delay);
     this.animationPanel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
@@ -67,6 +69,11 @@ public class InteractiveView extends JFrame implements IView {
     } else {
       this.guiPanel.updatePlayPauseTitle("Pause");
     }
+  }
+
+  @Override
+  public void showSpeedControls() {
+    this.speedControls.showSpeedControls();
   }
 
   @Override

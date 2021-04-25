@@ -72,4 +72,9 @@ public class VisualView extends JFrame implements IView {
   public void createFile(String filename) throws OperationNotSupportedException {
     throw new OperationNotSupportedException("Operation not supported");
   }
+
+  @Override
+  public void showSpeedControls() throws OperationNotSupportedException {
+    throw new OperationNotSupportedException("Operation not supported");
+  }
 }

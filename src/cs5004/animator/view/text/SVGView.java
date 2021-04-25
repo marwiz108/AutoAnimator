@@ -1,5 +1,7 @@
 package cs5004.animator.view.text;
 
+import javax.naming.OperationNotSupportedException;
+
 import cs5004.animator.model.canvas.ICanvas;
 
 /** Textual view that creates SVG formatted output. */

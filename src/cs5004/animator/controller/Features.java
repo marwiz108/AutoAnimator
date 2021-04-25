@@ -6,4 +6,6 @@ public interface Features {
   void resetEvent();
 
   void loopEvent();
+
+  void changeSpeedEvent();
 }
