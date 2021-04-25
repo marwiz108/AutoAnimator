@@ -1,0 +1,21 @@
+Shapes:
+Name: R
+Type: rectangle
+Position: (200.0, 200.0), Base: 50.0, Height: 100.0
+Color: (255, 0, 0)
+
+Name: C
+Type: oval
+Position: (440.0, 70.0), Base: 120.0, Height: 60.0
+Color: (0, 0, 255)
+
+Transformations:
+Shape R appears at t=1.00 and disappears at t=100.00
+Shape C appears at t=6.00 and disappears at t=100.00
+Shape R moves from (200.0, 200.0) to (300.0, 300.0) from t=10.00 to t=50.00
+Shape C moves from (440.0, 70.0) to (440.0, 250.0) from t=20.00 to t=50.00
+Shape C changes color from (0, 0, 255) to (0, 170, 85) from t=50.00 to t=70.00
+Shape C moves from (440.0, 250.0) to (440.0, 370.0) from t=50.00 to t=70.00
+Shape R Scales from Base: 50.0, Height: 100.0 to Base: 25.0, Height: 100.0 from t=51.00 to t=70.00
+Shape C changes color from (0, 170, 85) to (0, 255, 0) from t=70.00 to t=80.00
+Shape R moves from (300.0, 300.0) to (200.0, 200.0) from t=70.00 to t=100.00

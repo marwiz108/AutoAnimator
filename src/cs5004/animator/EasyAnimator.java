@@ -52,7 +52,7 @@ public final class EasyAnimator {
     IView view = factory.create(viewType, outFile, delay);
     try {
       Features controller = new AnimationController((InteractiveView) view);
-    } catch (OperationNotSupportedException ignore) {
+    } catch (OperationNotSupportedException | ClassCastException ignore) {
     }
   }
 }

@@ -2,6 +2,9 @@
   <artifact type="jar" build-on-make="true" name="EasyAnimator:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/EasyAnimator_jar</output-path>
     <root id="archive" name="EasyAnimator.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="Assignment_6" />
     </root>
   </artifact>
