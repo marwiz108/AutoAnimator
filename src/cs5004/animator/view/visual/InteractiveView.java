@@ -14,6 +14,7 @@ import cs5004.animator.view.controls.speedControls;
 public class InteractiveView extends JFrame implements IView {
 
   private final ICanvas canvas;
+  private final int fps;
   private AnimationPanel animationPanel;
   private GUIPanel guiPanel;
   private cs5004.animator.view.controls.speedControls speedControls;
@@ -21,6 +22,7 @@ public class InteractiveView extends JFrame implements IView {
   public InteractiveView(ICanvas canvas, float delay) throws OperationNotSupportedException {
     this.canvas = canvas;
     createAndShow((int) delay);
+    fps = 1000 / (int) delay;
   }
 
   @Override
@@ -46,10 +48,13 @@ public class InteractiveView extends JFrame implements IView {
 
   @Override
   public void reset() {
+    this.speedControls.setFps(this.fps);
+    this.guiPanel.updatePlayPauseTitle("Pause");
     this.animationPanel.stopTimer();
     this.canvas.resetDynamicShapes();
     this.animationPanel.setFrame(0);
     this.animationPanel.resetSpeed();
+    this.animationPanel.setPaused(false);
     this.animationPanel.startTimer();
   }
 

@@ -7,7 +7,6 @@ import cs5004.animator.view.visual.InteractiveView;
 
 /** Controller class for the interactive view. */
 public class AnimationController implements Features {
-  // TODO implement the change speed - popout that has increase/decrease and a text entry? (Marwa)
   private final IView view;
 
   /**
