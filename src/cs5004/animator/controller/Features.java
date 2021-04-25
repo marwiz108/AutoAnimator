@@ -7,5 +7,7 @@ public interface Features {
 
   void loopEvent();
 
-  void changeSpeedEvent();
+  void showSpeedControls();
+
+  void changeSpeed(int fps);
 }

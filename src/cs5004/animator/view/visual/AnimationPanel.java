@@ -91,6 +91,15 @@ public class AnimationPanel extends JPanel implements ActionListener {
     return this.paused;
   }
 
+  /**
+   * Set the paused state without interfering with the timer (used for reset).
+   *
+   * @param p true if the animation should be paused.
+   */
+  public void setPaused(boolean p) {
+    this.paused = p;
+  }
+
   /** Start the timer if stopped, pause the timer if it is running. */
   public void toggleTimer() {
     if (paused) {
@@ -123,15 +132,5 @@ public class AnimationPanel extends JPanel implements ActionListener {
   /** Reset the speed of the animation to the original value that was passed in. */
   public void resetSpeed() {
     this.timer.setDelay(initialDelay);
-  }
-
-  // TODO javadoc
-  public void incrementSpeed() {
-    this.timer.setDelay((int) (this.timer.getDelay() * 0.9));
-  }
-
-  // TODO javadoc
-  public void decrementSpeed() {
-    this.timer.setDelay((int) (this.timer.getDelay() * 1.1));
   }
 }

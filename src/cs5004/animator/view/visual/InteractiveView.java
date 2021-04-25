@@ -8,22 +8,26 @@ import javax.swing.*;
 import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
+import cs5004.animator.view.controls.GUIPanel;
+import cs5004.animator.view.controls.speedControls;
 
 public class InteractiveView extends JFrame implements IView {
 
   private final ICanvas canvas;
+  private final int fps;
   private AnimationPanel animationPanel;
   private GUIPanel guiPanel;
-  private speedControls speedControls;
+  private cs5004.animator.view.controls.speedControls speedControls;
 
   public InteractiveView(ICanvas canvas, float delay) throws OperationNotSupportedException {
     this.canvas = canvas;
     createAndShow((int) delay);
+    fps = 1000 / (int) delay;
   }
 
   @Override
   public void createAndShow(int delay) {
-    this.speedControls = new speedControls(delay);
+    this.speedControls = new speedControls(1000 / delay);
     this.animationPanel = new AnimationPanel(this.canvas, delay);
     this.animationPanel.setPreferredSize(
         new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
@@ -44,15 +48,19 @@ public class InteractiveView extends JFrame implements IView {
 
   @Override
   public void reset() {
+    this.speedControls.setFps(this.fps);
+    this.guiPanel.updatePlayPauseTitle("Pause");
     this.animationPanel.stopTimer();
     this.canvas.resetDynamicShapes();
     this.animationPanel.setFrame(0);
     this.animationPanel.resetSpeed();
+    this.animationPanel.setPaused(false);
     this.animationPanel.startTimer();
   }
 
   @Override
   public void addFeatures(Features features) {
+    this.speedControls.addFeatures(features);
     this.guiPanel.addFeatures(features);
   }
 
@@ -78,6 +86,7 @@ public class InteractiveView extends JFrame implements IView {
 
   @Override
   public void setSpeed(int fps) {
+    this.speedControls.setFps(fps);
     this.animationPanel.setSpeed(fps);
   }
 
