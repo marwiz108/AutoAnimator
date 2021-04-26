@@ -5,7 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;

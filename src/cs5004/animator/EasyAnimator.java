@@ -51,6 +51,7 @@ public final class EasyAnimator {
     try {
       Features controller = new AnimationController((InteractiveView) view);
     } catch (ClassCastException ignore) {
+      System.out.println("Could not create interactive view - skipping.");
     }
   }
 }
