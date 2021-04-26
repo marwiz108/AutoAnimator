@@ -1,9 +1,14 @@
 package cs5004.animator.view.controls;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.WindowConstants;
 
 import cs5004.animator.controller.Features;
 

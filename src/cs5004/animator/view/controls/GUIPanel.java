@@ -1,7 +1,9 @@
 package cs5004.animator.view.controls;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import cs5004.animator.controller.Features;
 
