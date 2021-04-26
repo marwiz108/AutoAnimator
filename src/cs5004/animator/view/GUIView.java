@@ -3,10 +3,12 @@ package cs5004.animator.view;
 import cs5004.animator.controller.Features;
 import cs5004.animator.view.visual.AnimationPanel;
 
+/** Interface for a view that supports user interaction through a GUI. */
 public interface GUIView {
 
   /**
    * Returns the animation panel object.
+   *
    * @return animation panel
    */
   AnimationPanel getAnimationPanel();

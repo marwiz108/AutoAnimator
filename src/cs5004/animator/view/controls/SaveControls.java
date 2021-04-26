@@ -1,14 +1,17 @@
 package cs5004.animator.view.controls;
 
-import java.awt.*;
+import java.awt.FlowLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 import cs5004.animator.controller.Features;
 
+/** Window that allows a user to save an animation. */
 public class SaveControls extends JFrame implements Controls {
   private final JButton saveSVG = new JButton("Save as .SVG");
   private final JButton saveTxt = new JButton("Save as .txt");
