@@ -1,9 +1,8 @@
 package cs5004.animator.view.visual;
 
-import java.awt.*;
-
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
 
 import cs5004.animator.controller.Features;
 import cs5004.animator.model.canvas.ICanvas;
@@ -14,6 +13,8 @@ import cs5004.animator.view.controls.SaveControls;
 import cs5004.animator.view.controls.SpeedControls;
 import cs5004.animator.view.text.SVGView;
 import cs5004.animator.view.text.TextView;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 /** View that allows for user interaction. */
 public class InteractiveView extends JFrame implements IView, GUIView {

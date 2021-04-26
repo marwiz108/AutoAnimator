@@ -1,9 +1,5 @@
 package cs5004.animator.view.text;
 
-import java.awt.event.ActionListener;
-
-import javax.naming.OperationNotSupportedException;
-
 import cs5004.animator.model.canvas.ICanvas;
 
 /** TextView view class. */

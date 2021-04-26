@@ -139,9 +139,11 @@ public class IViewTest {
 
     assertEquals(
         "<svg viewBox=\"0 0 0 0\" xmlns=\"http://www.w3.org/2000/svg\">\n"
-            + "\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+            + "\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" rx=\"30\" ry=\"15\" "
+            + "fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
             + "\t</ellipse>\n"
-            + "\t<rect id=\"r\" x=\"200\" y=\"200\" width=\"50\" height=\"100\" fill=\"rgb(0, 0, 255)\" visibility=\"hidden\">\n"
+            + "\t<rect id=\"r\" x=\"200\" y=\"200\" width=\"50\" height=\"100\" "
+            + "fill=\"rgb(0, 0, 255)\" visibility=\"hidden\">\n"
             + "\t</rect>\n"
             + "</svg>",
         this.svg.generateText(1000));
@@ -172,10 +174,14 @@ public class IViewTest {
 
     assertEquals(
         "<svg viewBox=\"0 0 0 0\" xmlns=\"http://www.w3.org/2000/svg\">\n"
-            + "\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" rx=\"30\" ry=\"15\" fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
-            + "\t\t<animateTransform attributeName=\"ry\" attributeType=\"XML\" from=\"30.0\" to=\"100.0\" begin=\"8000.0ms\" dur=\"12000.0ms\" fill=\"freeze\"/>\n"
-            + "\t\t<animate attributeName=\"cx\" attributeType=\"XML\" from=\"0.0\" to=\"80.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
-            + "\t\t<animate attributeName=\"cy\" attributeType=\"XML\" from=\"0.0\" to=\"50.0\" begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+            + "\t<ellipse id=\"o\" cx=\"500\" cy=\"100\" rx=\"30\" ry=\"15\" "
+            + "fill=\"rgb(255, 0, 0)\" visibility=\"hidden\">\n"
+            + "\t\t<animateTransform attributeName=\"ry\" attributeType=\"XML\" from=\"30.0\" "
+            + "to=\"100.0\" begin=\"8000.0ms\" dur=\"12000.0ms\" fill=\"freeze\"/>\n"
+            + "\t\t<animate attributeName=\"cx\" attributeType=\"XML\" from=\"0.0\" to=\"80.0\" "
+            + "begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
+            + "\t\t<animate attributeName=\"cy\" attributeType=\"XML\" from=\"0.0\" to=\"50.0\" "
+            + "begin=\"5000.0ms\" dur=\"10000.0ms\" fill=\"freeze\"/>\n"
             + "\t</ellipse>\n"
             + "</svg>",
         this.svg.generateText(1000));
@@ -189,7 +195,8 @@ public class IViewTest {
             + "\n"
             + "Transformations:\n"
             + "Shape o moves from (0.0, 0.0) to (80.0, 50.0) from t=5.00 to t=15.00\n"
-            + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 60.0, Height: 100.0 from t=8.00 to t=20.00\n",
+            + "Shape o Scales from Base: 60.0, Height: 30.0 to Base: 60.0, Height: 100.0 "
+            + "from t=8.00 to t=20.00\n",
         this.text.generateText(1000));
   }
 

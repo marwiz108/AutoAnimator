@@ -1,12 +1,14 @@
 package cs5004.animator.view.visual;
 
-import java.awt.*;
-
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.naming.OperationNotSupportedException;
-import javax.swing.*;
 
 import cs5004.animator.model.canvas.ICanvas;
 import cs5004.animator.view.IView;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /** Visual view class. */
 public class VisualView extends JFrame implements IView {

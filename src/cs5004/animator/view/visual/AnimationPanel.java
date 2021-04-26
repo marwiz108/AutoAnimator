@@ -141,7 +141,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
   }
 
   /**
-   * Update the speed of the animation
+   * Update the speed of the animation.
    *
    * @param fps frames per second to set the animation to.
    */

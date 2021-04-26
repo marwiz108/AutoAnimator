@@ -10,10 +10,10 @@ import java.util.Objects;
 import org.junit.Before;
 import org.junit.Test;
 
+/** Tests for the GUIView interface. */
 public class GUIViewTest {
 
   private ICanvasModel.Builder builder;
-  private IView interactive;
   private GUIView interactiveGUI;
 
   @Before
@@ -26,8 +26,8 @@ public class GUIViewTest {
       e.printStackTrace();
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
-    this.interactive = factory.create("playback", null, 20);
-    this.interactiveGUI = (GUIView) this.interactive;
+    IView interactive = factory.create("playback", null, 20);
+    this.interactiveGUI = (GUIView) interactive;
   }
 
   @Test
@@ -65,24 +65,27 @@ public class GUIViewTest {
             + "Shape disk3 moves from (145.0, 240.0) to (145.0, 50.0) from t=121.00 to t=131.00\n"
             + "Shape disk3 moves from (145.0, 50.0) to (445.0, 50.0) from t=132.00 to t=142.00\n"
             + "Shape disk3 moves from (445.0, 50.0) to (445.0, 240.0) from t=143.00 to t=153.00\n"
-            + "Shape disk3 changes color from (11, 45, 175) to (0, 255, 0) from t=153.00 to t=161.00\n"
+            + "Shape disk3 changes color from (11, 45, 175) to (0, 255, 0) from t=153.00 "
+            + "to t=161.00\n"
             + "Shape disk1 moves from (340.0, 210.0) to (340.0, 50.0) from t=153.00 to t=163.00\n"
             + "Shape disk1 moves from (340.0, 50.0) to (190.0, 50.0) from t=164.00 to t=174.00\n"
             + "Shape disk1 moves from (190.0, 50.0) to (190.0, 240.0) from t=175.00 to t=185.00\n"
             + "Shape disk2 moves from (317.0, 240.0) to (317.0, 50.0) from t=185.00 to t=195.00\n"
             + "Shape disk2 moves from (317.0, 50.0) to (467.0, 50.0) from t=196.00 to t=206.00\n"
             + "Shape disk2 moves from (467.0, 50.0) to (467.0, 210.0) from t=207.00 to t=217.00\n"
-            + "Shape disk2 changes color from (6, 247, 41) to (0, 255, 0) from t=217.00 to t=225.00\n"
+            + "Shape disk2 changes color from (6, 247, 41) to (0, 255, 0) from t=217.00 "
+            + "to t=225.00\n"
             + "Shape disk1 moves from (190.0, 240.0) to (190.0, 50.0) from t=217.00 to t=227.00\n"
             + "Shape disk1 moves from (190.0, 50.0) to (490.0, 50.0) from t=228.00 to t=238.00\n"
             + "Shape disk1 moves from (490.0, 50.0) to (490.0, 180.0) from t=239.00 to t=249.00\n"
-            + "Shape disk1 changes color from (0, 49, 90) to (0, 255, 0) from t=249.00 to t=257.00\n",
+            + "Shape disk1 changes color from (0, 49, 90) to (0, 255, 0) from t=249.00 "
+            + "to t=257.00\n",
         builder.getCanvas().toString());
   }
 
-//  @Test
-//  public void addFeatures() {
-//  }
+  //  @Test
+  //  public void addFeatures() {
+  //  }
 
   @Test
   public void toggleLoop() {
@@ -103,9 +106,9 @@ public class GUIViewTest {
     assertEquals(false, this.interactiveGUI.getAnimationPanel().isPaused());
   }
 
-//  @Test
-//  public void showSpeedControls() {
-//  }
+  //  @Test
+  //  public void showSpeedControls() {
+  //  }
 
   @Test
   public void setSpeed() {
