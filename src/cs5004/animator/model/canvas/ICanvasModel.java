@@ -223,6 +223,7 @@ public final class ICanvasModel implements ICanvas {
     @Override
     public ICanvas build() {
       this.c.setAllFrames();
+      this.c.resetDynamicShapes();
       return this.c;
     }
 

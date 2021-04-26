@@ -48,10 +48,12 @@ public final class EasyAnimator {
     }
     ViewFactory factory = new ViewFactoryImpl(Objects.requireNonNull(builder).getCanvas());
     IView view = factory.create(viewType, outFile, delay);
-    try {
-      Features controller = new AnimationController((InteractiveView) view);
-    } catch (ClassCastException ignore) {
-      System.out.println("Could not create interactive view - skipping.");
+    if (viewType.equals("playback")) {
+      try {
+        Features controller = new AnimationController((InteractiveView) view);
+      } catch (ClassCastException ignore) {
+        System.out.println("Could not create interactive view - skipping.");
+      }
     }
   }
 }

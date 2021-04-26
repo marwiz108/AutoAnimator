@@ -32,20 +32,18 @@ public abstract class AbstractTextualView implements IView {
     this.delay = delay;
     this.text = this.generateText(delay);
 
-    this.frame = new JFrame("Easy Animator TextView");
-    this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    JTextArea textArea = new JTextArea(this.text);
-    textArea.setEditable(false);
-
-    this.scrollPane = new JScrollPane(textArea);
-    this.frame.add(this.scrollPane);
-
-    this.frame.pack();
-    this.frame.setVisible(false);
-
     if (outFile != null) {
       if (outFile.equals("output/NoSave")) {
+        this.frame = new JFrame("Easy Animator TextView");
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JTextArea textArea = new JTextArea(this.text);
+        textArea.setEditable(false);
+
+        this.scrollPane = new JScrollPane(textArea);
+        this.frame.add(this.scrollPane);
+
+        this.frame.pack();
         this.frame.setVisible(true);
       } else {
         this.createFile(outFile);

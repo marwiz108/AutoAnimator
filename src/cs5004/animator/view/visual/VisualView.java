@@ -1,14 +1,15 @@
 package cs5004.animator.view.visual;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import javax.naming.OperationNotSupportedException;
+import java.awt.BorderLayout;
 
-import cs5004.animator.model.canvas.ICanvas;
-import cs5004.animator.view.IView;
+import javax.naming.OperationNotSupportedException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import cs5004.animator.model.canvas.ICanvas;
+import cs5004.animator.view.IView;
 
 /** Visual view class. */
 public class VisualView extends JFrame implements IView {
@@ -37,6 +38,7 @@ public class VisualView extends JFrame implements IView {
     add(scroll, BorderLayout.CENTER);
     setSize(new Dimension(this.canvas.getBorderWidth(), this.canvas.getBorderHeight()));
     setVisible(true);
+    panel.setVisible(true);
   }
 
   @Override
