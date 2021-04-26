@@ -18,6 +18,7 @@ public class SaveControls extends JFrame implements Controls {
   private final JTextField filename = new JTextField("Enter filename");
   private String name;
 
+  /** Create a new save controls panel. */
   public SaveControls() {
     setLayout(new FlowLayout());
     add(filename);
@@ -38,7 +39,9 @@ public class SaveControls extends JFrame implements Controls {
     filename.addFocusListener(
         new FocusListener() {
           @Override
-          public void focusGained(FocusEvent e) {}
+          public void focusGained(FocusEvent e) {
+            filename.setText(filename.getText());
+          }
 
           @Override
           public void focusLost(FocusEvent e) {
