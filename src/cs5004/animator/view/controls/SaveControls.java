@@ -20,6 +20,7 @@ public class SaveControls extends JFrame implements Controls {
 
   /** Create a new save controls panel. */
   public SaveControls() {
+    setTitle("Save Animation");
     setLayout(new FlowLayout());
     add(filename);
     add(saveSVG);
